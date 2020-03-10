@@ -37,7 +37,7 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>sr_requested_amount</name>
-        <order>1100</order>
+        <order>310</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <question_text>Montant à rembourser</question_text>
@@ -60,15 +60,15 @@
         <sys_created_on>2020-02-06 14:51:44</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ee7688fddbb64890f5e2174b06961985</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Montant à rembourser</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_ee7688fddbb64890f5e2174b06961985</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-08 14:54:43</sys_updated_on>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-03-09 14:09:25</sys_updated_on>
         <table/>
         <tooltip/>
         <type>6</type>

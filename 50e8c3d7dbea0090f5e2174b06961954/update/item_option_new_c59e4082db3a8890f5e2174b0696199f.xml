@@ -40,7 +40,7 @@
         <order>50</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
-        <question_text/>
+        <question_text>formatter_contract</question_text>
         <read_roles/>
         <rec_lookup_price/>
         <rec_price_if_checked>0</rec_price_if_checked>
@@ -60,15 +60,15 @@
         <sys_created_on>2020-02-07 10:03:32</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>c59e4082db3a8890f5e2174b0696199f</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>formatter_contract</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_c59e4082db3a8890f5e2174b0696199f</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-02-07 10:04:55</sys_updated_on>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-03-09 14:22:29</sys_updated_on>
         <table/>
         <tooltip/>
         <type>19</type>

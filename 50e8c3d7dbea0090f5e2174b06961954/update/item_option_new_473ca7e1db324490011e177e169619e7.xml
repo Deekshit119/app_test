@@ -37,7 +37,7 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>sr_date_expense</name>
-        <order>300</order>
+        <order>120</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <question_text>Date</question_text>
@@ -62,15 +62,15 @@
         <sys_created_on>2020-02-06 12:54:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>473ca7e1db324490011e177e169619e7</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>13</sys_mod_count>
         <sys_name>Date</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_473ca7e1db324490011e177e169619e7</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-05 19:52:06</sys_updated_on>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-03-09 13:31:49</sys_updated_on>
         <table/>
         <tooltip/>
         <type>9</type>

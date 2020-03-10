@@ -24,7 +24,7 @@
         <help_text/>
         <include_none>false</include_none>
         <instructions/>
-        <layout>normal</layout>
+        <layout>2across</layout>
         <list_table/>
         <lookup_label/>
         <lookup_price/>
@@ -36,11 +36,11 @@
         <map_to_field>false</map_to_field>
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
-        <name>sr_new_location_from_reason</name>
-        <order>240</order>
+        <name>Container_Lieux</name>
+        <order>200</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
-        <question_text>Saisir une justification pour le nouveau lieu de départ</question_text>
+        <question_text>Container_Lieux</question_text>
         <read_roles/>
         <rec_lookup_price/>
         <rec_price_if_checked>0</rec_price_if_checked>
@@ -56,22 +56,22 @@
         <sp_widget/>
         <summary_macro/>
         <sys_class_name>item_option_new</sys_class_name>
-        <sys_created_by>h40009222</sys_created_by>
-        <sys_created_on>2020-03-08 23:47:28</sys_created_on>
+        <sys_created_by>h40000572</sys_created_by>
+        <sys_created_on>2020-03-09 13:34:23</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>08ca217fdb978010f5e2174b069619d6</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>Saisir une justification pour le nouveau lieu de départ</sys_name>
+        <sys_id>e458a444db23c010011e177e169619d1</sys_id>
+        <sys_mod_count>9</sys_mod_count>
+        <sys_name>Container_Lieux</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_update_name>item_option_new_08ca217fdb978010f5e2174b069619d6</sys_update_name>
+        <sys_update_name>item_option_new_e458a444db23c010011e177e169619d1</sys_update_name>
         <sys_updated_by>h40000572</sys_updated_by>
-        <sys_updated_on>2020-03-09 14:17:58</sys_updated_on>
+        <sys_updated_on>2020-03-09 14:17:28</sys_updated_on>
         <table/>
         <tooltip/>
-        <type>6</type>
+        <type>19</type>
         <u_display_in_short_description>false</u_display_in_short_description>
         <u_editable_on_veditor>false</u_editable_on_veditor>
         <u_first_step>false</u_first_step>
@@ -91,22 +91,22 @@
         <visible_summary>true</visible_summary>
         <write_roles/>
     </item_option_new>
-    <sys_translated_text action="delete_multiple" query="documentkey=08ca217fdb978010f5e2174b069619d6"/>
-    <fx_price action="delete_multiple" query="id=08ca217fdb978010f5e2174b069619d6"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=e458a444db23c010011e177e169619d1"/>
+    <fx_price action="delete_multiple" query="id=e458a444db23c010011e177e169619d1"/>
     <fx_price action="INSERT_OR_UPDATE">
         <amount>0</amount>
         <currency display_value="CHF">CHF</currency>
         <field>price_if_checked</field>
-        <id>08ca217fdb978010f5e2174b069619d6</id>
+        <id>e458a444db23c010011e177e169619d1</id>
         <parent/>
         <reference_amount>0</reference_amount>
         <reference_currency display_value="CHF">CHF</reference_currency>
-        <sys_created_by>h40009222</sys_created_by>
-        <sys_created_on>2020-03-08 23:47:28</sys_created_on>
-        <sys_id>970be93fdb978010f5e2174b0696196a</sys_id>
+        <sys_created_by>h40000572</sys_created_by>
+        <sys_created_on>2020-03-09 13:34:23</sys_created_on>
+        <sys_id>e8586c44db23c010011e177e1696197b</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-08 23:47:28</sys_updated_on>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-03-09 13:34:23</sys_updated_on>
         <table>item_option_new</table>
         <type>calculated</type>
     </fx_price>
@@ -114,16 +114,16 @@
         <amount>0</amount>
         <currency display_value="CHF">CHF</currency>
         <field>rec_price_if_checked</field>
-        <id>08ca217fdb978010f5e2174b069619d6</id>
+        <id>e458a444db23c010011e177e169619d1</id>
         <parent/>
         <reference_amount>0</reference_amount>
         <reference_currency display_value="CHF">CHF</reference_currency>
-        <sys_created_by>h40009222</sys_created_by>
-        <sys_created_on>2020-03-08 23:47:28</sys_created_on>
-        <sys_id>5f0be93fdb978010f5e2174b06961969</sys_id>
+        <sys_created_by>h40000572</sys_created_by>
+        <sys_created_on>2020-03-09 13:34:23</sys_created_on>
+        <sys_id>e058a444db23c010011e177e169619d3</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-08 23:47:28</sys_updated_on>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-03-09 13:34:23</sys_updated_on>
         <table>item_option_new</table>
         <type>calculated</type>
     </fx_price>
