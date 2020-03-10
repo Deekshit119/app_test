@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(spModal, $scope, $rootScope, $location, $timeout, spUtil, spAriaFocusManager, $uibModalStack) {
+  var c = this;
+	
+	$scope.expline_sysid = c.data.expline_sysid;
+	$scope.valCodeloga = c.data.codeloga[0].code;
+	
+	var year= c.data.date.substr(6, 4);
+	var month= c.data.date.substr(4, 2);
+	var day= c.data.date.substr(0, 2);
+	$scope.expDate = new Date(year,month-1,day);
+	
+	$scope.location_from = {
+	displayValue: c.data.items[0].expline_location,
+	value: c.data.LocationFromId,
+	name: 'location_from'
+	};
+	
+	$scope.location_to = {
+	displayValue: c.data.items[0].expline_travelkm,
+	value: c.data.LocationToId,
+	name: 'location_to'
+	};
+	
+	$scope.Rubric = {
+	displayValue: c.data.items[0].expline_rubric,
+	value: c.data.RubricId,
+	name: 'Rubric'
+	};
+	
+	$scope.expOpenBy = '' || c.data.items[0].expsheet_opened_by;
+	$scope.expReqFor = '' || c.data.items[0].expsheet_requested_for;
+	$scope.expContract = '' || c.data.items[0].expsheet_contract;
+	$scope.expDesc = '' || c.data.items[0].expsheet_short_description;
+	$scope.expAmount = parseFloat(c.data.items[0].expline_requested_amount);
+	$scope.expOtherLoc = '' || c.data.items[0].expline_other_location;
+		
+	$scope.buttonClosewindow = function () {
+				  $uibModalStack.dismissAll();
+        };
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.widget-data-table .clearfix{ 
+	display: none; 
+} 
+
+.pointer {
+    cursor: pointer;
+}
+
+.v5001b062d7101200b0b044580e6103eb .sp-list-cell {
+    white-space: pre-wrap;
+}
+
+.user-profile-tabs { 
+  height: 60px; 
+   
+  .widget-header { 
+    padding-bottom: 10px; 
+    font-weight: normal; 
+    color : $brand-primary;
+  } 
+ 
+  .no-padding { 
+    padding-left : 0px; 
+    text-align: center; 
+    cursor: pointer; 
+ 
+  } 
+ 
+  .tab-row { 
+    margin-top: 15px; 
+  } 
+} 
+ 
+.widget-tabs { 
+  border-bottom: 1px solid $csm-border-color;
+  margin-bottom: 15px; 
+} 
+.widget-tabs { 
+  border-bottom: 1px solid $csm-border-color;
+} 
+
+.tr-top {
+  border-top: 1px solid #ddd;
+}
+
+.th-exp-title {
+    color: #b92d33;
+    display: inline-block;
+}
+
+.td_img {
+		width: 20px;
+  	height: 20px;
+  	display: inline-block;
+}
+
+.thead {
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+
+h4 { 
+  padding-left: 0px; 
+  margin-bottom: 0px; 
+} 
+ 
+h4.selected-tab { 
+  /*border-bottom: 2px solid #278EFC; */
+  border-bottom: 2px solid $brand-primary; 
+  color: $link-color;
+} 
+
+.btn_expense {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    border-radius: 4px;
+}
+
+.pull-right_expense {
+    float: right;
+}
+
+.btn_expense-primary_save {
+    color: #ffffff;
+    background-color: #5bb914;
+    border-color: #508c23;
+}
+ 
+.btn_expense-primary_close {
+    color: #ffffff;
+    background-color: #b92d33;
+    border-color: #a4282d;
+}
+ 
+.profile-tabs { 
+  clear: both; 
+  padding-bottom: 15px; 
+} 
+
+.td-alignmiddle {
+	vertical-align:middle;
+}
+  
+.panel-heading{
+ background-color : #b92d33; 
+}
+.expense-panel-primary {
+    border-color: #b92d33;
+    width: 1585px;
+}
+
+.btn-padding-expense{
+  padding-right: 15px; 
+}
+
+span.panel-title{
+ color: $panel-default-heading-bg;
+ /*vertical-align: sub;
+  vertical-align: -webkit-baseline-middle;*/
+}
+
+.panel-heading &gt; .dropdown .dropdown-toggle {
+   color: $panel-primary-text;
+   /*padding-bottom: 0px;
+   vertical-align: bottom;*/
+}
+
+/*.panel-heading{
+  padding: 8px 25px 5px 40px;
+}*/</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>hvs_widget_expense_only</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>hvs_widget_expense_only</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+ 
+	if(input) {
+		if(input.sys_id) {
+			data.valCodeloga='';
+			data.items = getCatalogItems();
+			data.expline_sysid = input.sys_id;
+		}
+	}
+
+	var filterRubric = '';
+	
+	function getCatalogItems() {
+		var sc = new GlideRecord('x_hdvi2_expense_view');
+		sc.addQuery('expline_sys_id',input.sys_id);
+		sc.query();
+		var results = [];
+		while (sc.next()) {
+			if (!$sp.canReadRecord(sc))
+				continue;
+
+		var ticketConversationOptions = {}
+		ticketConversationOptions.sys_id = sc.getValue('expline_expense');
+		ticketConversationOptions.table  = 'x_hdvi2_expense_sheet';
+		ticketConversationOptions.record_id = sc.getValue('expline_expense');
+		ticketConversationOptions.record_table  = 'x_hdvi2_expense_sheet';
+		ticketConversationOptions.readonly = ''+input.read_only;
+		ticketConversationOptions.record_only = ''+input.read_only;
+gs.info('1- input.read_only'+input.read_only)		;
+		data.Attachment = $sp.getWidget('widget-expense-ticket-attachments', ticketConversationOptions);
+
+			var item = {};
+			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category');
+			results.push(item);
+
+			data.date=sc.getDisplayValue('expline_date_expense');
+			data.expline_requested_value = parseFloat(sc.getValue('expline_requested_value'));
+			
+			var sFilterRubric = sc.getValue('expsheet_category');
+			data.CategRubric=sFilterRubric.charAt(0).toUpperCase() + sFilterRubric.slice(1);
+			filterRubric ='category=topic^active=true^type='+sFilterRubric.charAt(0).toUpperCase() + sFilterRubric.slice(1)+'^contract_type=';
+			
+			data.LocationFromId = ''||sc.getValue('expline_location');
+			data.LocationToId = ''||sc.getValue('expline_travelkm');
+			data.RubricId = ''||sc.getValue('expline_rubric');
+		}
+
+		data.codeloga = [];
+		var scCodeLoga = new GlideRecord('x_hdvi2_expense_loga_data');
+		scCodeLoga.addQuery('sys_id',data.RubricId);
+		scCodeLoga.query();
+		while (scCodeLoga.next()) {
+			var objCode = {};
+			data.valCodeloga=scCodeLoga.code;
+			$sp.getRecordDisplayValues(objCode, scCodeLoga, 'code,label,sys_id');
+			data.codeloga.push(objCode);
+		}
+		
+		return results;
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 14:09:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9fb6b106db5f8850f5e2174b069619ae</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>hvs_widget_expense_only</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_widget_9fb6b106db5f8850f5e2174b069619ae</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-06 14:33:46</sys_updated_on>
+        <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
+ 		<sp-widget widget="c.data.Attachment" />
+ </div>
+<div class="panel panel-primary" >
+
+ <div class="panel-heading">${expense.label.view_detail} : <b>{{c.data.items[0].expsheet_number}}</b></div>
+ <div class="panel-primary">
+
+   <table class="table table-striped table-responsive">
+     <tr>
+       <td class="thead text-nowrap">
+      	<label>${expense.label.opened_by} :</label>
+     		<input readonly class="form-control" ng-change="SetChangeTrue()" ng-model="expOpenBy" value="{{c.data.items[0].expsheet_expOpenBy}}" type="text">
+       </td>
+      <td class="thead text-nowrap">
+     		<label for="expReqFor">${expense.label.requested_for} :</label>
+     		<input readonly class="form-control" ng-change="SetChangeTrue()" ng-model="expReqFor" value="{{c.data.items[0].expsheet_requested_for}}" type="text">
+       </td>
+     </tr>
+     <tr>
+       <td class="thead text-nowrap" colspan="2">
+      	<label for="expContract">${expense.label.Contract} :</label>
+     		<input readonly class="form-control" ng-change="SetChangeTrue()" ng-model="expContract" value="{{c.data.items[0].expsheet_contract}}" type="text">
+       </td>
+     </tr>
+     <tr>
+       <td class="thead text-nowrap" colspan="2">
+         <label for="expDesc">${expense.label.short_description} :</label>
+         <input readonly id="expDesc" class="form-control" ng-change="SetChangeTrue()" ng-model="expDesc" value="{{c.data.items[0].expsheet_short_description}}" type="text">
+       </td>
+     </tr>
+     <tr>
+       <td class="thead text-nowrap" colspan="2">
+        <label for="expDate">${expense.label.date} : </label>
+     		<input readonly class="form-control" placeholder="dd-MM-yyyy" ng-change="SetChangeTrue()" ng-model="expDate" Value="{{data.date}}" id="expDate" type="date">
+       </td>
+     </tr>
+     <tr>
+       <td class="thead text-nowrap" colspan=2>
+         <div ng-if="data.CategRubric == 'Standard'">
+           <label for="Rubric">${expense.label.LogaRubric} :</label>
+           <sn-record-picker readonly field="Rubric" table="'x_hdvi2_expense_loga_data'" display-field="'label'" value-field="'sys_id'" search-fields="'label'" page-size="15" default-query="'{{c.data.FilterRubric}}'"></sn-record-picker>
+         </div>
+         <div ng-if="data.CategRubric == 'Training'">
+           <label for="Rubric">${expense.label.LogaRubric} :</label>
+           <sn-record-picker readonly field="Rubric" table="'x_hdvi2_expense_loga_data'" display-field="'label'" value-field="'sys_id'" search-fields="'label'" page-size="15" default-query="'{{c.data.FilterRubric}}'"></sn-record-picker>
+         </div>
+         <div ng-if="data.codeloga[0].code!='79C'">
+           <label style="padding-top:8px;" id="labelReqAmount" for="expReqAmount">${expense.label.RequestedAmount} :</label>
+           <input readonly id="expReqAmount" class="form-control" ng-change="SetChangeTrue()" ng-model="expAmount" value="{{c.data.items[0].expline_requested_amount}}" type="number">
+         </div>
+         <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='fbc37b13dbee0090f5e2174b06961948'">
+           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
+           <input id="expReqValue" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
+           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <sn-record-picker readonly id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <label style="padding-top:8px;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
+           <sn-record-picker readonly id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+      		 <label style="padding-top:8px;display:none;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
+     			 <input style="display:none;" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+         </div>  
+
+         <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location!=''">
+           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
+           <input readonly id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
+           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <sn-record-picker readonly id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
+           <sn-record-picker readonly style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.Location} :</label>
+     			 <input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+         </div>  
+         
+         <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location==''">
+           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
+           <input readonly id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
+           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <sn-record-picker readonly id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
+           <sn-record-picker readonly style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+      		 <label style="padding-top:8px;color:#ff0000;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
+     			 <input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+         </div>  
+  
+         <div style="position:relative;" ng-if="data.codeloga[0].code!='79C'">
+      		<label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
+     			<input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+         </div>  
+       </td> 
+   </table>
+
+<div>
+    <table align="right" style="padding-top:20px; padding-right:0px;">
+      <tr><td><span>&nbsp;</span></td></tr>
+      <tr> 
+       <td>
+      	  <label for="close_expline"></label>
+          <a id="close_expline" href="javascript:void(0)" ng-click="buttonClosewindow()" data-dismiss="modal" class="pull-right_expense btn_expense btn_expense-primary_close">
+              ${expense.label.button_close}
+          </a>
+       </td>
+       <td style="width:20px;">
+       </td>
+      </tr>
+      <tr><td><span>&nbsp;</span></td></tr>
+    </table>
+ </div>
+     
+ </div>
+
+</div>
+
+
+
+]]></template>
+    </sp_widget>
+</record_update>

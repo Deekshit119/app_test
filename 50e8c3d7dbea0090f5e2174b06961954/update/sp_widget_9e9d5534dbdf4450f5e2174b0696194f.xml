@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>standard</category>
+        <client_script><![CDATA[function($scope, spAriaUtil) {
+	$scope.accessibilityModeEnabled = spAriaUtil.isAccessibilityEnabled();
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>#blur{
+  font-size: 18px;
+  color: transparent;
+  text-shadow: 0 0 0px #b92d33;
+}
+
+/* IMAGE ICON ---------- */
+a.image_icon {
+display: block;
+padding: 20px;
+text-align: center;
+background-color: rgba(237,241,242, 0.95);
+color:transparent;
+   &amp;:hover {
+  color : transparent;
+  text-decoration: none;
+   }
+}
+
+a.image_icon .fa {
+display: block;  
+text-align: center;
+color:transparent;
+}
+
+
+.container-training:hover .overlay {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.overlay {
+  	position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 0;
+    bottom: 5px;
+    background-color: #b92d33;
+    overflow: hidden;
+    width: 95%;
+    height: 90%;
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: .3s ease;
+    transition: .3s ease;
+}
+
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}</css>
+        <data_table>sp_instance_link</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list>type,url,sc_category,sc_cat_item,kb_topic,kb_article,kb_category,sp_page,title,short_description,color,class_name,glyph</field_list>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>HVS Expense Icon without Link</name>
+        <option_schema>[{"name":"link_template","section":"Presentation","label":"Icon","type":"choice","choices":[{"label":"Glyph Icon","value":"Glyph Icon"},{"label":"Image Icon","value":"Image Icon"}]},{"displayValue":"Images","name":"image","section":"other","label":"Image","type":"reference","value":"db_image","ed":{"reference":"db_image"}},{"name":"target","section":"other","label":"target","type":"choice","choices":[{"label":"_new","value":"_new"}]}]</option_schema>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function(){
+var gr = $sp.getInstanceRecord();
+data.href = $sp.getMenuHREF(gr);
+data.target = options.target || "";
+data.image = "/" + options.image;
+var img = new GlideRecord('db_image');
+img.addQuery('sys_id', options.image);
+img.query();
+if (img.next()){
+  data.image = img.getValue('name');
+}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-28 15:06:54</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9e9d5534dbdf4450f5e2174b0696194f</sys_id>
+        <sys_mod_count>63</sys_mod_count>
+        <sys_name>HVS Expense Icon without Link</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_widget_9e9d5534dbdf4450f5e2174b0696194f</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-05 17:27:27</sys_updated_on>
+        <template><![CDATA[<div>
+  <div class="container-training">
+    <!–// Image Icon –>
+    <a ng-if="::(options.link_template == 'Image Icon')" class="image_icon {{::options.class_name}}">
+      <div id="blur">
+        	<img src="{{data.image}}" alt="" align="left" style="margin-right: auto;margin-left: 30px;display: block;transform: scale(2);"/>
+      		<h2 style="width:99%;padding-left:120px;margin-top: 13px;text-align: left;">{{::options.title}}</h2>
+      		<span class="text-muted">{{::options.short_description}}</span>
+      </div>
+    </a>
+    
+    <div class="overlay">
+      <div class="text">${This feature is not available yet}</div>
+    </div>
+     
+  </div>
+</div>  ]]></template>
+    </sp_widget>
+</record_update>

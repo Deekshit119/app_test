@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item/>
+        <catalog_variable>IO:c4d4e3e8db0f0410f5e2174b069619a3</catalog_variable>
+        <cleared>false</cleared>
+        <disabled>false</disabled>
+        <field/>
+        <mandatory>false</mandatory>
+        <order>100</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-26 14:54:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b3778f80db93c050f5e2174b0696190c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sr_location</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_b3778f80db93c050f5e2174b0696190c</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-26 14:54:08</sys_updated_on>
+        <table/>
+        <ui_policy display_value="HVS Hide Field if Frais de repas hors canton">e9278780db93c050f5e2174b069619bc</ui_policy>
+        <variable>sr_location</variable>
+        <variable_set display_value="Lignes de dépenses SR">a048ae60db4b0410f5e2174b069619dc</variable_set>
+        <visible>false</visible>
+    </catalog_ui_policy_action>
+</record_update>

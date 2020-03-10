@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>section.page {
+	background-color: $sp-homepage-bg;
+}
+section.page, main.body {
+    padding-top: 0px !important;
+}
+
+/* Home Page Search Opacity Background */
+#homepage-search &gt; div {
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 8px;
+}
+
+
+
+.icon-homepage-sphvs{
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 4px;
+    /*margin-right: 2px;
+    margin-left: 2px;*/
+}
+
+.test-2{
+    width: 1300px; 
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.test-3{
+    padding-top: 70px;
+    padding-right: 30px;
+    margin: auto;
+    font-weight: 400;
+    font-size: 18px;
+    width: 550px; 
+}
+
+.test-4{
+    width: 1600px; 
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.test-5{
+    width: 1600px; 
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.page-new-expense{
+    width: 1600px; 
+    margin: auto;
+    padding-top: 30px;
+  float: left;
+}
+
+.icon-homepage-sphvs-text{
+    font-weight: 400;
+    margin-top: 12px;
+}
+.icon-homepage-sphvs-text &gt; h2{
+    font-weight: 400;
+    font-size: 22px;
+}
+.icon-homepage-sphvs-custo{
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.icon-homepage-sphvs-custo-blur{
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 4px;
+    font-size:18px;
+   	color:transparent;
+    text-shadow: 0 0 8px #000;
+}
+</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>expndx</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-05 08:51:02</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c80b611ddbbac090011e177e1696199d</sys_id>
+        <sys_mod_count>79</sys_mod_count>
+        <sys_name>expndx</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_page_c80b611ddbbac090011e177e1696199d</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-29 16:11:03</sys_updated_on>
+        <title>Expense Service Portal</title>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=c80b611ddbbac090011e177e1696199d"/>
+</record_update>

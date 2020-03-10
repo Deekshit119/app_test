@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="HVS Expense Management">ba7dafd7dbae0090f5e2174b0696192d</application>
+        <assessment/>
+        <content_page/>
+        <device_type/>
+        <filter table="x_hdvi2_expense_loga_data">active=true^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter>
+        <help_hint/>
+        <help_link/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Administration</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_hdvi2_expense_loga_data</name>
+        <order>910</order>
+        <override_menu_roles>false</override_menu_roles>
+        <populate_view/>
+        <query/>
+        <report/>
+        <roles>x_hdvi2_expense.admin,x_hdvi2_expense.hr_manager,x_hdvi2_expense.salary_manager</roles>
+        <survey/>
+        <survey_overwrite>true</survey_overwrite>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-01-30 13:17:25</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3f6e235bdbae0090f5e2174b0696197e</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>LOGA Data</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_app_module_3f6e235bdbae0090f5e2174b0696197e</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-01-30 13:25:15</sys_updated_on>
+        <timeline_page/>
+        <title>LOGA Data</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>

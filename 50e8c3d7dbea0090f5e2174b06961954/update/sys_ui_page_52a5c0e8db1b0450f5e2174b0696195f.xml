@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function actionOK(){
+    var reject = gel('rejection_reason').value;
+    if (reject =="" || reject ==" ") {
+        alert(getMessage("Please select a rejection reason"));
+        return false;
+	}
+	var c = gel('cancel_or_submit');
+    c.value = "submit";
+	return true;
+}
+
+function cancel(){
+	var c = gel('cancel_or_submit');
+    c.value = "cancel";
+	return true;
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_hdvi2_expense_exp_rejection_by_salary.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+<g:ui_form>
+	<input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
+	<input type="hidden" id="expense_id" name="expense_id" value="${sysparm_sys_id}"/>
+<input type="hidden" id="name" name="name" value="${sysparm_display_name}"/>
+
+   		
+<table width="100%">
+	<tr>
+             <td id="display_model_name">${sysparm_display_name}</td>
+	</tr>
+        <tr>    
+		<td><g:ui_multiline_input_field label="Rejection Reason" name="rejection_reason" id="rejection_reason" size="100%"/></td>
+        </tr>
+</table>
+	<br/>
+	<div id="dialogbuttons" style="float:right">
+		<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
+	</div>
+</g:ui_form>
+</j:jelly>]]></html>
+        <name>exp_rejection_by_salary</name>
+        <processing_script><![CDATA[function submitRejection(){
+	
+	if (cancel_or_submit == "submit") {
+		var gr_exp = new GlideRecord('x_hdvi2_expense_sheet');
+		if(gr_exp.get(expense_id)){
+			gr_exp.status = -1;
+			gr_exp.reviewed_on = new GlideDateTime().getDisplayValue();
+			gr_exp.comments = rejection_reason;
+			gr_exp.update();
+			gs.addInfoMessage(gs.getMessage("The expense has been rejected and is now canceled."));
+
+		}
+		
+	} 
+response.sendRedirect("x_hdvi2_expense_sheet.do?sys_id=" + expense_id);
+	
+}
+submitRejection();
+]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-27 14:05:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>52a5c0e8db1b0450f5e2174b0696195f</sys_id>
+        <sys_mod_count>31</sys_mod_count>
+        <sys_name>exp_rejection_by_salary</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_page_52a5c0e8db1b0450f5e2174b0696195f</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-02-27 18:14:36</sys_updated_on>
+    </sys_ui_page>
+</record_update>

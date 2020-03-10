@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_hdvi2_expense.HVSExpenseUserUtils</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>HVSExpenseUserUtils</name>
+        <script><![CDATA[var HVSExpenseUserUtils = Class.create();
+HVSExpenseUserUtils.prototype = {
+	initialize: function() {
+	},
+	
+	isExpenseApprover: function(user){
+		var answer = false;
+		var gr_user = new GlideRecord("sys_user");
+		if(gr_user.get(user)){
+			answer = gr_user.u_expense_approver;
+		}
+		return answer;
+		
+	},
+	
+	calcAmountBasedOnKM: function(user, km){
+		var amount = 0;
+		var amount_per_km = parseFloat(gs.getProperty("x_hdvi2_expense.line.refunded_amount_per_km", 0.7));
+		var amount_per_km_low = parseFloat(gs.getProperty("x_hdvi2_expense.line.refunded_amount_per_km_after_limit", 0.6));
+		var limit_km = parseFloat(gs.getProperty("x_hdvi2_expense.line.limit_normal_cost_km",0));
+		var total_km = 0;
+		var requested_km = parseFloat(km);
+		
+		if(limit_km > 0){
+			var gr_user = new GlideRecord("sys_user");
+			if(gr_user.get(user)){
+				var user_km = parseFloat(gr_user.u_km_number);
+				
+				if((user_km+requested_km) <= limit_km){
+					amount = requested_km * amount_per_km;
+				}else if(user_km>limit_km){
+					amount = requested_km * amount_per_km_low;
+				}else{
+				var outside_limit = requested_km + user_km - limit_km;
+				amount = (requested_km-outside_limit)*amount_per_km + outside_limit*amount_per_km_low;
+				}
+			}
+		}else{
+			amount = amount_per_km * requested_km;
+	
+		}
+		if(amount < 0){
+			amount = 0;
+		}
+
+		return amount;
+	},
+	
+	
+	getOnBehalfOfUsers: function(user){
+		//Function to get, based on the delegation, only the employees I can create an expense on behalf of
+		var on_behalf_of = ""+user;
+		
+		var gdt = new GlideDateTime();
+		var gr_delegate = new GlideRecord('sys_user_delegate');
+		gr_delegate.addQuery("delegate",on_behalf_of);
+		gr_delegate.addQuery("u_expense_submission",true);
+		gr_delegate.addQuery("starts","<=",gdt.getDisplayValue());
+		gr_delegate.addQuery("ends",">=",gdt.getDisplayValue());
+		gr_delegate.query();
+		while(gr_delegate.next()) {
+			on_behalf_of += ","+gr_delegate.user.sys_id;
+			
+		}
+		
+		return "sys_idIN"+on_behalf_of;
+	},
+	
+	
+	getLogaCategoriesBasedOnContract: function(category,contract){
+		var answer = "";
+		var contract_type;
+		var contract_type_id;
+		
+		var gr_contract = new GlideRecord("u_hvs_user_contract");
+		if(gr_contract.get(contract)){
+			contract_type = ""+gr_contract.u_contract_type;
+			
+		}
+		
+		var gr_type_id = new GlideRecord('sys_choice');
+		gr_type_id.addEncodedQuery('nameSTARTSWITHu_hvs_user^name=u_hvs_user_contract^element=u_contract_type^language=en^inactive=false^value='+contract_type);
+		gr_type_id.query();
+		while(gr_type_id.next()) {
+			contract_type_id = gr_type_id.getUniqueValue();
+		}
+		
+		var filter ='category=topic^active=true^type='+category+'^contract_typeLIKEa397e717db4fcc10f5e2174b0696191e^ORcontract_typeLIKE'+contract_type_id;
+		var gr_loga_categories = new GlideRecord("x_hdvi2_expense_loga_data");
+		gr_loga_categories.addEncodedQuery(filter);
+		gr_loga_categories.query();
+		while(gr_loga_categories.next()){
+			if(answer){answer+=",";}
+				answer += gr_loga_categories.sys_id;
+			}
+			return "sys_idIN"+answer;
+		},
+		
+		type: 'HVSExpenseUserUtils'
+	};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-13 13:55:57</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>1e6d33b3db328010f5e2174b06961923</sys_id>
+        <sys_mod_count>75</sys_mod_count>
+        <sys_name>HVSExpenseUserUtils</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_script_include_1e6d33b3db328010f5e2174b06961923</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-02 11:26:57</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="rubric" label="Type de frais" language="fr" table="x_hdvi2_expense_line">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>rubric</element>
+            <help/>
+            <hint/>
+            <label>Type de frais</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_line</name>
+            <plural>Types de frais</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-15 23:46:32</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>cbc718f0db034410f5e2174b069619c2</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>Type de frais</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_documentation_x_hdvi2_expense_line_rubric_fr</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-05 17:21:12</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

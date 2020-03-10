@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css/>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>hvs_widget_expense</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-16 12:36:48</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>22280738db8b4410f5e2174b06961967</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>hvs_widget_expense</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_page_22280738db8b4410f5e2174b06961967</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-16 12:36:48</sys_updated_on>
+        <title>hvs_widget_expense - Test Page</title>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=22280738db8b4410f5e2174b06961967"/>
+</record_update>

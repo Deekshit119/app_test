@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysevent_email_template">
+    <sysevent_email_template action="INSERT_OR_UPDATE">
+        <collection/>
+        <email_layout display_value="HVS Exp Default Layout DE">fb0428c6db728490011e177e16961965</email_layout>
+        <message/>
+        <message_html/>
+        <message_list/>
+        <message_text/>
+        <name>HVS Exp Default Template DE</name>
+        <sms_alternate/>
+        <subject/>
+        <sys_class_name>sysevent_email_template</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-07 11:36:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e2f3200adb728490011e177e16961966</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>HVS Exp Default Template DE</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sysevent_email_template_e2f3200adb728490011e177e16961966</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-02-07 11:36:37</sys_updated_on>
+        <sys_version>2</sys_version>
+    </sysevent_email_template>
+</record_update>

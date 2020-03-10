@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_report_chart_color">
+    <sys_report_chart_color action="INSERT_OR_UPDATE">
+        <color>#66ff66</color>
+        <color_name/>
+        <display>background-color:#66ff66</display>
+        <element>status</element>
+        <name>x_hdvi2_expense_sheet</name>
+        <sys_class_name>sys_report_chart_color</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-24 13:50:56</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>22d5a467db830050f5e2174b0696197d</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_hdvi2_expense_sheet</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_report_chart_color_22d5a467db830050f5e2174b0696197d</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-02-24 13:52:18</sys_updated_on>
+        <value>4</value>
+    </sys_report_chart_color>
+</record_update>

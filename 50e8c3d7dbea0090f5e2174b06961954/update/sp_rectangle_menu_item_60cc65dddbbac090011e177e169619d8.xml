@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rectangle_menu_item">
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <color>default</color>
+        <condition>gs.isLoggedIn()</condition>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph>paper-plane-o</glyph>
+        <hint/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>Expense to Approve</label>
+        <order>120</order>
+        <record_script><![CDATA[// only show 30 in header menu dropdown
+var max = 30;
+
+var t = data;
+t.items = [];
+t.count = 0;
+
+var u = gs.getUser().getID();
+
+// use record watchers to tell header when to update dropdown counts
+t.record_watchers = [];
+t.record_watchers.push({'table':'sysapproval_approver','filter':'approver=' + u + '^state=requested'});
+t.url = '?id=approvals';
+
+var z = new GlideRecord('sysapproval_approver');
+z.addQuery("approver", global.getMyApprovals());
+z.addQuery("state", "requested");
+z.orderByDesc('sys_updated_on');
+z.setLimit(max);
+z.query();
+
+var link = {};
+link.title = gs.getMessage('View all approvals');
+link.type = 'link';
+link.href = '?id=approvals';
+link.items = [];
+t.items.push(link);
+
+while (z.next()) {
+  var a = {};
+  var rec = getRecordBeingApproved(z);
+  if (rec.getRecordClassName() == "x_hdvi2_expense_sheet") {
+  if (!rec.isValidRecord())  // nothing being approved - hmmm
+		continue;
+	
+  a.short_description = rec.short_description + "";
+
+  $sp.getRecordValues(a, z, 'sys_id,sys_updated_on');
+  a.number = rec.getDisplayValue();
+  a.__table = z.getRecordClassName();
+  a.type = 'approval';
+  t.items.push(a);
+  t.count++;
+  }
+}
+
+function getRecordBeingApproved(gr) {
+  if (!gr.sysapproval.nil())
+    return gr.sysapproval.getRefRecord();
+
+  return gr.document_id.getRefRecord();
+}]]></record_script>
+        <sc_cat_item display_value="Ecran">926997904fd8d2002933ca1f0310c709</sc_cat_item>
+        <sc_category/>
+        <short_description/>
+        <sp_page display_value="list">b574e51147132100ba13a5554ee4903e</sp_page>
+        <sp_rectangle_menu display_value="SP Exp Header Menu">05db211ddbbac090011e177e1696194b</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-05 08:59:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>60cc65dddbbac090011e177e169619d8</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>Expense to Approve</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_60cc65dddbbac090011e177e169619d8</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 13:53:58</sys_updated_on>
+        <table/>
+        <type>scripted</type>
+        <url>/x_hdvi2_crm_visit.do?sys_id=008fbb5c4f16d7007b30421f0310c730&amp;sysparm_view=crm</url>
+        <url_target/>
+    </sp_rectangle_menu_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=60cc65dddbbac090011e177e169619d8"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>60cc65dddbbac090011e177e169619d8</documentkey>
+        <fieldname>hint</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 13:53:58</sys_created_on>
+        <sys_id>4943b542db5f8850f5e2174b069619cf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 13:53:58</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>60cc65dddbbac090011e177e169619d8</documentkey>
+        <fieldname>label</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 13:53:58</sys_created_on>
+        <sys_id>0143b542db5f8850f5e2174b069619cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 13:53:58</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value>Expense to Approve</value>
+    </sys_translated_text>
+</record_update>

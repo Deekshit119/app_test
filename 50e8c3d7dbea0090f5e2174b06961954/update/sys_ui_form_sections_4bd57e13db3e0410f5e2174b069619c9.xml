@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="4bd57e13db3e0410f5e2174b069619c9" sys_domain="global" table="x_hdvi2_expense_sheet" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-11 19:25:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4bd5fe13db3e0410f5e2174b0696197f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_hdvi2_expense_sheet" name="x_hdvi2_expense_sheet" sys_domain="global" view="3784b6dfdbfa0410f5e2174b06961912">4bd57e13db3e0410f5e2174b069619c9</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_sheet" sys_domain="global" view="3784b6dfdbfa0410f5e2174b06961912">3384f6dfdbfa0410f5e2174b0696195c</sys_ui_section>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-02-11 19:25:56</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-11 19:25:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4bd5fe13db3e0410f5e2174b06961980</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_hdvi2_expense_sheet" name="x_hdvi2_expense_sheet" sys_domain="global" view="3784b6dfdbfa0410f5e2174b06961912">4bd57e13db3e0410f5e2174b069619c9</sys_ui_form>
+            <sys_ui_section caption="New Section" display_value="New Section" name="x_hdvi2_expense_sheet" sys_domain="global" view="3784b6dfdbfa0410f5e2174b06961912">4bd57e13db3e0410f5e2174b069619c8</sys_ui_section>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-02-11 19:25:56</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_hdvi2_expense_sheet</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-11 19:25:56</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4bd57e13db3e0410f5e2174b069619c9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_hdvi2_expense_sheet</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_ui_form_sections_4bd57e13db3e0410f5e2174b069619c9</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-02-11 19:25:56</sys_updated_on>
+            <sys_user/>
+            <view display_value="HVS Expense SP" name="hvs_expense_sp">3784b6dfdbfa0410f5e2174b06961912</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

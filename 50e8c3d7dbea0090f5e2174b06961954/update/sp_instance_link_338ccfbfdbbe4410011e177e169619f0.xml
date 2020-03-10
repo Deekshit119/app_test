@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name>icon-homepage-sphvs-custo</class_name>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item display_value="Demande de remboursement">ff844a95db3ec090011e177e16961952</sc_cat_item>
+        <sc_category/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">b1824fb1db4b4810f5e2174b069619ea</sp_column>
+        <sp_page display_value="sc_cat_item">9f12251147132100ba13a5554ee490f4</sp_page>
+        <sp_widget display_value="HVS Expense Icon Link">e4098b37dbbe4410011e177e16961957</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-13 10:22:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>338ccfbfdbbe4410011e177e169619f0</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>Expense refunding</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_instance_link_338ccfbfdbbe4410011e177e169619f0</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-02 17:16:13</sys_updated_on>
+        <title>Expense refunding</title>
+        <type>sc_cat_item</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Image Icon",
+		"displayValue": "Image Icon"
+	},
+	"image": {
+		"value": "0dfa033fdbbe4410011e177e169619d3",
+		"displayValue": "TravelExpense.svg"
+	},
+	"target": {
+		"value": "",
+		"displayValue": "-- None --"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="delete_multiple" query="documentkey=338ccfbfdbbe4410011e177e169619f0"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>338ccfbfdbbe4410011e177e169619f0</documentkey>
+        <fieldname>short_description</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-13 10:22:05</sys_created_on>
+        <sys_id>fb8ccfbfdbbe4410011e177e169619f0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-13 10:22:05</sys_updated_on>
+        <tablename>sp_instance_link</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>338ccfbfdbbe4410011e177e169619f0</documentkey>
+        <fieldname>title</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-13 10:22:05</sys_created_on>
+        <sys_id>778c07ffdbbe4410011e177e169619a9</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-26 21:44:18</sys_updated_on>
+        <tablename>sp_instance_link</tablename>
+        <value>Remboursement de frais</value>
+    </sys_translated_text>
+</record_update>

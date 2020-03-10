@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rectangle_menu_item">
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <color>default</color>
+        <condition>gs.isLoggedIn()</condition>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph>history</glyph>
+        <hint/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>My History</label>
+        <order>110</order>
+        <record_script/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <sp_page display_value="exp_history">675b4c27db030050f5e2174b0696196a</sp_page>
+        <sp_rectangle_menu display_value="SP Exp Header Menu">05db211ddbbac090011e177e1696194b</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-24 11:58:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6b0c0c67db030050f5e2174b06961920</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Suivre mes demandes</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_6b0c0c67db030050f5e2174b06961920</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-04 21:55:28</sys_updated_on>
+        <table/>
+        <type>page</type>
+        <url/>
+        <url_target/>
+    </sp_rectangle_menu_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=6b0c0c67db030050f5e2174b06961920"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>6b0c0c67db030050f5e2174b06961920</documentkey>
+        <fieldname>hint</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 13:55:20</sys_created_on>
+        <sys_id>09937182db5f8850f5e2174b0696196d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 13:55:20</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>6b0c0c67db030050f5e2174b06961920</documentkey>
+        <fieldname>label</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 13:55:20</sys_created_on>
+        <sys_id>8993f142db5f8850f5e2174b06961992</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-04 21:55:28</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value>Suivre mes demandes</value>
+    </sys_translated_text>
+</record_update>

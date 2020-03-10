@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="requested_amount" label="Requested amount" language="en" table="x_hdvi2_expense_line">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>requested_amount</element>
+            <help/>
+            <hint/>
+            <label>Requested amount</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_line</name>
+            <plural>Requested amounts</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-01-30 15:27:10</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>19410d5cdba7c49009b962a916961906</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Requested amount</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_documentation_x_hdvi2_expense_line_requested_amount_en</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:27:10</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_hdvi2_expense.HVSExpenseExtractUtils</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>HVSExpenseExtractUtils</name>
+        <script><![CDATA[var HVSExpenseExtractUtils = Class.create();
+HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	
+	generateExtraction:function(date){
+		var checkIfExtractRunning = this.isExtractionInProgress();
+		if(checkIfExtractRunning == false){
+			var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
+			gr_extract.initialize();
+			gr_extract.status = 1;
+			gr_extract.attribution_date = date;
+			var id = gr_extract.insert();
+			return id;
+			
+		}else{
+			return "";
+		}
+		
+	},
+	
+	isExtractionInProgress: function(){
+		var answer = false;
+		var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
+		if(gr_extract.get("status",1)){
+			answer = true;
+		}
+		return answer;
+	},
+	
+	generateCSV: function(extract_id){
+		
+		var querySheet = 'approval=approved^status=3^active=true';
+		var queryLine = 'active=true^status=3';
+		
+		var number_of_expense_sheets = 0;
+		var number_of_expense_lines = 0;
+		var total_amount_extract = 0;
+		var employees_refunded = [];
+		
+		
+		var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
+		if(gr_extract.get(extract_id)){
+			
+			//--------------------------------
+			
+			
+			var Headers = ["Type,Fonction,Societe,Groupe Decompte,Matricule,Nom,Prenom,Contrat,Rubrique,Jours,Heures,Facteur,Montant,CC,Compte,UniteCharge,Date Jour,Attribution,Source,Date Source,Pourcentage,C/C,ID User,Pieces,Societe C/C,GrpDec C/C,Position,Texte,Employe des,Employe au,%-Impot,%-Impot,Num Justificatif,Groupe Service,Rubrique 1,Rubrique 2,Rubrique 3,Numero,Etablissement,Jour precis,Num Famille,Mois,Annee,ID unique,Date,fehlerhafte Datensatze vom Import"];
+			var fileName_standard = 'extract_standard.csv';
+			var fileName_training = 'extract_training.csv';
+			
+			var csvData = ''; //The variable csvData will contain a string which is used to build the CSV file contents
+			for (var i = 0; i < Headers.length; i++) { //Build the Headers
+				csvData += '"' + Headers[i] + '"' + ',';
+			}
+			csvData +="\r\n";
+			var csvData_standard = csvData;
+			var csvData_training = csvData;
+			
+			
+			var gr_sheet = new GlideRecord("x_hdvi2_expense_sheet");
+			gr_sheet.addEncodedQuery(querySheet);
+			gr_sheet.query();
+			
+			while(gr_sheet.next()){
+				
+				//Update stats variables
+				number_of_expense_sheets++;
+				total_amount_extract += gr_sheet.total_refunded_amount;
+				
+				var new_employee = true;
+				var employee_to_search = ""+gr_sheet.requested_for.sys_id;
+				for (var x=0 ; x < employees_refunded.length ; x++)
+					{
+					if (employees_refunded[x]== employee_to_search) {
+						new_employee = false;
+						break;
+						
+					}
+				}
+				
+				if(new_employee == true){
+					employees_refunded.push(employee_to_search);
+				}
+				
+				//-------------------------------------
+				if(gr_sheet.sys_id){
+					//We will loop on the lines
+					var query = queryLine+"^expense="+gr_sheet.sys_id;
+					var gr_line = new GlideRecord("x_hdvi2_expense_line");
+					gr_line.addEncodedQuery(query);
+					gr_line.query();
+					
+					while(gr_line.next()) {
+						//stats
+						number_of_expense_lines++;
+						//Add new line to the CSV file
+						var employee_number = "";
+						if(gr_sheet.requested_for.employee_number){
+							employee_number = gr_sheet.requested_for.employee_number.replace(/[a-zA-Z*_0*]/g, "");
+						}
+						var firstname = gr_sheet.requested_for.first_name;
+						var lastname = gr_sheet.requested_for.last_name;
+						var contract = gr_sheet.contract.u_contrat_number;
+						var rubric = gr_line.rubric.code;
+						var facteur = gr_line.refunded_value;
+						var amount = gr_line.refunded_amount;
+						var date = new GlideDate().getDisplayValue();
+						var date_attribution = "";
+						date_attribution+=gr_extract.getDisplayValue("attribution_date");
+						
+						
+						
+						var new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' +lastname+ '","' +firstname+ '","' +contract+ '","' +rubric+ '","","","'+facteur+'","' +amount+ '",,,,"'+date+'","'+date_attribution+'",,,,,,,,,,,,,,,,,,,,,,,,,,';
+						new_csv_line += "\r\n";
+						if(gr_line.rubric.type == "training"){
+							csvData_training += new_csv_line;
+						}else{
+							csvData_standard += new_csv_line;
+						}
+						
+					}
+				}
+				//-------------------------------------
+				
+				//Update the expense sheet
+				gr_sheet.active = false;
+				gr_sheet.status = 4; //Sent for refound
+				gr_sheet.extract_ref = extract_id;
+				gr_sheet.update();
+			}
+			
+			
+			//Here we will create the CSV of the approved expenses and then update the extract record, attach the CSV to the extract record.
+			
+			if(number_of_expense_lines > 0){
+				var grAttachment1 = new GlideSysAttachment();
+				grAttachment1.write(gr_extract, fileName_standard, 'text/csv',csvData_standard);
+				var grAttachment2 = new GlideSysAttachment();
+				grAttachment2.write(gr_extract, fileName_training, 'text/csv',csvData_training);
+				gr_extract.comments = "CSV générés et attachés à cette extraction avec "+employees_refunded.length+" employés à rembourser.";
+			}
+			
+			gr_extract.number_of_expenses = number_of_expense_sheets;
+			gr_extract.number_of_expense_lines = number_of_expense_lines;
+			gr_extract.generated_on = new GlideDateTime().getDisplayValue();
+			gr_extract.number_of_employees = employees_refunded.length;
+			gr_extract.total_amount = total_amount_extract;
+			
+			gr_extract.status = 2;
+			gr_extract.update();
+		}
+		
+		
+		
+	},
+	
+	
+	type: 'HVSExpenseExtractUtils'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-07 13:38:12</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>18df70c6dbf28490011e177e169619ef</sys_id>
+        <sys_mod_count>78</sys_mod_count>
+        <sys_name>HVSExpenseExtractUtils</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_script_include_18df70c6dbf28490011e177e169619ef</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-05 21:45:29</sys_updated_on>
+    </sys_script_include>
+</record_update>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($uibModal, $scope) {
+	/* widget controller */
+	var c = this;
+	//Remove " ||data.rolePilot == false" after pilot stage
+	if(c.data.manager =="" || c.data.isManagerActived == false || c.data.contract == false || c.data.rolePilot == false){
+		c.modalInstance = $uibModal.open({
+			templateUrl: 'modalTemplate',
+			backdrop:"static",
+			scope: $scope
+		});
+	}
+	
+	
+	
+	c.closeModal = function() {
+		document.location = "/sphvs";
+		
+	};
+	c.sendEmail = function(){
+		document.location = "mailto:"+c.data.email;
+	};
+	
+	c.intranet = function(){
+		document.location = "https://sirhportal.hopitalvs.ch";
+	};
+	
+		
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) { 
+
+ }]]></link>
+        <name>HVS Popup if no manager</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	var manager = "";
+	var active = true;
+	var email_if_loga_data_wrong = gs.getProperty("x_hdvi2_expense.email_contact");
+	
+	var user = new GlideRecord('sys_user');
+	if(user.get(gs.getUserID())){
+		manager = ""+user.manager.name;
+		if(user.manager.active == false){
+			active = false;
+		}
+		if(user.company.u_email_hr){
+			email_if_loga_data_wrong = ""+user.company.u_email_hr;
+		}
+		
+	}
+	
+	var grUserContract = new GlideRecord('u_hvs_user_contract');
+	var cptContract = 0;
+	grUserContract.addQuery('u_user',gs.getUserID());
+	grUserContract.addQuery('u_active',true);
+	grUserContract.query();
+
+	while (grUserContract.next()) {
+		cptContract = cptContract + 1;
+	}
+	if(cptContract==0) data.contract=false;
+	else data.contract=true;
+	
+	// TO REMOVE after pilot stage
+	data.rolePilot = gs.hasRole("hvs_pilot_expense");
+	
+	//----------------------------
+	data.manager = manager;
+	data.email = email_if_loga_data_wrong;
+	data.isManagerActived = active;
+	
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-07 12:37:47</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0ff134c6dbb28490011e177e1696196e</sys_id>
+        <sys_mod_count>63</sys_mod_count>
+        <sys_name>HVS Popup if no manager</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_widget_0ff134c6dbb28490011e177e1696196e</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-02-28 07:48:21</sys_updated_on>
+        <template><![CDATA[ 
+<script type="text/ng-template" id="modalTemplate">
+ <div class="panel panel-default">
+ <div class="panel-heading">
+ <h4 class="panel-title">${Warning}</h4>
+   </div>
+ <div class="panel-body wrapper-xl" ng-if="c.data.rolePilot == true">
+  <div ng-if="data.manager ==''">${You cannot access expense reports because you do not have a manager.}</div>
+  <div ng-if="data.contract == false">${You cannot access expense reports because you do not have a contract associated with your profile.}</div>
+   
+ <div ng-if="data.isManagerActived == false && data.manager !=''">${Your manager is} {{::data.manager}} ${but is no longer active in the system.}</div>
+  <div>${Please contact HR to correct this information.}<br /><br />
+  ${The update in this tool will be effective 24 hours after the modification in the HR Loga system.}<br />
+${Thank you for your understanding.}
+
+  </div>
+  
+  </div>
+  
+   <div class="panel-body wrapper-xl" ng-if="c.data.rolePilot == false">
+   ${You cannot access this page because you are not a member of the test group for the expense claim reimbursement application.}
+   </div>
+ <div class="panel-footer text-right">
+ <button ng-if="data.email" class="btn btn-primary" ng-click="c.sendEmail()">${Send Email}</button>  <button class="btn btn-primary" ng-click="c.intranet()">${Intranet}</button>  <button class="btn btn-primary" ng-click="c.closeModal()">${Portail Help}</button>
+ </div>
+ </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function actionOK(){
+    var date = gel('date').value;
+    if (date =="" ) {
+        alert(getMessage("Please select an attribution date"));
+        return false;
+	}
+	var c = gel('cancel_or_submit');
+    c.value = "submit";
+	return true;
+}
+
+function cancel(){
+	var c = gel('cancel_or_submit');
+    c.value = "cancel";
+	return true;
+}
+
+function validateDate(date){
+	
+	
+	    var newTime = new GwtDate(date + '');
+    if (newTime.compare(timeWindow(), true) < 0) {
+          setValidationError(true, new GwtMessage().getMessage('Lease end time must be later than current time'));
+          return false;
+
+
+    }
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_hdvi2_expense_exp_generate_extraction.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+
+<g:ui_form>
+	<input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
+	<input type="hidden" id="extraction_id" name="expense_id" value="${sysparm_sys_id}"/>
+
+
+
+<table width="100%">
+	<tr>
+            ${gs.getMessage("Processing date for LOGA")}
+	</tr>
+        <tr>    
+		<td>  <g:ui_date_time name="date" id="date" value="" readonly="false" onchange="validateDate(trim(gel('date').value))"/> <br/></td>
+        </tr>
+</table>
+	<br/>
+	<div id="dialogbuttons" style="float:right">
+		<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
+	</div>
+</g:ui_form>
+</j:jelly>]]></html>
+        <name>exp_generate_extraction</name>
+        <processing_script><![CDATA[if (cancel_or_submit == "submit") {
+	var generation = new x_hdvi2_expense.HVSExpenseExtractUtils().generateExtraction(date);
+	if(generation == ""){
+		var msg = getMessage("Error to create an extract record, please contact the ServiceNow admin");
+		gs.addErrorMessage(msg);
+		response.sendRedirect("x_hdvi2_expense_extract_list.do");
+	}else{
+		response.sendRedirect("x_hdvi2_expense_extract.do?sys_id=" + generation);
+	}
+	
+}else{
+	response.sendRedirect("x_hdvi2_expense_extract_list.do");
+}]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-28 07:57:36</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>5b2b73e8db1bc010011e177e16961998</sys_id>
+        <sys_mod_count>22</sys_mod_count>
+        <sys_name>exp_generate_extraction</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_page_5b2b73e8db1bc010011e177e16961998</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-02-28 08:24:54</sys_updated_on>
+    </sys_ui_page>
+</record_update>

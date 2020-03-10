@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>Service Portal</category>
+        <format/>
+        <height/>
+        <image>ff70093cdb5fc010011e177e169619bf</image>
+        <name>hvs_reload.svg</name>
+        <size_bytes>1136</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-28 12:59:23</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b05089bcdb5fc010011e177e16961926</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>hvs_reload.svg</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>db_image_b05089bcdb5fc010011e177e16961926</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-28 12:59:45</sys_updated_on>
+        <thumbnail/>
+        <width/>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <chunk_size_bytes>734003</chunk_size_bytes>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <encryption_context/>
+        <file_name>image</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>1136</size_bytes>
+        <size_compressed>674</size_compressed>
+        <state/>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-28 12:59:45</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ff70093cdb5fc010011e177e169619bf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-28 12:59:45</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>b05089bcdb5fc010011e177e16961926</table_sys_id>
+        <u_external_id/>
+        <u_record>b05089bcdb5fc010011e177e16961926</u_record>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="Date de création 28.02.2020 13:59:45" sys_id="ff70093cdb5fc010011e177e169619bf">ff70093cdb5fc010011e177e169619bf</sys_attachment>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-28 12:59:45</sys_created_on>
+        <sys_id>3370093cdb5fc010011e177e169619c0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-28 12:59:45</sys_updated_on>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>bZPbatwwEIavE+g7qO5VQZJ1sGVrk21I0pAGUigE9rZstM5miWsvtvfU0nfvP1qHBlrQYawZzfzzCZ9f7H/UbFt1/aptpomWKmFVE9rFqllOk83wJMrk4tO70/P3QrDbqqm6+dB2E3a5aB8rdlfXm36IR8xYqaTl7GF2y27267Yb2Ld6sxR3DZPxcHYsMmFOKsWuNqt6wdRHxoSg/P12+VaGTthqMU3u54eq+44PqGz6afI8DOtJmu52O7mzsu2WqVFKpbg8hkz29ap5+V+g9t6n0YvQaaLW+4Qdjvu70xO2XVW7q5YcTLFcG5oJ64dDXU2Tqpk/1pV4nIeXZddumsWkqXbsTeRZLD/p1/OA8HVX9VW3rZLYGKVgw2ENx1DthzT0PTlOZD+oX0+rup58cKr4XF6d/T6e6vHUq8vs8oZOz9OYhdKt58MzC/W8Bw0kSBgofVVcFy4oXsqSF9Jw7Y7jWdtSFsHJnCPESCus9FxnshRe+mBkLhAmtYDPw5cLXcisFk5hQEywnu54qbmPwQaWzlU0gkawQ2KjLR7e57IYzbhCjtbQ41Hc6Hg6Lg8Axo0r4IxW7lDqmkxN0rj11IMiB1fXuiyieAOPgTpe5KhaZNLe4xMZXRCZdHGiIETGJqiba+rWUO9WwcKGCzOg+pmk/7LUR5akw1rQFKApoERodxxfbI77QUSchMxyFBBRM+EUQMQRSIzAE86cR55O8SNOQolL4Cl8DDbEPlfRCGIEKiI/QUBHcwRK/dHL5YIw/l0ewCrLXplRIQDLtHwFSiDHGRxx0Nair0hTlwqwCGedlRBHS7BogWaBmeFZNT0djEDvr2BpgVvckXppqKCLzYOCoCR+xDIDyJE1/aPY/wCf49a+cAQAAA==</data>
+        <length>888</length>
+        <position>1</position>
+        <sys_attachment display_value="Date de création 28.02.2020 13:59:45" sys_id="ff70093cdb5fc010011e177e169619bf">ff70093cdb5fc010011e177e169619bf</sys_attachment>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-02-28 12:59:45</sys_created_on>
+        <sys_id>b370093cdb5fc010011e177e169619c0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-02-28 12:59:45</sys_updated_on>
+    </sys_attachment_doc>
+</record_update>

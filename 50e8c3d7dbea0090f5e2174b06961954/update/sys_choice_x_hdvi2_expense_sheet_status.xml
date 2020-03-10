@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="status" table="x_hdvi2_expense_sheet" version="3">
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Brouillon</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>5</sequence>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-03-04 21:42:24</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e8186caedb9b4810011e177e16961902</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-04 21:42:24</sys_updated_on>
+            <value>0</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Draft</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>5</sequence>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-01-30 15:37:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2f5e44a3db624090f5e2174b069619d2</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:37:04</sys_updated_on>
+            <value>0</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Requested</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>10</sequence>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-01-30 15:37:09</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>e06e04a3db624090f5e2174b0696195f</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:37:13</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Soumis</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>10</sequence>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-03-04 21:42:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cb28ec6edb9b4810011e177e16961939</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-04 21:42:51</sys_updated_on>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Reviewed</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>15</sequence>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-01-30 15:37:20</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b66e80a3db624090f5e2174b06961929</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:37:25</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Validé</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>15</sequence>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-03-04 21:44:48</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>6798e4eedb9b4810011e177e16961941</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-04 21:44:48</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Approuvé</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>20</sequence>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-03-04 21:44:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5788e0eedb9b4810011e177e169619d0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-04 21:44:30</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Approved</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>20</sequence>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-01-30 15:37:30</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a57ec4a3db624090f5e2174b069619a9</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:37:34</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Sent for refund</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>25</sequence>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-01-30 15:37:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>fb7ec4a3db624090f5e2174b0696199a</sys_id>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:37:52</sys_updated_on>
+            <value>4</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Terminé</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>25</sequence>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-03-04 21:44:11</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>2278ec6edb9b4810011e177e16961931</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-04 21:44:11</sys_updated_on>
+            <value>4</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Annulé</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>30</sequence>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-03-04 21:41:37</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>09e760aedb9b4810011e177e16961941</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-04 21:41:37</sys_updated_on>
+            <value>-1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Canceled</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <sequence>30</sequence>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-01-30 15:38:02</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>af8e88a3db624090f5e2174b06961958</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:38:15</sys_updated_on>
+            <value>-1</value>
+        </sys_choice>
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>status</element>
+            <name>x_hdvi2_expense_sheet</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-01-30 15:37:00</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>646e4c63db624090f5e2174b0696198a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>status</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_choice_x_hdvi2_expense_sheet_status</sys_update_name>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-01-30 15:37:00</sys_updated_on>
+        </sys_choice_set>
+    </sys_choice>
+</record_update>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>section.page {
+	background-color: $sp-homepage-bg;
+}
+section.page, main.body {
+    padding-top: 0px !important;
+}
+
+/* Home Page Search Opacity Background */
+#homepage-search &gt; div {
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 8px;
+}
+
+
+
+.icon-homepage-sphvs{
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 4px;
+    /*margin-right: 2px;
+    margin-left: 2px;*/
+}
+
+.test-2{
+    width: 1300px; 
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.test-3{
+    padding-top: 70px;
+    padding-right: 30px;
+    margin: auto;
+    font-weight: 400;
+    font-size: 18px;
+    width: 550px; 
+}
+
+.test-4{
+    width: 1600px; 
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.test-5{
+    width: 1600px; 
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.page-new-expense{
+    width: 1600px; 
+    margin: auto;
+    padding-top: 30px;
+  float: left;
+}
+.graph_container{
+width: 60%;
+  margin:center;
+  text-align:center;
+  margin-left:20%;
+
+}
+
+.table_container{
+  width: 100%;
+   //margin-left:20%;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>exp_my_team</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-24 11:59:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>bb4c4c67db030050f5e2174b0696190c</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>exp_my_team</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_page_bb4c4c67db030050f5e2174b0696190c</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 16:00:03</sys_updated_on>
+        <title>My Team</title>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=bb4c4c67db030050f5e2174b0696190c"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>bb4c4c67db030050f5e2174b0696190c</documentkey>
+        <fieldname>dynamic_title_structure</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 15:54:46</sys_created_on>
+        <sys_id>1eeecec6dbdf8850f5e2174b069619cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 15:54:46</sys_updated_on>
+        <tablename>sp_page</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>bb4c4c67db030050f5e2174b0696190c</documentkey>
+        <fieldname>short_description</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 15:54:46</sys_created_on>
+        <sys_id>daeecac6dbdf8850f5e2174b0696198e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 15:54:46</sys_updated_on>
+        <tablename>sp_page</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>bb4c4c67db030050f5e2174b0696190c</documentkey>
+        <fieldname>title</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-03 15:54:46</sys_created_on>
+        <sys_id>56eecac6dbdf8850f5e2174b06961991</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-03 15:54:46</sys_updated_on>
+        <tablename>sp_page</tablename>
+        <value>My Team</value>
+    </sys_translated_text>
+</record_update>

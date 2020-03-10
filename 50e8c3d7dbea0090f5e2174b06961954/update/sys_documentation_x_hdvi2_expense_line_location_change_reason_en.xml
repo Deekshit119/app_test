@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="location_change_reason" label="Location change reason" language="en" table="x_hdvi2_expense_line">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>location_change_reason</element>
+            <help/>
+            <hint/>
+            <label>Location change reason</label>
+            <language>en</language>
+            <name>x_hdvi2_expense_line</name>
+            <plural>Location change reasons</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-03-09 00:28:02</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>9d41c95cdba7c49009b962a9169619b1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Location change reason</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_documentation_x_hdvi2_expense_line_location_change_reason_en</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-03-09 00:28:02</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

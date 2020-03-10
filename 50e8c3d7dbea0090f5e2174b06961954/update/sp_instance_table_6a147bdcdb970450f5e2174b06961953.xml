@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_table">
+    <sp_instance_table action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <display_field/>
+        <field_list/>
+        <filter/>
+        <glyph/>
+        <id/>
+        <maximum_entries>5</maximum_entries>
+        <order>1</order>
+        <order_by/>
+        <order_direction>asc</order_direction>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">8d143bdcdb970450f5e2174b06961988</sp_column>
+        <sp_page/>
+        <sp_widget display_value="List Tabbed">e42cd219dba7cf0047fc7db33c9619e3</sp_widget>
+        <sys_class_name>sp_instance_table</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-27 12:47:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6a147bdcdb970450f5e2174b06961953</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_instance_table_6a147bdcdb970450f5e2174b06961953</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-05 10:43:33</sys_updated_on>
+        <table/>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link1": {
+		"value": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Requesting&button_filter=true&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=1&show_keywords=true&o=sys_updated_on&d=desc&enable_filter=true",
+		"displayValue": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Requesting&button_filter=true&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=1&show_keywords=true&o=sys_updated_on&d=desc&enable_filter=true"
+	},
+	"link2": {
+		"value": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Reviewing&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=2&show_keywords=true&o=sys_updated_on&d=desc",
+		"displayValue": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Reviewing&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=2&show_keywords=true&o=sys_updated_on&d=desc"
+	},
+	"link3": {
+		"value": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=To be Refunded&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=3&show_keywords=true&o=sys_updated_on&d=desc",
+		"displayValue": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=To be Refunded&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=3&show_keywords=true&o=sys_updated_on&d=desc"
+	},
+	"link4": {
+		"value": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Refunded&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=4&show_keywords=true&o=sys_updated_on&d=desc",
+		"displayValue": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Refunded&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=4&show_keywords=true&o=sys_updated_on&d=desc"
+	},
+	"link5": {
+		"value": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Canceled&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=-1&show_keywords=true&o=sys_updated_on&d=desc",
+		"displayValue": "?table=x_hdvi2_expense_view&show_keywords=true&page=#&title=Canceled&view=sp&filter=expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^expsheet_status=-1&show_keywords=true&o=sys_updated_on&d=desc"
+	},
+	"link6": {
+		"value": "",
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance_table>
+    <sys_translated_text action="delete_multiple" query="documentkey=6a147bdcdb970450f5e2174b06961953"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>6a147bdcdb970450f5e2174b06961953</documentkey>
+        <fieldname>short_description</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-05 10:43:33</sys_created_on>
+        <sys_id>0fda5baadb178810011e177e1696199d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-05 10:43:33</sys_updated_on>
+        <tablename>sp_instance_table</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>6a147bdcdb970450f5e2174b06961953</documentkey>
+        <fieldname>title</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-05 10:43:33</sys_created_on>
+        <sys_id>87da5baadb178810011e177e169619a0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-05 10:43:33</sys_updated_on>
+        <tablename>sp_instance_table</tablename>
+        <value/>
+    </sys_translated_text>
+</record_update>

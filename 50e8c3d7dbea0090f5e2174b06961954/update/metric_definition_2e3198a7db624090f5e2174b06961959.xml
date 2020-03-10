@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="metric_definition">
+    <metric_definition action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description/>
+        <field>status</field>
+        <name>Status</name>
+        <number>MTRC10005</number>
+        <order>100</order>
+        <script/>
+        <sys_class_name>metric_definition</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-01-30 15:49:45</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2e3198a7db624090f5e2174b06961959</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Status</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>metric_definition_2e3198a7db624090f5e2174b06961959</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-01-30 15:50:06</sys_updated_on>
+        <table>x_hdvi2_expense_sheet</table>
+        <timeline>false</timeline>
+        <type>field_value_duration</type>
+    </metric_definition>
+</record_update>

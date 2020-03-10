@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="c6d4a7a9db364890f5e2174b069619be" sys_domain="global" table="x_hdvi2_expense_line" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-06 12:21:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>56d4a7a9db364890f5e2174b069619c1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_hdvi2_expense_line" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">c6d4a7a9db364890f5e2174b069619be</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-02-06 12:21:51</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-06 12:21:51</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>56d4a7a9db364890f5e2174b069619c2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_hdvi2_expense_line" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">c6d4a7a9db364890f5e2174b069619be</sys_ui_form>
+            <sys_ui_section caption="Details" display_value="Details" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">82d4a7a9db364890f5e2174b069619bd</sys_ui_section>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-02-06 12:21:51</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-06 12:22:56</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>86152fa9db364890f5e2174b06961915</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_hdvi2_expense_line" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">c6d4a7a9db364890f5e2174b069619be</sys_ui_form>
+            <sys_ui_section caption="New Section" display_value="New Section" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">0215aba9db364890f5e2174b069619e8</sys_ui_section>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-02-06 12:22:56</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_hdvi2_expense_line</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-02-06 12:21:51</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c6d4a7a9db364890f5e2174b069619be</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_hdvi2_expense_line</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_ui_form_sections_c6d4a7a9db364890f5e2174b069619be</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-02-06 12:21:51</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>
