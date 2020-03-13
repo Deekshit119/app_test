@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="INSERT_OR_UPDATE">
+        <action>false</action>
+        <action_event>click</action_event>
+        <action_target/>
+        <action_target_ref/>
+        <active>true</active>
+        <content><![CDATA[Merci d&#39;avoir suivi cette visite guidée.]]></content>
+        <guide display_value="Demandes Remboursement de Frais Suivi Demandes">2d0b8ac9db67cc9009b962a9169619ba</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name>Conclusion</name>
+        <options/>
+        <order>999</order>
+        <placement>bottom</placement>
+        <step_type>concl</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-13 00:28:19</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>b4ca52c9dba7cc9009b962a916961979</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Conclusion</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_b4ca52c9dba7cc9009b962a916961979</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-13 01:39:41</sys_updated_on>
+        <target/>
+        <target_ref/>
+        <title/>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window/>
+    </sys_embedded_tour_step>
+</record_update>

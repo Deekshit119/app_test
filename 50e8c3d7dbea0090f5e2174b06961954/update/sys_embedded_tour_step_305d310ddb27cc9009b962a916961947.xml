@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="INSERT_OR_UPDATE">
+        <action>false</action>
+        <action_event>next</action_event>
+        <action_target/>
+        <action_target_ref display_value="xpath">2c668c09dbe38c9009b962a91696192c</action_target_ref>
+        <active>true</active>
+        <content><![CDATA[Assurez-vous que le responsable affiché est correct.Sinon, contactez votre référent RH.]]></content>
+        <guide display_value="Demandes Remboursement de Frais  Profil Utilisateur">af806a01dbe7cc9009b962a9169619b3</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name/>
+        <options>{"url":"/exphvs?id=user_profile&amp;sys_id=8a21e682dbb6ff80bbe25c88f4961984"}</options>
+        <order>2</order>
+        <placement>top</placement>
+        <step_type>step</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-12 22:19:41</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>305d310ddb27cc9009b962a916961947</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_305d310ddb27cc9009b962a916961947</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-13 01:48:20</sys_updated_on>
+        <target/>
+        <target_ref display_value="xpath">2c668c09dbe38c9009b962a91696192c</target_ref>
+        <title/>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window>exphvs</window>
+    </sys_embedded_tour_step>
+</record_update>

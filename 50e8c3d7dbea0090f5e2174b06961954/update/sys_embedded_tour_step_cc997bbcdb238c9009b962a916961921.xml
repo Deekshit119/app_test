@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="INSERT_OR_UPDATE">
+        <action>true</action>
+        <action_event>click</action_event>
+        <action_target/>
+        <action_target_ref/>
+        <active>true</active>
+        <content><![CDATA[Bonjour et bienvenue sur le portail Remboursement de frais,  le point d&#39;entrée pour soumettre vos dépenses concernant des frais de déplacement et des frais divers.
+
+Découvrez les principales fonctionnalités à disposition en suivant cette visite guidée.]]></content>
+        <guide display_value="Remboursement de Frais">f577f3b4db238c9009b962a9169619f0</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name>Introduction</name>
+        <options/>
+        <order>0</order>
+        <placement>bottom</placement>
+        <step_type>intro</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-12 12:44:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path/>
+        <sys_id>cc997bbcdb238c9009b962a916961921</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Introduction</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_cc997bbcdb238c9009b962a916961921</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-12 12:44:01</sys_updated_on>
+        <target/>
+        <target_ref/>
+        <title><![CDATA[Quelles sont les principales fonctionnalités du Portail Remboursement de frais ?]]></title>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window/>
+    </sys_embedded_tour_step>
+</record_update>
