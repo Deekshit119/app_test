@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application/>
+        <key>This feature is not available yet</key>
+        <language>de</language>
+        <message>Diese Funktion ist noch nicht verfügbar</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-17 18:11:21</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a764feeadbab0c10011e177e169619c6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>This feature is not available yet</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_message_a764feeadbab0c10011e177e169619c6</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-17 18:36:38</sys_updated_on>
+    </sys_ui_message>
+</record_update>
