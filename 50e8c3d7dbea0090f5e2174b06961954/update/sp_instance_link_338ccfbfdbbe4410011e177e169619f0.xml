@@ -11,7 +11,7 @@
         <kb_topic/>
         <order>1</order>
         <roles/>
-        <sc_cat_item display_value="Demande de remboursement">ff844a95db3ec090011e177e16961952</sc_cat_item>
+        <sc_cat_item display_value="Anfrage für Rückerstattung">ff844a95db3ec090011e177e16961952</sc_cat_item>
         <sc_category/>
         <short_description/>
         <size>md</size>
@@ -23,15 +23,15 @@
         <sys_created_on>2020-02-13 10:22:05</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>338ccfbfdbbe4410011e177e169619f0</sys_id>
-        <sys_mod_count>25</sys_mod_count>
-        <sys_name>Expense refunding</sys_name>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name>Rückerstattungskosten</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_instance_link_338ccfbfdbbe4410011e177e169619f0</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-02 17:16:13</sys_updated_on>
+        <sys_updated_on>2020-03-17 17:51:10</sys_updated_on>
         <title>Expense refunding</title>
         <type>sc_cat_item</type>
         <url/>
@@ -54,6 +54,19 @@
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>338ccfbfdbbe4410011e177e169619f0</documentkey>
         <fieldname>short_description</fieldname>
+        <language>de</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-17 17:51:10</sys_created_on>
+        <sys_id>4cdf2e2adbab0c10011e177e1696190d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-17 17:51:10</sys_updated_on>
+        <tablename>sp_instance_link</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>338ccfbfdbbe4410011e177e169619f0</documentkey>
+        <fieldname>short_description</fieldname>
         <language>fr</language>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-02-13 10:22:05</sys_created_on>
@@ -63,6 +76,19 @@
         <sys_updated_on>2020-02-13 10:22:05</sys_updated_on>
         <tablename>sp_instance_link</tablename>
         <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>338ccfbfdbbe4410011e177e169619f0</documentkey>
+        <fieldname>title</fieldname>
+        <language>de</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-17 17:51:10</sys_created_on>
+        <sys_id>0cdf2e2adbab0c10011e177e16961911</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-17 17:51:10</sys_updated_on>
+        <tablename>sp_instance_link</tablename>
+        <value>Rückerstattungskosten</value>
     </sys_translated_text>
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>338ccfbfdbbe4410011e177e169619f0</documentkey>
