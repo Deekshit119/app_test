@@ -57,6 +57,19 @@
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>756c80a7db030050f5e2174b06961928</documentkey>
         <fieldname>label</fieldname>
+        <language>de</language>
+        <sys_created_by>h40000572</sys_created_by>
+        <sys_created_on>2020-03-17 15:28:02</sys_created_on>
+        <sys_id>d30f8a26dba70c10011e177e169619f5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-03-17 15:28:02</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value>Genehmigen Sie Anfragen von meinem Team</value>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>756c80a7db030050f5e2174b06961928</documentkey>
+        <fieldname>label</fieldname>
         <language>fr</language>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-03-03 13:56:46</sys_created_on>

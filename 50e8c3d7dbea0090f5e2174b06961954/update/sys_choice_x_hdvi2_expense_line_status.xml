@@ -24,6 +24,25 @@
             <element>status</element>
             <hint/>
             <inactive>false</inactive>
+            <label>Annuliert</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_line</name>
+            <sequence>0</sequence>
+            <sys_created_by>h40000572</sys_created_by>
+            <sys_created_on>2020-03-16 14:49:10</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>5c9cb01adba3c810011e177e169619e5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40000572</sys_updated_by>
+            <sys_updated_on>2020-03-16 14:49:10</sys_updated_on>
+            <value>-1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
             <label>Canceled</label>
             <language>en</language>
             <name>x_hdvi2_expense_line</name>
@@ -75,6 +94,44 @@
             <sys_updated_by>benjamin.broch</sys_updated_by>
             <sys_updated_on>2020-02-20 14:57:21</sys_updated_on>
             <value>0</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Entwurf</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_line</name>
+            <sequence>1</sequence>
+            <sys_created_by>h40000572</sys_created_by>
+            <sys_created_on>2020-03-16 14:49:25</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8cacf41adba3c810011e177e16961915</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40000572</sys_updated_by>
+            <sys_updated_on>2020-03-16 14:49:25</sys_updated_on>
+            <value>0</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Angefragt</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_line</name>
+            <sequence>2</sequence>
+            <sys_created_by>h40000572</sys_created_by>
+            <sys_created_on>2020-03-16 14:49:35</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>56acf05adba3c810011e177e169619d4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40000572</sys_updated_by>
+            <sys_updated_on>2020-03-16 14:49:35</sys_updated_on>
+            <value>1</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>
@@ -157,6 +214,25 @@
             <element>status</element>
             <hint/>
             <inactive>false</inactive>
+            <label>Validiert</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_line</name>
+            <sequence>3</sequence>
+            <sys_created_by>h40000572</sys_created_by>
+            <sys_created_on>2020-03-16 14:50:50</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>acfc705adba3c810011e177e16961954</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40000572</sys_updated_by>
+            <sys_updated_on>2020-03-16 14:50:50</sys_updated_on>
+            <value>2</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
             <label>Approuvé</label>
             <language>fr</language>
             <name>x_hdvi2_expense_line</name>
@@ -189,6 +265,44 @@
             <sys_updated_by>benjamin.broch</sys_updated_by>
             <sys_updated_on>2020-02-20 14:58:48</sys_updated_on>
             <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Genehmigt</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_line</name>
+            <sequence>5</sequence>
+            <sys_created_by>h40000572</sys_created_by>
+            <sys_created_on>2020-03-16 14:49:57</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b7bc3c1adba3c810011e177e16961991</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40000572</sys_updated_by>
+            <sys_updated_on>2020-03-16 14:49:57</sys_updated_on>
+            <value>3</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>status</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Fertig</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_line</name>
+            <sequence>10</sequence>
+            <sys_created_by>h40000572</sys_created_by>
+            <sys_created_on>2020-03-16 14:50:40</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>9eecb45adba3c810011e177e169619be</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40000572</sys_updated_by>
+            <sys_updated_on>2020-03-16 14:50:40</sys_updated_on>
+            <value>4</value>
         </sys_choice>
         <sys_choice action="INSERT_OR_UPDATE">
             <dependent_value/>

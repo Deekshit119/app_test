@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>HVS_expense_SalaryRejectReason</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+		var sRejReason = current.comments.getJournalEntry(1);
+		template.print(sRejReason); //get last comment);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-13 15:54:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2cce6515db630810f5e2174b06961907</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HVS_expense_SalaryRejectReason</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_script_email_2cce6515db630810f5e2174b06961907</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-13 15:54:52</sys_updated_on>
+    </sys_script_email>
+</record_update>

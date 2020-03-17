@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="attribution_date" label="Datum der Zahlung" language="de" table="x_hdvi2_expense_extract">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>attribution_date</element>
+            <help/>
+            <hint/>
+            <label>Datum der Zahlung</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_extract</name>
+            <plural>Datum der Zahlung</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>h40000572</sys_created_by>
+            <sys_created_on>2020-03-16 14:32:43</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>2fc87cd2dba3c810011e177e169619ce</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Datum der Zahlung</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_documentation_x_hdvi2_expense_extract_attribution_date_de</sys_update_name>
+            <sys_updated_by>h40000572</sys_updated_by>
+            <sys_updated_on>2020-03-16 14:32:43</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
