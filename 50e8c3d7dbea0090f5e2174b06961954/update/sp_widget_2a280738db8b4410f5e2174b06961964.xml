@@ -81,7 +81,7 @@
 								c.data.setchanged = 'false';
 								$scope.setchanged = 'false';
 								Control();
-							})
+							});
 						}
 						else {
 								c.data.expline_requested_value = data.expline_requested_value;
@@ -164,7 +164,6 @@
 		}
 		
 		if (c.data.codeloga[0].code=='800' && $scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961949') { //Rubrique Loga Frais de repas dans le canton
-			//alert(isNaN(parseFloat(document.getElementById('expReqAmount').value)));
 			 var iMontantIn = 0;
 				var boolMontantInNaN = isNaN(parseFloat(document.getElementById('expReqAmount').value));
 				if(!boolMontantInNaN) {
@@ -191,7 +190,7 @@
 							$scope.setchanged = 'invalid';
 						}
 						//Control();
-					})
+					});
 				}
 			}
 		
@@ -222,7 +221,7 @@
 							$scope.setchanged = 'invalid';
 						}
 						//Control();
-					})
+					});
 				}
 			}
 		
@@ -263,7 +262,6 @@
 		c.data.expDate = $scope.expDate;
 		
 		if(document.getElementById('setchanged').value == 'invalid') {
-			     alert($scope.setchanged + ' - ' + c.data.setchanged);
 						spModal.open({
 							title: '${expense.modal.warning}',
 							message: "${expense.edit.message.invalid_form}",
@@ -301,10 +299,10 @@
              // true or false
 					c.retConfirm=retConfirm;
 				  $uibModalStack.dismissAll();
-        })
+        });
     }
 		else $uibModalStack.dismissAll();
-	}
+	};
 }]]></client_script>
         <controller_as>c</controller_as>
         <css>.widget-data-table .clearfix{ 
@@ -629,7 +627,7 @@ span.panel-title{
         <sys_created_on>2020-02-16 12:36:48</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2a280738db8b4410f5e2174b06961964</sys_id>
-        <sys_mod_count>1394</sys_mod_count>
+        <sys_mod_count>1399</sys_mod_count>
         <sys_name>hvs_widget_expense</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -637,7 +635,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_2a280738db8b4410f5e2174b06961964</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-09 14:53:02</sys_updated_on>
+        <sys_updated_on>2020-04-01 08:39:28</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -752,11 +750,9 @@ span.panel-title{
       <tr><td><span>&nbsp;</span></td></tr>
     </table>
  </div>
-     
  </div>
-
 </div>
-<div ng_if="data.uId == '8a21e682dbb6ff80bbe25c88f4961984'" class="pointer ng-binding ng-scope"  style="display:visible;">
+<div class="pointer ng-binding ng-scope" style="visibility:hidden;">
   <input id="setchanged" ng-model="setchanged" class="ng-binding ng-scope" type="text" >
   <input ng-model="expline_sysid" type="text">
   <input ng-model="valCodeloga" type="text">
