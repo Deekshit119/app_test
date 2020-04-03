@@ -16,7 +16,7 @@
         <model_id/>
         <model_table/>
         <on_load>true</on_load>
-        <order>100</order>
+        <order>400</order>
         <reverse_if_false>false</reverse_if_false>
         <run_scripts>false</run_scripts>
         <script_false><![CDATA[function onCondition() {
@@ -34,7 +34,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>7738cfc0db93c050f5e2174b0696190a</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>HVS Hide Field if Frais de repas dans canton VS</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -42,8 +42,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_ui_policy_7738cfc0db93c050f5e2174b0696190a</sys_update_name>
-        <sys_updated_by>h40000572</sys_updated_by>
-        <sys_updated_on>2020-03-09 14:19:40</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-04-02 15:34:48</sys_updated_on>
         <table/>
         <ui_type>0</ui_type>
         <variable_set display_value="Lignes de dépenses SR">a048ae60db4b0410f5e2174b069619dc</variable_set>

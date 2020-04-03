@@ -92,7 +92,8 @@ function parseLogaData(response) {
 			// Code Loga avec pièce jointe 
 			// 807 Frais hébergement
 			// 806 Frais transport publics-parking
-			if(sCode == '807'  || sCode == '806') { // Sys_id : Frais de repas hors canton
+			// D01 Divers
+			if(sCode == '807' || sCode == '806' || sCode == 'D01') {
 				getMessage('expense.rubric.message.attachment', function(msg) {
 					g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
 					});
@@ -101,7 +102,7 @@ function parseLogaData(response) {
 		
 			// Code Loga montant maximum 
 			// 855 Connexion internet
-			if(sCode == '855') { // Sys_id : Frais de repas hors canton
+			if(sCode == '855') {
 				if(answer.max_amount!=0) g_form.setValue('sr_requested_amount',''||answer.max_amount);
 			}
 	}
@@ -116,7 +117,7 @@ function parseLogaData(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>53186b9bdb8b4050011e177e169619e5</sys_id>
-        <sys_mod_count>97</sys_mod_count>
+        <sys_mod_count>98</sys_mod_count>
         <sys_name>HVS Rubric Controls</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -125,7 +126,7 @@ function parseLogaData(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_53186b9bdb8b4050011e177e169619e5</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-09 14:43:36</sys_updated_on>
+        <sys_updated_on>2020-04-02 15:51:30</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>

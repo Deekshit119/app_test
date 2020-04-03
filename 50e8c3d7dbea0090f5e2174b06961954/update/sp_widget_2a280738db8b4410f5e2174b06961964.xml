@@ -52,9 +52,9 @@
 
 			//console.log('scope.expOtherLoc:'+$scope.expOtherLoc);
 		}
-		if(c.data.codeloga[0].code=='79C') {
+		if(c.data.codeloga[0].code=='79C' || c.data.codeloga[0].code=='79H') {
 				if($scope.location_from.value != '' && $scope.location_from.value != null && $scope.location_to.value != null && $scope.location_to.value != '' ){ //&& (document.getElementById('expOtherLoc').value == '')){
-					if($scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948')
+					if($scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948' || $scope.Rubric.value == 'f7b2f22bdb3fcc50011e177e16961981')
 						document.getElementById('expOtherLoc').value = '';
 						
 					document.getElementById('expReqValue').readOnly = true;
@@ -92,7 +92,7 @@
 					spUtil.update($scope);
 			}
 				else {
-					if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') document.getElementById('expOtherLoc').readOnly = false;
+					if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('expOtherLoc').readOnly = false;
 					document.getElementById('expReqValue').readOnly = false;
 					if(($scope.location_from.value == '' || $scope.location_from.value == null) && ($scope.location_to.value == null || $scope.location_to.value == ''))// && (document.getElementById('expOtherLoc').value == ''))
 					{
@@ -105,7 +105,7 @@
 					}
 					else if(($scope.location_from.value == '' || $scope.location_from.value == null) && ($scope.location_to.value == null || $scope.location_to.value == ''))// && (document.getElementById('expOtherLoc').value != ''))
 					{
-						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') document.getElementById('labelOtherLoc').style.color = 'black';
+						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('labelOtherLoc').style.color = 'black';
 						document.getElementById('labelLocFrom').style.color = 'black';
 						document.getElementById('labelLocTo').style.color = 'black';
 						document.getElementById('expReqValue').readOnly = false;
@@ -114,7 +114,7 @@
 					}
 					else if(($scope.location_from.value != '' && $scope.location_from.value != null) && ($scope.location_to.value == null || $scope.location_to.value == ''))// && (document.getElementById('expOtherLoc').value == ''))
 					{
-						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') document.getElementById('labelOtherLoc').style.color = 'red';
+						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('labelOtherLoc').style.color = 'red';
 						document.getElementById('labelLocFrom').style.color = 'black';
 						document.getElementById('labelLocTo').style.color = 'red';
 						document.getElementById('expReqValue').readOnly = false;
@@ -123,7 +123,7 @@
 					}
 					else if(($scope.location_to.value != '' && $scope.location_to.value != null) && ($scope.location_from.value == null || $scope.location_from.value == ''))// && (document.getElementById('expOtherLoc').value == ''))
 					{
-						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') document.getElementById('labelOtherLoc').style.color = 'red';
+						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('labelOtherLoc').style.color = 'red';
 						document.getElementById('labelLocFrom').style.color = 'red';
 						document.getElementById('labelLocTo').style.color = 'black';
 						document.getElementById('expReqValue').readOnly = false;
@@ -145,7 +145,7 @@
 				// 1. set location_from & location_to fields to read only
 				// 2. set value to '' ?
 			
-				if(document.getElementById('expOtherLoc').value != '' && $scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') {
+				if(document.getElementById('expOtherLoc').value != '' && $scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') {
 					c.data.setchanged = 'true';
 					$scope.setchanged = 'true';
 					$scope.location_to.value = null;
@@ -194,7 +194,7 @@
 				}
 			}
 		
-		if (c.data.codeloga[0].code=='800' && $scope.Rubric.value == 'bfc37b13dbee0090f5e2174b06961949') { //Rubrique Loga Frais de repas dans le canton
+		if (c.data.codeloga[0].code=='800' && $scope.Rubric.value == 'bfc37b13dbee0090f5e2174b06961949') { //Rubrique Loga Frais de repas hors canton
 				var iMontantOut = 0;
 				var boolMontantOutNaN = isNaN(parseFloat(document.getElementById('expReqAmount').value));
 				if(!boolMontantOutNaN) {
@@ -225,7 +225,7 @@
 				}
 			}
 		
-		if (c.data.codeloga[0].code=='855') { //Rubrique Frais forfaitaire Piquet
+		if (c.data.codeloga[0].code=='855') { //Rubrique Connexion Internet
 			document.getElementById('expReqAmount').value = 25;
 			document.getElementById('expReqAmount').readOnly = true;
 			c.data.setchanged = 'true';
@@ -245,12 +245,12 @@
 		c.data.expOtherLoc = document.getElementById('expOtherLoc').value;
 
 		c.data.expDesc = document.getElementById('expDesc').value;
-		if(c.data.codeloga[0].code=='79C' && $scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948')  {
+		if((c.data.codeloga[0].code=='79C' && $scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948') || (c.data.codeloga[0].code=='79H' && $scope.Rubric.value == 'f7b2f22bdb3fcc50011e177e16961981'))  {
 			c.data.expReqValue = document.getElementById('expReqValue').value;
 			c.data.location_from = $scope.location_from.value;
 			c.data.location_to = $scope.location_to.value;
 		}
-		else if(c.data.codeloga[0].code=='79C' && $scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948'){
+		else if((c.data.codeloga[0].code=='79C' && $scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') || (c.data.codeloga[0].code=='79H' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981')){
 			c.data.expReqValue = document.getElementById('expReqValue').value;
 			c.data.location_from = $scope.location_from.value;
 			c.data.location_to = '';
@@ -494,79 +494,81 @@ span.panel-title{
 		}
 	}
 
-	if(input.setchanged && input.setchanged=='getNbKm')  {
-			var valKm = -1;
-			var grTravelKM = new GlideRecord('x_hdvi2_expense_expense_travel_km');
+	if(input)  {
+		if(input.setchanged && input.setchanged=='getNbKm')  {
+				var valKm = -1;
+				var grTravelKM = new GlideRecord('x_hdvi2_expense_expense_travel_km');
 
-			grTravelKM.addQuery('locations',input.location_from.displayValue);
-			grTravelKM.addQuery('to',input.location_to.displayValue);
-			grTravelKM.query();
+				grTravelKM.addQuery('locations',input.location_from.displayValue);
+				grTravelKM.addQuery('to',input.location_to.displayValue);
+				grTravelKM.query();
 
-			while (grTravelKM.next()) {
-				valKm = parseFloat(grTravelKM.getValue('km'));
-			}
-		
-			if(valKm==-1 || valKm==0) {
-				gs.info('recheche km ');
-				var grTravelKM2 = new GlideRecord('x_hdvi2_expense_expense_travel_km');
-				grTravelKM2.addQuery('to',input.location_from.displayValue);
-				grTravelKM2.addQuery('locations',input.location_to.displayValue);
-				grTravelKM2.query();
-				while (grTravelKM2.next()) {
-					valKm = parseFloat(grTravelKM2.getValue('km'));
+				while (grTravelKM.next()) {
+					valKm = parseFloat(grTravelKM.getValue('km'));
 				}
-			}
-		
-		
-			if(valKm != -1 && valKm != 0) {
-				data.expline_requested_value = valKm;
-				data.retour_action = 'OK';
-			}
-			else {
-				data.expline_requested_value = 0;
-				data.retour_action = 'KMKO';
-			}
-	}
-	
-	if(input.setchanged && input.setchanged=='true')  {
-			var expParent ='';
-			var scSubmit = new GlideRecord('x_hdvi2_expense_line');
-			scSubmit.addQuery("sys_id",input.expline_sysid);
-			scSubmit.query();
-			if(scSubmit.next()) {
 
-			var year= input.expDate.substr(0, 4);
-			var month= input.expDate.substr(5, 2);
-			var day= parseInt(input.expDate.substr(8, 2))+1;
-			var dFinalDate = day+'.'+month+'.'+year;
+				if(valKm==-1 || valKm==0) {
+					gs.info('recheche km ');
+					var grTravelKM2 = new GlideRecord('x_hdvi2_expense_expense_travel_km');
+					grTravelKM2.addQuery('to',input.location_from.displayValue);
+					grTravelKM2.addQuery('locations',input.location_to.displayValue);
+					grTravelKM2.query();
+					while (grTravelKM2.next()) {
+						valKm = parseFloat(grTravelKM2.getValue('km'));
+					}
+				}
+
+
+				if(valKm != -1 && valKm != 0) {
+					data.expline_requested_value = valKm;
+					data.retour_action = 'OK';
+				}
+				else {
+					data.expline_requested_value = 0;
+					data.retour_action = 'KMKO';
+				}
+		}
 	
-			expParent =scSubmit.expense;
-			scSubmit.date_expense=dFinalDate;
-			scSubmit.other_location=input.expOtherLoc;
-			scSubmit.requested_amount=input.expReqAmount;
-			scSubmit.requested_value=input.expReqValue;
-			if(input.CodeLogaValeur && input.CodeLogaValeur=='79C'){
-				//scSubmit.location=document.getElementById('location_from').value;
-				//scSubmit.travelkm=document.getElementById('location_to').value;
-				
-				if(typeof(input.location_from)!=='undefined') scSubmit.location=input.location_from;
-					else scSubmit.location_from='';
-				if(typeof(input.location_to)!=='undefined') scSubmit.travelkm=input.location_to;
-					else scSubmit.travelkm='';
-				
-			}
-				
-				scSubmit.update();
-			}
-			
-			var scSubExp = new GlideRecord('x_hdvi2_expense_sheet');
-			scSubExp.addQuery("sys_id",expParent);
-			scSubExp.query();
-			if(scSubExp.next()) {
-				scSubExp.short_description = input.expDesc;
-				scSubExp.update();
-			}
-	}	
+		if(input.setchanged && input.setchanged=='true')  {
+				var expParent ='';
+				var scSubmit = new GlideRecord('x_hdvi2_expense_line');
+				scSubmit.addQuery("sys_id",input.expline_sysid);
+				scSubmit.query();
+				if(scSubmit.next()) {
+
+				var year= input.expDate.substr(0, 4);
+				var month= input.expDate.substr(5, 2);
+				var day= parseInt(input.expDate.substr(8, 2))+1;
+				var dFinalDate = day+'.'+month+'.'+year;
+
+				expParent =scSubmit.expense;
+				scSubmit.date_expense=dFinalDate;
+				scSubmit.other_location=input.expOtherLoc;
+				scSubmit.requested_amount=input.expReqAmount;
+				scSubmit.requested_value=input.expReqValue;
+				if(input.CodeLogaValeur && input.CodeLogaValeur=='79C'){
+					//scSubmit.location=document.getElementById('location_from').value;
+					//scSubmit.travelkm=document.getElementById('location_to').value;
+
+					if(typeof(input.location_from)!=='undefined') scSubmit.location=input.location_from;
+						else scSubmit.location_from='';
+					if(typeof(input.location_to)!=='undefined') scSubmit.travelkm=input.location_to;
+						else scSubmit.travelkm='';
+
+				}
+
+					scSubmit.update();
+				}
+
+				var scSubExp = new GlideRecord('x_hdvi2_expense_sheet');
+				scSubExp.addQuery("sys_id",expParent);
+				scSubExp.query();
+				if(scSubExp.next()) {
+					scSubExp.short_description = input.expDesc;
+					scSubExp.update();
+				}
+		}	
+	}
 	
 	var filterRubric = '';
 	
@@ -627,7 +629,7 @@ span.panel-title{
         <sys_created_on>2020-02-16 12:36:48</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2a280738db8b4410f5e2174b06961964</sys_id>
-        <sys_mod_count>1399</sys_mod_count>
+        <sys_mod_count>1406</sys_mod_count>
         <sys_name>hvs_widget_expense</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -635,7 +637,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_2a280738db8b4410f5e2174b06961964</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-01 08:39:28</sys_updated_on>
+        <sys_updated_on>2020-04-02 14:43:55</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -682,11 +684,21 @@ span.panel-title{
            <label for="Rubric">${expense.label.LogaRubric} :</label>
            <sn-record-picker readonly field="Rubric" table="'x_hdvi2_expense_loga_data'" display-field="'label'" value-field="'sys_id'" search-fields="'label'" page-size="15" default-query="'{{c.data.FilterRubric}}'"></sn-record-picker>
          </div>
-         <div ng-if="data.codeloga[0].code!='79C'">
+         <div ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='79H'">
            <label style="padding-top:8px;" id="labelReqAmount" for="expReqAmount">${expense.label.RequestedAmount} :</label>
            <input id="expReqAmount" class="form-control" ng-change="SetChangeTrue()" ng-model="expAmount" value="{{c.data.items[0].expline_requested_amount}}" type="number">
          </div>
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='fbc37b13dbee0090f5e2174b06961948'">
+           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
+           <input id="expReqValue" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
+           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <label style="padding-top:8px;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
+           <sn-record-picker id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+      		 <label style="padding-top:8px;display:none;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
+     			 <input style="display:none;" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+         </div>  
+         <div ng-if="data.codeloga[0].code=='79H' && data.codeloga[0].sys_id=='f7b2f22bdb3fcc50011e177e16961981'">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
            <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
@@ -707,6 +719,16 @@ span.panel-title{
       		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.Location} :</label>
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
+         <div ng-if="data.codeloga[0].code=='79H' && data.codeloga[0].sys_id=='d7a2f22bdb3fcc50011e177e1696199b' && data.items[0].expline_other_location!=''">
+           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
+           <input id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
+           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
+           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.Location} :</label>
+     			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+         </div>  
          
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location==''">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
@@ -718,8 +740,18 @@ span.panel-title{
       		 <label style="padding-top:8px;color:#ff0000;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
+         <div ng-if="data.codeloga[0].code=='79H' && data.codeloga[0].sys_id=='d7a2f22bdb3fcc50011e177e1696199b' && data.items[0].expline_other_location==''">
+           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
+           <input id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
+           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
+           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+      		 <label style="padding-top:8px;color:#ff0000;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
+     			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+         </div>  
   
-         <div style="position:relative;" ng-if="data.codeloga[0].code!='79C'">
+         <div style="position:relative;" ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='79H'">
       		<label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			<input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  

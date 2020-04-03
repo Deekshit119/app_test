@@ -19,7 +19,7 @@
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
 
-	if(g_form.getValue("sr_loga_code") == '79C' && g_form.getDisplayValue("sr_location_to")=='Lausanne') {
+	if((g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '79H') && g_form.getDisplayValue("sr_location_to")=='Lausanne') {
 		getMessage('expense.modal.warning', function(modalTitle) {
 			getMessage('expense.location.not.allowed', function(msg) {
 				if (typeof spModal != 'undefined') {
@@ -83,7 +83,7 @@ function CheckLocationsKM(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9a1a621ddb8f8810011e177e16961971</sys_id>
-        <sys_mod_count>15</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>HVS Retrieve KM</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -92,7 +92,7 @@ function CheckLocationsKM(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_9a1a621ddb8f8810011e177e16961971</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-09 12:03:10</sys_updated_on>
+        <sys_updated_on>2020-04-02 07:33:50</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
