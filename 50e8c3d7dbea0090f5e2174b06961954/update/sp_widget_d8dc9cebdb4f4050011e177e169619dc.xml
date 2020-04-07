@@ -343,7 +343,7 @@ span.panel-title{
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>192</sys_mod_count>
+        <sys_mod_count>193</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -351,7 +351,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-02 07:52:41</sys_updated_on>
+        <sys_updated_on>2020-04-07 09:44:56</sys_updated_on>
         <template><![CDATA[<div class="pointer ng-binding ng-scope" style="display:none;">
   <textarea ng-model="comment" maxlength="1024"></textarea>
   <input type="text" ng-model="reqExpSheetId">
@@ -390,7 +390,7 @@ span.panel-title{
               <tr ng-repeat="record in data.approved track by $index" class="doublon-{{record['expline_duplicated']}}">
                 <td ng-if="field!='expsheet_sys_id' && field!='expline_sys_id' && field!='expline_status' && field!='expsheet_status' && field!='expsheet_total_refunded_amount' && field!='expline_duplicated'" ng-repeat="field in data.tableFields track by $index" tabindex="0">
                   <div ng-if="field=='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="pointer sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}<i ng-if="record['expline_duplicated']=='true' || record['expline_duplicated']=='VRAI'" class="fa fa-warning" style="font-size:16px;color:#ff5200;" title="${expense.duplicates.warning}">&nbsp;</i>
+                    {{record[field]}}<i ng-if="record['expline_duplicated']=='wahr' || record['expline_duplicated']=='true' || record['expline_duplicated']=='VRAI'" class="fa fa-warning" style="font-size:16px;color:#ff5200;" title="${expense.duplicates.warning}">&nbsp;</i>
                   </div>
                   <div ng-if="field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
                     {{record[field]}}
