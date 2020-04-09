@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Expense - Manager - Liste des approbations</name>
+        <run_as display_value="Administrateur Service-now">1a0eac790a0a8c07007e8310aa2c2fe5</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>5</run_dayofweek>
+        <run_period/>
+        <run_start>2020-04-09 08:13:06</run_start>
+        <run_time>1970-01-01 06:00:00</run_time>
+        <run_type>weekly</run_type>
+        <script><![CDATA[var table = 'x_hdvi2_expense_sheet';
+var grExp = new GlideRecord(table);
+grExp.addEncodedQuery("active=true^status=1");
+grExp.orderBy('approved_on');
+grExp.query();
+
+var listManager = [];
+var i = 0;
+
+while (grExp.next()) {
+	var approver = grExp.approver.split(",");
+	
+	for(var j=0; j<approver.length;j++){
+		//gs.info(listManager);
+		//gs.info('Approver ' + approver[j]);
+		if(listManager.indexOf(approver[j]) == -1){
+			//gs.info('existe');
+			//gs.info(listManager.indexOf(approver[j]));
+			//gs.info('--------------');
+			//}else{
+				//gs.info('ajouté');
+				//gs.info(listManager.indexOf(approver[j]));
+				listManager[i] = approver[j];
+				//gs.info(listManager);
+				//gs.info('--------------');
+			}
+		}
+		i++;
+	}
+	gs.info('Manager : ' + listManager);
+
+for(var k=0; k<listManager.length; k++){
+	gs.eventQueue('x_hdvi2_expense.manager_approbations', current, listManager[k]);
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>h40000572</sys_created_by>
+        <sys_created_on>2020-04-09 09:42:10</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a418c7b1db089410f5e2174b06961954</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Expense - Manager - Liste des approbations</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sysauto_script_a418c7b1db089410f5e2174b06961954</sys_update_name>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-04-09 09:42:10</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>
