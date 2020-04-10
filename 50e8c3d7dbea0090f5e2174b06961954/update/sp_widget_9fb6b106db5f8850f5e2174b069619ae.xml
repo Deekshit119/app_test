@@ -34,7 +34,7 @@
 	$scope.expReqFor = '' || c.data.items[0].expsheet_requested_for;
 	$scope.expContract = '' || c.data.items[0].expsheet_contract;
 	$scope.expDesc = '' || c.data.items[0].expsheet_short_description;
-	$scope.expAmount = parseFloat(c.data.items[0].expline_requested_amount);
+	$scope.expAmount = parseFloat(c.data.items[1].expline_requested_amount).toFixed(2); //c.data.items[0].expline_requested_amount;
 	$scope.expOtherLoc = '' || c.data.items[0].expline_other_location;
 		
 	$scope.buttonClosewindow = function () {
@@ -226,15 +226,20 @@ span.panel-title{
 		ticketConversationOptions.record_table  = 'x_hdvi2_expense_sheet';
 		ticketConversationOptions.readonly = ''+input.read_only;
 		ticketConversationOptions.record_only = ''+input.read_only;
-gs.info('1- input.read_only'+input.read_only)		;
-		data.Attachment = $sp.getWidget('widget-expense-ticket-attachments', ticketConversationOptions);
+
+			data.Attachment = $sp.getWidget('widget-expense-ticket-attachments', ticketConversationOptions);
 
 			var item = {};
-			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category');
+			//$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category');
+			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category');
+			results.push(item);
+			$sp.getRecordValues(item, sc, 'expline_requested_amount,expline_requested_value');
 			results.push(item);
 
 			data.date=sc.getDisplayValue('expline_date_expense');
 			data.expline_requested_value = parseFloat(sc.getValue('expline_requested_value'));
+			data.expline_requested_amount = parseFloat(sc.getValue('expline_requested_amount'));
+			console.log(data.expline_requested_amount);
 			
 			var sFilterRubric = sc.getValue('expsheet_category');
 			data.CategRubric=sFilterRubric.charAt(0).toUpperCase() + sFilterRubric.slice(1);
@@ -265,7 +270,7 @@ gs.info('1- input.read_only'+input.read_only)		;
         <sys_created_on>2020-03-03 14:09:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9fb6b106db5f8850f5e2174b069619ae</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>hvs_widget_expense_only</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -273,7 +278,7 @@ gs.info('1- input.read_only'+input.read_only)		;
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_9fb6b106db5f8850f5e2174b069619ae</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-02 10:18:59</sys_updated_on>
+        <sys_updated_on>2020-04-10 18:52:58</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -323,7 +328,7 @@ gs.info('1- input.read_only'+input.read_only)		;
          </div>
          <div ng-if="data.codeloga[0].code!='79C' || data.codeloga[0].code!='79H'">
            <label style="padding-top:8px;" id="labelReqAmount" for="expReqAmount">${expense.label.RequestedAmount} :</label>
-           <input readonly id="expReqAmount" class="form-control" ng-change="SetChangeTrue()" ng-model="expAmount" value="{{c.data.items[0].expline_requested_amount}}" type="number">
+           <input readonly id="expReqAmount" class="form-control" ng-change="SetChangeTrue()" ng-model="expAmount" value="{{c.data.items[1].expline_requested_amount}}" type="text">
          </div>
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='fbc37b13dbee0090f5e2174b06961948'">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
