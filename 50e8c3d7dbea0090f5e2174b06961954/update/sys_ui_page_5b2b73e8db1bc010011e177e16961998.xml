@@ -2,11 +2,20 @@
     <sys_ui_page action="INSERT_OR_UPDATE">
         <category>general</category>
         <client_script><![CDATA[function actionOK(){
-    var date = gel('date').value;
-    if (date =="" ) {
+    var dateTmp = gel('date').value;
+    if (dateTmp =="" ) {
         alert(getMessage("Please select an attribution date"));
         return false;
 	}
+
+	// PSO 09.04.2020 Formet date value to YYYY-MM-dd
+	var year = dateTmp.substr(6,4);
+	var month = dateTmp.substr(3,2);
+	var ad = gel('attr_date');
+	ad.value = year + "-" + month + "-01";
+	var attr_date = ad.value;
+	// PSO end of modification
+
 	var c = gel('cancel_or_submit');
     c.value = "submit";
 	return true;
@@ -46,18 +55,21 @@ function validateDate(date){
             ${gs.getMessage("Processing date for LOGA")}
 	</tr>
         <tr>    
-		<td>  <g:ui_date_time name="date" id="date" value="" readonly="false" onchange="validateDate(trim(gel('date').value))"/> <br/></td>
+		<td>  <g:ui_date name="date" id="date" value="" readonly="false" onchange="validateDate(trim(gel('date').value))"/> <br/></td>
         </tr>
 </table>
 	<br/>
 	<div id="dialogbuttons" style="float:right">
 		<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
 	</div>
+	<div id="hidden_date" style="display: none;">
+		<input id="attr_date" name="attr_date" value="" />
+	</div>
 </g:ui_form>
 </j:jelly>]]></html>
         <name>exp_generate_extraction</name>
         <processing_script><![CDATA[if (cancel_or_submit == "submit") {
-	var generation = new x_hdvi2_expense.HVSExpenseExtractUtils().generateExtraction(date);
+	var generation = new x_hdvi2_expense.HVSExpenseExtractUtils().generateExtraction(attr_date);
 	if(generation == ""){
 		var msg = getMessage("Error to create an extract record, please contact the ServiceNow admin");
 		gs.addErrorMessage(msg);
@@ -66,7 +78,7 @@ function validateDate(date){
 		response.sendRedirect("x_hdvi2_expense_extract.do?sys_id=" + generation);
 	}
 	
-}else{
+}else if (cancel_or_submit == "cancel"){
 	response.sendRedirect("x_hdvi2_expense_extract_list.do");
 }]]></processing_script>
         <sys_class_name>sys_ui_page</sys_class_name>
@@ -74,14 +86,14 @@ function validateDate(date){
         <sys_created_on>2020-02-28 07:57:36</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>5b2b73e8db1bc010011e177e16961998</sys_id>
-        <sys_mod_count>22</sys_mod_count>
+        <sys_mod_count>49</sys_mod_count>
         <sys_name>exp_generate_extraction</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_ui_page_5b2b73e8db1bc010011e177e16961998</sys_update_name>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2020-02-28 08:24:54</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-04-09 09:30:17</sys_updated_on>
     </sys_ui_page>
 </record_update>

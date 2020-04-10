@@ -37,13 +37,15 @@
 	
 	var sLogaRubric = g_form.getDisplayValue('sr_rubrique_loga');
 	if(g_form.getValue("locationid") != newValue) {
-		g_form.setDisplay("sr_new_location_from_reason",true);
-		g_form.setMandatory("sr_new_location_from_reason",true);
+		var grUser= new GlideRecord('sys_user');
+		grUser.addQuery('sys_id', ''+g_form.getValue('requested_for'));
+		grUser.query(UserDepartment);
 	}
 	else {
 		g_form.setMandatory("sr_new_location_from_reason",false);
 		g_form.setDisplay("sr_new_location_from_reason",false);
 	}
+
 		
 	if((g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '79H') && g_form.getDisplayValue("sr_location_from")=='Lausanne') {
 		getMessage('expense.modal.warning', function(modalTitle) {
@@ -81,6 +83,20 @@
 	}
 }
 
+function UserDepartment(grUser){
+	if(grUser.next()) {
+		var DepartmentId = grUser.department;
+		if(DepartmentId !='119669deffa26c407102114e40b9ad6b') {
+			g_form.setDisplay("sr_new_location_from_reason",true);
+			g_form.setMandatory("sr_new_location_from_reason",true);
+		}
+		else {
+			g_form.setMandatory("sr_new_location_from_reason",false);
+			g_form.setDisplay("sr_new_location_from_reason",false);
+		}
+	}
+}
+
 function CheckLocationsKM(response) {
 	var answer = response.responseXML.documentElement.getAttribute("answer");
 	answer = JSON.parse(answer);
@@ -106,7 +122,7 @@ function CheckLocationsKM(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5ee030d3dbb20410f5e2174b06961916</sys_id>
-        <sys_mod_count>63</sys_mod_count>
+        <sys_mod_count>77</sys_mod_count>
         <sys_name>HVS Display Location_To &amp; Location_Other</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -115,7 +131,7 @@ function CheckLocationsKM(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_5ee030d3dbb20410f5e2174b06961916</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-02 07:36:35</sys_updated_on>
+        <sys_updated_on>2020-04-09 15:32:14</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
