@@ -39,8 +39,8 @@
         <message/>
         <message_html><![CDATA[<div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Bonjour,</span></div>
 <div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">&nbsp;</span></div>
-<div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Vous avez des demandes de remboursement &agrave; valider.</span></div>
-<div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Ces demandes doivent &ecirc;tre valid&eacute;es avant le 27 du mois courant.</span></div>
+<div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Vous avez des demandes de remboursement &agrave; valider. <a title="Cliquez ici" href="/exphvs?id=exp_my_team">Cliquez ici</a></span></div>
+<div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Ces demandes doivent &ecirc;tre valid&eacute;es avant le 20 du mois courant.</span></div>
 <div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">&nbsp;</span></div>
 <div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Merci</span></div>
 <div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">________________________________________________________________</span></div>
@@ -48,7 +48,7 @@
 <div>
 <div>
 <p><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">Guten Tag,</span></p>
-<p><br /><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">Es liegen Antr&auml;ge zur Kostenr&uuml;ckerstattungen f&uuml;r Sie zur Validierung bereit. Diese m&uuml;ssen vor dem 27. des Folgemonats validiert werden.</span></p>
+<p><br /><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">Es liegen Antr&auml;ge zur Kostenr&uuml;ckerstattungen f&uuml;r Sie zur Validierung bereit. <a title="Klicken Sie hier" href="/exphvs?id=exp_my_team">Klicken Sie hier</a><br /></span><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">Diese m&uuml;ssen vor dem 20. des Folgemonats validiert werden.</span></p>
 <p><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">Besten Dank.</span><br /><br /></p>
 </div>
 </div>]]></message_html>
@@ -74,7 +74,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f490440edbc89410f5e2174b069619d7</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Expense - Manager - Approbatio</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -83,7 +83,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sysevent_email_action_f490440edbc89410f5e2174b069619d7</sys_update_name>
         <sys_updated_by>h40000572</sys_updated_by>
-        <sys_updated_on>2020-04-09 13:39:57</sys_updated_on>
+        <sys_updated_on>2020-04-10 13:41:18</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="HVS Default Template ">686322dddb863700f5e2174b0696199f</template>
         <type>email</type>
