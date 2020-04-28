@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_guide">
     <sys_embedded_tour_guide action="INSERT_OR_UPDATE">
         <active>true</active>
-        <additional_parameters/>
-        <autolaunch_order>1</autolaunch_order>
-        <context>exphvs?id=exp_delegate&amp;gtd_portal_title=Expense Management&amp;gtd_page_title=Delegation</context>
+        <additional_parameters>sys_id=ff844a95db3ec090011e177e16961952</additional_parameters>
+        <autolaunch_order>0</autolaunch_order>
+        <context>exphvs?id=sc_cat_item&amp;gtd_portal_title=Expense Management&amp;gtd_page_title=Servicekatalog&amp;sys_id=ff844a95db3ec090011e177e16961952</context>
         <description/>
         <has_concl>true</has_concl>
         <has_intro>true</has_intro>
-        <name>Demandes Remboursement de frais Délégations</name>
+        <name>Demandes Remboursement de frais Formulaire</name>
         <options/>
         <roles/>
-        <sp_page display_value="exp_delegate">c271eb4edb0f8810f5e2174b06961946</sp_page>
+        <sp_page display_value="sc_cat_item">9f12251147132100ba13a5554ee490f4</sp_page>
         <sp_portal display_value="Expense Management">04f961d9dbbac090011e177e16961930</sp_portal>
         <status>published</status>
         <sys_class_name>sys_embedded_tour_guide</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
-        <sys_created_on>2020-03-13 00:36:29</sys_created_on>
+        <sys_created_on>2020-03-12 14:26:47</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>64ac5e0ddba7cc9009b962a9169619c1</sys_id>
-        <sys_mod_count>13</sys_mod_count>
-        <sys_name>Anträge Kostenerstattung Delegationen</sys_name>
+        <sys_id>12c0dc81dbef00d022ef898532961963</sys_id>
+        <sys_mod_count>11</sys_mod_count>
+        <sys_name>Formular für Anträge auf Kostenerstattung</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_update_name>sys_embedded_tour_guide_64ac5e0ddba7cc9009b962a9169619c1</sys_update_name>
+        <sys_update_name>sys_embedded_tour_guide_12c0dc81dbef00d022ef898532961963</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-28 08:18:56</sys_updated_on>
+        <sys_updated_on>2020-04-28 08:33:28</sys_updated_on>
         <type>service_portal</type>
     </sys_embedded_tour_guide>
 </record_update>
