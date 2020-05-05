@@ -144,7 +144,7 @@
 }
 
 .th-exp-title {
-    color: #b92d33;
+    color: $brand-primary; //#b92d33;
     display: inline-block;
 }
 
@@ -210,7 +210,7 @@ span.panel-title{
 }
 
 .expense-panel-primary {
-    border-color: #b92d33;
+    border-color: $brand-primary; //#b92d33;
     width: 1580px;
 }
 /*.panel-heading{
@@ -220,7 +220,7 @@ span.panel-title{
 
 .panel-default&gt;.panel-heading {
   color: #333;
-  background-color: #b92d33;
+  background-color: $brand-primary; //#b92d33;
   border-color: #e4e5e7;
   padding: 0;
   -webkit-user-select: none;
@@ -235,20 +235,15 @@ span.panel-title{
 }
 
 .panel-default&gt;.panel-heading a[aria-expanded="true"] {
-  background-color: #b92d33;
+  background-color: $brand-primary; //#b92d33;
 }
 
-.doublon-true {
+.doublon-1  {
 	color:#efaa0f;
   font-weight: 600;
 }
 
-.doublon-VRAI {
-	color:#efaa0f;
-  font-weight: 600;
-}
-
-.doublon-false {
+.doublon-0 {
   color: inherit;
 }
 </css>
@@ -342,7 +337,8 @@ span.panel-title{
 				//initialialize table that will be used in the HTML
 				data.approved = [];  
 			
-				scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe');
+				//scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe');
+				scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true');
 				scApp.orderByDesc("expline_date_expense");
 				scApp.query();
 			
@@ -355,9 +351,11 @@ span.panel-title{
 						var objApp = {};
 						for(var n = 0 ; n < data.tableFields.length ; n++) {
 							if(n==12 || n==13) objApp[data.tableFields[n]] = parseFloat(scApp.getValue(data.tableFields[n])).toFixed(2);
+							else if(n==14 || n==11) objApp[data.tableFields[n]] = scApp.getValue(data.tableFields[n]);
 							else objApp[data.tableFields[n]] = scApp.getDisplayValue(data.tableFields[n]);
 						}					
-
+						
+					if(isLoggedUserApprover(scApp.expsheet_approver))
 						data.approved.push(objApp);
 						//else data.records.push(obj);
 				}	
@@ -365,6 +363,17 @@ span.panel-title{
 	}
 	
 	// ******************************************************************
+	function isLoggedUserApprover(appSysID) {
+		var retVal  = false;
+		var userDelegate = new GlideRecord('sys_user_delegate');
+		userDelegate.addEncodedQuery("userIN"+appSysID+"^u_expense_approval=true^delegate="+gs.getUserID());
+		userDelegate.setLimit(1);
+		userDelegate.query();
+		while (userDelegate.next()) {
+			retVal = userDelegate.u_expense_approval;
+		}
+		return retVal;
+	}
 
 })();]]></script>
         <servicenow>false</servicenow>
@@ -373,7 +382,7 @@ span.panel-title{
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>223</sys_mod_count>
+        <sys_mod_count>254</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -381,7 +390,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-10 18:30:39</sys_updated_on>
+        <sys_updated_on>2020-05-05 15:53:40</sys_updated_on>
         <template><![CDATA[<div class="pointer ng-binding ng-scope" style="display:none;">
   <textarea ng-model="comment" maxlength="1024"></textarea>
   <input type="text" ng-model="reqExpSheetId">
@@ -410,7 +419,7 @@ span.panel-title{
             <table class="table table-striped table-responsive ng-scope" style=""> 
               <thead>
                 <tr class="tr-top">
-                  <th ng-if="labels!='Sys ID' && labels!='Status' && labels!='Status_line' && labels!='Statut_line' && labels!='Statut' && labels!='Total Refunded Amount' && labels!='Montant validé' && labels!='Duplicated' && labels!='Doublon'" class="thead text-nowrap ng-binding" ng-repeat="labels in c.data.fieldslabels track by $index" ng-click="setOrderBy(labels)" tabindex="0" role="button">
+                  <th ng-if="labels!='Sys ID' && labels!='Status' && labels!='Status_line' && labels!='Statut_line' && labels!='Statut' && labels!='Total Refunded Amount' && labels!='Montant validé' && labels!='Duplicated' && labels!='Doublon' && labels!='validierter Betrag'" class="thead text-nowrap ng-binding" ng-repeat="labels in c.data.fieldslabels track by $index" ng-click="setOrderBy(labels)" tabindex="0" role="button">
                     <div class="th-exp-title ng-binding" aria-label="Sort by  {{labels}}">
                       {{labels}}
                     </div>
@@ -420,7 +429,7 @@ span.panel-title{
               <tr ng-repeat="record in data.approved track by $index" class="doublon-{{record['expline_duplicated']}}">
                 <td ng-if="field!='expsheet_sys_id' && field!='expline_sys_id' && field!='expline_status' && field!='expsheet_status' && field!='expsheet_total_refunded_amount' && field!='expline_duplicated'" ng-repeat="field in data.tableFields track by $index" tabindex="0">
                   <div ng-if="field=='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="pointer sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}<i ng-if="record['expline_duplicated']=='wahr' || record['expline_duplicated']=='true' || record['expline_duplicated']=='VRAI'" class="fa fa-warning" style="font-size:16px;color:#ff5200;" title="${expense.duplicates.warning}">&nbsp;</i>
+                    <i ng-if="record['expline_duplicated']==1" class="fa fa-warning" style="font-size:16px;color:#ff5200;" title="${expense.duplicates.warning}">&nbsp;</i>{{record[field]}}
                   </div>
                   <div ng-if="field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
                     {{record[field]}}
@@ -435,12 +444,12 @@ span.panel-title{
                   </div>
                 </td>
                 <td class="td-alignmiddle" >
-                  <div ng-if="record['expsheet_status']=='Requested' || record['expsheet_status']=='Soumis'" class="pointer ng-binding ng-scope">
+                  <div ng-if="record['expsheet_status']==1" class="pointer ng-binding ng-scope">
                     <img class ="td_img" name="approve" src="hvs_approve_expense.svg" alt="${expense.approve.request}" title="${expense.approve.request}" align="middle" role="button" ng-click="c.SetApprovalExpense(record['expsheet_sys_id'],'approve')">
                   </div>
                 </td>
                 <td class="td-alignmiddle">
-                  <div ng-if="record['expsheet_status']=='Requested' || record['expsheet_status']=='Soumis'" class="pointer ng-binding ng-scope">
+                  <div ng-if="record['expsheet_status']==1" class="pointer ng-binding ng-scope">
                     <img class ="td_img" name="reject" src="hvs_reject_expense.svg" alt="${expense.reject.request}"  title="${expense.reject.request}" align="middle" role="button" ng-click="c.SetApprovalExpense(record['expsheet_sys_id'],'reject')">
                   </div>
                 </td>
