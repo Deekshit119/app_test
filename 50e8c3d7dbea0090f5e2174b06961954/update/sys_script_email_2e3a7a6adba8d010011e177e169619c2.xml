@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>HVS_expense_approval_reminder_DE</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+	// Add your code here
+	var today_date = new GlideDate();
+	var next_date = new GlideDate();
+	var next_month = next_date.addMonthsUTC(1);
+	
+	var monthNames_de = 'Januar,Februar,März,April,Mai,Juni,Juli,August,September,Oktober,November,Dezember'.split(',');
+	
+	var strMsg = "";
+	
+	strMsg = 'Guten Tag,<p><br>Es liegen Anträge zur Kostenrückerstattungen für Sie zur Validierung bereit. <a href="/exphvs?id=exp_my_team">Klicken Sie hier</a>.<br>Diese müssen vor dem 20.  ' ;
+	
+	var month_target ='';
+	if(today_date.getDayOfMonthUTC() < 20) 
+			month_target = monthNames_de[today_date.getMonthUTC()-1] ;
+	else
+			month_target = monthNames_de[next_date.getMonthUTC()-1] ;
+	strMsg = strMsg + month_target;
+	
+	strMsg = strMsg +" validiert werden." ;
+	strMsg = strMsg + '<p><br>Besten Dank.' ;
+
+	template.print(strMsg);
+	
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-05-06 11:39:27</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2e3a7a6adba8d010011e177e169619c2</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>HVS_expense_approval_reminder_DE</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_script_email_2e3a7a6adba8d010011e177e169619c2</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-05-06 13:02:26</sys_updated_on>
+    </sys_script_email>
+</record_update>

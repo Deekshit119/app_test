@@ -20,7 +20,7 @@
         <digest_template/>
         <digest_text/>
         <digestable>false</digestable>
-        <event_name>x_hdvi2_expense.manager_approbations</event_name>
+        <event_name>x_hdvi2_expense.manager_approbations_DE</event_name>
         <event_parm_1>true</event_parm_1>
         <event_parm_2>false</event_parm_2>
         <exclude_delegates>false</exclude_delegates>
@@ -37,10 +37,10 @@
         <list_field/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">${mail_script:HVS_expense_approval_reminder}</span></div>]]></message_html>
+        <message_html><![CDATA[<div><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">${mail_script:HVS_expense_approval_reminder_DE}</span></div>]]></message_html>
         <message_list/>
         <message_text/>
-        <name>Expense - Manager - Approbation</name>
+        <name>Expense - Manager - Approbation DE</name>
         <omit_watermark>false</omit_watermark>
         <order>100</order>
         <push_message_only>false</push_message_only>
@@ -51,27 +51,27 @@
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
-        <subject>Notes de frais - Approbations</subject>
+        <subject>Kostenrückerstattung - Validierung</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
-        <sys_created_by>h40000572</sys_created_by>
-        <sys_created_on>2020-04-09 13:18:25</sys_created_on>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-05-06 10:50:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>f490440edbc89410f5e2174b069619d7</sys_id>
-        <sys_mod_count>17</sys_mod_count>
-        <sys_name>Expense - Manager - Approbation</sys_name>
+        <sys_id>f80feaeedb68d010011e177e169619ec</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Expense - Manager - Approbation DE</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_update_name>sysevent_email_action_f490440edbc89410f5e2174b069619d7</sys_update_name>
+        <sys_update_name>sysevent_email_action_f80feaeedb68d010011e177e169619ec</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-06 12:55:48</sys_updated_on>
+        <sys_updated_on>2020-05-06 11:49:01</sys_updated_on>
         <sys_version>2</sys_version>
-        <template display_value="HVS Default Template ">686322dddb863700f5e2174b0696199f</template>
+        <template display_value="HVS Exp Default Template DE">e2f3200adb728490011e177e16961966</template>
         <type>email</type>
         <u_category>User</u_category>
         <u_language>fr</u_language>

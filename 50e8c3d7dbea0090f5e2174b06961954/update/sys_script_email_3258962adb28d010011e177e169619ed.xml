@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>HVS_expense_approval_reminder</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+	// Add your code here
+	var today_date = new GlideDate();
+	var next_date = new GlideDate();
+	var next_month = next_date.addMonthsUTC(1);
+	
+	var monthNames_fr = 'Janvier,Février,Mars,Avril,Mai,Juin,Juillet,Août,Septembre,Ocotbre,Novembre,Décembre'.split(',');
+	
+	var strMsg = "";
+	
+	strMsg = 'Bonjour,<p><br>Vous avez des demandes de remboursement à valider. <a href="/exphvs?id=exp_my_team">Cliquez ici</a><br>Ces demandes doivent être validées avant le 20 ' ;
+	
+	var month_target ='';
+	if(today_date.getDayOfMonthUTC() < 20) 
+		month_target = monthNames_fr[today_date.getMonthUTC()-1] ;
+	else 
+		month_target = monthNames_fr[next_date.getMonthUTC()-1] ;
+
+	strMsg = strMsg + month_target;
+	strMsg = strMsg + '<p><br>Merci.' ;
+
+	template.print(strMsg);
+	
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-05-06 09:27:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>3258962adb28d010011e177e169619ed</sys_id>
+        <sys_mod_count>17</sys_mod_count>
+        <sys_name>HVS_expense_approval_reminder</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_script_email_3258962adb28d010011e177e169619ed</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-05-06 13:02:54</sys_updated_on>
+    </sys_script_email>
+</record_update>
