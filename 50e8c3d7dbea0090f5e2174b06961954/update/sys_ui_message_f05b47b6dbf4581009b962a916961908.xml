@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
     <sys_ui_message action="INSERT_OR_UPDATE">
         <application/>
-        <key>You cannot access expense reports because you do not have a contract associated with your profile. </key>
+        <key>expense.info.frais.hebergement</key>
         <language>fr</language>
-        <message>Vous ne pouvez pas accéder aux notes de frais car l'application n'est pas encore déployée dans votre organisation. </message>
+        <message>Utiliser pour 1 nuit + petit déjeuner. Le montant maximum par nuit est de 180.- CHF.  Veuillez saisir le nombre de nuitée dans le motif de la demande.</message>
         <sys_class_name>sys_ui_message</sys_class_name>
-        <sys_created_by>benjamin.broch</sys_created_by>
-        <sys_created_on>2020-02-28 07:42:58</sys_created_on>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-05-19 17:49:51</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>e3f77724db1bc010011e177e169619b4</sys_id>
+        <sys_id>f05b47b6dbf4581009b962a916961908</sys_id>
         <sys_mod_count>1</sys_mod_count>
-        <sys_name>You cannot access expense reports because you do not have a contract associated with your profile. </sys_name>
+        <sys_name>expense.info.frais.hebergement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_update_name>sys_ui_message_e3f77724db1bc010011e177e169619b4</sys_update_name>
+        <sys_update_name>sys_ui_message_f05b47b6dbf4581009b962a916961908</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-19 16:00:16</sys_updated_on>
+        <sys_updated_on>2020-05-19 20:12:44</sys_updated_on>
     </sys_ui_message>
 </record_update>
