@@ -3,30 +3,31 @@
         <active>true</active>
         <can_edit_in_studio>false</can_edit_in_studio>
         <enforce_license>log</enforce_license>
+        <guided_setup_guid/>
         <js_level>helsinki_es5</js_level>
         <licensable>true</licensable>
         <license_category>none</license_category>
         <license_model>fulfiller</license_model>
         <logo/>
-        <menu display_value="HVS Expense Management">ba7dafd7dbae0090f5e2174b0696192d</menu>
+        <menu/>
         <name>Expense Management</name>
         <private>false</private>
         <restrict_table_access>false</restrict_table_access>
-        <runtime_access_tracking>permissive</runtime_access_tracking>
+        <runtime_access_tracking/>
         <scope>x_hdvi2_expense</scope>
-        <scoped_administration>false</scoped_administration>
+        <scoped_administration>true</scoped_administration>
         <short_description/>
         <source>x_hdvi2_expense</source>
-        <store_correlation_id>REPOAPP0000200465</store_correlation_id>
+        <store_correlation_id/>
         <store_url/>
         <sys_class_name>sys_app</sys_class_name>
         <sys_code/>
-        <sys_created_by>benjamin.broch</sys_created_by>
-        <sys_created_on>2020-01-30 10:33:20</sys_created_on>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-10 10:01:31</sys_created_on>
         <sys_id>50e8c3d7dbea0090f5e2174b06961954</sys_id>
-        <sys_mod_count>16</sys_mod_count>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-09 15:05:05</sys_updated_on>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-06-04 12:29:19</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <user_role/>

@@ -12,7 +12,7 @@
         <sys_created_on>2020-02-07 09:36:32</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>fb78404edbfe4490011e177e169619aa</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>x_hdvi2_expense.salary_group.id</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -20,9 +20,9 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_properties_fb78404edbfe4490011e177e169619aa</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2020-02-07 09:37:24</sys_updated_on>
+        <sys_updated_on>2020-06-05 08:21:18</sys_updated_on>
         <type>string</type>
-        <value>531f5b93db6e0090f5e2174b0696192f</value>
+        <value>c44ca858dbd1d010f5e2174b06961956</value>
         <write_roles>x_hdvi2_expense.admin</write_roles>
     </sys_properties>
     <sys_translated_text action="delete_multiple" query="documentkey=fb78404edbfe4490011e177e169619aa"/>
