@@ -4,7 +4,7 @@
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
-        <category display_value="Löhne und Finanzen">d163a722dbdfb700011e177e1696190a</category>
+        <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan/>
@@ -113,18 +113,19 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>80</sys_mod_count>
-        <sys_name>Anfrage für Rückerstattung</sys_name>
+        <sys_mod_count>81</sys_mod_count>
+        <sys_name>Demande de remboursement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-19 20:25:24</sys_updated_on>
+        <sys_updated_on>2020-05-27 06:28:20</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <type>item</type>
+        <u_account_h/>
         <u_delivery_time>0</u_delivery_time>
         <u_fulfillment_group_list/>
         <u_keywords/>
@@ -160,11 +161,11 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-04-02 13:05:40</sys_created_on>
         <sys_id>b9e7ccbbdbb34090f5e2174b0696191c</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-03 08:11:18</sys_updated_on>
+        <sys_updated_on>2020-05-27 06:28:20</sys_updated_on>
         <tablename>sc_cat_item_producer</tablename>
-        <value>&lt;p&gt;&lt;span style="font-size: 10pt;"&gt;&lt;span style="font-weight: normal;"&gt;Informations compl&amp;eacute;mentaires pour la saisie de votre demande&lt;/span&gt; :&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;&lt;span style="font-size: 10pt;"&gt;&lt;span style="text-decoration-line: underline;"&gt;Frais d&amp;rsquo;h&amp;eacute;bergement&lt;/span&gt; : 1 nuit + petit d&amp;eacute;jeuner. Le montant maximum par nuit est de 180.- CHF.&amp;nbsp; Veuillez saisir le nombre de nuit&amp;eacute;e dans le motif de la demande.&lt;/span&gt;&lt;br /&gt;&lt;span style="font-size: 10pt;"&gt;&lt;span style="text-decoration-line: underline;"&gt;Frais de train&lt;/span&gt;&amp;nbsp;:&amp;nbsp;Billet CFF, demi-tarif, carte journali&amp;egrave;re, billet d&amp;eacute;griff&amp;eacute;, abonnement.&lt;/span&gt;&lt;br /&gt;&lt;span style="font-size: 10pt;"&gt;&lt;span style="text-decoration-line: underline;"&gt;Frais de repas hors canton&lt;/span&gt; : le montant maximum&amp;nbsp;est de 23.- CHF.&lt;/span&gt;&lt;br /&gt;&lt;span style="font-size: 10pt;"&gt;&lt;span style="text-decoration-line: underline;"&gt;Frais de repas dans le canton&lt;/span&gt;&amp;nbsp;: le montant maximum&amp;nbsp;est de&amp;nbsp;maximum 18.- CHF.&lt;/span&gt;&lt;br /&gt;&lt;span style="font-size: 10pt;"&gt;&lt;span style="text-decoration-line: underline;"&gt;Frais divers&lt;/span&gt; :&amp;nbsp;achat de chaussure, blouse, livre, paiement d&amp;rsquo;un repas pour toute une &amp;eacute;quipe.&lt;/span&gt;&lt;/p&gt;</value>
+        <value/>
     </sys_translated_text>
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>ff844a95db3ec090011e177e16961952</documentkey>

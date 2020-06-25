@@ -12,18 +12,18 @@
         <source_table>u_imp_tmpl_x_hdvi2_expense_expense_travel_km</source_table>
         <sys_class_name>sys_transform_map</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
-        <sys_created_on>2020-02-10 16:12:49</sys_created_on>
+        <sys_created_on>2020-05-25 12:41:33</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
-        <sys_id>ac1001cfdbf2c010f5e2174b06961985</sys_id>
+        <sys_id>a9ae3038db8d5c10f5e2174b0696194c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>u_imp_tmpl_x_hdvi2_expense_expense_travel_km</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_update_name>sys_transform_map_ac1001cfdbf2c010f5e2174b06961985</sys_update_name>
+        <sys_update_name>sys_transform_map_a9ae3038db8d5c10f5e2174b0696194c</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-02-10 16:12:49</sys_updated_on>
+        <sys_updated_on>2020-05-25 12:41:33</sys_updated_on>
         <target_table>x_hdvi2_expense_expense_travel_km</target_table>
     </sys_transform_map>
 </record_update>
