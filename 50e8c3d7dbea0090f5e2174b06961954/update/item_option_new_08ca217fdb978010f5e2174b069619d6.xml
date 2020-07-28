@@ -60,7 +60,7 @@
         <sys_created_on>2020-03-08 23:47:28</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>08ca217fdb978010f5e2174b069619d6</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Saisir une justification pour le nouveau lieu de départ</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -68,7 +68,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_08ca217fdb978010f5e2174b069619d6</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-06 14:59:41</sys_updated_on>
+        <sys_updated_on>2020-07-28 13:31:44</sys_updated_on>
         <table/>
         <tooltip/>
         <type>6</type>
@@ -92,6 +92,32 @@
         <write_roles/>
     </item_option_new>
     <sys_translated_text action="delete_multiple" query="documentkey=08ca217fdb978010f5e2174b069619d6"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>08ca217fdb978010f5e2174b069619d6</documentkey>
+        <fieldname>help_text</fieldname>
+        <language>de</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-07-28 13:31:45</sys_created_on>
+        <sys_id>e4ef6291db12d850011e177e169619e4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-07-28 13:31:45</sys_updated_on>
+        <tablename>item_option_new</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>08ca217fdb978010f5e2174b069619d6</documentkey>
+        <fieldname>instructions</fieldname>
+        <language>de</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-07-28 13:31:45</sys_created_on>
+        <sys_id>64ef2e51db12d850011e177e169619d2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-07-28 13:31:45</sys_updated_on>
+        <tablename>item_option_new</tablename>
+        <value/>
+    </sys_translated_text>
     <fx_price action="delete_multiple" query="id=08ca217fdb978010f5e2174b069619d6"/>
     <fx_price action="INSERT_OR_UPDATE">
         <amount>0</amount>
