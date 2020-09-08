@@ -41,7 +41,17 @@
 	$scope.expContract = '' || c.data.items[0].expsheet_contract;
 	$scope.expDesc = '' || c.data.items[0].expsheet_short_description;
 	$scope.expAmount = parseFloat(c.data.items[1].expline_requested_amount).toFixed(2);
-	$scope.expOtherLoc = '' || c.data.items[0].expline_other_location;
+
+	if(''+c.data.items[0].expline_other_location_to == '') {
+		$scope.expOtherLoc = '' || c.data.items[0].expline_location;
+		$scope.expOtherLocTo = '' || c.data.items[0].expline_other_location;
+	}
+	else {
+		$scope.expOtherLoc = '' || c.data.items[0].expline_other_location;
+		$scope.expOtherLocTo = '' || c.data.items[0].expline_other_location_to;
+	}
+	$scope.CategDivers = '' || c.data.items[0].expline_miscellaneous_account_code;
+	c.data.CategDiversNbChar = $scope.CategDivers.trim().length;
 	
 	$scope.$on("field.change", function(evt, parms) {
 		$scope.SetChangeTrue();
@@ -52,9 +62,10 @@
 
 			//console.log('scope.expOtherLoc:'+$scope.expOtherLoc);
 		}
-		if(c.data.codeloga[0].code=='79C' || c.data.codeloga[0].code=='79H') {
+		
+		if(c.data.codeloga[0].code=='79C' || c.data.codeloga[0].code=='809') {
 				if($scope.location_from.value != '' && $scope.location_from.value != null && $scope.location_to.value != null && $scope.location_to.value != '' ){ //&& (document.getElementById('expOtherLoc').value == '')){
-					if($scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948' || $scope.Rubric.value == 'f7b2f22bdb3fcc50011e177e16961981')
+					if($scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948' || $scope.Rubric.value == '9805f444db44149009b962a916961908')
 						document.getElementById('expOtherLoc').value = '';
 						
 					document.getElementById('expReqValue').readOnly = true;
@@ -91,8 +102,8 @@
 					});
 					spUtil.update($scope);
 			}
-				else {
-					if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('expOtherLoc').readOnly = false;
+				else if($scope.Rubric.value != 'e8e4b084db44149009b962a916961906' && $scope.Rubric.value != 'edc49704dbd3c050f5e2174b06961901') {
+					if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != '9805f444db44149009b962a916961908') document.getElementById('expOtherLoc').readOnly = false;
 					document.getElementById('expReqValue').readOnly = false;
 					if(($scope.location_from.value == '' || $scope.location_from.value == null) && ($scope.location_to.value == null || $scope.location_to.value == ''))// && (document.getElementById('expOtherLoc').value == ''))
 					{
@@ -105,7 +116,7 @@
 					}
 					else if(($scope.location_from.value == '' || $scope.location_from.value == null) && ($scope.location_to.value == null || $scope.location_to.value == ''))// && (document.getElementById('expOtherLoc').value != ''))
 					{
-						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('labelOtherLoc').style.color = 'black';
+						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != '9805f444db44149009b962a916961908') document.getElementById('labelOtherLoc').style.color = 'black';
 						document.getElementById('labelLocFrom').style.color = 'black';
 						document.getElementById('labelLocTo').style.color = 'black';
 						document.getElementById('expReqValue').readOnly = false;
@@ -114,7 +125,7 @@
 					}
 					else if(($scope.location_from.value != '' && $scope.location_from.value != null) && ($scope.location_to.value == null || $scope.location_to.value == ''))// && (document.getElementById('expOtherLoc').value == ''))
 					{
-						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('labelOtherLoc').style.color = 'red';
+						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != '9805f444db44149009b962a916961908') document.getElementById('labelOtherLoc').style.color = 'red';
 						document.getElementById('labelLocFrom').style.color = 'black';
 						document.getElementById('labelLocTo').style.color = 'red';
 						document.getElementById('expReqValue').readOnly = false;
@@ -123,7 +134,7 @@
 					}
 					else if(($scope.location_to.value != '' && $scope.location_to.value != null) && ($scope.location_from.value == null || $scope.location_from.value == ''))// && (document.getElementById('expOtherLoc').value == ''))
 					{
-						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') document.getElementById('labelOtherLoc').style.color = 'red';
+						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != '9805f444db44149009b962a916961908') document.getElementById('labelOtherLoc').style.color = 'red';
 						document.getElementById('labelLocFrom').style.color = 'red';
 						document.getElementById('labelLocTo').style.color = 'black';
 						document.getElementById('expReqValue').readOnly = false;
@@ -144,43 +155,56 @@
 				// If field expOtherLoc (Autre Lieu) filled :
 				// 1. set location_from & location_to fields to read only
 				// 2. set value to '' ?
-			
-				if(document.getElementById('expOtherLoc').value != '' && $scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981') {
-					c.data.setchanged = 'true';
-					$scope.setchanged = 'true';
-					$scope.location_to.value = null;
-					document.getElementById('location_from').readOnly = false;
-					document.getElementById('location_to').readOnly = true;
-					document.getElementById('expReqValue').readOnly = false;
-					if(document.getElementById('labelReqValue').value!='') document.getElementById('labelReqValue').style.color = 'black'; else document.getElementById('labelReqValue').style.color = 'red';
-					if(document.getElementById('expOtherLoc').value!='') document.getElementById('labelOtherLoc').style.color = 'black'; else document.getElementById('labelOtherLoc').style.color = 'red';
-					if(document.getElementById('labelLocFrom').value!='') document.getElementById('labelLocFrom').style.color = 'black'; else document.getElementById('labelLocFrom').style.color = 'red';
-					document.getElementById('labelLocTo').style.color = 'black';
-				}
-				else {
-					document.getElementById('location_from').readOnly = false;
-					document.getElementById('location_to').readOnly = false;
-				}
+			  if($scope.Rubric.value == 'e8e4b084db44149009b962a916961906' || $scope.Rubric.value == 'edc49704dbd3c050f5e2174b06961901') {
+						if($scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948' && $scope.Rubric.value != '9805f444db44149009b962a916961908') {
+							c.data.setchanged = 'true';
+							$scope.setchanged = 'true';
+														
+							if(document.getElementById('expOtherLocTo').value!='') document.getElementById('labelOtherLocTo').style.color = 'black'; else document.getElementById('labelOtherLocTo').style.color = 'red';
+							if(document.getElementById('expOtherLoc').value!='') document.getElementById('labelOtherLoc').style.color = 'black'; else document.getElementById('labelOtherLoc').style.color = 'red';
+							if(document.getElementById('expReqValue').value!='') document.getElementById('labelReqValue').style.color = 'black'; else document.getElementById('labelReqValue').style.color = 'red';
+							
+							if(document.getElementById('expReqValue').value=='' || document.getElementById('expOtherLocTo').value=='' || document.getElementById('expOtherLoc').value=='' || document.getElementById('expReqValue').value=='0') {
+								c.data.setchanged = 'invalid';
+								$scope.setchanged = 'invalid';
+							}
+					}
+			}
 		}
 		
 		if (c.data.codeloga[0].code=='800' && $scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961949') { //Rubrique Loga Frais de repas dans le canton
-			 var iMontantIn = 0;
-				var boolMontantInNaN = isNaN(parseFloat(document.getElementById('expReqAmount').value));
+			var iMontantIn = 0;
+			var iMontantMaxIn = 0;
+			var dDateCheckIn = new Date('08/01/2020');
+			if (dDateCheckIn >	$scope.expDate) {
+				iMontantMaxIn =  parseFloat('18');
+			}
+			else {
+				iMontantMaxIn =  parseFloat('25');
+			}
+
+			var boolMontantInNaN = isNaN(parseFloat(document.getElementById('expReqAmount').value));
 				if(!boolMontantInNaN) {
 					iMontantIn = parseFloat(document.getElementById('expReqAmount').value);
 				}
-				if(iMontantIn > 18 || iMontantIn <= 0){
+				if(iMontantIn > iMontantMaxIn || iMontantIn <= 0){
+					var msgTitre_1 = "";
+					if (iMontantMaxIn==18) 
+						msgTitre_1 = "${expense.rubric_meal_in.amount.control}";
+					else
+						msgTitre_1 = "${expense.rubric_meal_in.amount.control_25}";
+					
 					spModal.open({
 						title: '${expense.modal.warning}',
-						message: "${expense.rubric_meal_in.amount.control}",
+						message: msgTitre_1, //"${expense.rubric_meal_in.amount.control}",
 						buttons: [
 							{label:'OK', primary: true}
 						],
 						backdrop: 'static'
 					}).then(function() {
 						// true or false
-						if(iMontantIn > 18) {
-							document.getElementById('expReqAmount').value = 18;
+						if(iMontantIn > iMontantMaxIn) {
+							document.getElementById('expReqAmount').value = iMontantMaxIn;
 							c.data.setchanged = 'true';
 							$scope.setchanged = 'true';
 						}
@@ -195,23 +219,37 @@
 			}
 		
 		if (c.data.codeloga[0].code=='800' && $scope.Rubric.value == 'bfc37b13dbee0090f5e2174b06961949') { //Rubrique Loga Frais de repas hors canton
-				var iMontantOut = 0;
+			var iMontantOut = 0;
+			var iMontantMaxOut = 0;
+			var dDateCheckOut = new Date('08/01/2020');
+			if (dDateCheckOut >	$scope.expDate) {
+				iMontantMaxOut = parseFloat('23');
+			}
+			else {
+				iMontantMaxOut = parseFloat('30');
+			}
 				var boolMontantOutNaN = isNaN(parseFloat(document.getElementById('expReqAmount').value));
 				if(!boolMontantOutNaN) {
 					iMontantOut = parseFloat(document.getElementById('expReqAmount').value);
 				}
-				if(iMontantOut > 23 || iMontantOut <= 0){
+				if(iMontantOut > iMontantMaxOut || iMontantOut <= 0){
+					var msgTitre_2 = "";
+					if (iMontantMaxOut==23) 
+						msgTitre_2 = "${expense.rubric_meal_out.amount.control}";
+					else
+						msgTitre_2 = "${expense.rubric_meal_out.amount.control_30}";
+
 					spModal.open({
 						title: '${expense.modal.warning}',
-						message: "${expense.rubric_meal_out.amount.control}",
+						message: msgTitre_2, //"${expense.rubric_meal_out.amount.control}",
 						buttons: [
 							{label:'OK', primary: true}
 						],
 						backdrop: 'static'
 					}).then(function() {
 						// true or false
-						if(iMontantOut > 23) {
-							document.getElementById('expReqAmount').value = 23;
+						if(iMontantOut > iMontantMaxOut) {
+							document.getElementById('expReqAmount').value = iMontantMaxOut;
 							c.data.setchanged = 'true';
 							$scope.setchanged = 'true';
 						}
@@ -232,6 +270,16 @@
 			$scope.setchanged = 'true';
 			//Control();
 		}
+
+		if (c.data.codeloga[0].code == '800' && $scope.Rubric.value == "3eae6cd5db831c50011e177e16961978") { //Rubrique Petit-déjeuner
+			alert('ok');
+			document.getElementById('expReqAmount').value = 7;
+			document.getElementById('expReqAmount').readOnly = true;
+			c.data.setchanged = 'true';
+			$scope.setchanged = 'true';
+			//Control();
+		}
+
 	}
 	
 	$scope.SetChangeTrue = function () {
@@ -241,16 +289,19 @@
 	
 	$scope.buttonSaveExpenseEdit = function () {
 		c.data.CodeLogaValeur = c.data.codeloga[0].code;
-		console.log(c.data.CodeLogaValeur);
-		c.data.expOtherLoc = document.getElementById('expOtherLoc').value;
+		if($scope.Rubric.value == 'e8e4b084db44149009b962a916961906' || $scope.Rubric.value == 'edc49704dbd3c050f5e2174b06961901') {
+			c.data.expOtherLoc = document.getElementById('expOtherLoc').value;
+			c.data.expOtherLocTo = document.getElementById('expOtherLocTo').value;
+			alert(c.data.expOtherLoc + ' - ' + c.data.expOtherLocTo)
+		}
 
 		c.data.expDesc = document.getElementById('expDesc').value;
-		if((c.data.codeloga[0].code=='79C' && $scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948') || (c.data.codeloga[0].code=='79H' && $scope.Rubric.value == 'f7b2f22bdb3fcc50011e177e16961981'))  {
+		if((c.data.codeloga[0].code=='79C' && $scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948') || (c.data.codeloga[0].code=='809' && $scope.Rubric.value == '9805f444db44149009b962a916961908'))  {
 			c.data.expReqValue = document.getElementById('expReqValue').value;
 			c.data.location_from = $scope.location_from.value;
 			c.data.location_to = $scope.location_to.value;
 		}
-		else if((c.data.codeloga[0].code=='79C' && $scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') || (c.data.codeloga[0].code=='79H' && $scope.Rubric.value != 'f7b2f22bdb3fcc50011e177e16961981')){
+		else if((c.data.codeloga[0].code=='79C' && $scope.Rubric.value != 'fbc37b13dbee0090f5e2174b06961948') || (c.data.codeloga[0].code=='809' && $scope.Rubric.value != '9805f444db44149009b962a916961908')){
 			c.data.expReqValue = document.getElementById('expReqValue').value;
 			c.data.location_from = $scope.location_from.value;
 			c.data.location_to = '';
@@ -290,16 +341,19 @@
 	
 	$scope.buttonCloseExpenseEdit = function () {
 		if($scope.setchanged == 'true') {
-       c.retConfirm='asking';
+			  var tmpVal = 'true';
         spModal.open({
             title: '${expense.modal.leave}',
             message: "${expense.leave.title_message}",
 						backdrop: 'static'
-        }).then(function(retConfirm) {
-             // true or false
-					c.retConfirm=retConfirm;
+        }).then(function() {
+				  c.data.setchanged = 'DELPENDING';
+					c.server.update().then(function(data){
 				  $uibModalStack.dismissAll();
-        });
+        }, function() {
+						c.data.setchanged = tmpVal;
+					});
+				})
     }
 		else $uibModalStack.dismissAll();
 	};
@@ -402,7 +456,7 @@ h4.selected-tab {
 
 .btn_expense-primary_save {
     color: #ffffff;
-    background-color: #5bb914;
+  	background-color: $primary; //#5bb914;
     border-color: #508c23;
 }
  
@@ -422,10 +476,10 @@ h4.selected-tab {
 }
   
 .panel-heading{
- background-color : #b92d33; 
+ background-color : $panel-primary; // #088A08; 
 }
 .expense-panel-primary {
-    border-color: #b92d33;
+    border-color:  $panel-primary; //#088A08;
     width: 1585px;
 }
 
@@ -484,6 +538,10 @@ span.panel-title{
         <script><![CDATA[(function() {
  
 	data.uId = gs.getUserID();
+ // code for internal testing within Editor
+	//input=[];
+	//input.sys_id=['e23abe94db039c50f5e2174b069619aa'];
+	// end of code for internal testing
 	
 	if(input) {
 		if(input.sys_id && input.setchanged != 'true'  && input.setchanged != 'getNbKm' ) {
@@ -495,6 +553,28 @@ span.panel-title{
 	}
 
 	if(input)  {
+		if(input.setchanged && input.setchanged=='DELPENDING')  {
+			var scDelPendingEXPLine = new GlideRecord('x_hdvi2_expense_line');
+				scDelPendingEXPLine.addEncodedQuery("status=5");
+				scDelPendingEXPLine.query();
+				while (scDelPendingEXPLine.next()) { 
+					scDelPendingEXPLine.status=-1;
+					scDelPendingEXPLine.active=false;
+					scDelPendingEXPLine.comments="annulation copie remboursement de frais existant / Stornierungskopie Erstattung bestehender Gebühren";
+					scDelPendingEXPLine.update();
+				}
+
+			var scDelPendingEXPSheet = new GlideRecord('x_hdvi2_expense_sheet');
+				scDelPendingEXPSheet.addEncodedQuery("status=5");
+				scDelPendingEXPSheet.query();
+				while (scDelPendingEXPSheet.next()) { 
+					scDelPendingEXPSheet.status=-1;
+					scDelPendingEXPSheet.active=false;
+					scDelPendingEXPSheet.comments="annulation copie remboursement de frais existant / Stornierungskopie Erstattung bestehender Gebühren";
+					scDelPendingEXPSheet.update();
+				}
+		}
+		
 		if(input.setchanged && input.setchanged=='getNbKm')  {
 				var valKm = -1;
 				var grTravelKM = new GlideRecord('x_hdvi2_expense_expense_travel_km');
@@ -544,9 +624,14 @@ span.panel-title{
 				expParent =scSubmit.expense;
 				scSubmit.date_expense=dFinalDate;
 				scSubmit.other_location=input.expOtherLoc;
+				scSubmit.other_location_to=input.expOtherLocTo;
 				scSubmit.requested_amount=input.expReqAmount;
 				scSubmit.requested_value=input.expReqValue;
-				if(input.CodeLogaValeur && input.CodeLogaValeur=='79C'){
+				scSubmit.refunded_value=input.expReqValue;
+				scSubmit.status=0; //1;
+				scSubmit.description = input.expDesc;
+
+					if(input.CodeLogaValeur && input.CodeLogaValeur=='79C'){
 					//scSubmit.location=document.getElementById('location_from').value;
 					//scSubmit.travelkm=document.getElementById('location_to').value;
 
@@ -565,6 +650,7 @@ span.panel-title{
 				scSubExp.query();
 				if(scSubExp.next()) {
 					scSubExp.short_description = input.expDesc;
+					scSubExp.status=0; //1;
 					scSubExp.update();
 				}
 		}	
@@ -593,7 +679,7 @@ span.panel-title{
 		
 			var item = {};
 			//$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category,expline_expense');
-			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category,expline_expense');
+			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_expense,expline_miscellaneous_account_code');
 			results.push(item);
 			$sp.getRecordValues(item, sc, 'expline_requested_amount,expline_requested_value');
 			results.push(item);
@@ -633,7 +719,7 @@ span.panel-title{
         <sys_created_on>2020-02-16 12:36:48</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2a280738db8b4410f5e2174b06961964</sys_id>
-        <sys_mod_count>1413</sys_mod_count>
+        <sys_mod_count>1575</sys_mod_count>
         <sys_name>hvs_widget_expense</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -641,7 +727,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_2a280738db8b4410f5e2174b06961964</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-10 19:23:24</sys_updated_on>
+        <sys_updated_on>2020-09-03 11:27:15</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -684,13 +770,23 @@ span.panel-title{
            <label for="Rubric">${expense.label.LogaRubric} :</label>
            <sn-record-picker readonly field="Rubric" table="'x_hdvi2_expense_loga_data'" display-field="'label'" value-field="'sys_id'" search-fields="'label'" page-size="15" default-query="'{{c.data.FilterRubric}}'"></sn-record-picker>
          </div>
+         <!-- display selected category if Loga Rubric = Divers -->
+         <div ng-if="data.items[0].expline_miscellaneous_account_code != '' && data.CategDiversNbChar > 1">
+           <!--label for="CategDivers">${expense.label.CategoryDivers} :</label-->
+           <input readonly class="form-control" ng-model="CategDivers" Value="{{c.data.items[0].expsheet_short_description}}" id="CategDivers" type="text">
+         </div>
+         <!-- ************************************************* -->
          <div ng-if="data.CategRubric == 'Training'">
            <label for="Rubric">${expense.label.LogaRubric} :</label>
            <sn-record-picker readonly field="Rubric" table="'x_hdvi2_expense_loga_data'" display-field="'label'" value-field="'sys_id'" search-fields="'label'" page-size="15" default-query="'{{c.data.FilterRubric}}'"></sn-record-picker>
          </div>
-         <div ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='79H'">
+         <div ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='809' && data.codeloga[0].code!='855' && (data.codeloga[0].code == '800' && data.RubricId != '3eae6cd5db831c50011e177e16961978')">
            <label style="padding-top:8px;" id="labelReqAmount" for="expReqAmount">${expense.label.RequestedAmount} :</label>
            <input id="expReqAmount" class="form-control" ng-change="SetChangeTrue()" ng-model="expAmount" value="{{data.expline_requested_amount}}" type="text">
+         </div>
+         <div ng-if="data.codeloga[0].code=='855' || (data.codeloga[0].code == '800' && data.RubricId == '3eae6cd5db831c50011e177e16961978')">
+           <label style="padding-top:8px;" id="labelReqAmount" for="expReqAmount">${expense.label.RequestedAmount} :</label>
+           <input readonly id="expReqAmount" class="form-control" ng-change="SetChangeTrue()" ng-model="expAmount" value="{{data.expline_requested_amount}}" type="text">
          </div>
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='fbc37b13dbee0090f5e2174b06961948'">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
@@ -702,7 +798,7 @@ span.panel-title{
       		 <label style="padding-top:8px;display:none;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input style="display:none;" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
-         <div ng-if="data.codeloga[0].code=='79H' && data.codeloga[0].sys_id=='f7b2f22bdb3fcc50011e177e16961981'">
+         <div ng-if="data.codeloga[0].code=='809' && data.codeloga[0].sys_id=='9805f444db44149009b962a916961908'">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
            <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
@@ -716,22 +812,28 @@ span.panel-title{
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location!=''">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
-           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <!--label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
            <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.Location} :</label>
+						-->
+      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.LocationFrom} :</label>
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+           <label style="padding-top:8px;" id="labelOtherLocTo" for="expOtherLocTo">${expense.label.LocationTo} :</label>
+     			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLocTo" ng-model="expOtherLocTo" value="{{c.data.items[0].other_location_to}}" type="text">
+           <!--sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+					-->
          </div>  
-         <div ng-if="data.codeloga[0].code=='79H' && data.codeloga[0].sys_id=='d7a2f22bdb3fcc50011e177e1696199b' && data.items[0].expline_other_location!=''">
+         <div ng-if="data.codeloga[0].code=='809' && data.codeloga[0].sys_id=='e8e4b084db44149009b962a916961906' && data.items[0].expline_other_location!=''">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
-           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
+           <!--label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
            <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.Location} :</label>
+						-->
+      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.LocationFrom} :</label>
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
+           <label style="padding-top:8px;" id="labelOtherLocTo" for="expOtherLocTo">${expense.label.LocationTo} :</label>
+     			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLocTo" ng-model="expOtherLocTo" value="{{c.data.items[0].other_location_to}}" type="text">
+           <!--sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+					-->
          </div>  
          
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location==''">
@@ -744,7 +846,7 @@ span.panel-title{
       		 <label style="padding-top:8px;color:#ff0000;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
-         <div ng-if="data.codeloga[0].code=='79H' && data.codeloga[0].sys_id=='d7a2f22bdb3fcc50011e177e1696199b' && data.items[0].expline_other_location==''">
+         <div ng-if="data.codeloga[0].code=='809' && data.codeloga[0].sys_id=='e8e4b084db44149009b962a916961906' && data.items[0].expline_other_location==''">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
            <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
@@ -755,7 +857,7 @@ span.panel-title{
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
   
-         <div style="position:relative;" ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='79H'">
+         <div style="position:relative;" ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='809' && !1==1">
       		<label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			<input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
@@ -767,18 +869,22 @@ span.panel-title{
       <tr><td><span>&nbsp;</span></td></tr>
       <tr> 
        <td>
+         <div class="panel-primary">
       	  <label for="close_expline"></label>
-          <a id="close_expline" href="javascript:void(0)" ng-click="buttonCloseExpenseEdit()" data-dismiss="modal" class="pull-right_expense btn_expense btn_expense-primary_close">
+          <a id="close_expline" href="javascript:void(0)" ng-click="buttonCloseExpenseEdit()" data-dismiss="modal" class="pull-right_expense panel panel-heading panel-primary" style="border-color: #a4282d; background-color: #b92d33;">
               ${expense.label.button_close}
           </a>
+         </div>
        </td>
        <td style="width:20px;">
        </td>
        <td>
-      	<label for="save_expline"></label>
-        <a id="save_expline" href="javascript:void(0)" ng-click="buttonSaveExpenseEdit()" class="pull-right_expense btn_expense btn_expense-primary_save">
-            ${expense.label.button_save}
-        </a>
+         <div class="panel-primary">
+          <label for="save_expline"></label>
+          <a id="save_expline" href="javascript:void(0)" ng-click="buttonSaveExpenseEdit()" class="pull-right_expense panel panel-heading panel-primary"><!--  -->
+              ${expense.label.button_save}
+          </a>
+         </div>
        </td>
        <td style="width:20px;">
        </td>

@@ -20,7 +20,7 @@
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
 	
 	if (isLoading || newValue == '') {
-		if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '79H') {
+		if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '809') {
 			g_form.setMandatory('sr_new_location_from_reason',false);
 			g_form.setValue('sr_new_location_from_reason','');
 			g_form.setValue('sr_location_to','');
@@ -47,13 +47,13 @@
 	}
 
 		
-	if((g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '79H') && g_form.getDisplayValue("sr_location_from")=='Lausanne') {
+	if((g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '809') && g_form.getDisplayValue("sr_location_from")=='Lausanne') {
 		getMessage('expense.modal.warning', function(modalTitle) {
 			getMessage('expense.location.not.allowed', function(msg) {
 				if (typeof spModal != 'undefined') {
 					spModal.open({
 						title: modalTitle,
-						message: msg,
+						message: g_form.getLabelOf("sr_location_from") + " : " + msg,
 						buttons: [
 							{label:'OK', primary: true}
 						],
@@ -67,8 +67,8 @@
 		});
 	}
 
-	if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C'  || g_form.getValue("sr_loga_code") == '79H') {
-		if((g_form.getValue("sr_rubrique_loga")!='edc49704dbd3c050f5e2174b06961901' && g_form.getValue("sr_loga_code") == '79C') || (g_form.getValue("sr_rubrique_loga")!='d7a2f22bdb3fcc50011e177e1696199b' && g_form.getValue("sr_loga_code") == '79H')) {
+	if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C'  || g_form.getValue("sr_loga_code") == '809') {
+		if((g_form.getValue("sr_rubrique_loga")!='edc49704dbd3c050f5e2174b06961901' && g_form.getValue("sr_loga_code") == '79C') || (g_form.getValue("sr_rubrique_loga")!='d7a2f22bdb3fcc50011e177e1696199b' && g_form.getValue("sr_loga_code") == '809')) {
 			g_form.setMandatory('sr_location_to',true);
 			g_form.setDisplay('sr_location_to',true);
 		}
@@ -122,7 +122,7 @@ function CheckLocationsKM(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5ee030d3dbb20410f5e2174b06961916</sys_id>
-        <sys_mod_count>77</sys_mod_count>
+        <sys_mod_count>80</sys_mod_count>
         <sys_name>HVS Display Location_To &amp; Location_Other</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -131,7 +131,7 @@ function CheckLocationsKM(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_5ee030d3dbb20410f5e2174b06961916</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-09 15:32:14</sys_updated_on>
+        <sys_updated_on>2020-07-03 11:58:25</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>

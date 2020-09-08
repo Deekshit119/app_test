@@ -42,7 +42,7 @@
 	ga2.addParam('LogaRubricId', newValue);
 	ga2.getXML(parseLogaData);	
 
-	if(g_form.getValue("sr_rubrique_loga") == 'f7c37b13dbee0090f5e2174b0696194a') { // Rubriaue Loga : Sélection Internet
+	if(g_form.getValue("sr_rubrique_loga") == 'f7c37b13dbee0090f5e2174b0696194a') { // Rubrique Loga : Sélection Internet
 		var ga = new GlideAjax('HVSExpenseUtils');
 		ga.addParam('sysparm_name', 'isITWorker');
 		ga.addParam('user_sys_id',g_user.userID);
@@ -60,13 +60,13 @@ function parseUsersData(response) {
 					if (typeof spModal != 'undefined') {
 						spModal.open({
 							title: modalTitle,
-							message: msg  + '\n\n' + g_form.getDisplayValue('sr_rubrique_loga')+' !!',
+							message:  g_form.getLabelOf("sr_rubrique_loga") + " : " + msg  + '\n\n' + g_form.getDisplayValue('sr_rubrique_loga')+' !!',
 							buttons: [
 								{label:'OK', primary: true}
 							],
 						backdrop: 'static'
 						}).then(function(){
-							g_form.setValue('sr_rubrique_loga','');
+							//g_form.setValue('sr_rubrique_loga','');
 							return;
 						});
 					}			
@@ -82,7 +82,7 @@ function parseUsersData(response) {
 function parseLogaData(response) {
 	var answer = response.responseXML.documentElement.getAttribute("answer");
 	var sCode='';
-	
+
 	answer = JSON.parse(answer);
 	try {
 		if(answer) {
@@ -109,36 +109,71 @@ function parseLogaData(response) {
 					g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
 					});
 				}
-			if(sCode == '806') {
-				getMessage('expense.info.frais.trains', function(msg) {
+			if(sCode == '806' && g_form.getValue("sr_rubrique_loga") == "73c37b13dbee0090f5e2174b0696194a") {
+				getMessage('expense.info.frais.trains', function(msg) { 
 					g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
 					});
 				}
-			if(sCode == '800') {
-				if(g_form.getValue("sr_rubrique_loga") == 'fbc37b13dbee0090f5e2174b06961949') {
-					// Repas dans le Canton
-						getMessage('expense.info.frais.repas.dans.canton', function(msg) {
-						g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
-						});
-					}
-				else if(g_form.getValue("sr_rubrique_loga") == 'bfc37b13dbee0090f5e2174b06961949') {
-						// Repas hors Canton
-						getMessage('expense.info.frais.repas.hors.canton', function(msg) {
-						g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
-						});
-					}
-				}
+			if(sCode == '800' && g_form.getValue("sr_rubrique_loga") != "3eae6cd5db831c50011e177e16961978") {
+				var dDate = g_form.getValue("sr_date_expense");
+
+				var ga3 = new GlideAjax('HVSExpenseDateUtils');
+				ga3.addParam('sysparm_name', 'ValidateDates');
+				ga3.addParam('sysparm_start', dDate);
+				ga3.addParam('sysparm_end', '01.08.2020');
+				ga3.getXML(CheckExpenseDates);
 			}
-		
-			// Code Loga montant maximum 
-			// 855 Connexion internet
-			if(sCode == '855') {
-				if(answer.max_amount!=0) g_form.setValue('sr_requested_amount',''||answer.max_amount);
-			}
+		}
+
+		// Code Loga montant maximum 
+		// 855 Connexion internet
+		// 800 PEtit-déjeuner
+		if(sCode == '855' || (sCode == '800' && g_form.getValue("sr_rubrique_loga") == "3eae6cd5db831c50011e177e16961978")) {
+			if(answer.max_amount!=0) g_form.setValue('sr_requested_amount',''||answer.max_amount);
+		}
 	}
 	catch(err){
 		jslog(err.message);
 	}
+}
+
+function CheckExpenseDates(response) {
+    var answer = response.responseXML.documentElement.getAttribute("answer");
+	var oldDate = g_form.getValue("sr_date_expense");
+
+    try {
+        if (answer == 'false') {
+			if(g_form.getValue("sr_rubrique_loga") == 'fbc37b13dbee0090f5e2174b06961949') {
+				// Repas dans le Canton
+				getMessage('expense.info.frais.repas.dans.canton.new', function(msg) {
+					g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
+				});
+			}
+			else if(g_form.getValue("sr_rubrique_loga") == 'bfc37b13dbee0090f5e2174b06961949') {
+				// Repas hors Canton
+				getMessage('expense.info.frais.repas.hors.canton.new', function(msg) {
+					g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
+				});
+			}
+		}
+		else {
+			if(g_form.getValue("sr_rubrique_loga") == 'fbc37b13dbee0090f5e2174b06961949') {
+				// Repas dans le Canton
+				getMessage('expense.info.frais.repas.dans.canton', function(msg) {
+					g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
+				});
+			}
+			else if(g_form.getValue("sr_rubrique_loga") == 'bfc37b13dbee0090f5e2174b06961949') {
+				// Repas hors Canton
+				getMessage('expense.info.frais.repas.hors.canton', function(msg) {
+					g_form.showFieldMsg("sr_rubrique_loga",msg,"info");
+				});
+			}
+		}
+	}
+	catch (err) {
+        jslog('A JavaScript runtime error occurred: ' + err.message * '[Client Script HVS Rubric Controls - Form Demande de Remboursement]');
+    }
 }]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
@@ -147,7 +182,7 @@ function parseLogaData(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>53186b9bdb8b4050011e177e169619e5</sys_id>
-        <sys_mod_count>102</sys_mod_count>
+        <sys_mod_count>124</sys_mod_count>
         <sys_name>HVS Rubric Controls</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -156,7 +191,7 @@ function parseLogaData(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_53186b9bdb8b4050011e177e169619e5</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-19 20:10:39</sys_updated_on>
+        <sys_updated_on>2020-09-03 11:03:13</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>

@@ -115,7 +115,17 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
 						var firstname = gr_sheet.requested_for.first_name;
 						var lastname = gr_sheet.requested_for.last_name;
 						var contract = gr_sheet.contract.u_contrat_number;
+						/**********************************************************************************************/
+						/* PSO 03.07.20 - récupérer le code comptable au lieu du code loga D01 pour les frais divers
+						 * avant modif :
+						 * var rubric = gr_line.rubric.code;
+						 */
 						var rubric = gr_line.rubric.code;
+						if(rubric=='D01') {
+							rubric = '' + gr_line.miscellaneous_account_code;
+							rubric = rubric.slice(-3);
+						}
+						/**********************************************************************************************/
 						/* 04.05.2020 Update facteur by Piece that will contain la valeur de KM 
 						 * avant :
 						 * var facteur = ((gr_line.refunded_value > 0) ? (""+gr_line.refunded_value) : "");
@@ -123,11 +133,13 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
 						 */
 						var piece = ((gr_line.refunded_value > 0) ? (""+gr_line.refunded_value) : "");
 						var amount = ((piece == "") ? ("" + gr_line.refunded_amount) : "");
-						// PSO 08.04.20 - comment below line to add new one for getting date format as AAAA-MM-dd
-						// var date = new GlideDate().getDisplayValue();
+						/**********************************************************************************************/
+						/* PSO 08.04.20 - comment below line to add new one for getting date format as AAAA-MM-dd
+						 * var date = new GlideDate().getDisplayValue();
+						*/
 						var date = new GlideDate();
 						date.getByFormat('YYYY-MM-dd');
-						// PSO 08.04.20 end of modification
+						/**********************************************************************************************/
 						
 						var date_attribution = "";
 						var tmpDate = "" + gr_extract.getDisplayValue("attribution_date");
@@ -190,7 +202,7 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_created_on>2020-02-07 13:38:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>18df70c6dbf28490011e177e169619ef</sys_id>
-        <sys_mod_count>91</sys_mod_count>
+        <sys_mod_count>93</sys_mod_count>
         <sys_name>HVSExpenseExtractUtils</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy>read</sys_policy>
@@ -198,6 +210,6 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_include_18df70c6dbf28490011e177e169619ef</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-04 15:17:51</sys_updated_on>
+        <sys_updated_on>2020-08-31 08:16:31</sys_updated_on>
     </sys_script_include>
 </record_update>

@@ -18,104 +18,104 @@
         <name>HVS FormValidation</name>
         <order>10</order>
         <script><![CDATA[function onSubmit() {
-	//Type appropriate comment here, and begin script below
-	g_form.hideFieldMsg('end_date');
-	var bOK = g_form.getValue("formok");
-	if (bOK == 'date_invalid') {
-		 	getMessage('x_hdvi2_expense.endDate.not.valid', function(msg) {
-		 		g_form.showFieldMsg('end_date',msg,'error');
-		 	});
-		g_form.setValue("formok",'true');
-		return false;
-	}
+    //Type appropriate comment here, and begin script below
+    g_form.hideFieldMsg('end_date');
+    var bOK = g_form.getValue("formok");
+    if (bOK == 'date_invalid') {
+        getMessage('x_hdvi2_expense.endDate.not.valid', function(msg) {
+            g_form.showFieldMsg('end_date', msg, 'error');
+        });
+        g_form.setValue("formok", 'date_invalid');
+        return false;
+    }
 
-	// Code Loga avec pièce jointe
-	// 807 Frais hébergement
-	// 806 Frais transport publics-parking
-	// D01 Divers
-	if(g_form.getValue("sr_loga_code") == '807' || g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == 'D01') {
-		if(this.document.getElementsByClassName('get-attachment').length == 0) {
-			getMessage('expense.modal.warning', function(modalTitle) {
-			
-				getMessage('expense.rubric.message.attachment', function(msg) {
-					if (typeof spModal != 'undefined') {
-						spModal.open({
-							title: modalTitle,
-							message: msg,
-							buttons: [
-							{label:'OK', primary: true}
-								],
-								backdrop: 'static'
-							}).then(function(){
-								return false;
-							});
-						}
-					});
-			});
-			return false;
-		}
-	}
-			
-	
-	if (g_form.getValue("formok")=='trueSubmit') {
-			return true;
-	}	
+    // Code Loga avec pièce jointe
+    // 807 Frais hébergement
+    // 806 Frais transport publics-parking
+    // D01 Divers
+    if (g_form.getValue("sr_loga_code") == '807' || g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == 'D01') {
+        if (this.document.getElementsByClassName('get-attachment').length == 0) {
+            getMessage('expense.modal.warning', function(modalTitle) {
 
-	var sdateFormat = ''+g_form.getValue("sr_date_expense");
-	var sdateExp = sdateFormat.substr(6, 4)+'-'+sdateFormat.substr(3, 2)+'-'+sdateFormat.substr(0, 2);
+                getMessage('expense.rubric.message.attachment', function(msg) {
+                    if (typeof spModal != 'undefined') {
+                        spModal.open({
+                            title: modalTitle,
+                            message: msg,
+                            buttons: [{
+                                label: 'OK',
+                                primary: true
+                            }],
+                            backdrop: 'static'
+                        }).then(function() {
+                            return false;
+                        });
+                    }
+                });
+            });
+            return false;
+        }
+    }
 
-	if(g_form.getValue("sr_requested_amount")!='' && g_form.getValue("sr_requested_amount")!='0') {
-	var grDupAmount= new GlideRecord('x_hdvi2_expense_line');
-		grDupAmount.addQuery('active',true);
-		grDupAmount.addQuery('rubric',g_form.getValue("sr_rubrique_loga"));
-		grDupAmount.addQuery('date_expense',sdateExp);
-		grDupAmount.addQuery('requested_amount',parseFloat(g_form.getValue("sr_requested_amount")));
-		grDupAmount.addQuery('expense.requested_for',g_form.getValue("requested_for"));
-		grDupAmount.query(CheckDuplicate);
-	}
-	if(g_form.getValue("sr_requested_value")!='' && g_form.getValue("sr_requested_value")!='0') {
-		var grDupValue= new GlideRecord('x_hdvi2_expense_line');
-		grDupValue.addQuery('active',true);
-		grDupValue.addQuery('rubric',g_form.getValue("sr_rubrique_loga"));
-		grDupValue.addQuery('date_expense',sdateExp);
-		grDupValue.addQuery('requested_value',parseFloat(g_form.getValue("sr_requested_value")));
-		grDupValue.addQuery('expense.requested_for',g_form.getValue("requested_for"));
-		grDupValue.query(CheckDuplicate);
-	}
 
-	return false;
-		
-	function CheckDuplicate(grDup) {
+    if (g_form.getValue("formok") == 'trueSubmit') {
+        return true;
+    }
 
-		//Perform validation
-		if(grDup.next()) {
-			g_form.setValue("sr_doublon",'Yes');
-			getMessage('expense.modal.warning', function(modalTitle) {
-		
-				getMessage('expense.duplicates.records', function(msg) {
-					if (typeof spModal != 'undefined') {
-						spModal.open({
-							title: modalTitle, //'Avertissement',
-							message: msg ,
-							backdrop: 'static'
-						}).then(function(){
-							g_form.setValue("formok",'trueSubmit');
-							//then re-submit
-							g_form.submit();
-						}, function(){
-							g_form.setValue("formok",'falseSubmit');
-						});
-					}
-				});
-			});
-		}
-		else {
-			g_form.setValue("sr_doublon",'No');
-			g_form.setValue("formok",'trueSubmit');
+    var sdateFormat = '' + g_form.getValue("sr_date_expense");
+    var sdateExp = sdateFormat.substr(6, 4) + '-' + sdateFormat.substr(3, 2) + '-' + sdateFormat.substr(0, 2);
+
+    if (g_form.getValue("sr_requested_amount") != '' && g_form.getValue("sr_requested_amount") != '0') {
+        var grDupAmount = new GlideRecord('x_hdvi2_expense_line');
+        grDupAmount.addQuery('active', true);
+        grDupAmount.addQuery('rubric', g_form.getValue("sr_rubrique_loga"));
+        grDupAmount.addQuery('date_expense', sdateExp);
+        grDupAmount.addQuery('requested_amount', parseFloat(g_form.getValue("sr_requested_amount")));
+        grDupAmount.addQuery('expense.requested_for', g_form.getValue("requested_for"));
+        grDupAmount.query(CheckDuplicate);
+    }
+    if (g_form.getValue("sr_requested_value") != '' && g_form.getValue("sr_requested_value") != '0') {
+        var grDupValue = new GlideRecord('x_hdvi2_expense_line');
+        grDupValue.addQuery('active', true);
+        grDupValue.addQuery('rubric', g_form.getValue("sr_rubrique_loga"));
+        grDupValue.addQuery('date_expense', sdateExp);
+        grDupValue.addQuery('requested_value', parseFloat(g_form.getValue("sr_requested_value")));
+        grDupValue.addQuery('expense.requested_for', g_form.getValue("requested_for"));
+        grDupValue.query(CheckDuplicate);
+    }
+
+    return false;
+
+    function CheckDuplicate(grDup) {
+
+        //Perform validation
+        if (grDup.next()) {
+            g_form.setValue("sr_doublon", 'Yes');
+            getMessage('expense.modal.warning', function(modalTitle) {
+
+                getMessage('expense.duplicates.records', function(msg) {
+                    if (typeof spModal != 'undefined') {
+                        spModal.open({
+                            title: modalTitle, //'Avertissement',
+                            message: msg,
+                            backdrop: 'static'
+                        }).then(function() {
+                            g_form.setValue("formok", 'trueSubmit');
+                            //then re-submit
+                            g_form.submit();
+                        }, function() {
+                            g_form.setValue("formok", 'falseSubmit');
+                        });
+                    }
+                });
+            });
+        } else {
+            g_form.setValue("sr_doublon", 'No');
+            g_form.setValue("formok", 'trueSubmit');
             g_form.submit();
-		}
-	}
-}							]]></script>
+        }
+    }
+}]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-03-06 21:37:45</sys_created_on>
@@ -123,7 +123,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f72af20fdb9fc810011e177e169619d4</sys_id>
-        <sys_mod_count>125</sys_mod_count>
+        <sys_mod_count>126</sys_mod_count>
         <sys_name>HVS FormValidation</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -132,7 +132,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_f72af20fdb9fc810011e177e169619d4</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-30 08:34:08</sys_updated_on>
+        <sys_updated_on>2020-08-28 09:55:34</sys_updated_on>
         <table/>
         <type>onSubmit</type>
         <ui_type>10</ui_type>

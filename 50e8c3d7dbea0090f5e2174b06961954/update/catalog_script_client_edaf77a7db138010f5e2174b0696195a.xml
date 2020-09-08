@@ -18,44 +18,44 @@
         <name>HVS Check KMs Input</name>
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
-   if (isLoading || newValue == '') {
-      return;
-   }
-	
-	var sInputValue = newValue;
-	var iInputValue = parseFloat(sInputValue);
+    if (isLoading || newValue == '') {
+        return;
+    }
 
-	if(iInputValue < 0 || iInputValue>=10000 || isNaN(iInputValue)) {
-		getMessage('expense.modal.warning', function(modalTitle) {
-			getMessage('expense.rubric_km.value.control', function(msg) {
-				if (typeof spModal != 'undefined') {
-					spModal.open({
-						title: modalTitle,
-						message: msg,
-						buttons: [
-							{label:'OK', primary: true}
-						],
-					backdrop: 'static'
-					}).then(function(){
-						return;
-					});
-				}			
-			});
-		});	
-		g_form.setValue('sr_requested_value','');
-		return;
-	}
-	
-  	g_form.setValue('sr_requested_value',parseFloat(sInputValue));
+    var sInputValue = newValue;
+    var iInputValue = parseFloat(sInputValue);
 
-	g_form.getReference('sr_rubrique_loga', doGetCode);
+    if (iInputValue < 0 || iInputValue >= 10000 || isNaN(iInputValue)) {
+        getMessage('expense.modal.warning', function(modalTitle) {
+            getMessage('expense.rubric_km.value.control', function(msg) {
+                if (typeof spModal != 'undefined') {
+                    spModal.open({
+                        title: modalTitle,
+                        message: g_form.getLabelOf("sr_requested_value") + " : " + msg,
+                        buttons: [{
+                            label: 'OK',
+                            primary: true
+                        }],
+                        backdrop: 'static'
+                    }).then(function() {
+                        g_form.setValue('sr_requested_value', '');
+                        return;
+                    });
+                }
+            });
+        });
+        return;
+    }
 
-	function doGetCode(rubric) { // reference is passed into callback as first arguments
-		  var sCode = rubric.code;
-		  g_form.setValue('sr_loga_code',sCode);
-	}
-}
-]]></script>
+    g_form.setValue('sr_requested_value', parseFloat(sInputValue));
+
+    g_form.getReference('sr_rubrique_loga', doGetCode);
+
+    function doGetCode(rubric) { // reference is passed into callback as first arguments
+        var sCode = rubric.code;
+        g_form.setValue('sr_loga_code', sCode);
+    }
+}]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-03-08 15:58:12</sys_created_on>
@@ -63,7 +63,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>edaf77a7db138010f5e2174b0696195a</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>HVS Check KMs Input</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -72,7 +72,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_edaf77a7db138010f5e2174b0696195a</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-09 12:07:34</sys_updated_on>
+        <sys_updated_on>2020-07-03 11:55:58</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>

@@ -17,6 +17,61 @@
 	c.data.comment='undefined';
 	$scope.comment='undefined';
 
+	$scope.findKeywords = function (type,search) {
+		var fids = ''+c.data.userId + document.getElementById("selectedFilter").selectedIndex  + document.getElementById("selectedFilterBy").selectedIndex;
+		c.data.fids = fids;
+		//	$timeout(function() {
+				if(type=='rev') {
+					if(search) {
+						c.data.keywordsRev = search;
+						c.data.keywordsType = type;
+						
+					c.data.filterField = document.getElementById("selectedFilterBy").selectedIndex;
+						
+						c.server.update().then(function(data){
+							//c.data.keywordsType = '';
+						});
+					}
+					else {
+						c.data.keywordsType = '';
+						c.server.update();
+					}
+				}
+	//	});
+	}
+	
+	$scope.selectedFilter = c.data.ExpFilter[c.data.selectedIndex];
+	$scope.changeFilter = function (selectedFilter) {
+		$timeout(function() {
+			if(selectedFilter) {
+					if(selectedFilter.hasOwnProperty("filter")) {
+						var fids = ''+c.data.userId+selectedFilter.index + c.data.selectedIndexField;
+						
+					c.data.filterField = document.getElementById("selectedFilterBy").selectedIndex;
+						
+						c.data.fids = fids;
+						c.server.update();
+					}
+		  }
+	});
+	}
+	
+		
+	$scope.selectedFilterBy = c.data.FilterBy[c.data.selectedIndexField];
+	$scope.changeFilterField = function (selectedFilterBy) {
+		$timeout(function() {
+			if(selectedFilterBy) {
+					if(selectedFilterBy.hasOwnProperty("name")) {
+						var fids = '' + c.data.userId + c.data.selectedIndex + selectedFilterBy.index;
+						c.data.filterField = selectedFilterBy.index;
+						c.data.fids = fids;
+						c.server.update();
+					}
+		  }
+	});
+	}
+
+	
 	if(!c.data.isApprover) {
 		spModal.open({
 			title: '${expense.modal.warning}',
@@ -44,8 +99,7 @@
 			backdrop: 'static',
 			widgetInput: widgetExpenseOptionsOnly
 		}).then(function () {
-			  $scope.keywords='';
-			  c.data.keywords='';
+			  c.data.keywordsType='';
 		});
 	};
 	
@@ -149,15 +203,14 @@
 }
 
 .td_img {
-		width: 30px;
-  	height: 30px;
+		width: 20px;
+  	height: 20px;
   	display: inline-block;
 }
 
-.td_img_refresh {
+.td_img_send {
 		width: 25px;
   	height: 25px;
-  	font-weight: bold;
   	display: inline-block;
 }
 
@@ -191,6 +244,28 @@ h4.selected-tab {
   
 .panel-heading{
  background-color : $brand-primary; 
+}
+
+select.panel-heading {
+  display: block;
+  padding: 0px 0px 0px 0px;
+  opacity: 1;
+  background-color:white;
+  color:$text-color;
+}
+
+input.panel-heading {
+  display: block;
+  padding: 0px 0px 0px 0px;
+  opacity: 1;
+  margin-left:5px;
+  //margin-top:-2px;
+  background-color:white;
+  color:$text-color;
+}
+
+.select {
+     padding: 0px 0px 0px 10px;
 }
 
 .panel{
@@ -238,13 +313,56 @@ span.panel-title{
   background-color: $brand-primary; //#b92d33;
 }
 
-.doublon-1  {
+a.collapsed:link {
+  text-decoration: none;
+}
+
+div.collapsed {
+  text-decoration: none;
+  padding: 10px 15px;
+}
+
+.accordion-option {
+  width: 100%;
+  float: left;
+  clear: both;
+  margin: 15px 0;
+}
+
+.doublon-1 {
 	color:#efaa0f;
   font-weight: 600;
 }
 
 .doublon-0 {
   color: inherit;
+}
+
+i.tip {
+    border-bottom: 1px dashed;
+    text-decoration: none
+}
+i.tip:hover {
+    cursor: help;
+    position: relative
+}
+i.tip span {
+    display: none
+}
+i.tip:hover span {
+		border: #c0c0c0 1px dotted;
+    padding: 5px 20px 5px 5px;
+    color: #fff;
+    display: block;
+    font-weight: bold;
+    z-index: 100;
+    background: url(../images/status-info.png) rgba(118, 129, 135, 1) no-repeat 100% 5%;
+    left: 0px;
+    margin: 10px;
+    width: 280px;
+    position: absolute;
+    top: 10px;
+    text-decoration: none;
 }
 </css>
         <data_table>sp_instance</data_table>
@@ -277,6 +395,7 @@ span.panel-title{
 		isApproverDelegate = userDelegate.u_expense_approval;
 	}
 
+	data.userId=gs.getUserID();
 	data.isApprover = isApproverUser || isApproverDelegate;
 	
 	var gDate = new GlideDate();
@@ -323,10 +442,95 @@ span.panel-title{
 			data.action='';
 			data.comment='';
 			}
+	
+			// ******************************************************************
+			// defined field filter list
+			data.FilterBy = [{name: gs.getMessage("expense.filter.by.expense_date"), index: 0}];
+			data.FilterBy.push({name: gs.getMessage("expense.filter.by.expense_request"), index: 1});
 
-	  data.fieldslabels = getFieldLabels('');
+			// defined filter list for approved expenses
+			/*
+			var ExpFilter = [{index:0, filter: gs.getMessage("This month"), condition: 'expline_date_expenseONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()'}];
+			var filterCondition2 = {index:1, filter: gs.getMessage("Last month"), condition: 'expline_date_expenseONLast month@javascript:gs.beginningOfLastMonth()@javascript:gs.endOfLastMonth()'};
+			ExpFilter.push(filterCondition2);
+			var filterCondition3 = {index:2, filter: gs.getMessage("Last 3 months"), condition: 'expline_date_expenseONLast 3 months@javascript:gs.beginningOfLast3Months()@javascript:gs.endOfLast3Months()'};
+			ExpFilter.push(filterCondition3);
+			var filterCondition4 = {index:3, filter: gs.getMessage("Last 6 months"), condition: 'expline_date_expenseONLast 6 months@javascript:gs.beginningOfLast6Months()@javascript:gs.endOfLast6Months()'};
+			ExpFilter.push(filterCondition4);
+			var filterCondition5 = {index:4, filter: gs.getMessage("Last 12 months"), condition: 'expline_date_expenseONLast 12 months@javascript:gs.beginningOfLast12Months()@javascript:gs.endOfLast12Months()'};
+			ExpFilter.push(filterCondition5);
+			var ExpFilterSub = ExpFilter;
+			var ExpFilterApp = ExpFilter;
+			*/
+
+			var ExpFilter = [{index:0, filter: gs.getMessage("This month"), condition: 'ONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()'}];
+			var filterCondition2 = {index:1, filter: gs.getMessage("Last month"), condition: 'ONLast month@javascript:gs.beginningOfLastMonth()@javascript:gs.endOfLastMonth()'};
+			ExpFilter.push(filterCondition2);
+			var filterCondition3 = {index:2, filter: gs.getMessage("Last 3 months"), condition: 'ONLast 3 months@javascript:gs.beginningOfLast3Months()@javascript:gs.endOfLast3Months()'};
+			ExpFilter.push(filterCondition3);
+			var filterCondition4 = {index:3, filter: gs.getMessage("Last 6 months"), condition: 'ONLast 6 months@javascript:gs.beginningOfLast6Months()@javascript:gs.endOfLast6Months()'};
+			ExpFilter.push(filterCondition4);
+			var filterCondition5 = {index:4, filter: gs.getMessage("Last 12 months"), condition: 'ONLast 12 months@javascript:gs.beginningOfLast12Months()@javascript:gs.endOfLast12Months()'};
+			ExpFilter.push(filterCondition5);
+			var ExpFilterSub = ExpFilter;
+			var ExpFilterApp = ExpFilter;
+			data.exp_ndx_page = 'expndx';
+			data.selectedIndex = 4;
+			data.userId=gs.getUserID();
+			data.selectedIndexField = 0;
+
+			var paramIds='';
+			if(input) {
+				if(input.fids) paramIds = input.fids;
+			}
+
+			var userSelectedFilterField = (paramIds == '' ? data.selectedIndexField  : parseInt(paramIds[paramIds.length-1]));
+			data.userSelectedFilterField = userSelectedFilterField;
+			for(var z = 0; z < data.FilterBy.length ; z++) {
+				if(z == userSelectedFilterField){ 
+					data.selectedIndexField = z;
+				}	
+			}	
+			data.userSelectedFilterField = userSelectedFilterField;
+	
+
+			var userSelectedFilter = (paramIds == '' ? data.selectedIndex : parseInt(paramIds[paramIds.length-2]));
+			data.userSelectedFilter = userSelectedFilter;
+			for(var i = 0; i < ExpFilter.length ; i++) {
+				if(i == userSelectedFilter){ 
+					data.selectedIndex = i;
+				}	
+			}	
+			data.ExpFilter = ExpFilter;
+			data.UserselectedFilter=userSelectedFilter;
+
+	
+			var fieldFilterSelected = '';
+			if(parseInt(data.selectedIndexField) == 0)
+				fieldFilterSelected = 'expline_date_expense';
+			else if(parseInt(data.selectedIndexField) == 1)
+				fieldFilterSelected = 'expsheet_requested_on';
+
+			if(input) {
+					if (input.keywordsType != null && input.keywordsType != '')
+					{
+							data.fieldslabels = getFieldLabels(input.keywordsType, '');
+							//data.keywords='';
+					}
+					else data.fieldslabels = getFieldLabels('', fieldFilterSelected);
+			}
+
+
+		//data.keywords='';
+		/*
+		if (input && input.keywordsType != null && input.keywordsType != '')
+		{
+				data.fieldslabels = getFieldLabels(input.keywordsType);
+		}
+	  else data.fieldslabels = getFieldLabels('');
+		*/
 			
-		function getFieldLabels(keywords) {
+		function getFieldLabels(keywordsType,fieldType) {
 		var scApp = new GlideRecord('x_hdvi2_expense_view');
 				//Split the field defined by the options
 				var tableFields = data.fields.split(',');
@@ -336,10 +540,18 @@ span.panel-title{
 
 				//initialialize table that will be used in the HTML
 				data.approved = [];  
-			
-				//scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe');
-				scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true');
-				scApp.orderByDesc("expline_date_expense");
+
+				// Load data standing for refused expenses
+			  if(keywordsType!='') { //  && keywordsType=='rev') {
+						var keywords = input.keywordsRev;	
+						scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^ORexpsheet_total_refunded_amountIN'+keywords);
+				}
+				else {
+				//		scApp.addEncodedQuery(data.ExpFilter[data.selectedIndex].condition+'^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true');
+						scApp.addEncodedQuery(fieldType + data.ExpFilter[data.selectedIndex].condition+'^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true');
+				}
+			  //scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe');
+				scApp.orderByDesc(fieldType);
 				scApp.query();
 			
         for(var i = 0; i < tableFields.length ; i++) {
@@ -381,7 +593,7 @@ span.panel-title{
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>258</sys_mod_count>
+        <sys_mod_count>340</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -389,8 +601,62 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-05 16:48:55</sys_updated_on>
-        <template><![CDATA[<div class="pointer ng-binding ng-scope" style="display:none;">
+        <sys_updated_on>2020-09-04 10:32:30</sys_updated_on>
+        <template><![CDATA[<table class="table table-striped table-responsive ng-scope " style=""> 
+  <thead>
+    <tr class="tr-top">
+      <th class="thead text-nowrap ng-binding">
+        <div class="th-exp-title ng-binding" aria-label="refresh data">
+          <h4 class="panel-title">
+            <span class="m-r-sm fa ng-scope fa-refresh" style="padding-bottom: 5px;color: #a6aaab;float: left;zoom: 1.4;" aria-hidden="true" name="reload" role="button" ng-click="c.server.update()">
+            </span>
+            <span style="padding-bottom: 2px;color: black;float: left;" aria-hidden="true" name="reload" role="button" ng-click="c.server.update()">
+              ${Refresh this page to see changes ...}
+            </span>
+          </h4>
+        </div>
+      </th>
+      <th class="thead text-nowrap ng-binding">
+        <div class="th-exp-title ng-binding" aria-label="refresh data">
+          <h4 class="panel-title">
+            <span style="padding-bottom: 2px;color: black;float: left; font-weight: 700;" aria-hidden="true" name="fieldFilterTitle">
+               ${Filter by}
+            </span>
+            <span style="padding-bottom: 2px;color: black;" aria-hidden="true" name="fieldFilter">
+    					<select class="panel-heading" style="padding: 0px 0px 0px 2px; border:0px;" ng-change="changeFilterField(selectedFilterBy)" ng-model="selectedFilterBy" id="selectedFilterBy" ng-options="FiltersBy.name for FiltersBy in c.data.FilterBy track by FiltersBy.index"/>
+            </span>
+          </h4>
+        </div>
+      </th>
+      <th class="thead text-nowrap ng-binding">
+        <div class="th-exp-title ng-binding" aria-label="refresh data">
+          <h4 class="panel-title">
+            <span style="padding-bottom: 2px;color: black;float: left; font-weight: 700;" aria-hidden="true" name="periodFilterTitle">
+               ${Select Period}
+            </span>
+            <span style="padding-bottom: 2px;color: black;" aria-hidden="true" name="periodfilter">
+  							<select class="panel-heading" style="padding: 0px 0px 0px 2px; border:0px;" ng-change="changeFilter(selectedFilter)" ng-model="selectedFilter" id="selectedFilter" ng-options="Filters.filter for Filters in c.data.ExpFilter track by Filters.index"/>
+            </span>
+          </h4>
+        </div>
+      </th>
+      <th class="thead text-nowrap ng-binding">
+        <div class="th-exp-title ng-binding" aria-label="refresh data">
+          <h4 class="panel-title">
+            <span style="padding-bottom: 2px;color: black;float: left; font-weight: 700;" aria-hidden="true" name="searchFilterTitle">
+               ${Search per keywords}
+            </span>
+            <span style="padding-bottom: 2px;color: black;" aria-hidden="true" name="periodfilter">
+                  <input class="thead" id="keywordsRev" style="display: flex; padding-left: 5px; height: 23px; border:1px solid $panel-default-heading-bg;" type="text" ng-model="keywordsRev" ng-change="findKeywords('rev',this.keywordsRev)" ng-model-options="{debounce: 250}">
+            </span>
+          </h4>
+        </div>
+      </th>
+    </tr>
+  </thead>
+</table>
+
+<div class="pointer ng-binding ng-scope" style="display:none;">
   <textarea ng-model="comment" maxlength="1024"></textarea>
   <input type="text" ng-model="reqExpSheetId">
   <input type="text" ng-model="action" value="">
@@ -402,12 +668,22 @@ span.panel-title{
  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
    <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">
+          <div class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">
             <h4 class="panel-title">
-              <span class="panel-title ng-binding">${expense.label.expense.approval.pending}</span>
-              <span class="m-r-sm fa ng-scope fa-refresh" style="font-size:20px; color:white; float:right;" aria-hidden="true" name="reload" role="button" ng-click="c.server.update()"></span>
-        		</h4>
-          </a>
+              <span class="panel-title" style="display: flex;">${expense.label.expense.approval.pending}
+                <!--
+                <ul style="width: 15%;margin-bottom: 0px;" role="" aria-label="filter">
+                  <li role="listitem" class="text-overflow-ellipsis" ng-include="'filter-template.html'"/>
+                </ul>
+                <label style="padding-left: 50px; display: flex;" for="keywordsRev">${Search:}
+                  <input class="panel-heading" id="keywordsRev" style="display: block; padding-left: 5px;" type="text" ng-model="keywordsRev" ng-change="findKeywords('rev',this.keywordsRev)" ng-model-options="{debounce: 250}">
+                </label>  
+              </span>
+              <i class="fa fa-refresh" style="margin-top:-20px; font-size:20px; color:white; float:right;" aria-hidden="true" name="reload" role="button" ng-click="c.server.update()"></i>
+							-->
+              </span>   
+      		</h4>
+        </div>
       </div>
       <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
         <div class="panel expense-panel-primary">
@@ -468,6 +744,10 @@ span.panel-title{
     </div>
     <!-- ***************************************************** -->  
 </div>
-</div>  ]]></template>
+</div>  
+<script type="text/ng-template" id="filter-template.html">
+  <select class="panel-heading" style="padding: 0px 0px 0px 10px;" ng-change="changeFilter(selectedFilter)" ng-model="selectedFilter" id="selectedFilter" ng-options="Filters.filter for Filters in c.data.ExpFilter track by Filters.index"/>
+</script>
+]]></template>
     </sp_widget>
 </record_update>

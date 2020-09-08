@@ -18,68 +18,119 @@
         <name>HVS Check Amount Input</name>
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
-   if (isLoading || newValue == '') {
-      return;
-   }
-	
-	var sInputAmount = newValue;
-	var iInputAmount = parseFloat(sInputAmount);
+    if (isLoading || newValue == '') {
+		var dDate = g_form.getValue("sr_date_expense");
+		var ga4 = new GlideAjax('HVSExpenseDateUtils');
+		ga4.addParam('sysparm_name', 'ValidateDates');
+		ga4.addParam('sysparm_start', dDate);
+		ga4.addParam('sysparm_end', '01.08.2020');
+		ga4.getXML(CheckExpenseDates);
 
-	if(iInputAmount < 0 || iInputAmount>=10000 || isNaN(iInputAmount)) {
-		getMessage('expense.modal.warning', function(modalTitle) {			
-			getMessage('expense.rubric_meal.amount.control', function(msg) {
-				if (typeof spModal != 'undefined') {
-					spModal.open({
-						title: modalTitle,
-						message: msg,
-						buttons: [
-							{label:'OK', primary: true}
-						],
-					backdrop: 'static'
-					}).then(function(){
-						return;
-					});
-				}			
-			});	
-		});
-		g_form.setValue('sr_requested_amount','');
-		return;
-	}
-	
-  	g_form.setValue('sr_requested_amount',parseFloat(sInputAmount));
+        return;
+    }
 
-	g_form.getReference('sr_rubrique_loga', doGetCode);
-	g_form.getReference('sr_rubrique_loga', doGetAmount);
+    var sInputAmount = newValue;
+    var iInputAmount = parseFloat(sInputAmount);
 
-	if(g_form.getValue("sr_loga_code") == '800') {
-		g_form.getReference('sr_rubrique_loga', doGetAmount); // doGetAmount is our callback function
-	}
-	else if(g_form.getValue("sr_loga_code") == '855' || g_form.getValue("sr_loga_code") == '807') {
-		g_form.getReference('sr_rubrique_loga', doGetAmount); // doGetAmount is our callback function
-	}
-	else {
-		g_form.setValue('sr_location_to','');	
-	}
+    if (iInputAmount < 0 || iInputAmount >= 10000 || isNaN(iInputAmount)) {
+        getMessage('expense.modal.warning', function(modalTitle) {
+            getMessage('expense.rubric_meal.amount.control', function(msg) {
+                if (typeof spModal != 'undefined') {
+                    spModal.open({
+                        title: modalTitle,
+                        message: g_form.getLabelOf("sr_requested_amount") + " : " + msg,
+                        buttons: [{
+                            label: 'OK',
+                            primary: true
+                        }],
+                        backdrop: 'static'
+                    }).then(function() {
+						g_form.setValue('sr_requested_amount', '');
+                        return;
+                    });
+                }
+            });
+        });
+//        g_form.setValue('sr_requested_amount', '');
+        return;
+    }
+
+    g_form.setValue('sr_requested_amount', parseFloat(sInputAmount));
+
+    g_form.getReference('sr_rubrique_loga', doGetCode);
+    g_form.getReference('sr_rubrique_loga', doGetAmount);
+
+    if (g_form.getValue("sr_loga_code") == '800') {
+        g_form.getReference('sr_rubrique_loga', doGetAmount); // doGetAmount is our callback function
+    } else if (g_form.getValue("sr_loga_code") == '855' || g_form.getValue("sr_loga_code") == '807') {
+        g_form.getReference('sr_rubrique_loga', doGetAmount); // doGetAmount is our callback function
+    } else {
+        g_form.setValue('sr_location_to', '');
+    }
 
 }
 
 function doGetAmount(rubric) { // reference is passed into callback as first arguments
-	var iMaxMontant = 0 || rubric.maximum_amount;
-	var sInputAmount = g_form.getValue('sr_requested_amount');
-	var iInputAmount = parseFloat(sInputAmount);
+    var iMaxMontant = 0 || rubric.maximum_amount;
+    var sInputAmount = g_form.getValue('sr_requested_amount');
+    var iInputAmount = parseFloat(sInputAmount);
 
-	//g_form.addInfoMessage(iMontant);
-	if(iMaxMontant != 0 && iInputAmount > iMaxMontant){
-		g_form.setValue('sr_requested_amount',iMaxMontant);
-		g_form.setReadonly('sr_requested_amount',false);
+    if (iMaxMontant != 0 && iInputAmount > iMaxMontant && g_form.getValue("sr_loga_code") != '800') {
+        g_form.setValue('sr_requested_amount', iMaxMontant);
+        g_form.setReadonly('sr_requested_amount', false);
+    }
+	else {
+		var dDate = g_form.getValue("sr_date_expense");
+
+		var ga3 = new GlideAjax('HVSExpenseDateUtils');
+		ga3.addParam('sysparm_name', 'ValidateDates');
+		ga3.addParam('sysparm_start', dDate);
+		ga3.addParam('sysparm_end', '01.08.2020');
+		ga3.getXML(CheckExpenseDates);
+		
+		var iAmount = parseFloat(g_form.getValue('amount'));
+		if (iMaxMontant != 0 && iInputAmount > iAmount) {
+			g_form.setValue('sr_requested_amount', iAmount);
+			g_form.setReadonly('sr_requested_amount', false);
+		}
 	}
 }
 
 function doGetCode(rubric) { // reference is passed into callback as first arguments
-      var sCode = rubric.code;
-	  g_form.setValue('sr_loga_code',sCode);
+    var sCode = rubric.code;
+    g_form.setValue('sr_loga_code', sCode);
 }
-]]></script>
+
+function CheckExpenseDates(response) {
+    var answer = response.responseXML.documentElement.getAttribute("answer");
+	var oldDate = g_form.getValue("sr_date_expense");
+
+    try {
+        if (answer == 'false') {
+			if(g_form.getValue("sr_rubrique_loga") == 'fbc37b13dbee0090f5e2174b06961949') {
+				// Repas dans le Canton
+				g_form.setValue('amount', 25);
+			}
+			else if(g_form.getValue("sr_rubrique_loga") == 'bfc37b13dbee0090f5e2174b06961949') {
+				// Repas hors Canton
+				g_form.setValue('amount', 30);
+			}
+		}
+		else {
+			if(g_form.getValue("sr_rubrique_loga") == 'fbc37b13dbee0090f5e2174b06961949') {
+				// Repas dans le Canton
+				g_form.setValue('amount', 18);
+			}
+			else if(g_form.getValue("sr_rubrique_loga") == 'bfc37b13dbee0090f5e2174b06961949') {
+				// Repas hors Canton
+				g_form.setValue('amount', 25);
+			}
+		}
+	}
+	catch (err) {
+        jslog('A JavaScript runtime error occurred: ' + err.message * '[Client Script HVS Rubric Controls - Form Demande de Remboursement]');
+    }
+}]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-02-28 09:00:43</sys_created_on>
@@ -87,7 +138,7 @@ function doGetCode(rubric) { // reference is passed into callback as first argum
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>99d8c0f4db5bc010011e177e16961904</sys_id>
-        <sys_mod_count>20</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>HVS Check Amount Input</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -96,7 +147,7 @@ function doGetCode(rubric) { // reference is passed into callback as first argum
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_99d8c0f4db5bc010011e177e16961904</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-09 12:06:23</sys_updated_on>
+        <sys_updated_on>2020-08-31 12:04:27</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
