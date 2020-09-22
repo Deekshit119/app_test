@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="reimbursement_via_funds" label="Remboursement via fonds" language="fr" table="x_hdvi2_expense_sheet">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>reimbursement_via_funds</element>
+            <help/>
+            <hint/>
+            <label>Remboursement via fonds</label>
+            <language>fr</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <plural>Remboursement via fonds</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-09-07 06:57:20</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>3acedcaadb8b9010f5e2174b069619f4</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Remboursement via fonds</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_documentation_x_hdvi2_expense_sheet_reimbursement_via_funds_fr</sys_update_name>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-09-07 06:57:20</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description>Sys ID of the scheduled report to send to the accounting team for all the expenses reimbursed via funds. Per default: HVS - Expenses via Funds - Sent to Accounting</description>
+        <ignore_cache>false</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_hdvi2_expense.scheduled_report_to_accounting</name>
+        <read_roles/>
+        <suffix>scheduled_report_to_accounting</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-09-09 07:11:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>5b05be4fdbc35410f5e2174b06961915</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>x_hdvi2_expense.scheduled_report_to_accounting</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_properties_5b05be4fdbc35410f5e2174b06961915</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-09-09 07:12:15</sys_updated_on>
+        <type>string</type>
+        <value>cc40fe47dbc35410f5e2174b069619e4</value>
+        <write_roles>x_hdvi2_expense.admin</write_roles>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=5b05be4fdbc35410f5e2174b06961915"/>
+</record_update>

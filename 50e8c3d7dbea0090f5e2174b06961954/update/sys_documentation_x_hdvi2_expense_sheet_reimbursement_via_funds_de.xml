@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="reimbursement_via_funds" label="Rückzahlung über Fonds" language="de" table="x_hdvi2_expense_sheet">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>reimbursement_via_funds</element>
+            <help/>
+            <hint/>
+            <label>Rückzahlung über Fonds</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <plural>Rückzahlung über Fonds</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2020-09-07 06:57:37</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>0bde18aadb8b9010f5e2174b0696190d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Rückzahlung über Fonds</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_documentation_x_hdvi2_expense_sheet_reimbursement_via_funds_de</sys_update_name>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2020-09-07 06:57:37</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

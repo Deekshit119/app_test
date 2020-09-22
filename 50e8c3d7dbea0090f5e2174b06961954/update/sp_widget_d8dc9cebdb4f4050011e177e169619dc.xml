@@ -16,7 +16,7 @@
 	$scope.action='';
 	c.data.comment='undefined';
 	$scope.comment='undefined';
-
+	
 	$scope.findKeywords = function (type,search) {
 		var fids = ''+c.data.userId + document.getElementById("selectedFilter").selectedIndex  + document.getElementById("selectedFilterBy").selectedIndex;
 		c.data.fids = fids;
@@ -26,10 +26,9 @@
 						c.data.keywordsRev = search;
 						c.data.keywordsType = type;
 						
-					c.data.filterField = document.getElementById("selectedFilterBy").selectedIndex;
+					  c.data.filterField = document.getElementById("selectedFilterBy").selectedIndex;
 						
 						c.server.update().then(function(data){
-							//c.data.keywordsType = '';
 						});
 					}
 					else {
@@ -92,7 +91,6 @@
 		widgetExpenseOptionsOnly.read_only = 'true';
 	 
 		spModal.open({
-			//value: 'true,'+explineid,
 			title: '${expense.edit.title_box}',
 			widget: '9fb6b106db5f8850f5e2174b069619ae',
 			buttons: [],
@@ -126,8 +124,8 @@
 				});
 			}
 			else if(action=='approve') {
-							$scope.comment='undefined';
-							c.data.comment='undefined';
+							$scope.comment='.';
+							c.data.comment='.';
 							$scope.setDisplayAppTeam='=1';
 							$scope.reqExpSheetId=reqid;
 							c.data.setDisplayAppTeam='=1';
@@ -143,6 +141,7 @@
 			c.server.update();
   });
 
+	c.server.update();
 
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -401,12 +400,13 @@ i.tip:hover span {
 	var gDate = new GlideDate();
 	data.nowDate = new GlideDateTime(gDate) + "";
   data.setDisplayAppTeam = '=1';
-  data.fields = 'expsheet_sys_id,expline_status,expline_sys_id,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expsheet_status,expsheet_total_requested_amount,expsheet_total_refunded_amount,expline_duplicated';
+  data.fields = 'expsheet_sys_id,expline_status,expline_sys_id,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expsheet_status,expsheet_total_requested_amount,expsheet_total_refunded_amount,expsheet_reimbursement_via_funds,expsheet_fund,expline_miscellaneous_account_code,expline_duplicated';
 
 	data.reqExpSheetId='';
 	data.action='';
 	data.comment='undefined';
 	
+
 	// ******************************************************************
 	
 	var expParent='';
@@ -447,21 +447,6 @@ i.tip:hover span {
 			// defined field filter list
 			data.FilterBy = [{name: gs.getMessage("expense.filter.by.expense_date"), index: 0}];
 			data.FilterBy.push({name: gs.getMessage("expense.filter.by.expense_request"), index: 1});
-
-			// defined filter list for approved expenses
-			/*
-			var ExpFilter = [{index:0, filter: gs.getMessage("This month"), condition: 'expline_date_expenseONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()'}];
-			var filterCondition2 = {index:1, filter: gs.getMessage("Last month"), condition: 'expline_date_expenseONLast month@javascript:gs.beginningOfLastMonth()@javascript:gs.endOfLastMonth()'};
-			ExpFilter.push(filterCondition2);
-			var filterCondition3 = {index:2, filter: gs.getMessage("Last 3 months"), condition: 'expline_date_expenseONLast 3 months@javascript:gs.beginningOfLast3Months()@javascript:gs.endOfLast3Months()'};
-			ExpFilter.push(filterCondition3);
-			var filterCondition4 = {index:3, filter: gs.getMessage("Last 6 months"), condition: 'expline_date_expenseONLast 6 months@javascript:gs.beginningOfLast6Months()@javascript:gs.endOfLast6Months()'};
-			ExpFilter.push(filterCondition4);
-			var filterCondition5 = {index:4, filter: gs.getMessage("Last 12 months"), condition: 'expline_date_expenseONLast 12 months@javascript:gs.beginningOfLast12Months()@javascript:gs.endOfLast12Months()'};
-			ExpFilter.push(filterCondition5);
-			var ExpFilterSub = ExpFilter;
-			var ExpFilterApp = ExpFilter;
-			*/
 
 			var ExpFilter = [{index:0, filter: gs.getMessage("This month"), condition: 'ONThis month@javascript:gs.beginningOfThisMonth()@javascript:gs.endOfThisMonth()'}];
 			var filterCondition2 = {index:1, filter: gs.getMessage("Last month"), condition: 'ONLast month@javascript:gs.beginningOfLastMonth()@javascript:gs.endOfLastMonth()'};
@@ -515,21 +500,10 @@ i.tip:hover span {
 					if (input.keywordsType != null && input.keywordsType != '')
 					{
 							data.fieldslabels = getFieldLabels(input.keywordsType, '');
-							//data.keywords='';
 					}
 					else data.fieldslabels = getFieldLabels('', fieldFilterSelected);
 			}
 
-
-		//data.keywords='';
-		/*
-		if (input && input.keywordsType != null && input.keywordsType != '')
-		{
-				data.fieldslabels = getFieldLabels(input.keywordsType);
-		}
-	  else data.fieldslabels = getFieldLabels('');
-		*/
-			
 		function getFieldLabels(keywordsType,fieldType) {
 		var scApp = new GlideRecord('x_hdvi2_expense_view');
 				//Split the field defined by the options
@@ -541,16 +515,30 @@ i.tip:hover span {
 				//initialialize table that will be used in the HTML
 				data.approved = [];  
 
-				// Load data standing for refused expenses
-			  if(keywordsType!='') { //  && keywordsType=='rev') {
-						var keywords = input.keywordsRev;	
-						scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^ORexpsheet_total_refunded_amountIN'+keywords);
+				//get approver list			
+			  var sDocIdList = '';
+				var grSAList = new GlideRecord('sysapproval_approver');
+				grSAList.addQuery('state','requested');
+				grSAList.addQuery('approver',gs.getUserID());
+				grSAList.addQuery('source_table','x_hdvi2_expense_sheet');
+				grSAList.query();
+				while(grSAList.next()) {
+					if(sDocIdList=='')
+					sDocIdList = ''+grSAList.document_id;
+					else sDocIdList += ',' + grSAList.document_id;
+				}
+
+			// Load data standing for refused expenses
+			  if(keywordsType!='') {
+					var keywords = input.keywordsRev;	
+					if(isNaN(keywords))
+						scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_miscellaneous_account_codeLIKE'+keywords+'^ORexpsheet_fund.displayCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^expsheet_sys_idIN'+sDocIdList);
+					else
+						scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_miscellaneous_account_codeLIKE'+keywords+'^ORexpsheet_fund.displayCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^ORexpsheet_total_refunded_amountIN'+keywords+'^expsheet_sys_idIN'+sDocIdList);
 				}
 				else {
-				//		scApp.addEncodedQuery(data.ExpFilter[data.selectedIndex].condition+'^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true');
-						scApp.addEncodedQuery(fieldType + data.ExpFilter[data.selectedIndex].condition+'^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true');
+						 scApp.addEncodedQuery(fieldType + data.ExpFilter[data.selectedIndex].condition+'^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_sys_idIN'+sDocIdList);
 				}
-			  //scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_approverDYNAMIC90d1921e5f510100a9ad2572f2b477fe');
 				scApp.orderByDesc(fieldType);
 				scApp.query();
 			
@@ -566,10 +554,24 @@ i.tip:hover span {
 							else if(n==14 || n==11) objApp[data.tableFields[n]] = scApp.getValue(data.tableFields[n]);
 							else objApp[data.tableFields[n]] = scApp.getDisplayValue(data.tableFields[n]);
 						}					
+
+					// ******************************************************************
+					// if Fund : check if I've approved to remove the expense request
+					var bneedApproval = false;
+					var grSA = new GlideRecord('sysapproval_approver');
+					grSA.addQuery('approver',gs.getUserID());
+					grSA.addQuery('state','requested');
+					grSA.addQuery('document_id',scApp.getValue(data.tableFields[0]));
+					grSA.query();
+					if(grSA.next()) {
+							bneedApproval = true;
+					}
 						
-					if(isLoggedUserApprover(scApp.expsheet_approver) || scApp.expsheet_approver.indexOf(gs.getUserID())!=-1)
+					if(bneedApproval && (isLoggedUserApprover(scApp.expsheet_approver) || sDocIdList!='' || scApp.expsheet_approver.indexOf(gs.getUserID())!=-1))
 						data.approved.push(objApp);
+				
 				}	
+
 			return results;
 	}
 	
@@ -593,7 +595,7 @@ i.tip:hover span {
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>340</sys_mod_count>
+        <sys_mod_count>445</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -601,7 +603,7 @@ i.tip:hover span {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-04 10:32:30</sys_updated_on>
+        <sys_updated_on>2020-09-17 13:26:32</sys_updated_on>
         <template><![CDATA[<table class="table table-striped table-responsive ng-scope " style=""> 
   <thead>
     <tr class="tr-top">
@@ -671,16 +673,6 @@ i.tip:hover span {
           <div class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="true" aria-controls="collapseOne">
             <h4 class="panel-title">
               <span class="panel-title" style="display: flex;">${expense.label.expense.approval.pending}
-                <!--
-                <ul style="width: 15%;margin-bottom: 0px;" role="" aria-label="filter">
-                  <li role="listitem" class="text-overflow-ellipsis" ng-include="'filter-template.html'"/>
-                </ul>
-                <label style="padding-left: 50px; display: flex;" for="keywordsRev">${Search:}
-                  <input class="panel-heading" id="keywordsRev" style="display: block; padding-left: 5px;" type="text" ng-model="keywordsRev" ng-change="findKeywords('rev',this.keywordsRev)" ng-model-options="{debounce: 250}">
-                </label>  
-              </span>
-              <i class="fa fa-refresh" style="margin-top:-20px; font-size:20px; color:white; float:right;" aria-hidden="true" name="reload" role="button" ng-click="c.server.update()"></i>
-							-->
               </span>   
       		</h4>
         </div>
@@ -694,7 +686,7 @@ i.tip:hover span {
             <table class="table table-striped table-responsive ng-scope" style=""> 
               <thead>
                 <tr class="tr-top">
-                  <th ng-if="labels!='Sys ID' && labels!='Status' && labels!='Status_line' && labels!='Statut_line' && labels!='Statut' && labels!='Total Refunded Amount' && labels!='Montant validé' && labels!='Duplicated' && labels!='Doublon' && labels!='validierter Betrag'" class="thead text-nowrap ng-binding" ng-repeat="labels in c.data.fieldslabels track by $index" ng-click="setOrderBy(labels)" tabindex="0" role="button">
+                  <th ng-if="$index!=14 && $index!=15 && $index!=16 && labels!='Sys ID' && labels!='Status' && labels!='Status_line' && labels!='Statut_line' && labels!='Statut' && labels!='Total Refunded Amount' && labels!='Montant validé' && labels!='Duplicated' && labels!='Doublon' && labels!='validierter Betrag'" class="thead text-nowrap ng-binding" ng-repeat="labels in c.data.fieldslabels track by $index" ng-click="setOrderBy(labels)" tabindex="0" role="button">
                     <div class="th-exp-title ng-binding" aria-label="Sort by  {{labels}}">
                       {{labels}}
                     </div>
@@ -702,14 +694,31 @@ i.tip:hover span {
                 </tr>
               </thead>
               <tr ng-repeat="record in data.approved track by $index" class="doublon-{{record['expline_duplicated']}}">
-                <td ng-if="field!='expsheet_sys_id' && field!='expline_sys_id' && field!='expline_status' && field!='expsheet_status' && field!='expsheet_total_refunded_amount' && field!='expline_duplicated'" ng-repeat="field in data.tableFields track by $index" tabindex="0">
+                <td ng-if="$index!=14 && $index!=15 && $index!=16 && field!='expsheet_sys_id' && field!='expline_sys_id' && field!='expline_status' && field!='expsheet_status' && field!='expsheet_total_refunded_amount' && field!='expline_duplicated'" ng-repeat="field in data.tableFields track by $index" tabindex="0">
                   <div ng-if="field=='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="pointer sp-list-cell ng-binding ng-scope">
                     <i ng-if="record['expline_duplicated']==1" class="fa fa-warning" style="font-size:16px;color:#ff5200;" title="${expense.duplicates.warning}">&nbsp;</i>{{record[field]}}
                   </div>
-                  <div ng-if="field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
+                  <div ng-if="record['expsheet_reimbursement_via_funds']==0 && record['expline_rubric']!='Divers' && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
                     {{record[field]}}
                   </div>
-                 <div ng-if="field=='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope" style="float:right;">
+                  <div ng-if="$index==9 && record['expline_miscellaneous_account_code']!='' && record['expline_rubric']=='Divers' && record['expsheet_reimbursement_via_funds']==1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
+                    {{record[field]}}<span style="font-weight: 700;"><br>{{record['expline_miscellaneous_account_code']}}<br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
+                  </div>
+                  <div ng-if="$index==9 && record['expline_miscellaneous_account_code']=='' && record['expline_rubric']=='Divers' && record['expsheet_reimbursement_via_funds']==1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
+                    {{record[field]}}<span style="font-weight: 700;"><br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
+                  </div>
+                  <div ng-if="$index==9 && record['expline_rubric']!== 'Divers' && record['expsheet_reimbursement_via_funds']==1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
+                    {{record[field]}}<span style="font-weight: 700;"><br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
+                  </div>
+                  <div ng-if="$index==9 && record['expline_miscellaneous_account_code']!=='' && record['expline_rubric']== 'Divers' && record['expsheet_reimbursement_via_funds']!=1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
+                    {{record[field]}}<span style="font-weight: 700;"><br>{{record['expline_miscellaneous_account_code']}}</span>
+                  </div>
+
+                  <div ng-if="$index!=9  && record['expline_rubric']=='Divers' && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
+                    {{record[field]}}
+                  </div>
+                              
+                  <div ng-if="field=='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope" style="float:right;">
                     {{record[field]}}
                   </div>
                 </td>

@@ -4,13 +4,14 @@
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
-        <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
+        <category display_value="Salaires et finances">d163a722dbdfb700011e177e1696190a</category>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan/>
         <delivery_plan_script/>
         <delivery_time>1970-01-03 00:00:00</delivery_time>
-        <description/>
+        <description><![CDATA[<p>Les nouvelles Directives institutionnelles sur le remboursement des frais sont disponibles via le lien suivant : « <a title="Consulter les documents" href="https://intranet.hopitalvs.ch/fr/news/Pages/Directives-institutionnelles-sur-le-remboursement-des-frais-2020.aspx" target="_blank" rel="noopener noreferrer nofollow">Consulter les documents</a> »</p>
+<p> </p>]]></description>
         <display_price_property>non_zero</display_price_property>
         <entitlement_script/>
         <flow_designer_flow/>
@@ -116,7 +117,7 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>86</sys_mod_count>
+        <sys_mod_count>89</sys_mod_count>
         <sys_name>Demande de remboursement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -124,7 +125,7 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-08-31 14:50:57</sys_updated_on>
+        <sys_updated_on>2020-09-11 08:47:38</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <type>item</type>
@@ -151,11 +152,11 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_created_by>h40000572</sys_created_by>
         <sys_created_on>2020-02-28 14:19:37</sys_created_on>
         <sys_id>b1c25134dbdfc010011e177e1696198f</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-19 20:25:24</sys_updated_on>
+        <sys_updated_on>2020-09-11 08:37:53</sys_updated_on>
         <tablename>sc_cat_item_producer</tablename>
-        <value/>
+        <value>&lt;p&gt;Die neuen institutionellen Richtlinien zur Kostenr&amp;uuml;ckerstattung sind unter folgendem Link verf&amp;uuml;gbar : &amp;laquo; &lt;a title="Konsultieren Sie die Dokumente" href="https://intranet.hopitalvs.ch/de/news/Seiten/Institutionelle-Richtlinien-%C3%BCber-die-R%C3%BCckerstattung-von-Spesen-2020.aspx" target="_blank" rel="noopener noreferrer nofollow"&gt;Konsultieren Sie die Dokumente&lt;/a&gt; &amp;raquo;&lt;/p&gt;</value>
     </sys_translated_text>
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>ff844a95db3ec090011e177e16961952</documentkey>
@@ -164,11 +165,11 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-04-02 13:05:40</sys_created_on>
         <sys_id>b9e7ccbbdbb34090f5e2174b0696191c</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>22</sys_mod_count>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-27 06:28:20</sys_updated_on>
+        <sys_updated_on>2020-09-11 08:47:38</sys_updated_on>
         <tablename>sc_cat_item_producer</tablename>
-        <value/>
+        <value>&lt;p&gt;Les nouvelles Directives institutionnelles sur le remboursement des frais sont disponibles via le lien suivant : &amp;laquo; &lt;a title="Consulter les documents" href="https://intranet.hopitalvs.ch/fr/news/Pages/Directives-institutionnelles-sur-le-remboursement-des-frais-2020.aspx" target="_blank" rel="noopener noreferrer nofollow"&gt;Consulter les documents&lt;/a&gt; &amp;raquo;&lt;/p&gt;</value>
     </sys_translated_text>
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>ff844a95db3ec090011e177e16961952</documentkey>

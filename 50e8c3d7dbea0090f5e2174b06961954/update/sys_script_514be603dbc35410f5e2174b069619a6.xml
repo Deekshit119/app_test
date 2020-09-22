@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_label/>
+        <action_name/>
+        <action_query>true</action_query>
+        <action_run_at>server</action_run_at>
+        <action_update>false</action_update>
+        <active>false</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <application/>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_hdvi2_expense_sheet</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>HVS - BR Query</name>
+        <onclick/>
+        <order>100</order>
+        <priority>100</priority>
+        <read_access_action>false</read_access_action>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+
+    if (gs.hasRole("admin") || gs.hasRole("x_hdvi2_expense.admin") || !gs.isInteractive()) {
+        //In this case, we don't filter the query
+
+    } else if (gs.hasRole("x_hdvi2_expense.accounting_user")) {
+        //For the accounting team, only display the expense sheets where reimbursement via funds is TRUE
+        var qc = current.addEncodedQuery(" reimbursement_via_funds=true^ORrequested_forDYNAMIC90d1921e5f510100a9ad2572f2b477fe^ORopened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe^ORapproverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^EQ")
+
+
+    } else if (gs.hasRole("x_hdvi2_expense.salary_user")) {
+        //For the salary team, only display the expense sheets where reimbursement via funds is FALSE	
+        var qc = current.addEncodedQuery(" reimbursement_via_funds=false^ORrequested_forDYNAMIC90d1921e5f510100a9ad2572f2b477fe^ORopened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe^ORapproverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^EQ");
+    } else {
+        //If it's an end-user, we show only the expense sheets we opened, requested or we need to approve
+        var qc = current.addEncodedQuery("requested_forDYNAMIC90d1921e5f510100a9ad2572f2b477fe^ORopened_byDYNAMIC90d1921e5f510100a9ad2572f2b477fe^ORapproverDYNAMIC90d1921e5f510100a9ad2572f2b477fe^EQ");
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-09-09 06:41:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>514be603dbc35410f5e2174b069619a6</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>HVS - BR Query</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_script_514be603dbc35410f5e2174b069619a6</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-09-09 06:42:07</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+</record_update>

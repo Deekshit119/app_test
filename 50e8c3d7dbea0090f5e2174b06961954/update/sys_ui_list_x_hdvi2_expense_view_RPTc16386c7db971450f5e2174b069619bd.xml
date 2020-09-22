@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_hdvi2_expense_view" version="2" view="RPTc16386c7db971450f5e2174b069619bd">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_number</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>47e25ecbdbd71450f5e2174b069619f8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_expense</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>c7e25ecbdbd71450f5e2174b069619f8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_rubric.code</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>4be25ecbdbd71450f5e2174b069619f8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_rubric.label</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>cbe25ecbdbd71450f5e2174b069619f8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expsheet_requested_for</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>4fe25ecbdbd71450f5e2174b069619f8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expsheet_requested_for.user_name</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>cfe25ecbdbd71450f5e2174b069619f8</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_requested_amount</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>43e25ecbdbd71450f5e2174b069619f9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_refunded_amount</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>c3e25ecbdbd71450f5e2174b069619f9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_currency</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>47e25ecbdbd71450f5e2174b069619f9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expsheet_fund.display</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>c7e25ecbdbd71450f5e2174b069619f9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expline_date_expense</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>4be25ecbdbd71450f5e2174b069619f9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>expsheet_short_description</element>
+            <list_id display_value="x_hdvi2_expense_view" element="NULL" name="x_hdvi2_expense_view" parent="NULL" relationship="NULL" sys_domain="global" view="cd63c20bdb971450f5e2174b069619e6">8be25ecbdbd71450f5e2174b069619f7</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>11</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_id>cbe25ecbdbd71450f5e2174b069619f9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_hdvi2_expense_view</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-09-21 14:57:21</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8be25ecbdbd71450f5e2174b069619f7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_hdvi2_expense_view</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_ui_list_x_hdvi2_expense_view_RPTc16386c7db971450f5e2174b069619bd</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-09-21 14:57:21</sys_updated_on>
+            <sys_user/>
+            <view display_value="Rptc16386c7db971450f5e2174b069619bd" name="RPTc16386c7db971450f5e2174b069619bd">cd63c20bdb971450f5e2174b069619e6</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>
