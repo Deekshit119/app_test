@@ -29,13 +29,13 @@
 	value: c.data.LocationFromId,
 	name: 'location_from'
 	};
-	
+
 	$scope.location_to = {
 	displayValue: c.data.items[0].expline_travelkm,
 	value: c.data.LocationToId,
 	name: 'location_to'
 	};
-	
+
 	$scope.Rubric = {
 	displayValue: c.data.items[0].expline_rubric,
 	value: c.data.RubricId,
@@ -155,6 +155,8 @@
 					}
 					else {
 						document.getElementById('labelReqValue').style.color = 'black';
+						c.data.setchanged = 'true';
+						$scope.setchanged = 'true';
 					}
 				}
 
@@ -319,13 +321,14 @@
 				
 		$scope.setchanged = 'true';
 		Control();
-
+/*
 		if($scope.setchanged=='true') {
 			document.getElementById('save_expline').style.visibility = "visible";
 		}
 		else {
 			document.getElementById('save_expline').style.visibility = "hidden";
 		}
+*/
 	};
 	
 	$scope.buttonSaveExpenseEdit = function () {
@@ -829,7 +832,7 @@ span.panel-title{
         <sys_created_on>2020-02-16 12:36:48</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2a280738db8b4410f5e2174b06961964</sys_id>
-        <sys_mod_count>1709</sys_mod_count>
+        <sys_mod_count>1717</sys_mod_count>
         <sys_name>hvs_widget_expense</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -837,7 +840,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_2a280738db8b4410f5e2174b06961964</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-13 16:02:57</sys_updated_on>
+        <sys_updated_on>2020-09-22 19:06:49</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -909,9 +912,9 @@ span.panel-title{
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
            <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
-           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
            <label style="padding-top:8px;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
       		 <label style="padding-top:8px;display:none;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input style="display:none;" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
@@ -920,9 +923,9 @@ span.panel-title{
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
            <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
-           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
            <label style="padding-top:8px;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
       		 <label style="padding-top:8px;display:none;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input style="display:none;" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
@@ -959,9 +962,9 @@ span.panel-title{
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
            <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
-           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
            <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
       		 <label style="padding-top:8px;color:#ff0000;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
@@ -969,9 +972,9 @@ span.panel-title{
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
            <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
-           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
            <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
+           <sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0^locationsNOT LIKEHôpital^toNOT LIKEHôpital'" ></sn-record-picker>
       		 <label style="padding-top:8px;color:#ff0000;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
@@ -1000,7 +1003,7 @@ span.panel-title{
        <td>
          <div class="panel-primary">
           <label for="save_expline"></label>
-          <a id="save_expline" style="visibility:hidden;" href="javascript:void(0)" ng-click="buttonSaveExpenseEdit()" class="pull-right_expense panel panel-heading panel-primary"><!--  -->
+          <a id="save_expline" style="visibility:display;" href="javascript:void(0)" ng-click="buttonSaveExpenseEdit()" class="pull-right_expense panel panel-heading panel-primary"><!--  -->
               ${expense.label.button_save}
           </a>
          </div>

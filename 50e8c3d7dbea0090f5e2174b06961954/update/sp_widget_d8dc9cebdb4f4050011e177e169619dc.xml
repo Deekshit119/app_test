@@ -381,17 +381,19 @@ i.tip:hover span {
 	
 	var isApproverUser = false;
 	var isApproverDelegate = false;
+	var sUserDelegate = '';
 	var user = new GlideRecord('sys_user');
 	if(user.get(gs.getUserID())){
 		isApproverUser = user.u_expense_approver;
 	}
 	
 	var userDelegate = new GlideRecord('sys_user_delegate');
-	userDelegate.addEncodedQuery("user="+gs.getUserID()+"^u_expense_approval=true");
+	userDelegate.addEncodedQuery("delegate="+gs.getUserID()+"^u_expense_approval=true");
 	userDelegate.setLimit(1);
 	userDelegate.query();
 	while (userDelegate.next()) {
 		isApproverDelegate = userDelegate.u_expense_approval;
+		sUserDelegate =  userDelegate.user;
 	}
 
 	data.userId=gs.getUserID();
@@ -519,7 +521,10 @@ i.tip:hover span {
 			  var sDocIdList = '';
 				var grSAList = new GlideRecord('sysapproval_approver');
 				grSAList.addQuery('state','requested');
-				grSAList.addQuery('approver',gs.getUserID());
+			  if(isApproverDelegate)
+					grSAList.addQuery('approver',sUserDelegate);
+			  else
+					grSAList.addQuery('approver',gs.getUserID());
 				grSAList.addQuery('source_table','x_hdvi2_expense_sheet');
 				grSAList.query();
 				while(grSAList.next()) {
@@ -559,7 +564,11 @@ i.tip:hover span {
 					// if Fund : check if I've approved to remove the expense request
 					var bneedApproval = false;
 					var grSA = new GlideRecord('sysapproval_approver');
-					grSA.addQuery('approver',gs.getUserID());
+					if(isApproverDelegate)
+						grSA.addQuery('approver',sUserDelegate);
+					else
+						grSA.addQuery('approver',gs.getUserID());
+					//grSA.addQuery('approver',gs.getUserID());
 					grSA.addQuery('state','requested');
 					grSA.addQuery('document_id',scApp.getValue(data.tableFields[0]));
 					grSA.query();
@@ -595,7 +604,7 @@ i.tip:hover span {
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>445</sys_mod_count>
+        <sys_mod_count>447</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -603,7 +612,7 @@ i.tip:hover span {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-17 13:26:32</sys_updated_on>
+        <sys_updated_on>2020-09-22 19:52:00</sys_updated_on>
         <template><![CDATA[<table class="table table-striped table-responsive ng-scope " style=""> 
   <thead>
     <tr class="tr-top">

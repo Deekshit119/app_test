@@ -4,7 +4,7 @@
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
-        <category display_value="Salaires et finances">d163a722dbdfb700011e177e1696190a</category>
+        <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan/>
@@ -105,7 +105,11 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
 	gr_expLine.rubric = producer.sr_rubrique_loga;
 	gr_expLine.description = producer.short_description;
 // for storing selected category for rubrc = Divers
-	gr_expLine.miscellaneous_account_code = producer.sr_miscellaneous_account_code.getDisplayValue() + " | " + producer.sr_miscellaneous_account_code;
+	var sDivers = producer.sr_miscellaneous_account_code.getDisplayValue() + '';
+	if(sDivers !='' )
+		gr_expLine.miscellaneous_account_code = producer.sr_miscellaneous_account_code.getDisplayValue() + " | " + producer.sr_miscellaneous_account_code;
+	else
+		gr_expLine.miscellaneous_account_code = '';
 	gr_expLine.insert();
 
 ]]></script>
@@ -117,7 +121,7 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>89</sys_mod_count>
+        <sys_mod_count>90</sys_mod_count>
         <sys_name>Demande de remboursement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -125,7 +129,7 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-11 08:47:38</sys_updated_on>
+        <sys_updated_on>2020-09-22 18:08:18</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <type>item</type>
