@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application/>
+        <key>expense.divers.frais.generaux</key>
+        <language>de</language>
+        <message>Für alle sonstigen Ausgaben, die Sie nicht klassifizieren können.</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-09-15 07:49:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b187fd0ddb57d810011e177e16961923</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>expense.divers.frais.generaux</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_message_b187fd0ddb57d810011e177e16961923</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-09-15 07:49:49</sys_updated_on>
+    </sys_ui_message>
+</record_update>
