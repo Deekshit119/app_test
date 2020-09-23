@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_documentation element="other_location_to" label="Lieu (R) hors site" language="fr" table="x_hdvi2_expense_line">
+    <sys_documentation element="other_location_to" label="Lieu (B) hors site" language="fr" table="x_hdvi2_expense_line">
         <sys_documentation action="INSERT_OR_UPDATE">
             <element>other_location_to</element>
             <help/>
             <hint/>
-            <label>Lieu (R) hors site</label>
+            <label>Lieu (B) hors site</label>
             <language>fr</language>
             <name>x_hdvi2_expense_line</name>
             <plural/>
@@ -13,15 +13,15 @@
             <sys_created_on>2020-08-31 15:04:15</sys_created_on>
             <sys_customer_update>false</sys_customer_update>
             <sys_id>620bc618db4f5c50f5e2174b0696197f</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_name>Lieu (R) hors site</sys_name>
+            <sys_mod_count>2</sys_mod_count>
+            <sys_name>Lieu (B) hors site</sys_name>
             <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
             <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
             <sys_update_name>sys_documentation_x_hdvi2_expense_line_other_location_to_fr</sys_update_name>
             <sys_updated_by>h40009222</sys_updated_by>
-            <sys_updated_on>2020-08-31 15:04:15</sys_updated_on>
+            <sys_updated_on>2020-09-23 15:19:55</sys_updated_on>
             <url/>
             <url_target/>
         </sys_documentation>
