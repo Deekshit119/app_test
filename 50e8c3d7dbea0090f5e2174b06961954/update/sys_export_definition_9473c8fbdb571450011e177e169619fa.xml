@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_export_definition">
+    <sys_export_definition action="INSERT_OR_UPDATE">
+        <field_list>expense.requested_for.employee_number,expense.requested_for.last_name,expense.requested_for.first_name,expense.contract.u_user_label_code,expense.contract.u_departement,expense.contract.u_company_code,expense.contract.u_user_job_location,expense.contract.u_user_managers.last_name,expense.contract.u_user_managers.first_name,rubric,date_expense,requested_amount,currency,description,location,travelkm,other_location,other_location_to,requested_value</field_list>
+        <filter table="x_hdvi2_expense_line">status=4^EQ<item display_value="Terminé" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="4"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter>
+        <name>HVS Expense Export Set Definition</name>
+        <sys_class_name>sys_export_definition</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-09-23 13:04:42</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>9473c8fbdb571450011e177e169619fa</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>HVS Expense Export Set Definition</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_export_definition_9473c8fbdb571450011e177e169619fa</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-09-23 15:34:51</sys_updated_on>
+        <table_name>x_hdvi2_expense_line</table_name>
+        <view display_value="Exp_d9473c8fbdb571450011e177e169619fa" name="exp_d9473c8fbdb571450011e177e169619fa">9c5c80b7db971450011e177e16961993</view>
+    </sys_export_definition>
+</record_update>

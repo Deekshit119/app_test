@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_export_target">
+    <sys_export_target action="INSERT_OR_UPDATE">
+        <description>Emplacemet de destination pour l'export Expense : PowerBI\NDF&#13;
+&#13;
+Dossier final Power BI : \\vmprddwh02\PowerBI\Développement\Finance\Notes de frais\Données&#13;
+</description>
+        <file_path>\PowerBI\NDF</file_path>
+        <method>File on MID Server</method>
+        <mid_server display_value="MIDServerDev">dd90a4112ba002002e024e2119da1595</mid_server>
+        <name>HVS Expense Export Set Target</name>
+        <sys_class_name>sys_export_target</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-09-23 13:09:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>26cc80f7db971450011e177e169619bd</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>HVS Expense Export Set Target</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_export_target_26cc80f7db971450011e177e169619bd</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-09-23 13:21:01</sys_updated_on>
+    </sys_export_target>
+</record_update>
