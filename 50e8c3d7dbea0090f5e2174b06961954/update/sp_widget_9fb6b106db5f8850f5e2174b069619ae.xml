@@ -8,7 +8,7 @@
 	$scope.valCodeloga = c.data.codeloga[0].code;
 	
 	var year= c.data.date.substr(6, 4);
-	var month= c.data.date.substr(4, 2);
+	var month= c.data.date.substr(3, 2);
 	var day= c.data.date.substr(0, 2);
 	$scope.expDate = new Date(year,month-1,day);
 	
@@ -213,6 +213,23 @@ span.panel-title{
  // input=[];
  // input.sys_id=['fb787999dbfd1090011e177e1696196d'];
  // end of code for internal testing
+		
+	var isApproverUser = false;
+	var isApproverDelegate = false;
+	var sUserDelegate = '';
+	var user = new GlideRecord('sys_user');
+	if(user.get(gs.getUserID())){
+		isApproverUser = user.u_expense_approver;
+	}
+	
+	var userDelegate = new GlideRecord('sys_user_delegate');
+	userDelegate.addEncodedQuery("delegate="+gs.getUserID()+"^u_expense_approval=true");
+	userDelegate.setLimit(1);
+	userDelegate.query();
+	while (userDelegate.next()) {
+		isApproverDelegate = userDelegate.u_expense_approval;
+		sUserDelegate =  userDelegate.user;
+	}
 	
 	if(input) {
 		if(input.sys_id) {
@@ -230,7 +247,7 @@ span.panel-title{
 		sc.query();
 		var results = [];
 		while (sc.next()) {
-			if (!$sp.canReadRecord(sc))
+			if (!$sp.canReadRecord(sc) && !isApproverDelegate && !isApproverUser)
 				continue;
 
 		var ticketConversationOptions = {};
@@ -283,7 +300,7 @@ span.panel-title{
         <sys_created_on>2020-03-03 14:09:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9fb6b106db5f8850f5e2174b069619ae</sys_id>
-        <sys_mod_count>92</sys_mod_count>
+        <sys_mod_count>94</sys_mod_count>
         <sys_name>hvs_widget_expense_only</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -291,7 +308,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_9fb6b106db5f8850f5e2174b069619ae</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-03 11:30:26</sys_updated_on>
+        <sys_updated_on>2020-10-13 07:23:07</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
