@@ -313,10 +313,14 @@
 				$scope.setchanged = 'false';
 				c.data.setchanged = 'false';
 				$scope.expDate = previousDate;
-			  document.getElementById('save_expline').style.visibility = "hidden";
+				document.getElementById('save_expline').style.visibility = "hidden";
 			});
 			
 			return;
+		}
+		else {
+				$scope.setchanged = 'true';
+				c.data.setchanged = 'true';
 		}
 				
 		$scope.setchanged = 'true';
@@ -369,7 +373,7 @@
 			}).then(function() {
 				$scope.setchanged = 'true';
 				c.data.setchanged = 'true';
-				doSave();
+				doSave(bisDuplicated);
 			} , function() {
 				$scope.setchanged = 'false';
 				c.data.setchanged = 'false';
@@ -378,11 +382,11 @@
 		 return;
 		}
 		else {
-			doSave();
+			doSave(bisDuplicated);
 		}
 	}
 	
-function doSave() {		
+function doSave(bDuplicate) {		
 		c.data.CodeLogaValeur = c.data.codeloga[0].code;
 		if($scope.Rubric.value == 'e8e4b084db44149009b962a916961906' || $scope.Rubric.value == 'edc49704dbd3c050f5e2174b06961901') {
 			c.data.expOtherLoc = document.getElementById('expOtherLoc').value;
@@ -424,6 +428,10 @@ function doSave() {
 		else if($scope.setchanged == 'true') {
 			$scope.setchanged = 'true';
 			c.data.setchanged = 'true';
+			if(bDuplicate)
+				c.data.isDuplicated = 'true';
+			else
+				c.data.isDuplicated = 'false';
 
 			c.server.update().then(function(){
 				$rootScope.$broadcast('execRefresh', 'saved');
@@ -640,7 +648,7 @@ span.panel-title{
 	data.uId = gs.getUserID();
  // code for internal testing within Editor
  // input=[];
- // input.sys_id=['4f86f02cdbd79810f5e2174b069619db'];
+ // input.sys_id=['97ab1bc3dbfbdc10011e177e169619aa'];
  // end of code for internal testing
 	
 	if(input) {
@@ -723,6 +731,10 @@ span.panel-title{
 
 				expParent =scSubmit.expense;
 				scSubmit.date_expense=dFinalDate;
+				if(input.isDuplicated=='true')
+					scSubmit.duplicated = true;
+				else
+					scSubmit.duplicated = false;
 				scSubmit.other_location=input.expOtherLoc;
 				scSubmit.other_location_to=input.expOtherLocTo;
 				scSubmit.requested_amount=input.expReqAmount;
@@ -757,7 +769,7 @@ span.panel-title{
 	}
 	
 	var filterRubric = '';
-
+		
 	function getCatalogItems() {
 		var sc = new GlideRecord('x_hdvi2_expense_view');
 		sc.addQuery('expline_sys_id',input.sys_id);
@@ -832,7 +844,7 @@ span.panel-title{
         <sys_created_on>2020-02-16 12:36:48</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2a280738db8b4410f5e2174b06961964</sys_id>
-        <sys_mod_count>1721</sys_mod_count>
+        <sys_mod_count>1757</sys_mod_count>
         <sys_name>hvs_widget_expense</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -840,7 +852,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_2a280738db8b4410f5e2174b06961964</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-28 13:17:30</sys_updated_on>
+        <sys_updated_on>2020-10-18 16:04:57</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
