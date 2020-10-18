@@ -211,9 +211,9 @@ span.panel-title{
         <script><![CDATA[(function() {
  // code for internal testing within Editor
  // input=[];
- // input.sys_id=['fb787999dbfd1090011e177e1696196d'];
+ // input.sys_id=['55a6b146db3fd810011e177e1696190a'];
  // end of code for internal testing
-		
+	
 	var isApproverUser = false;
 	var isApproverDelegate = false;
 	var sUserDelegate = '';
@@ -300,7 +300,7 @@ span.panel-title{
         <sys_created_on>2020-03-03 14:09:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9fb6b106db5f8850f5e2174b069619ae</sys_id>
-        <sys_mod_count>94</sys_mod_count>
+        <sys_mod_count>96</sys_mod_count>
         <sys_name>hvs_widget_expense_only</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -308,7 +308,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_9fb6b106db5f8850f5e2174b069619ae</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-10-13 07:23:07</sys_updated_on>
+        <sys_updated_on>2020-10-16 15:02:14</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
