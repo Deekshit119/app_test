@@ -417,6 +417,7 @@ i.tip:hover span {
 		if(input.action == 'approve') {
 			var scApprove = new GlideRecord('sysapproval_approver');
 			scApprove.addQuery("document_id",input.reqExpSheetId);
+			scApprove.addQuery("approver",gs.getUserID());
 			scApprove.query();
 			while(scApprove.next()) {
 				scApprove.state ='approved';
@@ -432,6 +433,7 @@ i.tip:hover span {
 			if(input.action == 'reject' && input.comment != 'undefined') {
 				var scReject = new GlideRecord('sysapproval_approver');
 				scReject.addQuery("document_id",input.reqExpSheetId);
+				scReject.addQuery("approver",gs.getUserID());
 				scReject.query();
 				if(scReject.next()) {
 					scReject.state ='rejected';
@@ -556,7 +558,7 @@ i.tip:hover span {
 						var objApp = {};
 						for(var n = 0 ; n < data.tableFields.length ; n++) {
 							if(n==12 || n==13) objApp[data.tableFields[n]] = parseFloat(scApp.getValue(data.tableFields[n])).toFixed(2);
-							else if(n==14 || n==11) objApp[data.tableFields[n]] = scApp.getValue(data.tableFields[n]);
+							else if(n==11 || n==14 || n==17) objApp[data.tableFields[n]] = scApp.getValue(data.tableFields[n]);
 							else objApp[data.tableFields[n]] = scApp.getDisplayValue(data.tableFields[n]);
 						}					
 
@@ -604,7 +606,7 @@ i.tip:hover span {
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>447</sys_mod_count>
+        <sys_mod_count>456</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -612,7 +614,7 @@ i.tip:hover span {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-22 19:52:00</sys_updated_on>
+        <sys_updated_on>2020-10-16 21:41:23</sys_updated_on>
         <template><![CDATA[<table class="table table-striped table-responsive ng-scope " style=""> 
   <thead>
     <tr class="tr-top">
@@ -726,7 +728,11 @@ i.tip:hover span {
                   <div ng-if="$index!=9  && record['expline_rubric']=='Divers' && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
                     {{record[field]}}
                   </div>
-                              
+
+                  <div ng-if="$index!=9 && record['expsheet_reimbursement_via_funds']==1 && record['expline_rubric']!='Divers' && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
+                    {{record[field]}}
+                  </div>
+                  
                   <div ng-if="field=='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope" style="float:right;">
                     {{record[field]}}
                   </div>
