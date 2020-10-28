@@ -13,7 +13,7 @@
         <description/>
         <field/>
         <global>true</global>
-        <isolate_script>false</isolate_script>
+        <isolate_script>true</isolate_script>
         <messages/>
         <name>HVS Set Field Values</name>
         <order/>
@@ -30,6 +30,7 @@
     var ga2 = new GlideAjax('HVSExpenseDateUtils');
     ga2.addParam('sysparm_name', 'GetDate');
     ga2.getXML(returnFunction);
+
 }
 
 function returnFunction(response) {
@@ -50,6 +51,9 @@ function parseContractInfos(response) {
                 g_form.setValue("contract", answer.id);
                 g_form.setReadOnly("contract", true);
             } else {
+                getMessage('expense.contract.field.label', function(msg) {
+                    g_form.setLabelOf("contract", msg);
+                });
                 g_form.setReadOnly("contract", false);
                 g_form.setMandatory("contract", true);
             }
@@ -65,7 +69,7 @@ function parseContractInfos(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5472d486db3a8890f5e2174b0696195e</sys_id>
-        <sys_mod_count>134</sys_mod_count>
+        <sys_mod_count>170</sys_mod_count>
         <sys_name>HVS Set Field Values</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -74,7 +78,7 @@ function parseContractInfos(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_5472d486db3a8890f5e2174b0696195e</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-10 08:58:51</sys_updated_on>
+        <sys_updated_on>2020-10-28 15:26:12</sys_updated_on>
         <table/>
         <type>onLoad</type>
         <ui_type>10</ui_type>
