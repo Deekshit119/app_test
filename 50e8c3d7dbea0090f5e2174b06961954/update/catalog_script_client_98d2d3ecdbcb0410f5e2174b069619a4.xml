@@ -91,13 +91,15 @@ function CheckMealAmountDisplay(response) {
 		}
 		var sValReqAmount = g_form.getValue("sr_requested_amount");
 		var sCopyReqAmount = g_form.getValue("amount");
+        if (g_form.getValue("sr_rubrique_loga") == 'fbc37b13dbee0090f5e2174b06961949' || g_form.getValue("sr_rubrique_loga") == 'bfc37b13dbee0090f5e2174b06961949') {
 
-		if(parseFloat(sValReqAmount) <= parseFloat('0'+sCopyReqAmount)) {
-			g_form.setValue("sr_requested_amount","");
-			g_form.setValue("sr_requested_amount",sValReqAmount);
-		} else {
-			g_form.setValue("sr_requested_amount","");
-			g_form.setValue("sr_requested_amount",sCopyReqAmount);
+			if(parseFloat(sValReqAmount) <= parseFloat('0'+sCopyReqAmount)) {
+				g_form.setValue("sr_requested_amount","");
+				g_form.setValue("sr_requested_amount",sValReqAmount);
+			} else {
+				g_form.setValue("sr_requested_amount","");
+				g_form.setValue("sr_requested_amount",sCopyReqAmount);
+			}
 		}
 		
 	}
@@ -112,7 +114,7 @@ function CheckMealAmountDisplay(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>98d2d3ecdbcb0410f5e2174b069619a4</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_name>HVS Check Date Expense</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -121,7 +123,7 @@ function CheckMealAmountDisplay(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_98d2d3ecdbcb0410f5e2174b069619a4</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-08-31 12:07:52</sys_updated_on>
+        <sys_updated_on>2020-11-03 07:58:18</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
