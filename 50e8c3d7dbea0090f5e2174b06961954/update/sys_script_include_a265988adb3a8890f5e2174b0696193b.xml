@@ -9,122 +9,135 @@
         <name>HVSExpenseUtils</name>
         <script><![CDATA[var HVSExpenseUtils = Class.create();
 HVSExpenseUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
-	
-	checkDuplicate: function() {
-		var paramRubric = this.getParameter('user_sys_id');
-		var paramDate = this.getParameter('user_sys_id');
-		var paramAmount = this.getParameter('user_sys_id');
-		var paramValue = this.getParameter('user_sys_id');
-		
-		var dupRecords = false;
-		var gr2= new GlideRecord('x_hdvi2_expense_line');
-		gr2.addEncodedQuery('active=true^rubric=' + paramRubric+'^date_expense='+paramDate+'^requested_amount='+paramAmount+'^requested_value='+paramValue);
-		gr2.query();
-		while(gr2.next()) {
-			dupRecords = true;
-		}
 
-		return dupRecords;
-	},
-	
-	isITWorker: function(){
-		var UserId = this.getParameter('user_sys_id');
-		var gr_user = new GlideRecord("sys_user");
-		var answer = '';
-		if(gr_user.get(UserId)){
-			answer = gr_user.department.parent;
-		}
-		return answer;
-	},
-	
-	getUserLanguage: function(){
-		var UserId = this.getParameter('user_sys_id');
-		var gr_user = new GlideRecord("sys_user");
-		var answer = '';
-		if(gr_user.get(UserId)){
-			answer = gr_user.getValue('preferred_language');
-		}
-		return answer;
-	},
-	
-	getLogaData: function(){
-		var answer = {};
-		var LogaRubricId = this.getParameter('LogaRubricId');
-		var gr_Rubric = new GlideRecord("x_hdvi2_expense_loga_data");
-		if(gr_Rubric.get(LogaRubricId)){
-			answer['max_amount'] = gr_Rubric.getValue('maximum_amount');
-			answer['code_loga'] = gr_Rubric.getValue('code');
-		}
-		return new global.JSON().encode(answer);
-	},
-	
-	getNbContract : function() {
-		var UserId = this.getParameter('user_sys_id');
-		var nbContract = {};
-			var cptContract=0;
-			var IdContract;
-			
-			var grUserContract = new GlideRecord('u_hvs_user_contract');
-			grUserContract.addQuery('u_user',UserId);
-			grUserContract.addQuery('u_active',true);
-			grUserContract.addQuery("u_user_managers","!=","");
-			grUserContract.query();
-			
-			while (grUserContract.next()) {
-				cptContract = cptContract + 1;
-				IdContract = grUserContract.getValue('sys_id');
-			}
-			
-			nbContract.id = IdContract;
-			nbContract.nb = cptContract;
-			
-			return new global.JSON().encode(nbContract);
-		},
-		
-		getNbKM : function() {
-			var sLocFrom = this.getParameter('sysparm_locfrom');
-			var sLocTo = this.getParameter('sysparm_locto');
-			var nbKM = {};
-				var valKm = -1;
-				
-				var grTravelKM = new GlideRecord('x_hdvi2_expense_expense_travel_km');
-				grTravelKM.addQuery('locations',sLocFrom);
-				grTravelKM.addQuery('to',sLocTo);
-				grTravelKM.query();
-				
-				while (grTravelKM.next()) {
-					valKm = grTravelKM.getValue('km');
-				}
-				
-				if(valKm == -1) {
-					var grTravelKM2 = new GlideRecord('x_hdvi2_expense_expense_travel_km');
-					grTravelKM2.addQuery('to',sLocFrom);
-					grTravelKM2.addQuery('locations',sLocTo);
-					grTravelKM2.query();
-					while (grTravelKM2.next()) {
-						valKm = grTravelKM2.getValue('km');
-					}
-				}
-				
-				
-				if(valKm != -1) {
-					nbKM.value = valKm;
-				}
-				else {
-					nbKM.value = 0;
-				}
-				
-				return new global.JSON().encode(nbKM);
-			},
-			
-			type: 'HVSExpenseUtils'
-		});]]></script>
+    getNbExpKM: function() {
+
+        var hasRecord = false;
+        var gr_ExpLine = new GlideRecord('x_hdvi2_expense_line');
+        gr_ExpLine.addEncodedQuery('active=true^rubric=e8e4b084db44149009b962a916961906^ORrubric=9805f444db44149009b962a916961908^ORrubric=edc49704dbd3c050f5e2174b06961901^ORrubric=fbc37b13dbee0090f5e2174b06961948^status=2');
+        gr_ExpLine.setLimit(1);
+        gr_ExpLine.query();
+        if (gr_ExpLine.hasNext()) {
+            hasRecord = true;
+        }
+
+        return hasRecord;
+    },
+
+    checkDuplicate: function() {
+        var paramRubric = this.getParameter('user_sys_id');
+        var paramDate = this.getParameter('user_sys_id');
+        var paramAmount = this.getParameter('user_sys_id');
+        var paramValue = this.getParameter('user_sys_id');
+
+        var dupRecords = false;
+        var gr2 = new GlideRecord('x_hdvi2_expense_line');
+        gr2.addEncodedQuery('active=true^rubric=' + paramRubric + '^date_expense=' + paramDate + '^requested_amount=' + paramAmount + '^requested_value=' + paramValue);
+        gr2.query();
+        while (gr2.next()) {
+            dupRecords = true;
+        }
+
+        return dupRecords;
+    },
+
+    isITWorker: function() {
+        var UserId = this.getParameter('user_sys_id');
+        var gr_user = new GlideRecord("sys_user");
+        var answer = '';
+        if (gr_user.get(UserId)) {
+            answer = gr_user.department.parent;
+        }
+        return answer;
+    },
+
+    getUserLanguage: function() {
+        var UserId = this.getParameter('user_sys_id');
+        var gr_user = new GlideRecord("sys_user");
+        var answer = '';
+        if (gr_user.get(UserId)) {
+            answer = gr_user.getValue('preferred_language');
+        }
+        return answer;
+    },
+
+    getLogaData: function() {
+        var answer = {};
+        var LogaRubricId = this.getParameter('LogaRubricId');
+        var gr_Rubric = new GlideRecord("x_hdvi2_expense_loga_data");
+        if (gr_Rubric.get(LogaRubricId)) {
+            answer['max_amount'] = gr_Rubric.getValue('maximum_amount');
+            answer['code_loga'] = gr_Rubric.getValue('code');
+        }
+        return new global.JSON().encode(answer);
+    },
+
+    getNbContract: function() {
+        var UserId = this.getParameter('user_sys_id');
+        var nbContract = {};
+        var cptContract = 0;
+        var IdContract;
+
+        var grUserContract = new GlideRecord('u_hvs_user_contract');
+        grUserContract.addQuery('u_user', UserId);
+        grUserContract.addQuery('u_active', true);
+        grUserContract.addQuery("u_user_managers", "!=", "");
+        grUserContract.query();
+
+        while (grUserContract.next()) {
+            cptContract = cptContract + 1;
+            IdContract = grUserContract.getValue('sys_id');
+        }
+
+        nbContract.id = IdContract;
+        nbContract.nb = cptContract;
+
+        return new global.JSON().encode(nbContract);
+    },
+
+    getNbKM: function() {
+        var sLocFrom = this.getParameter('sysparm_locfrom');
+        var sLocTo = this.getParameter('sysparm_locto');
+        var nbKM = {};
+        var valKm = -1;
+
+        var grTravelKM = new GlideRecord('x_hdvi2_expense_expense_travel_km');
+        grTravelKM.addQuery('locations', sLocFrom);
+        grTravelKM.addQuery('to', sLocTo);
+        grTravelKM.query();
+
+        while (grTravelKM.next()) {
+            valKm = grTravelKM.getValue('km');
+        }
+
+        if (valKm == -1) {
+            var grTravelKM2 = new GlideRecord('x_hdvi2_expense_expense_travel_km');
+            grTravelKM2.addQuery('to', sLocFrom);
+            grTravelKM2.addQuery('locations', sLocTo);
+            grTravelKM2.query();
+            while (grTravelKM2.next()) {
+                valKm = grTravelKM2.getValue('km');
+            }
+        }
+
+
+        if (valKm != -1) {
+            nbKM.value = valKm;
+        } else {
+            nbKM.value = 0;
+        }
+
+        return new global.JSON().encode(nbKM);
+    },
+
+    type: 'HVSExpenseUtils'
+});]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-02-07 10:39:28</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a265988adb3a8890f5e2174b0696193b</sys_id>
-        <sys_mod_count>76</sys_mod_count>
+        <sys_mod_count>79</sys_mod_count>
         <sys_name>HVSExpenseUtils</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy>read</sys_policy>
@@ -132,6 +145,6 @@ HVSExpenseUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_include_a265988adb3a8890f5e2174b0696193b</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-10 08:51:01</sys_updated_on>
+        <sys_updated_on>2020-10-27 16:13:49</sys_updated_on>
     </sys_script_include>
 </record_update>

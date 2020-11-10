@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function actionOK(){
+	var c = gel('cancel_or_submit');
+    c.value = "conitnue";
+	return true;
+}
+
+function cancel(){
+	var c = gel('cancel_or_submit');
+    c.value = "cancel";
+	return true;
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_hdvi2_expense_exp_KM_req_mass_approved_by_salary.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<g:ui_form>
+		<input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
+
+		<table width="100%">
+			<tr>
+				<td id="display_message"><g:no_escape>${gs.getMessage('expense.mass.approval.validation')}</g:no_escape></td>
+			</tr>
+		</table>
+		<br/>
+		<div id="dialogbuttons" style="float:right">
+			<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
+		</div>
+	</g:ui_form>
+	
+</j:jelly>]]></html>
+        <name>exp_KM_req_mass_approved_by_salary</name>
+        <processing_script><![CDATA[function ProcessAction() {
+
+    if (cancel_or_submit == "conitnue") {
+        var gr_ExpSheet = new GlideRecord('x_hdvi2_expense_sheet');
+        var gr_ExpLine = new GlideRecord('x_hdvi2_expense_line');
+        gr_ExpLine.addEncodedQuery('active=true^rubric=e8e4b084db44149009b962a916961906^ORrubric=9805f444db44149009b962a916961908^ORrubric=edc49704dbd3c050f5e2174b06961901^ORrubric=fbc37b13dbee0090f5e2174b06961948^status=2');
+        gr_ExpLine.query();
+        while (gr_ExpLine.next()) {
+            if (gr_ExpSheet.get(gr_ExpLine.expense)) {
+                gr_ExpSheet.status = 3;
+                gr_ExpSheet.update();
+            }
+            gr_ExpLine.status = 3;
+            gr_ExpLine.update();
+        }
+
+        gs.addInfoMessage(gs.getMessage("expense.KM.mass.approval.done"));
+    }
+    response.sendRedirect("x_hdvi2_expense_sheet_list.do?sysparm_query=active%3Dtrue%5EstatusIN2%2C3%5EEQ");
+}
+ProcessAction();]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-10-27 10:14:57</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c18baaa6dbc06090f5e2174b0696191f</sys_id>
+        <sys_mod_count>44</sys_mod_count>
+        <sys_name>exp_KM_req_mass_approved_by_salary</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_page_c18baaa6dbc06090f5e2174b0696191f</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-11-10 18:28:31</sys_updated_on>
+    </sys_ui_page>
+</record_update>
