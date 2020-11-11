@@ -98,6 +98,34 @@
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>extract_type</element>
+            <position>7</position>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-10-28 16:08:22</sys_created_on>
+            <sys_id>0806c547dbcca090f5e2174b069619ba</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_extract" sys_domain="global" view="Default view">c8abf35bdbee0090f5e2174b06961963</sys_ui_section>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-10-28 16:08:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number_of_salary_advance</element>
+            <position>8</position>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-10-28 16:15:25</sys_created_on>
+            <sys_id>5b9705c7dbcca090f5e2174b069619b5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_extract" sys_domain="global" view="Default view">c8abf35bdbee0090f5e2174b06961963</sys_ui_section>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-10-28 16:15:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>

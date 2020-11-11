@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
     <sys_ui_page action="INSERT_OR_UPDATE">
         <category>general</category>
-        <client_script><![CDATA[function actionOK(){
-    var dateTmp = gel('date').value;
-    if (dateTmp =="" ) {
+        <client_script><![CDATA[function actionOK() {
+	// PSO 28.10.20 Get Extraction type
+    var iExtractType  = parseInt(gel('extraction_type').value);
+    // PSO end of modification
+	
+	var dateTmp = gel('date').value;
+    if (dateTmp == "") {
         alert(getMessage("Please select an attribution date"));
         return false;
-	}
+    }
 
-	// PSO 09.04.2020 Formet date value to YYYY-MM-dd
-	var year = dateTmp.substr(6,4);
-	var month = dateTmp.substr(3,2);
-	var ad = gel('attr_date');
-	ad.value = year + "-" + month + "-01";
-	var attr_date = ad.value;
-	// PSO end of modification
+    // PSO 09.04.2020 Formet date value to YYYY-MM-dd
+    var year = dateTmp.substr(6, 4);
+    var month = dateTmp.substr(3, 2);
+    var ad = gel('attr_date');
+    ad.value = year + "-" + month + "-01";
+    var attr_date = ad.value;
+   // PSO end of modification
 
-	var c = gel('cancel_or_submit');
+    var c = gel('cancel_or_submit');
     c.value = "submit";
-	return true;
+    return true;
 }
 
-function cancel(){
-	var c = gel('cancel_or_submit');
+function cancel() {
+    var c = gel('cancel_or_submit');
     c.value = "cancel";
-	return true;
+    return true;
 }
 
-function validateDate(date){
-	
-	
-	    var newTime = new GwtDate(date + '');
+function validateDate(date) {
+    var newTime = new GwtDate(date + '');
     if (newTime.compare(timeWindow(), true) < 0) {
-          setValidationError(true, new GwtMessage().getMessage('Lease end time must be later than current time'));
-          return false;
-
-
+        setValidationError(true, new GwtMessage().getMessage('Lease end time must be later than current time'));
+        return false;
     }
 }]]></client_script>
         <description/>
@@ -44,49 +44,70 @@ function validateDate(date){
         <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
 
-<g:ui_form>
-	<input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
-	<input type="hidden" id="extraction_id" name="expense_id" value="${sysparm_sys_id}"/>
+<j2:set var="jvar_extract_type2" value="${JS:sysparm_extract_type}" />
+	<g:ui_form>
+		<input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
+		<input type="hidden" id="extraction_id" name="expense_id" value="${sysparm_sys_id}"/>
+		<input type="hidden" id="extraction_type" name="extraction_type" value="${JS:sysparm_extract_type}"/>
 
-
-
-<table width="100%">
-	<tr>
-            ${gs.getMessage("Processing date for LOGA")}
-	</tr>
-        <tr>    
-		<td>  <g:ui_date name="date" id="date" value="" readonly="false" onchange="validateDate(trim(gel('date').value))"/> <br/></td>
-        </tr>
-</table>
-	<br/>
-	<div id="dialogbuttons" style="float:right">
-		<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
-	</div>
-	<div id="hidden_date" style="display: none;">
-		<input id="attr_date" name="attr_date" value="" />
-	</div>
-</g:ui_form>
+		<table width="100%">
+			<tr>
+				${gs.getMessage("Processing date for LOGA")}
+			</tr>
+			<tr>    
+				<td>
+					<g:ui_date name="date" id="date" value="" readonly="false" onchange="validateDate(trim(gel('date').value))"/><br/>
+				</td>
+			</tr>
+		</table>
+		<br/>
+		<div id="dialogbuttons" style="float:right">
+			<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
+		</div>
+		<div id="hidden_date" style="display: none;">
+			<input id="attr_date" name="attr_date" value="" />
+		</div>
+	</g:ui_form>
 </j:jelly>]]></html>
         <name>exp_generate_extraction</name>
-        <processing_script><![CDATA[if (cancel_or_submit == "submit") {
-	var generation = new x_hdvi2_expense.HVSExpenseExtractUtils().generateExtraction(attr_date);
-	if(generation == ""){
-		var msg = getMessage("Error to create an extract record, please contact the ServiceNow admin");
-		gs.addErrorMessage(msg);
-		response.sendRedirect("x_hdvi2_expense_extract_list.do");
-	}else{
-		response.sendRedirect("x_hdvi2_expense_extract.do?sys_id=" + generation);
-	}
+        <processing_script><![CDATA[var sRedirectionRecord = "";
+var sRedirectionList = "";
+
+if (extraction_type == "1") {
+    sRedirectionList = "x_hdvi2_btask_salary_advance_extract_list.do";
+    sRedirectionRecord = "x_hdvi2_btask_salary_advance_extract.do";
+}
+else {
+    sRedirectionList = "x_hdvi2_expense_extract_list.do";
+    sRedirectionRecord = "x_hdvi2_expense_extract.do";
+}
+if (cancel_or_submit == "submit") {
+
+	var iExtractType = parseInt(extraction_type);
 	
-}else if (cancel_or_submit == "cancel"){
-	response.sendRedirect("x_hdvi2_expense_extract_list.do");
+	try {
+    var generation = new x_hdvi2_expense.HVSExpenseExtractUtils().generateExtraction(attr_date, iExtractType);
+    if (generation == "") {
+        var msg = gs.getMessage("Error to create an extract record, please contact the ServiceNow admin");
+        gs.addErrorMessage(msg);
+        response.sendRedirect(sRedirectionList);
+    } else {
+        response.sendRedirect(sRedirectionRecord + "?sys_id=" + generation);
+    }
+	}
+	catch(err) {
+		gs.addErrorMessage(err);
+	}
+
+} else if (cancel_or_submit == "cancel") {
+    response.sendRedirect(sRedirectionList);
 }]]></processing_script>
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>benjamin.broch</sys_created_by>
         <sys_created_on>2020-02-28 07:57:36</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>5b2b73e8db1bc010011e177e16961998</sys_id>
-        <sys_mod_count>49</sys_mod_count>
+        <sys_mod_count>102</sys_mod_count>
         <sys_name>exp_generate_extraction</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -94,6 +115,6 @@ function validateDate(date){
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_ui_page_5b2b73e8db1bc010011e177e16961998</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-09 09:30:17</sys_updated_on>
+        <sys_updated_on>2020-11-11 08:35:08</sys_updated_on>
     </sys_ui_page>
 </record_update>

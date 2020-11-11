@@ -19,7 +19,7 @@
         <order>100</order>
         <override_menu_roles>false</override_menu_roles>
         <populate_view/>
-        <query>&amp;sysparm_order=number&amp;sysparm_order_direction=desc</query>
+        <query>&amp;sysparm_order=number&amp;sysparm_order_direction=desc&amp;sysparm_query=extract_type=NULL</query>
         <report/>
         <roles>x_hdvi2_expense.hr_manager,x_hdvi2_expense.salary_manager</roles>
         <survey/>
@@ -31,7 +31,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>ee0dffdbdbee0090f5e2174b06961979</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>10</sys_mod_count>
         <sys_name>Financial Extracts</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -39,8 +39,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_app_module_ee0dffdbdbee0090f5e2174b06961979</sys_update_name>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2020-02-28 09:57:28</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-10-29 19:58:55</sys_updated_on>
         <timeline_page/>
         <title>Financial Extracts</title>
         <uncancelable>false</uncancelable>

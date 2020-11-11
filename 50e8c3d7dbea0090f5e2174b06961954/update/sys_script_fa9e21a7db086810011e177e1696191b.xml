@@ -15,16 +15,17 @@
         <application/>
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
-        <collection>x_hdvi2_expense_extract</collection>
-        <condition>current.extract_type==null</condition>
+        <collection>x_hdvi2_btask_salary_advance_extract</collection>
+        <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_hdvi2_expense_extract">status=1^EQ<item display_value="In Progress" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="1"/>
+        <filter_condition table="x_hdvi2_btask_salary_advance_extract">status=1^extract_type=1^EQ<item display_value="In Progress" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="1"/>
+            <item display_value="Salary advance" endquery="false" field="extract_type" goto="false" newquery="false" operator="=" or="false" value="1"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter_condition>
         <is_rest>false</is_rest>
         <message/>
-        <name>HVS - Generate CSV files</name>
+        <name>HVS - Generate Salary Advance CSV files</name>
         <onclick/>
         <order>100</order>
         <priority>100</priority>
@@ -37,26 +38,27 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
 
-    var csv = new HVSExpenseExtractUtils().generateCSV(current.sys_id);
+	gs.addErrorMessage('HVS - Generate Salary Advance CSV files');
+    var csv = new HVSExpenseExtractUtils().generateCSV_AdvanceSalary(current.sys_id);
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
-        <sys_created_by>benjamin.broch</sys_created_by>
-        <sys_created_on>2020-02-28 09:04:08</sys_created_on>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-10-30 08:22:45</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>d57a4838db5bc010011e177e1696199e</sys_id>
+        <sys_id>fa9e21a7db086810011e177e1696191b</sys_id>
         <sys_mod_count>7</sys_mod_count>
-        <sys_name>HVS - Generate CSV files</sys_name>
+        <sys_name>HVS - Generate Salary Advance CSV files</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_update_name>sys_script_d57a4838db5bc010011e177e1696199e</sys_update_name>
+        <sys_update_name>sys_script_fa9e21a7db086810011e177e1696191b</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-10-30 08:24:34</sys_updated_on>
+        <sys_updated_on>2020-10-30 11:49:07</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>

@@ -11,27 +11,51 @@
 HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
 
-    generateExtraction: function(date) {
-        var checkIfExtractRunning = this.isExtractionInProgress();
+    generateExtraction: function(date, type) {
+        var checkIfExtractRunning = this.isExtractionInProgress(type);
         if (checkIfExtractRunning == false) {
-            var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
-            gr_extract.initialize();
-            gr_extract.status = 1;
-            gr_extract.attribution_date = date;
-            var id = gr_extract.insert();
-            return id;
+            var id = '';
 
+            if (type == 0) {
+                var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
+                gr_extract.initialize();
+                gr_extract.status = 1;
+                gr_extract.attribution_date = date;
+                id = gr_extract.insert();
+            } else if (type == 1) {
+                var gr_extract_SalAdv = new GlideRecord("x_hdvi2_btask_salary_advance_extract");
+                gr_extract_SalAdv.initialize();
+                gr_extract_SalAdv.status = 1;
+                gr_extract_SalAdv.extract_type = type.toString(10);
+                gr_extract_SalAdv.attribution_date = date;
+                id = gr_extract_SalAdv.insert();
+            }
+
+            return id;
         } else {
             return "";
         }
-
     },
 
-    isExtractionInProgress: function() {
+    isExtractionInProgress: function(type) {
         var answer = false;
-        var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
-        if (gr_extract.get("status", 1)) {
-            answer = true;
+
+        if (type == 0) {
+            var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
+            gr_extract.addQuery("status", 1);
+            gr_extract.addQuery("extract_type", "=", "NULL");
+            gr_extract.query();
+            if (gr_extract.hasNext()) {
+                answer = true;
+            }
+        } else if (type == 1) {
+            var gr_extract_SalAdv = new GlideRecord("x_hdvi2_btask_salary_advance_extract");
+            gr_extract_SalAdv.addQuery("status", 1);
+            gr_extract_SalAdv.addQuery("extract_type", type);
+            gr_extract_SalAdv.query();
+            if (gr_extract_SalAdv.hasNext()) {
+                answer = true;
+            }
         }
         return answer;
     },
@@ -198,14 +222,147 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
 
     },
 
+    generateCSV_AdvanceSalary: function(extract_id) {
+
+        /**********************************************************************************************/
+        /* PSO 30.10.2020 - generate extract for Salary Advance request
+         */
+        // uncomment this line for testing var queryAdvanceSalary = 'sys_id=d3b760f9db8e1050f5e2174b069619dd^assignment_group=c44ca858dbd1d010f5e2174b06961956^approval=approved^state=7^ORstate=8';
+        // comment below line for testing
+        var queryAdvanceSalary = 'assignment_group=c44ca858dbd1d010f5e2174b06961956^approval=approved^state=7^ORstate=8';
+
+        var number_of_salary_advance = 0;
+        var total_amount_salary_advance = parseFloat(0);
+        var employees_refunded = [];
+
+
+        var gr_extract = new GlideRecord("x_hdvi2_btask_salary_advance_extract");
+        if (gr_extract.get(extract_id)) {
+
+            //--------------------------------
+
+
+            var Headers = ["Type,Fonction,Societe,Groupe Decompte,Matricule,Nom,Prenom,Contrat,Rubrique,Jours,Heures,Facteur,Montant,CC,Compte,UniteCharge,Date Jour,Attribution,Source,Date Source,Pourcentage,C/C,ID User,Pieces,Societe C/C,GrpDec C/C,Position,Texte,Employe des,Employe au,%-Impot,%-Impot,Numero Justificatif,Groupe Service,Rubrique 1,Rubrique 2,Rubrique 3,Numero,Etablissement,Jour precis,Numero Famille,Mois,Annee,ID unique,Date,fehlerhafte Datensatze vom Import"];
+            var fileName_standard = 'extract_advance_salary.csv';
+
+            var csvData = ''; //The variable csvData will contain a string which is used to build the CSV file contents
+            for (var i = 0; i < Headers.length; i++) { //Build the Headers
+                csvData += '"' + Headers[i] + '"' + ',';
+            }
+            csvData += "\r\n";
+            var csvData_standard = csvData;
+
+
+            var gr_AdvanceSalary = new GlideRecord("x_hdvi2_btask_salary_task");
+            gr_AdvanceSalary.addEncodedQuery(queryAdvanceSalary);
+            gr_AdvanceSalary.query();
+
+            while (gr_AdvanceSalary.next()) {
+
+                //Update stats variables
+                number_of_salary_advance++;
+                total_amount_salary_advance += parseFloat(gr_AdvanceSalary.amount);
+
+                var new_employee = true;
+                var employee_to_search = "" + gr_AdvanceSalary.requested_for.sys_id;
+                for (var x = 0; x < employees_refunded.length; x++) {
+                    if (employees_refunded[x] == employee_to_search) {
+                        new_employee = false;
+                        break;
+
+                    }
+                }
+
+                if (new_employee == true) {
+                    employees_refunded.push(employee_to_search);
+                }
+
+                //-------------------------------------
+
+                //Add new line to the CSV file
+                var employee_number = "";
+                if (gr_AdvanceSalary.requested_for.employee_number) {
+                    employee_number = "00000000" + gr_AdvanceSalary.requested_for.employee_number.replace(/[a-zA-Z_-]/g, "");
+                    employee_number = employee_number.slice(-8);
+                }
+                var firstname = gr_AdvanceSalary.requested_for.first_name;
+                var lastname = gr_AdvanceSalary.requested_for.last_name;
+
+				// Get Contract Number
+                var contract = "";
+                var gr_user_contract = new GlideAggregate("u_hvs_user_contract");
+                gr_user_contract.addAggregate('MAX', 'u_contrat_number');
+                gr_user_contract.addEncodedQuery("u_active=true^u_user=" + gr_AdvanceSalary.requested_for);
+                gr_user_contract.groupBy('u_user');
+                gr_user_contract.setLimit(1);
+                gr_user_contract.query();
+                while (gr_user_contract.next()) {
+                    contract = gr_user_contract.getAggregate('MAX', 'u_contrat_number');
+                }
+
+				// Get Company Code
+                var code_societe = "";
+                var gr_user_contract2 = new GlideRecord("u_hvs_user_contract");
+                gr_user_contract2.addEncodedQuery("u_active=true^u_contrat_number=" + contract + "^u_user=" + gr_AdvanceSalary.requested_for);
+                gr_user_contract2.setLimit(1);
+                gr_user_contract2.query();
+                while (gr_user_contract2.next()) {
+                    code_societe = gr_user_contract2.getValue('u_company_code');
+                }
+
+                var rubric = '910';
+                var piece = "";
+                var amount = gr_AdvanceSalary.amount;
+
+                var date = new GlideDate();
+                date.getByFormat('YYYY-MM-dd');
+
+                var date_attribution = "";
+                var tmpDate = "" + gr_extract.getDisplayValue("attribution_date");
+                date_attribution += gr_extract.getDisplayValue("attribution_date");
+                date_attribution = tmpDate.substr(6, 4) + "-" + tmpDate.substr(3, 2) + "-01";
+
+                var new_csv_line = '"[VARTAB]","INSERT","' + code_societe + '","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '",,,,"' + date + '","' + date_attribution + '",,,,,,,,,,"Demande Avance sur Salaire pour le mois de ' + gr_AdvanceSalary.getDisplayValue("month") + ' pour ' + gr_AdvanceSalary.requested_for.name + '",,,,,,,,,,,,,,,,';
+
+                new_csv_line += "\r\n";
+                csvData_standard += new_csv_line;
+
+                //-------------------------------------
+
+                //Update the Salary Task record
+                gr_AdvanceSalary.active = false;
+                gr_AdvanceSalary.state = 10; //Sent for payment
+                gr_AdvanceSalary.extract_ref = extract_id;
+                gr_AdvanceSalary.update();
+            }
+
+
+            //Here we will create the CSV of the approved expenses and then update the extract record, attach the CSV to the extract record.
+
+            if (number_of_salary_advance > 0) {
+                var grAttachment1 = new GlideSysAttachment();
+                grAttachment1.write(gr_extract, fileName_standard, 'text/csv', csvData_standard);
+                var grAttachment2 = new GlideSysAttachment();
+            }
+
+            gr_extract.number_of_salary_advance = number_of_salary_advance;
+            gr_extract.generated_on = new GlideDateTime().getDisplayValue();
+            gr_extract.number_of_employees = employees_refunded.length;
+            gr_extract.total_amount = total_amount_salary_advance;
+
+            gr_extract.status = 2;
+            gr_extract.update();
+        }
+    },
+
     _generateReportForAccounting: function(extract_id) {
 
         //Generation of the report and send it to the accounting team
         var id_scheduled_report = gs.getProperty("x_hdvi2_expense.scheduled_report_to_accounting");
         var gr_job = new GlideRecord("sysauto_report");
         if (gr_job.get(id_scheduled_report)) {
-			
-			//Execution of the scheduled report
+
+            //Execution of the scheduled report
             gs.executeNow(gr_job);
 
             var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
@@ -237,14 +394,14 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_created_on>2020-02-07 13:38:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>18df70c6dbf28490011e177e169619ef</sys_id>
-        <sys_mod_count>101</sys_mod_count>
+        <sys_mod_count>137</sys_mod_count>
         <sys_name>HVSExpenseExtractUtils</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_include_18df70c6dbf28490011e177e169619ef</sys_update_name>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2020-09-14 18:17:24</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-11-11 09:47:52</sys_updated_on>
     </sys_script_include>
 </record_update>
