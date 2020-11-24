@@ -16,7 +16,7 @@
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
         <collection>x_hdvi2_expense_extract</collection>
-        <condition>current.extract_type==null</condition>
+        <condition>(current.extract_type||'')==''</condition>
         <description/>
         <execute_function>false</execute_function>
         <filter_condition table="x_hdvi2_expense_extract">status=1^EQ<item display_value="In Progress" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="1"/>
@@ -37,7 +37,7 @@
         <role_conditions/>
         <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
 
-    var csv = new HVSExpenseExtractUtils().generateCSV(current.sys_id);
+    var csv = new x_hdvi2_expense.HVSExpenseExtractUtils().generateCSV(current.sys_id);
 
 })(current, previous);]]></script>
         <sys_class_name>sys_script</sys_class_name>
@@ -47,7 +47,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d57a4838db5bc010011e177e1696199e</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>HVS - Generate CSV files</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -56,7 +56,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_d57a4838db5bc010011e177e1696199e</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-10-30 08:24:34</sys_updated_on>
+        <sys_updated_on>2020-11-24 08:43:39</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>
