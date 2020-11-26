@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>false</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Allow read for requested_for in x_hdvi2_expense_sheet, for users with role x_hdvi2_expense.accounting_user_read_only.</description>
+        <name>x_hdvi2_expense_sheet.requested_for</name>
+        <operation display_value="read">read</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-10-19 14:46:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7bac1a80dbc8a450f5e2174b06961967</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>x_hdvi2_expense_sheet.requested_for</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_security_acl_7bac1a80dbc8a450f5e2174b06961967</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-10-19 15:39:04</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>

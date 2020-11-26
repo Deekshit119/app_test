@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="HVS Notes de frais avec Fonds">30075a4cdb88a450f5e2174b069619b0</application>
+        <assessment/>
+        <content_page/>
+        <device_type/>
+        <filter table="x_hdvi2_expense_sheet">reimbursement_via_funds=true^active=true^statusIN1,2,3^EQ<item endquery="false" field="reimbursement_via_funds" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
+            <item display_value="1,2,3" endquery="false" field="status" goto="false" newquery="false" operator="IN" or="false" value="1,2,3"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter>
+        <help_hint/>
+        <help_link/>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>Expenses</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>x_hdvi2_expense_sheet</name>
+        <order>60</order>
+        <override_menu_roles>false</override_menu_roles>
+        <populate_view/>
+        <query/>
+        <report/>
+        <roles>x_hdvi2_expense.accounting_user_read_only</roles>
+        <survey/>
+        <survey_overwrite>true</survey_overwrite>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-10-19 14:15:56</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>4df5da0cdb88a450f5e2174b0696192c</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Expense Lines - Funds</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_app_module_4df5da0cdb88a450f5e2174b0696192c</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-11-13 16:18:55</sys_updated_on>
+        <timeline_page/>
+        <title>Expense Lines - Funds</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>
