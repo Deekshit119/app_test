@@ -88,10 +88,10 @@ function UserDepartment(grUser){
 		var DepartmentId = grUser.department;
 		if(DepartmentId !='119669deffa26c407102114e40b9ad6b') {
 			g_form.setDisplay("sr_new_location_from_reason",true);
-			g_form.setMandatory("sr_new_location_from_reason",true);
+			//g_form.setMandatory("sr_new_location_from_reason",true);
 		}
 		else {
-			g_form.setMandatory("sr_new_location_from_reason",false);
+			//g_form.setMandatory("sr_new_location_from_reason",false);
 			g_form.setDisplay("sr_new_location_from_reason",false);
 		}
 	}
@@ -122,7 +122,7 @@ function CheckLocationsKM(response) {
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>5ee030d3dbb20410f5e2174b06961916</sys_id>
-        <sys_mod_count>80</sys_mod_count>
+        <sys_mod_count>81</sys_mod_count>
         <sys_name>HVS Display Location_To &amp; Location_Other</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -130,8 +130,8 @@ function CheckLocationsKM(response) {
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_5ee030d3dbb20410f5e2174b06961916</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-07-03 11:58:25</sys_updated_on>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2020-12-23 14:02:45</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
