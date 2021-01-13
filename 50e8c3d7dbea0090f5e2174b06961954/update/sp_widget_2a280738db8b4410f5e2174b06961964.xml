@@ -17,12 +17,16 @@
 	c.data.setchanged = 'false';
 	$scope.expline_sysid = c.data.expline_sysid;
 	$scope.valCodeloga = c.data.codeloga[0].code;
-	
+//console.log(c.data.items);
+//console.log(c.data.arr_status);
+
 	var year= c.data.date.substr(6, 4);
 	var month= c.data.date.substr(3, 2);
 	var day= c.data.date.substr(0, 2);
 	$scope.expDate = new Date(year,month-1,day);
 	var previousDate = new Date(year,month-1,day);
+	if(parseInt(c.data.arr_status) == 5) $scope.expDate = '';
+//console.log('previousDate: ' + year + '-' + month + '-' + day);
 	
 	$scope.location_from = {
 	displayValue: c.data.items[0].expline_location,
@@ -46,7 +50,8 @@
 	$scope.expReqFor = '' || c.data.items[0].expsheet_requested_for;
 	$scope.expContract = '' || c.data.items[0].expsheet_contract;
 	$scope.expDesc = '' || c.data.items[0].expsheet_short_description;
-	$scope.expAmount = parseFloat(c.data.items[1].expline_requested_amount).toFixed(2);
+//	$scope.expAmount = parseFloat(c.data.items[1].expline_requested_amount).toFixed(2);
+	$scope.expAmount = parseFloat(c.data.items[0].expline_requested_amount).toFixed(2);
 
 	if(''+c.data.items[0].expline_other_location_to == '') {
 		$scope.expOtherLoc = '' || c.data.items[0].expline_location;
@@ -312,7 +317,9 @@
 				// true or false
 				$scope.setchanged = 'false';
 				c.data.setchanged = 'false';
-				$scope.expDate = previousDate;
+				if(parseInt(c.data.arr_status) == 5) 
+					$scope.expDate = '';
+				else $scope.expDate = previousDate;
 			});
 			
 			return;
@@ -336,10 +343,12 @@
 	
 	$scope.buttonSaveExpenseEdit = function () {
 		var dFinalDate = document.getElementById('expDate').value;
+//console.log('dFinalDate 1 : ' + dFinalDate);
 		var year= dFinalDate.substr(0, 4);
 		var month= dFinalDate.substr(5, 2);
-		var day= parseInt(dFinalDate.substr(8, 2));
+		var day= dFinalDate.substr(8, 2);
 		dFinalDate = year+'-'+month+'-'+day; 
+//console.log('dFinalDate 2 : ' + dFinalDate);
 
 		var fexpValue = 0;
 		var fexpAmount = 0;
@@ -357,31 +366,55 @@
 			bexpAmount = isNaN(parseFloat(document.getElementById('expReqAmount').value));
 			fexpAmount = (!bexpAmount ? parseFloat(document.getElementById('expReqAmount').value) : 0);
 		}
-		var sDuplicate ='true' + c.data.codeloga[0].sys_id + dFinalDate + fexpValue + fexpAmount + c.data.uId;
+//		var sDuplicate = c.data.exp_flag + c.data.codeloga[0].sys_id + dFinalDate + fexpValue + fexpAmount + c.data.uId;
+		var sDuplicate = c.data.codeloga[0].sys_id + dFinalDate + fexpValue + fexpAmount + c.data.uId;
+//console.log('c.data.arrDuplicated.length: ' + c.data.arrDuplicated.length);
 		for(iDup=0; iDup < c.data.arrDuplicated.length; iDup++ ) {
+//console.log('c.data.arrDuplicated[' + iDup + ']: ' + c.data.arrDuplicated[iDup]);				
 			if(c.data.arrDuplicated[iDup] == sDuplicate) {
 				 bisDuplicated = true;
 				 }
 		}
-				
-		if(bisDuplicated) {
-			spModal.open({
-				title: '${expense.modal.warning}',
-				message: '${expense.duplicates.records}',
-				backdrop: 'static'
-			}).then(function() {
-				$scope.setchanged = 'true';
-				c.data.setchanged = 'true';
-				doSave(bisDuplicated);
-			} , function() {
-				$scope.setchanged = 'false';
-				c.data.setchanged = 'false';
-			});
+//console.log('sDuplicate: ' + sDuplicate);		
+		if($scope.expDate!=''){
+			if(bisDuplicated) {
+				spModal.open({
+					title: '${expense.modal.warning}',
+					message: '${expense.duplicates.records}',
+					backdrop: 'static'
+				}).then(function() {
+					$scope.setchanged = 'true';
+					c.data.setchanged = 'true';
+				  doSave(bisDuplicated);
+				} , function() {
+					$scope.setchanged = 'false';
+					c.data.setchanged = 'false';
+				});
 
-		 return;
+			 return;
+			}
+			else {
+				doSave(bisDuplicated);
+			}
 		}
 		else {
-			doSave(bisDuplicated);
+			spModal.open({
+				title: '${expense.modal.warning}',
+				message: '${Date cannot be empty}',
+				buttons: [
+					{label:'OK', primary: true}
+				],
+				backdrop: 'static'
+			}).then(function() {
+				// true or false
+				$scope.setchanged = 'false';
+				c.data.setchanged = 'false';
+				if(parseInt(c.data.arr_status) == 5) 
+					$scope.expDate = '';
+				else $scope.expDate = previousDate;
+			});
+			
+			return;
 		}
 	}
 	
@@ -458,7 +491,12 @@ function doSave(bDuplicate) {
 					});
 				})
     }
-		else $uibModalStack.dismissAll();
+		else {
+				c.data.setchanged = 'DELPENDING';
+				c.server.update().then(function(data){
+				  $uibModalStack.dismissAll();
+        });		
+			}
 	};
 }]]></client_script>
         <controller_as>c</controller_as>
@@ -644,10 +682,14 @@ span.panel-title{
         <roles/>
         <script><![CDATA[(function() {
  
+ //	data.uId = '3fb021d40a0a8c0701790f5b9f8d2e2c';
 	data.uId = gs.getUserID();
+	data.exp_flag = gs.getMessage('true');
+	
  // code for internal testing within Editor
+ //	data.uId = '3fb021d40a0a8c0701790f5b9f8d2e2c';
  // input=[];
- // input.sys_id=['97ab1bc3dbfbdc10011e177e169619aa'];
+ // input.sys_id=['bb1e4eb8dbe56890f5e2174b06961968'];
  // end of code for internal testing
 	
 	if(input) {
@@ -665,20 +707,26 @@ span.panel-title{
 				scDelPendingEXPLine.addEncodedQuery("status=5");
 				scDelPendingEXPLine.query();
 				while (scDelPendingEXPLine.next()) { 
+					scDelPendingEXPLine.deleteRecord();
+					/*
 					scDelPendingEXPLine.status=-1;
 					scDelPendingEXPLine.active=false;
 					scDelPendingEXPLine.comments="annulation copie remboursement de frais existant / Stornierungskopie Erstattung bestehender Gebühren";
 					scDelPendingEXPLine.update();
+					*/
 				}
 
 			var scDelPendingEXPSheet = new GlideRecord('x_hdvi2_expense_sheet');
 				scDelPendingEXPSheet.addEncodedQuery("status=5");
 				scDelPendingEXPSheet.query();
 				while (scDelPendingEXPSheet.next()) { 
+					scDelPendingEXPSheet.deleteRecord();
+					/*
 					scDelPendingEXPSheet.status=-1;
 					scDelPendingEXPSheet.active=false;
 					scDelPendingEXPSheet.comments="annulation copie remboursement de frais existant / Stornierungskopie Erstattung bestehender Gebühren";
 					scDelPendingEXPSheet.update();
+					*/
 				}
 		}
 		
@@ -790,11 +838,11 @@ span.panel-title{
 		
 			var item = {};
 			//$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category,expline_expense');
-			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_expense,expline_miscellaneous_account_code');
+			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_expense,expline_miscellaneous_account_code,expline_requested_amount,expline_requested_value');
 			results.push(item);
-			$sp.getRecordValues(item, sc, 'expline_requested_amount,expline_requested_value');
-			results.push(item);
-
+			//$sp.getRecordValues(item, sc, 'expline_requested_amount,expline_requested_value');
+			//results.push(item);
+			data.arr_status = sc.getValue('expline_status');
 			data.date=sc.getDisplayValue('expline_date_expense');
 			data.msgDateInvalid = gs.getMessage('x_hdvi2_expense.lineDate.not.valid');
 			data.expline_requested_value = parseFloat(sc.getValue('expline_requested_value')).toFixed(2);
@@ -807,43 +855,51 @@ span.panel-title{
 			data.LocationFromId = ''||sc.getValue('expline_location');
 			data.LocationToId = ''||sc.getValue('expline_travelkm');
 			data.RubricId = ''||sc.getValue('expline_rubric');
-		}
 
-		data.codeloga = [];
-		var scCodeLoga = new GlideRecord('x_hdvi2_expense_loga_data');
-		scCodeLoga.addQuery('sys_id',data.RubricId);
-		scCodeLoga.query();
-		while (scCodeLoga.next()) {
-			var objCode = {};
-			data.valCodeloga=scCodeLoga.code;
-			$sp.getRecordDisplayValues(objCode, scCodeLoga, 'code,label,sys_id,maximum_amount');
-			data.codeloga.push(objCode);
+			data.codeloga = [];
+			var scCodeLoga = new GlideRecord('x_hdvi2_expense_loga_data');
+			scCodeLoga.addQuery('sys_id',data.RubricId);
+			scCodeLoga.query();
+			while (scCodeLoga.next()) {
+			  var objCode = {};
+			  data.valCodeloga=scCodeLoga.code;
+			  $sp.getRecordDisplayValues(objCode, scCodeLoga, 'code,label,sys_id,maximum_amount');
+			  data.codeloga.push(objCode);
+			}
 		}
+//console.log(data.codeloga);
 
 		// Get all active expenses not paid
 		var grDupValue = new GlideRecord('x_hdvi2_expense_line');
+		console.log('sys_id!=' + input.sys_id);
 		data.arrDuplicated = [];
+		grDupValue.addEncodedQuery("expense.requested_for=" + data.uId + "^status!=5^sys_id!=" + sc.getValue('expline_sys_id'));		
+		/*
 		grDupValue.addQuery('active', true);
 		grDupValue.addQuery('expense.requested_for', data.uId);
 		grDupValue.addQuery('sys_id','!=' ,sc.getValue('expline_sys_id'));
+		*/
 		grDupValue.query();
 		while(grDupValue.next()) {
-			data.arrDuplicated.push(grDupValue.getDisplayValue('active')+grDupValue.getValue('rubric')+grDupValue.getValue('date_expense')+grDupValue.getValue('requested_value')+grDupValue.getValue('requested_amount')+grDupValue.expense.requested_for);
+//console.log("grDupValue.getValue('rubric'): " + grDupValue.getValue('rubric'));
+			//data.arrDuplicated.push(grDupValue.getDisplayValue('active')+grDupValue.getValue('rubric')+grDupValue.getValue('date_expense')+grDupValue.getValue('requested_value')+grDupValue.getValue('requested_amount')+grDupValue.expense.requested_for);
+			data.arrDuplicated.push(grDupValue.getValue('rubric')+grDupValue.getValue('date_expense')+grDupValue.getValue('requested_value')+grDupValue.getValue('requested_amount')+grDupValue.expense.requested_for);
 		}
-		//console.log(data.arrDuplicated);
+//console.log(data.arrDuplicated);
 		
 		return results;
 	}
 	
 	
-})();]]></script>
+})();
+]]></script>
         <servicenow>false</servicenow>
         <sys_class_name>sp_widget</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-02-16 12:36:48</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2a280738db8b4410f5e2174b06961964</sys_id>
-        <sys_mod_count>1758</sys_mod_count>
+        <sys_mod_count>1823</sys_mod_count>
         <sys_name>hvs_widget_expense</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -851,7 +907,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_2a280738db8b4410f5e2174b06961964</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-10-18 16:57:56</sys_updated_on>
+        <sys_updated_on>2021-01-13 17:24:05</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -885,7 +941,7 @@ span.panel-title{
      <tr>
        <td class="thead text-nowrap" colspan="2">
         <label for="expDate">${expense.label.date} : </label>
-     		<input class="form-control" placeholder="dd-MM-yyyy" ng-change="SetChangeTrue()" ng-model="expDate" Value="{{data.date}}" id="expDate" type="date">
+     		<input class="form-control" placeholder="dd-MM-yyyy" ng-change="SetChangeTrue()" ng-model="expDate" Value="{{data.date}}" id="expDate" type="date" required>
        </td>
      </tr>
      <tr>
