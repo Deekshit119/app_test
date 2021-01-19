@@ -94,6 +94,9 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
             var csvData_standard = csvData;
             var csvData_training = csvData;
 
+            // PSO - remove comment for testing;
+            //var sIdExpSheetForTest = '<id>'; /* remplacer <id> par le sys_id d'une note de frais en attente de paiement */
+            //querySheet = querySheet + '^sys_id=' + sIdExpSheetForTest;
 
             var gr_sheet = new GlideRecord("x_hdvi2_expense_sheet");
             gr_sheet.addEncodedQuery(querySheet);
@@ -174,11 +177,29 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
                         date_attribution += gr_extract.getDisplayValue("attribution_date");
                         date_attribution = tmpDate.substr(6, 4) + "-" + tmpDate.substr(3, 2) + "-01";
 
+                        //PSO 07.01.2021
+                        // Get company code
+                        var sCompanyCode = gr_sheet.contract.u_company_code;
 
-                        var new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '",,,,"' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
-                        // PSO 05.04.20 - comment below line field value changed see comment above
-                        /* var new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' +lastname+ '","' +firstname+ '","' +contract+ '","' +rubric+ '","","","'+facteur+'","' +amount+ '",,,,"'+date+'","'+date_attribution+'",,,,,,,,,,,,,,,,,,,,,,,,,,';
-                         */
+                        // Get UniteCharge
+                        var sUniteCharge = "";
+                        if (rubric == '809') {
+                            if (sCompanyCode == '1090')
+                                sUniteCharge = 'W1046';
+                            else if (sCompanyCode == '2000')
+                                sUniteCharge = 'D1046';
+                            else if (sCompanyCode == '2011')
+                                sUniteCharge = 'Z1046';
+                            else if (sCompanyCode == '2022')
+                                sUniteCharge = 'R1046';
+                        }
+
+                        var new_csv_line = '';
+                        if (rubric == '809') {
+                            new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '","' + sCompanyCode + '",,"' + sUniteCharge + '","' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
+                        } else {
+                            new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '",,,,"' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
+                        }
                         new_csv_line += "\r\n";
                         if (gr_line.rubric.type == "training") {
                             csvData_training += new_csv_line;
@@ -218,7 +239,16 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
             gr_extract.update();
         }
 
-        this._generateReportForAccounting(extract_id);
+		var iSheetFundNb = 0;
+        var querySheetFund = 'approval=approved^status=3^active=true^reimbursement_via_funds=true';
+        var gr_sheetFund = new GlideAggregate("x_hdvi2_expense_sheet");
+        gr_sheetFund.addEncodedQuery(querySheetFund);
+        gr_sheetFund.addAggregate('COUNT');
+        gr_sheetFund.query(); 
+        if (gr_sheetFund.next()) {
+            iSheetFundNb = gr_sheet.getAggregate('COUNT');
+		}
+        if (iSheetFundNb > 0) this._generateReportForAccounting(extract_id);
 
     },
 
@@ -288,7 +318,7 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
                 var firstname = gr_AdvanceSalary.requested_for.first_name;
                 var lastname = gr_AdvanceSalary.requested_for.last_name;
 
-				// Get Contract Number
+                // Get Contract Number
                 var contract = "";
                 var gr_user_contract = new GlideAggregate("u_hvs_user_contract");
                 gr_user_contract.addAggregate('MAX', 'u_contrat_number');
@@ -300,7 +330,7 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
                     contract = gr_user_contract.getAggregate('MAX', 'u_contrat_number');
                 }
 
-				// Get Company Code
+                // Get Company Code
                 var code_societe = "";
                 var gr_user_contract2 = new GlideRecord("u_hvs_user_contract");
                 gr_user_contract2.addEncodedQuery("u_active=true^u_contrat_number=" + contract + "^u_user=" + gr_AdvanceSalary.requested_for);
@@ -394,7 +424,7 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_created_on>2020-02-07 13:38:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>18df70c6dbf28490011e177e169619ef</sys_id>
-        <sys_mod_count>137</sys_mod_count>
+        <sys_mod_count>148</sys_mod_count>
         <sys_name>HVSExpenseExtractUtils</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy>read</sys_policy>
@@ -402,6 +432,6 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_include_18df70c6dbf28490011e177e169619ef</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-11-11 09:47:52</sys_updated_on>
+        <sys_updated_on>2021-01-08 15:21:02</sys_updated_on>
     </sys_script_include>
 </record_update>
