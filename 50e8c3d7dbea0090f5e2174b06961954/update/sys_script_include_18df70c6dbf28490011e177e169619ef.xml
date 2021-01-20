@@ -246,7 +246,7 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         gr_sheetFund.addAggregate('COUNT');
         gr_sheetFund.query(); 
         if (gr_sheetFund.next()) {
-            iSheetFundNb = gr_sheet.getAggregate('COUNT');
+            iSheetFundNb = gr_sheetFund.getAggregate('COUNT');
 		}
         if (iSheetFundNb > 0) this._generateReportForAccounting(extract_id);
 
@@ -424,7 +424,7 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_created_on>2020-02-07 13:38:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>18df70c6dbf28490011e177e169619ef</sys_id>
-        <sys_mod_count>149</sys_mod_count>
+        <sys_mod_count>150</sys_mod_count>
         <sys_name>HVSExpenseExtractUtils</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy>read</sys_policy>
@@ -432,6 +432,6 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_include_18df70c6dbf28490011e177e169619ef</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-01-19 16:51:46</sys_updated_on>
+        <sys_updated_on>2021-01-20 11:24:40</sys_updated_on>
     </sys_script_include>
 </record_update>
