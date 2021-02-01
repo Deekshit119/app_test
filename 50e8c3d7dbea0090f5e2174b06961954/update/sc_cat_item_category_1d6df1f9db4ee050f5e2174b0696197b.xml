@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_category">
+    <sc_cat_item_category action="INSERT_OR_UPDATE">
+        <sc_cat_item display_value="Demande de remboursement - Formation">34ba4400dbc38410011e177e16961944</sc_cat_item>
+        <sc_category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</sc_category>
+        <sys_class_name>sc_cat_item_category</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-02-01 09:03:34</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>1d6df1f9db4ee050f5e2174b0696197b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Salaries and Finances.Demande de remboursement - Formation</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sc_cat_item_category_1d6df1f9db4ee050f5e2174b0696197b</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-02-01 09:03:34</sys_updated_on>
+    </sc_cat_item_category>
+</record_update>
