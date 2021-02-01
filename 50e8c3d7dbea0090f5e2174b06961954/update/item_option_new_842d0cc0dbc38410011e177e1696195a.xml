@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="item_option_new">
     <item_option_new action="INSERT_OR_UPDATE">
         <active>true</active>
-        <attributes>ref_auto_completer= AJAXTableCompleter,ref_ac_columns=u_user_job_code;u_user_label_code;u_user_job_location;u_user_managers</attributes>
+        <attributes>ref_auto_completer= AJAXTableCompleter</attributes>
         <cat_item display_value="Demande de remboursement - Formation">34ba4400dbc38410011e177e16961944</cat_item>
         <category/>
         <choice_direction>down</choice_direction>
@@ -22,11 +22,11 @@
         <global>false</global>
         <help_tag>More information</help_tag>
         <help_text/>
-        <include_none>false</include_none>
+        <include_none>true</include_none>
         <instructions/>
         <layout>normal</layout>
         <list_table/>
-        <lookup_label>u_user_job_code, u_user_label_code, u_user_job_location, u_user_managers</lookup_label>
+        <lookup_label>u_display_name</lookup_label>
         <lookup_price/>
         <lookup_table>u_hvs_user_contract</lookup_table>
         <lookup_unique>false</lookup_unique>
@@ -37,7 +37,7 @@
         <mask_use_confirmation>false</mask_use_confirmation>
         <mask_use_encryption>false</mask_use_encryption>
         <name>contract</name>
-        <order>150</order>
+        <order>120</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
         <question_text>Contrat</question_text>
@@ -62,18 +62,18 @@
         <sys_created_on>2020-02-13 15:04:11</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>842d0cc0dbc38410011e177e1696195a</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Contrat</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_842d0cc0dbc38410011e177e1696195a</sys_update_name>
-        <sys_updated_by>h40000572</sys_updated_by>
-        <sys_updated_on>2020-02-13 15:04:11</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-02-01 09:34:16</sys_updated_on>
         <table/>
         <tooltip/>
-        <type>8</type>
+        <type>18</type>
         <u_display_in_short_description>false</u_display_in_short_description>
         <u_editable_on_veditor>false</u_editable_on_veditor>
         <u_first_step>false</u_first_step>
