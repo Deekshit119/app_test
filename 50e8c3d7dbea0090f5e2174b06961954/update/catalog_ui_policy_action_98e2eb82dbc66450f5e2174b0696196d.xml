@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item display_value="Demande de remboursement - Formation">34ba4400dbc38410011e177e16961944</catalog_item>
+        <catalog_variable>IO:0e6df7f1dbc62450f5e2174b0696198a</catalog_variable>
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field/>
+        <mandatory>ignore</mandatory>
+        <order>100</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-02-02 11:05:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>98e2eb82dbc66450f5e2174b0696196d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>mvar_hvs_rff_expense_line_input</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_98e2eb82dbc66450f5e2174b0696196d</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-02-02 11:05:35</sys_updated_on>
+        <table/>
+        <ui_policy display_value="HVS RFF Show fields if Contract selected">a092e382dbc66450f5e2174b0696195c</ui_policy>
+        <variable>mvar_hvs_rff_expense_line_input</variable>
+        <variable_set/>
+        <visible>false</visible>
+    </catalog_ui_policy_action>
+</record_update>
