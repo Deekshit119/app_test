@@ -4,13 +4,13 @@
             <element>process_flow.xml</element>
             <position>0</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>608eebd0db970450f5e2174b069619fd</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>266f7426db022450011e177e16961948</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter display_value="Process Flow">ffea140cdbc38410011e177e1696196e</sys_ui_formatter>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type>formatter</type>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>.begin_split</element>
             <position>1</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>e88eebd0db970450f5e2174b069619fd</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>ae6f7426db022450011e177e16961948</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>number</element>
             <position>2</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>608eebd0db970450f5e2174b069619fe</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>266f7426db022450011e177e16961949</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,139 +46,153 @@
             <element>status</element>
             <position>3</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>e48eebd0db970450f5e2174b069619fe</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>aa6f7426db022450011e177e16961949</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>training_category</element>
+            <position>4</position>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>226f7426db022450011e177e1696194a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>rubric</element>
-            <position>4</position>
+            <position>5</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>6c8eebd0db970450f5e2174b069619fe</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>a66f7426db022450011e177e1696194a</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>5</position>
+            <position>6</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>e08eebd0db970450f5e2174b069619ff</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>2e6f7426db022450011e177e1696194a</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>expense</element>
-            <position>6</position>
+            <position>7</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>688eebd0db970450f5e2174b069619ff</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>a26f7426db022450011e177e1696194b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>expense.opened_by</element>
-            <position>7</position>
+            <position>8</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>ec8eebd0db970450f5e2174b069619ff</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>2a6f7426db022450011e177e1696194b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>expense.requested_for</element>
-            <position>8</position>
+            <position>9</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>648e2fd0db970450f5e2174b06961900</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>ae6f7426db022450011e177e1696194b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>9</position>
+            <position>10</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>f88e2fd0db970450f5e2174b06961900</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>266f7426db022450011e177e1696194c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>description</element>
-            <position>10</position>
+            <position>11</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-02-27 12:23:04</sys_created_on>
-            <sys_id>708e2fd0db970450f5e2174b06961901</sys_id>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>aa6f7426db022450011e177e1696194c</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-02-27 12:23:04</sys_updated_on>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>duplicated</element>
-            <position>11</position>
-            <sys_created_by>h40009222</sys_created_by>
-            <sys_created_on>2020-03-07 10:13:16</sys_created_on>
-            <sys_id>3a17299fdb5b0010f5e2174b0696198b</sys_id>
+            <position>12</position>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>226f7426db022450011e177e1696194d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
-            <sys_updated_by>h40009222</sys_updated_by>
-            <sys_updated_on>2020-03-07 10:13:16</sys_updated_on>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>location_change_reason</element>
-            <position>12</position>
-            <sys_created_by>h40009222</sys_created_by>
-            <sys_created_on>2020-03-09 00:28:01</sys_created_on>
-            <sys_id>6d5471b7dbd78010f5e2174b06961948</sys_id>
+            <position>13</position>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2021-02-03 12:28:13</sys_created_on>
+            <sys_id>a66f7426db022450011e177e1696194d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_line" sys_domain="global" view="Default view">8f97082bdb224090f5e2174b0696196c</sys_ui_section>
-            <sys_updated_by>h40009222</sys_updated_by>
-            <sys_updated_on>2020-03-09 00:28:01</sys_updated_on>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2021-02-03 12:28:13</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
