@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application/>
+        <key>By indicating this, as soon as this application is approved, you will not be able to apply for any further reimbursements for this training.</key>
+        <language>fr</language>
+        <message>En indiquant cela, dès que cette demande est approuvée, vous ne pourrez plus demander d'autres remboursements pour cette formation.</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-02-04 08:10:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>4b0ec976db026450011e177e169619ce</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>By indicating this, as soon as this application is approved, you will not be able to apply for any further reimbursements for this training.</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_message_4b0ec976db026450011e177e169619ce</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-02-04 08:16:54</sys_updated_on>
+    </sys_ui_message>
+</record_update>
