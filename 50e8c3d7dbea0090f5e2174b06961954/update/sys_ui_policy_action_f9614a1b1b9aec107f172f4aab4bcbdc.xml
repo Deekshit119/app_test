@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>training_category</field>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-02-18 11:27:47</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f9614a1b1b9aec107f172f4aab4bcbdc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>training_category</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_policy_action_f9614a1b1b9aec107f172f4aab4bcbdc</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-02-18 11:27:47</sys_updated_on>
+        <table>x_hdvi2_expense_loga_data</table>
+        <ui_policy display_value="HVS - IF training category is mandatory and displayed">19510a1b1b9aec107f172f4aab4bcb20</ui_policy>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>
