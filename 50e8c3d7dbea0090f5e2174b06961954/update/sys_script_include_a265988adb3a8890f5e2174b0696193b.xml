@@ -53,6 +53,7 @@ HVSExpenseUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
 
     getUserLanguage: function() {
         var UserId = this.getParameter('user_sys_id');
+        if (!UserId) UserId = gs.getUserID();
         var gr_user = new GlideRecord("sys_user");
         var answer = '';
         if (gr_user.get(UserId)) {
@@ -72,14 +73,129 @@ HVSExpenseUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         return new global.JSON().encode(answer);
     },
 
+    getTrainingCategory: function() {
+        var arChoices = [];
+
+        var sLang = this.getParameter('sysparm_Language');
+        var grSysChoice = new GlideRecord("sys_choice");
+        grSysChoice.addEncodedQuery('name=x_hdvi2_expense_line^language=' + sLang + '^element=training_category');
+        grSysChoice.query();
+        while (grSysChoice.next()) {
+            var answer = {
+                label: grSysChoice.getValue('label'),
+                value: grSysChoice.getValue('value')
+            };
+            arChoices.push(answer);
+        }
+
+        return new global.JSON().encode(arChoices);
+    },
+
+    getTrainingData: function() {
+        var answer = {};
+
+        var sTReqId = this.getParameter('sysparm_TreqId');
+        var gr_Training = new GlideRecord("x_hdvi2_training_m_request");
+        if (gr_Training.get(sTReqId)) {
+            answer.training_fee_granted = gr_Training.getValue('training_fee_granted');
+            answer.travel_expenses_granted = gr_Training.getValue('travel_expenses_granted');
+            answer.accomodation_costs_granted = gr_Training.getValue('accomodation_costs_granted');
+            answer.other_expenses_granted = gr_Training.getValue('other_expenses_granted');
+            answer.total_granted = gr_Training.getValue('total_granted');
+            answer.training_description = gr_Training.getValue('training_title');
+            if ((gr_Training.getValue('training_title') || '') != '') answer.training_description += '\n' + gr_Training.getValue('motivations');
+            answer.approver_training = gr_Training.getValue('manager');
+        }
+
+        var iTraining_Fee_Refunded = 0;
+        var iTravel_Expenses_Refunded = 0;
+        var iAccomodation_Costs_Refunded = 0;
+        var iOther_Expenses_Refunded = 0;
+
+        var gr_ExpView = new GlideAggregate("x_hdvi2_expense_line");
+        gr_ExpView.addQuery('expense.category', 'training');
+        gr_ExpView.addQuery('expense.source', sTReqId);
+        gr_ExpView.addQuery('status', '!=', -1);
+        gr_ExpView.addAggregate('SUM', 'refunded_amount');
+        gr_ExpView.groupBy("training_category");
+        gr_ExpView.query();
+        while (gr_ExpView.next()) {
+            var sCategory = gr_ExpView.training_category;
+            var sumCostCategory = gr_ExpView.getAggregate('SUM', 'refunded_amount');
+            if (sCategory == 'accomodation_costs') {
+                iAccomodation_Costs_Refunded = iAccomodation_Costs_Refunded + parseFloat(sumCostCategory).toFixed(2);
+            } else if (sCategory == 'other_expenses') {
+                iOther_Expenses_Refunded = iOther_Expenses_Refunded + parseFloat(sumCostCategory).toFixed(2);
+            } else if (sCategory == 'training_fee') {
+                iTraining_Fee_Refunded = iTraining_Fee_Refunded + parseFloat(sumCostCategory).toFixed(2);
+            } else if (sCategory == 'travel_expenses') {
+                iTravel_Expenses_Refunded = iTravel_Expenses_Refunded + parseFloat(sumCostCategory).toFixed(2);
+            }
+
+        }
+        answer.training_fee_refunded = iTraining_Fee_Refunded;
+        answer.travel_expenses_refunded = iTravel_Expenses_Refunded;
+        answer.accomodation_costs_refunded = iAccomodation_Costs_Refunded;
+        answer.other_expenses_refunded = iOther_Expenses_Refunded;
+        answer.total_refunded = Number(iTraining_Fee_Refunded) + Number(iTravel_Expenses_Refunded) + Number(iAccomodation_Costs_Refunded) + Number(iOther_Expenses_Refunded);
+
+        return new global.JSON().encode(answer);
+    },
+
+    validateRequestedAmountperCategory: function() {
+        var validatedAmount = true;
+        var sTReqId = "" + this.getParameter('sysparm_TreqId');
+        var trainingCategory = "" + this.getParameter('sysparm_trainingCategory');
+        var requestedAmount = this.getParameter('sysparm_requestedAmount');
+
+        var exceeding_authorised_amount = gs.getProperty("x_hdvi2_expense.training.exceeding_authorised_amount");
+        var exceeding_authorised_percentage = gs.getProperty("x_hdvi2_expense.training.exceeding_authorised_percentage");
+        //--------------------------------------------------
+        var authorized_amount = Number(this._getAuthorizedAmountPerCategory(sTReqId, trainingCategory));
+
+        //--------------------------------------------------
+        var blocked_amount = this._getBlockedAmountPerCategory(sTReqId, trainingCategory);
+
+        var test_amount_1 = 0;
+		test_amount_1 = parseFloat((Number(requestedAmount) + Number(blocked_amount)) -  Number(exceeding_authorised_amount));
+        var test_amount_2 = 0;
+		test_amount_2 = parseFloat(Number(requestedAmount) + Number(blocked_amount) - Number(exceeding_authorised_percentage) * authorized_amount / 100);
+        if (authorized_amount == 0) {
+            validatedAmount = false;
+        } else if (test_amount_1 > authorized_amount || test_amount_2 > authorized_amount) {
+            validatedAmount = false;
+        }  else {
+            validatedAmount = true;
+        }
+        return validatedAmount;
+    },
+
+
+
+    getAllowedAmountLeftbyCategory: function() {
+        var sTReqId = "" + this.getParameter('sysparm_TreqId');
+        var trainingCategory = "" + this.getParameter('sysparm_trainingCategory');
+
+        //--------------------------------------------------
+        var authorized_amount = this._getAuthorizedAmountPerCategory(sTReqId, trainingCategory);
+        //--------------------------------------------------
+        var blocked_amount = this._getBlockedAmountPerCategory(sTReqId, trainingCategory);
+        //--------------------------------------------------
+        var left_amount = authorized_amount - blocked_amount;
+
+        return left_amount;
+    },
+
     getNbContract: function() {
         var UserId = this.getParameter('user_sys_id');
+        var MgrId = (this.getParameter('mgr_sys_id') || '');
         var nbContract = {};
         var cptContract = 0;
         var IdContract;
 
         var grUserContract = new GlideRecord('u_hvs_user_contract');
         grUserContract.addQuery('u_user', UserId);
+        if (MgrId) grUserContract.addQuery("u_user_managers", MgrId);
         grUserContract.addQuery('u_active', true);
         grUserContract.addQuery("u_user_managers", "!=", "");
         grUserContract.query();
@@ -130,6 +246,56 @@ HVSExpenseUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         return new global.JSON().encode(nbKM);
     },
 
+    _getAuthorizedAmountPerCategory: function(sTReqId, trainingCategory) {
+        var authorized_amount = 0;
+
+        var gr_Training = new GlideRecord("x_hdvi2_training_m_request");
+        if (gr_Training.get(sTReqId)) {
+
+            switch (trainingCategory) {
+                case "training_fee":
+                    authorized_amount = gr_Training.getValue('training_fee_granted');
+                    break;
+
+                case "travel_expenses":
+                    authorized_amount = gr_Training.getValue('travel_expenses_granted');
+                    break;
+
+                case "accomodation_costs":
+                    authorized_amount = gr_Training.getValue('accomodation_costs_granted');
+                    break;
+
+                case "other_expenses":
+                    authorized_amount = gr_Training.getValue('other_expenses_granted');
+                    break;
+                default:
+                    authorized_amount = 0;
+                    break;
+            }
+        }
+        return authorized_amount;
+    },
+
+    _getBlockedAmountPerCategory: function(sTReqId, trainingCategory) {
+
+        var blocked_amount = 0;
+        var gr_ExpView = new GlideAggregate("x_hdvi2_expense_line");
+        gr_ExpView.addQuery('expense.category', 'training');
+        gr_ExpView.addQuery('expense.source', sTReqId);
+        gr_ExpView.addQuery("training_category", trainingCategory);
+        gr_ExpView.addQuery('status', '!=', -1);
+        gr_ExpView.addAggregate('SUM', 'refunded_amount');
+        gr_ExpView.groupBy("training_category");
+        gr_ExpView.query();
+
+        while (gr_ExpView.next()) {
+
+            blocked_amount += gr_ExpView.getAggregate('SUM', 'refunded_amount');
+        }
+
+        return blocked_amount;
+    },
+
     type: 'HVSExpenseUtils'
 });]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
@@ -137,14 +303,14 @@ HVSExpenseUtils.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
         <sys_created_on>2020-02-07 10:39:28</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a265988adb3a8890f5e2174b0696193b</sys_id>
-        <sys_mod_count>81</sys_mod_count>
+        <sys_mod_count>167</sys_mod_count>
         <sys_name>HVSExpenseUtils</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy>read</sys_policy>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_include_a265988adb3a8890f5e2174b0696193b</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-11-13 16:32:23</sys_updated_on>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-02-22 14:40:26</sys_updated_on>
     </sys_script_include>
 </record_update>
