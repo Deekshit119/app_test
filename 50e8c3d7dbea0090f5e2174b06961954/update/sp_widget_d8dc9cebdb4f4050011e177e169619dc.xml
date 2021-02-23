@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
         <category>custom</category>
-        <client_script><![CDATA[function(spModal, $scope, $rootScope, $timeout,$window,  $location, spUtil, spAriaFocusManager) {
+        <client_script><![CDATA[function(spModal, $scope, $rootScope, $timeout,$window, snRecordWatcher, $location, spUtil, spAriaFocusManager) {
 	var c = this;	
 ////////////////////////////////////////////////////
 
@@ -16,6 +16,17 @@
 	$scope.action='';
 	c.data.comment='undefined';
 	$scope.comment='undefined';
+	
+	var recordWatcher = snRecordWatcher.initList('x_hdvi2_expense_sheet','active=true');
+  c.data.recordWatcher = recordWatcher;
+	// console.log(recordWatcher);
+	
+	$scope.$on('record.updated', function(name, data) {
+		// Use record watcher update if:
+		//	This record was updated AND This widget didn't trigger the update.
+		spUtil.update($scope);
+		//c.server.update();
+	});
 	
 	$scope.findKeywords = function (type,search) {
 		var fids = ''+c.data.userId + document.getElementById("selectedFilter").selectedIndex  + document.getElementById("selectedFilterBy").selectedIndex;
@@ -633,7 +644,7 @@ i.tip:hover span {
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>517</sys_mod_count>
+        <sys_mod_count>529</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -641,7 +652,7 @@ i.tip:hover span {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-01-15 10:09:20</sys_updated_on>
+        <sys_updated_on>2021-02-23 16:10:43</sys_updated_on>
         <template><![CDATA[<table class="table table-striped table-responsive ng-scope " style=""> 
   <thead>
     <tr class="tr-top">
