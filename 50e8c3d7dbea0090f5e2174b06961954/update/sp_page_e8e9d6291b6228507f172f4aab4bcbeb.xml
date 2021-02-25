@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <css>section.page {
+	background-color: $sp-homepage-bg;
+}
+section.page, main.body {
+    padding-top: 0px !important;
+}
+
+/* Home Page Search Opacity Background */
+#homepage-search &gt; div {
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 8px;
+}
+
+
+
+.icon-homepage-sphvs{
+    background-color: rgba(237,241,242, 0.95);
+    border-radius: 4px;
+    /*margin-right: 2px;
+    margin-left: 2px;*/
+}
+
+.test-2{
+    width: 1300px; 
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.test-3{
+    padding-top: 70px;
+    padding-right: 30px;
+    margin: auto;
+    font-weight: 400;
+    font-size: 18px;
+    width: 550px; 
+}
+
+.test-4{
+    width: 1600px; 
+    padding-bottom: 10px;
+    padding-top: 30px;
+}
+
+.test-5{
+    width: 1600px; 
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.page-new-expense{
+    width: 1600px; 
+    margin: auto;
+    padding-top: 30px;
+  float: left;
+}
+.graph_container{
+width: 60%;
+  margin:center;
+  text-align:center;
+  margin-left:20%;
+
+}
+
+.table_container{
+  width: 100%;
+   //margin-left:20%;
+}</css>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>exp_my_dept_appr</id>
+        <internal>false</internal>
+        <public>false</public>
+        <roles/>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-02-25 13:00:57</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e8e9d6291b6228507f172f4aab4bcbeb</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>exp_my_dept_appr</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_page_e8e9d6291b6228507f172f4aab4bcbeb</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-02-25 13:01:08</sys_updated_on>
+        <title>My Department Approvals</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="delete_multiple" query="documentkey=e8e9d6291b6228507f172f4aab4bcbeb"/>
+</record_update>
