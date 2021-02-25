@@ -4,13 +4,13 @@
             <element>.begin_split</element>
             <position>0</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>29103bdbdbae0090f5e2174b069619d9</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>7539ea2d1ba228507f172f4aab4bcb2e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type>.begin_split</type>
         </sys_ui_element>
@@ -18,13 +18,13 @@
             <element>category</element>
             <position>1</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>ad103bdbdbae0090f5e2174b069619d9</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>f939ea2d1ba228507f172f4aab4bcb2e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -32,13 +32,13 @@
             <element>label</element>
             <position>2</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>25103bdbdbae0090f5e2174b069619da</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>7139ea2d1ba228507f172f4aab4bcb2f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
@@ -46,111 +46,139 @@
             <element>type</element>
             <position>3</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>a9103bdbdbae0090f5e2174b069619da</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>f539ea2d1ba228507f172f4aab4bcb2f</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>training_category</element>
+            <position>4</position>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>7d39ea2d1ba228507f172f4aab4bcb2f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>code</element>
-            <position>4</position>
+            <position>5</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>21103bdbdbae0090f5e2174b069619db</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>f139ea2d1ba228507f172f4aab4bcb30</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.split</element>
-            <position>5</position>
+            <position>6</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>a5103bdbdbae0090f5e2174b069619db</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>7939ea2d1ba228507f172f4aab4bcb30</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type>.split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>active</element>
-            <position>6</position>
+            <position>7</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>2d103bdbdbae0090f5e2174b069619db</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>fd39ea2d1ba228507f172f4aab4bcb30</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>contract_type</element>
-            <position>7</position>
+            <position>8</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>a1103bdbdbae0090f5e2174b069619dc</sys_id>
+            <sys_created_on>2021-02-25 14:07:56</sys_created_on>
+            <sys_id>7539ea2d1ba228507f172f4aab4bcb31</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:56</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>maximum_amount</element>
-            <position>8</position>
+            <position>9</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>29103bdbdbae0090f5e2174b069619dc</sys_id>
+            <sys_created_on>2021-02-25 14:07:57</sys_created_on>
+            <sys_id>f939ea2d1ba228507f172f4aab4bcb31</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:57</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>limited_to_training_with_royalty</element>
+            <position>10</position>
+            <sys_created_by>benjamin.broch</sys_created_by>
+            <sys_created_on>2021-02-25 14:07:57</sys_created_on>
+            <sys_id>7139ea2d1ba228507f172f4aab4bcb32</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
+            <sys_updated_by>benjamin.broch</sys_updated_by>
+            <sys_updated_on>2021-02-25 14:07:57</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>.end_split</element>
-            <position>9</position>
+            <position>11</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:24:38</sys_created_on>
-            <sys_id>ad103bdbdbae0090f5e2174b069619dc</sys_id>
+            <sys_created_on>2021-02-25 14:07:57</sys_created_on>
+            <sys_id>f539ea2d1ba228507f172f4aab4bcb32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:24:38</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:57</sys_updated_on>
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
         <sys_ui_element action="INSERT_OR_UPDATE">
             <element>comments</element>
-            <position>10</position>
+            <position>12</position>
             <sys_created_by>benjamin.broch</sys_created_by>
-            <sys_created_on>2020-01-30 13:37:49</sys_created_on>
-            <sys_id>76137f9fdbae0090f5e2174b069619d1</sys_id>
+            <sys_created_on>2021-02-25 14:07:57</sys_created_on>
+            <sys_id>7d39ea2d1ba228507f172f4aab4bcb32</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_ui_formatter/>
             <sys_ui_section caption="NULL" display_value="" name="x_hdvi2_expense_loga_data" sys_domain="global" view="Default view">db1d67d7dbae0090f5e2174b069619a7</sys_ui_section>
             <sys_updated_by>benjamin.broch</sys_updated_by>
-            <sys_updated_on>2020-01-30 13:37:49</sys_updated_on>
+            <sys_updated_on>2021-02-25 14:07:57</sys_updated_on>
             <sys_user/>
             <type/>
         </sys_ui_element>
