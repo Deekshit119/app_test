@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rectangle_menu_item">
+    <sp_rectangle_menu_item action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <color>default</color>
+        <condition>SNC.UserCriteriaLoader.getAllUserCriteria().indexOf('7ada56e91b6228507f172f4aab4bcb53') &gt; -1</condition>
+        <display_1/>
+        <display_2/>
+        <display_date/>
+        <filter/>
+        <glyph>check-square</glyph>
+        <hint/>
+        <kb_article/>
+        <kb_category/>
+        <kb_topic/>
+        <label>My Department Approvals</label>
+        <order>112</order>
+        <record_script/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description/>
+        <sp_page display_value="exp_my_dept_appr">e8e9d6291b6228507f172f4aab4bcbeb</sp_page>
+        <sp_rectangle_menu display_value="SP Exp Header Menu">05db211ddbbac090011e177e1696194b</sp_rectangle_menu>
+        <sp_rectangle_menu_item/>
+        <sys_class_name>sp_rectangle_menu_item</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-02-25 13:02:25</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>823a16a91b6228507f172f4aab4bcba0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Approuver les remboursements de frais de formation</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_rectangle_menu_item_823a16a91b6228507f172f4aab4bcba0</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-02-25 13:11:54</sys_updated_on>
+        <table/>
+        <type>page</type>
+        <url/>
+        <url_target/>
+    </sp_rectangle_menu_item>
+    <sys_translated_text action="delete_multiple" query="documentkey=823a16a91b6228507f172f4aab4bcba0"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>823a16a91b6228507f172f4aab4bcba0</documentkey>
+        <fieldname>hint</fieldname>
+        <language>fr</language>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-02-25 13:11:54</sys_created_on>
+        <sys_id>016c966d1b6228507f172f4aab4bcb93</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-02-25 13:11:54</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>823a16a91b6228507f172f4aab4bcba0</documentkey>
+        <fieldname>label</fieldname>
+        <language>fr</language>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-02-25 13:11:54</sys_created_on>
+        <sys_id>c56c966d1b6228507f172f4aab4bcb90</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-02-25 13:11:54</sys_updated_on>
+        <tablename>sp_rectangle_menu_item</tablename>
+        <value>Approuver les remboursements de frais de formation</value>
+    </sys_translated_text>
+</record_update>
