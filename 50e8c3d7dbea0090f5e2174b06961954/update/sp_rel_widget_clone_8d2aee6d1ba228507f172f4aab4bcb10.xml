@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
+    <sp_rel_widget_clone action="INSERT_OR_UPDATE">
+        <child display_value="Copy of Expense Sheet - Listing My Team">302aee6d1ba228507f172f4aab4bcb0d</child>
+        <cloned>2020-02-12 07:54:02</cloned>
+        <last_validated>2020-02-12 07:54:02</last_validated>
+        <parent display_value="Appointment Booking - Listing">9a0b843f9340030045a3f5be867ffb26</parent>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;sp_widget&gt;&lt;category/&gt;&lt;client_script&gt;&lt;![CDATA[function($scope, $rootScope, $location, spUtil, $timeout, spAriaFocusManager) {
+	var c = this;	
+	$scope.selectedBtn = 'upcoming'; //Upcoming tab should be selected when the page is loaded
+	
+	c.upcomingTab = function(){
+		c.data.dataTableWidget = false;
+		$scope.selectedBtn = 'upcoming';
+		c.data.table = 'sn_apptmnt_booking_appointment_booking';
+		c.data.filterACLs = true;
+		c.data.show_new = false;
+		c.data.show_keywords  = false;
+		c.data.show_breadcrumbs = false;
+		c.data.fromUrl = true;
+		c.data.enable_filter = false;
+		c.data.fields = 'task,catalog_item,start,end';
+		c.data.filter = "start&gt;"+ c.data.nowDate+"^state!=cancelled";
+		c.server.update();
+	}
+	
+	c.pastTab = function(){
+		c.data.dataTableWidget = false;
+		$scope.selectedBtn = 'past';
+		c.data.table = 'sn_apptmnt_booking_appointment_booking';
+		c.data.filterACLs = true;
+		c.data.show_new = false;
+		c.data.show_keywords  = false;
+		c.data.show_breadcrumbs = false;
+		c.data.fromUrl = true;
+		c.data.enable_filter = false;
+		c.data.fields = 'task,catalog_item,start,end';
+		c.data.filter = "start&lt;="+ c.data.nowDate+"^state!=cancelled";
+		c.server.update();
+	}
+	/*if ($scope.data.dataTableWidget)
+		angular.extend($scope.data.dataTableWidget.options, $scope.options);*/
+	c.showDiv = true;
+	$scope.$on('data_table.click', function(e, parms) {
+		c.showDiv = false;
+		c.data.action = "dataTableClick";
+		c.data.recordSysId = parms.sys_id;
+		c.data.tableName = parms.table;
+		
+		c.server.update().then(function(response) {
+			var oid = $location.search().id;
+			var p = 'fsm_ticket';
+			var s = {id: p, table: c.data.taskTable, sys_id: c.data.taskRecordSysId, view: $scope.data.view};
+			if (oid == p) {
+				s.spa = 1;
+				var t = $location.search();
+				s = angular.extend(t, s);
+				$rootScope.$broadcast('$sp.list.click', s);
+			}
+			var newURL = $location.search(s);
+			spAriaFocusManager.navigateToLink(newURL.url());
+
+		});
+	});
+
+	/*$scope.$on('select2.ready', function(e, $el){
+		if ($scope.data.invalid_table){
+			e.stopPropagation();
+			$el.select2('open');
+		}
+	})*/
+}]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css&gt;.widget-data-table .clearfix{ &amp;#13;
+	display: none; &amp;#13;
+} &amp;#13;
+ &amp;#13;
+.user-profile-tabs { &amp;#13;
+  height: 60px; &amp;#13;
+   &amp;#13;
+  .widget-header { &amp;#13;
+    padding-bottom: 10px; &amp;#13;
+    font-weight: normal; &amp;#13;
+    color : $brand-primary;&amp;#13;
+  } &amp;#13;
+ &amp;#13;
+  .no-padding { &amp;#13;
+    padding-left : 0px; &amp;#13;
+    text-align: center; &amp;#13;
+    cursor: pointer; &amp;#13;
+ &amp;#13;
+  } &amp;#13;
+ &amp;#13;
+  .tab-row { &amp;#13;
+    margin-top: 15px; &amp;#13;
+  } &amp;#13;
+} &amp;#13;
+ &amp;#13;
+.widget-tabs { &amp;#13;
+  border-bottom: 1px solid $csm-border-color;&amp;#13;
+  margin-bottom: 15px; &amp;#13;
+} &amp;#13;
+.widget-tabs { &amp;#13;
+  border-bottom: 1px solid $csm-border-color;&amp;#13;
+} &amp;#13;
+ &amp;#13;
+ &amp;#13;
+h4 { &amp;#13;
+  padding-left: 0px; &amp;#13;
+  margin-bottom: 0px; &amp;#13;
+} &amp;#13;
+ &amp;#13;
+h4.selected-tab { &amp;#13;
+  /*border-bottom: 2px solid #278EFC; */&amp;#13;
+  border-bottom: 2px solid $brand-primary; &amp;#13;
+  color: $link-color;&amp;#13;
+} &amp;#13;
+ &amp;#13;
+.profile-tabs { &amp;#13;
+  clear: both; &amp;#13;
+  padding-bottom: 15px; &amp;#13;
+} &amp;#13;
+&amp;#13;
+.panel-heading{&amp;#13;
+ background-color : $brand-primary; &amp;#13;
+}&amp;#13;
+&amp;#13;
+span.panel-title{&amp;#13;
+ color: $panel-default-heading-bg;&amp;#13;
+ /*vertical-align: sub;&amp;#13;
+  vertical-align: -webkit-baseline-middle;*/&amp;#13;
+}&amp;#13;
+&amp;#13;
+.panel-heading &amp;gt; .dropdown .dropdown-toggle {&amp;#13;
+   color: $panel-primary-text;&amp;#13;
+   /*padding-bottom: 0px;&amp;#13;
+   vertical-align: bottom;*/&amp;#13;
+}&amp;#13;
+/*.panel-heading{&amp;#13;
+  padding: 8px 25px 5px 40px;&amp;#13;
+}*/&lt;/css&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;false&lt;/has_preview&gt;&lt;id&gt;sn-appointment-booking-list&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link/&gt;&lt;name&gt;Appointment Booking - Listing&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;false&lt;/public&gt;&lt;roles&gt;snc_internal,sn_esm_user&lt;/roles&gt;&lt;script&gt;&lt;![CDATA[(function() {
+	
+	var gDate = new GlideDate();
+	data.nowDate = new GlideDateTime(gDate) + "";
+	
+	if(input &amp;&amp; input.action == "dataTableClick"){
+		
+		var appointmentRecord = new GlideRecord(input.tableName);
+		appointmentRecord.addQuery('sys_id',input.recordSysId);
+		appointmentRecord.query();
+		
+		if(appointmentRecord.next()){
+			data.taskTable = appointmentRecord.catalog_item.table_name + "";
+			data.taskRecordSysId = appointmentRecord.task.sys_id + "";
+		}
+	}
+	
+	data.table = 'sn_apptmnt_booking_appointment_booking';
+	if (!data.table) {
+		data.invalid_table = true;
+		data.table_label = data.table;
+		return;
+	}
+
+	var gr = new GlideRecordSecure(data.table);
+	if (!gr.isValid()) {
+		data.invalid_table = true;
+		data.table_label = data.table;
+		return;
+	}
+
+	// page is where the record URLs go, URL parameter wins
+	data.page_id = $sp.getParameter("target_page_id");
+	if (!data.page_id) {
+		var sp_page = $sp.getValue('sp_page');
+		if (sp_page) {
+			var pageGR = new GlideRecord('sp_page');
+			pageGR.get(sp_page);
+			data.page_id = pageGR.id.getDisplayValue();
+		}
+		
+	}
+	
+	
+	// widget parameters
+	data.view = 'csp';
+	data.table_label = 'Appointments';//gr.getLabel();
+	//data.fields = $sp.getListColumns(data.table, data.view);
+	copyParameters(data, ['p', 'o', 'd', 'filter']);
+	copyParameters(data, ['relationship_id', 'apply_to', 'apply_to_sys_id']);
+	data.filterACLs = true;
+	data.show_new = false;
+	data.show_keywords  = false;
+	data.show_breadcrumbs = false;
+	data.fromUrl = true;
+	data.enable_filter = false;
+	data.fields = 'task,catalog_item,start,end';
+	data.filter = "start&gt;"+ data.nowDate+"^state!=cancelled";
+	
+	if(input){
+		data.table = input.table;
+		data.filterACLs = input.filterACLs;
+		data.show_new = input.show_new;
+		data.show_keywords  = input.show_keywords;
+		data.show_breadcrumbs = input.show_breadcrumbs;
+		data.fromUrl = input.fromUrl;
+		data.enable_filter = input.enable_filter;
+		data.filter = input.filter;
+		data.fields = input.fields;
+	}	
+
+	data.dataTableWidget = $sp.getWidget('widget-data-table', data);
+
+	function copyParameters(to, names) {
+		names.forEach(function(name) {
+			data[name] = $sp.getParameter(name);
+		})
+	}
+
+	// in case this widget is tied to the wrong instance type
+	function deleteOptions(names) {
+		names.forEach(function(name) {
+			delete options[name];
+		})
+	}
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-07-25 18:39:38&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_id&gt;9a0b843f9340030045a3f5be867ffb26&lt;/sys_id&gt;&lt;sys_mod_count&gt;148&lt;/sys_mod_count&gt;&lt;sys_name&gt;Appointment Booking - Listing&lt;/sys_name&gt;&lt;sys_package display_value="Appointment Booking" source="sn_apptmnt_booking"&gt;d0f0c1303ba23200ce8a4d72f3efc4ac&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Appointment Booking"&gt;d0f0c1303ba23200ce8a4d72f3efc4ac&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_9a0b843f9340030045a3f5be867ffb26&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-10-07 21:36:55&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div class="user-profile-tabs"&gt;
+    &lt;div class="col-xs-12 widget-tabs no-padding"&gt;
+        &lt;div class="col-xs-6 col-md-2 csm-widget-simple-list csm-widget no-padding"&gt;
+          &lt;h4 class="widget-header no-padding"  ng-class="{'selected-tab' : selectedBtn === 'upcoming'}" ng-click="c.upcomingTab()"&gt;Upcoming&lt;/h4&gt;
+        &lt;/div&gt;
+      
+        &lt;div class="col-xs-6 col-md-2 csm-widget-simple-list csm-widget no-padding"&gt;
+          &lt;h4 class="widget-header no-padding"  ng-class="{'selected-tab' : selectedBtn === 'past'}" ng-click="c.pastTab()"&gt;Past&lt;/h4&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;  
+&lt;/div&gt;
+
+ &lt;div ng-if="data.dataTableWidget &amp;&amp; !data.invalid_table &amp;&amp; c.showDiv"&gt;
+  	&lt;sp-widget widget="data.dataTableWidget"&gt;&lt;/sp-widget&gt;
+ &lt;/div&gt;
+
+]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;</payload>
+        <sys_class_name>sp_rel_widget_clone</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-02-25 14:11:58</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>8d2aee6d1ba228507f172f4aab4bcb10</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>302aee6d1ba228507f172f4aab4bcb0d</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_rel_widget_clone_8d2aee6d1ba228507f172f4aab4bcb10</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-02-25 14:11:58</sys_updated_on>
+    </sp_rel_widget_clone>
+</record_update>
