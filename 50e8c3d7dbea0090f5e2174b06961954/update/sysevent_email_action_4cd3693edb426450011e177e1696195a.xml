@@ -58,7 +58,7 @@
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
-        <subject>${number} - Anfrage für eine Ausbildung zu überprüfen</subject>
+        <subject>${number} - Der Rückerstattungsantrag für diese Ausbildung wurde abgelehnt</subject>
         <subscribable>false</subscribable>
         <sys_class_name>sysevent_email_action</sys_class_name>
         <sys_created_by>benjamin.broch</sys_created_by>
@@ -67,7 +67,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4cd3693edb426450011e177e1696195a</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>11</sys_mod_count>
         <sys_name>Expense - Demande refusée 2nd level - DE</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -76,7 +76,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sysevent_email_action_4cd3693edb426450011e177e1696195a</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2021-02-25 10:34:26</sys_updated_on>
+        <sys_updated_on>2021-02-25 11:05:04</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="HVS Exp Default Template ">28512846db728490011e177e16961968</template>
         <type>email</type>
