@@ -13,7 +13,7 @@
         <kb_category/>
         <kb_topic/>
         <label>My Department Approvals</label>
-        <order>112</order>
+        <order>115</order>
         <record_script/>
         <sc_cat_item/>
         <sc_category/>
@@ -26,15 +26,15 @@
         <sys_created_on>2021-02-25 13:02:25</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>823a16a91b6228507f172f4aab4bcba0</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Approuver les remboursements de frais de formation</sys_name>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>My Department Approvals</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_rectangle_menu_item_823a16a91b6228507f172f4aab4bcba0</sys_update_name>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2021-02-25 13:11:54</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-02-25 15:10:24</sys_updated_on>
         <table/>
         <type>page</type>
         <url/>
