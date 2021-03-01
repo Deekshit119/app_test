@@ -4,14 +4,16 @@
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
-        <category/>
+        <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan/>
         <delivery_plan_script/>
         <delivery_time>1970-01-03 00:00:00</delivery_time>
         <description/>
+        <display_price_property>non_zero</display_price_property>
         <entitlement_script/>
+        <flow_designer_flow/>
         <group/>
         <hide_sp>false</hide_sp>
         <icon/>
@@ -20,22 +22,7 @@
         <list_price>0</list_price>
         <location/>
         <mandatory_attachment>true</mandatory_attachment>
-        <meta>Expense&#13;
-Line&#13;
-Frais&#13;
-Parking&#13;
-Hébergement&#13;
-Hôtel&#13;
-Hotel&#13;
-Train&#13;
-CFF&#13;
-Voiture&#13;
-Move&#13;
-Training&#13;
-Formation&#13;
-Remboursement&#13;
-Repas&#13;
-Bille</meta>
+        <meta>Expense Line Frais Parking Hébergement Hôtel Hotel Train CFF Voiture Move Training Formation Remboursement Repas Billet formation Ausgaben Zeile Gebühren Parken Hosting Hotel Hotel Zug SBB Auto Reisen Verschieben Rückerstattung Mahlzeiten Ticket Ausbildung</meta>
         <mobile_hide_price>false</mobile_hide_price>
         <mobile_picture/>
         <mobile_picture_type>use_desktop_picture</mobile_picture_type>
@@ -64,41 +51,90 @@ Bille</meta>
         <redirect_url>generated_record</redirect_url>
         <request_method/>
         <roles/>
-        <sc_catalogs/>
+        <sc_catalogs>e009c323ff031100a0a5ffffffffff37</sc_catalogs>
         <sc_ic_item_staging/>
         <sc_ic_version/>
         <script><![CDATA[/*** --- Do not modify or remove this script !! --- Automatically added by "Add Predefined script" business rule. 
 Forces population of this record producer sys_id into the target record***/
-var rpId = "ff844a95db3ec090011e177e16961952";
+var rpId = "34ba4400dbc38410011e177e16961944";
 current.u_cat_item = rpId;
 /***------------------ ***/
 
+
+producer.portal_redirect = "exphvs";
 current.opened_by = gs.getUserID();
 current.contract = producer.contract;
 
-// Générer les ligens de dépenses
-var assignment_group  = gs.getProperty('x_hdvi2_expense.salary_group.id');
+
+var assignment_group = gs.getProperty('x_hdvi2_expense.salary_group.id');
 current.assignment_group = assignment_group;
-
-var variables = JSON.parse(producer.mr_expense_line);
-for(idx = 0; idx < variables.length; idx++){
-
-	var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
-	gr_expLine.initialize();
-	gr_expLine.expense = current.sys_id;
-	gr_expLine.status = 0;
-	gr_expLine.currency = variables[idx].mr_currency;
-	gr_expLine.date_expense = variables[idx].mr_date_expense ;
-	gr_expLine.location = variables[idx].mr_location_from;
-	gr_expLine.travelkm = variables[idx].mr_location_to;
-	gr_expLine.requested_amount =  variables[idx].mr_requested_amount || '0';
-	gr_expLine.requested_value = variables[idx].mr_requested_value || '0';
-	gr_expLine.rubric = variables[idx].mr_rubrique_loga;
-	gr_expLine.comments = variables[idx].mr_comments || '';
-	gr_expLine.insert();
-	
+current.short_description = producer.training_description;
+current.status = 1;
+current.category = 'training';
+current.source = producer.training_request;
+current.source_table = "x_hdvi2_training_m_request";
+if (producer.last_expense_for_this_training == "Yes" || producer.last_expense_for_this_training == "yes" || producer.last_expense_for_this_training == "Oui" || producer.last_expense_for_this_training == "oui") {
+    current.last_expense_for_related_source = true;
 }
-]]></script>
+
+
+var fTotalAmount = 0;
+
+// Générer les lignes de dépenses
+
+var variables = JSON.parse(producer.mvar_hvs_rff_expense_line_input);
+for (idx = 0; idx < variables.length; idx++) {
+    var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
+    gr_expLine.initialize();
+    gr_expLine.expense = current.sys_id;
+    gr_expLine.status = 0;
+    if (producer.sr_doublon == 'Yes') gr_expLine.duplicated = true;
+    else gr_expLine.duplicated = false;
+
+    gr_expLine.currency = variables[idx].currency;
+    gr_expLine.date_expense = variables[idx].expense_date;
+    gr_expLine.requested_amount = parseFloat(variables[idx].amount_to_refund || '0');
+    fTotalAmount = fTotalAmount + parseFloat(variables[idx].amount_to_refund || '0');
+    gr_expLine.requested_value = parseFloat('0');
+    gr_expLine.training_category = variables[idx].expense_line;
+
+    //---------------
+    //To get the LOGA rubric of each expline line based on the category, the contract and the royalty option
+    var royalty = false;
+
+	//The royalty option of the TREQ is only used for the traning fee category
+    if (variables[idx].expense_line == "training_fee") {
+        var gr_treq = new GlideRecord("x_hdvi2_training_m_request");
+        if (gr_treq.get(producer.training_request)) {
+            royalty = gr_treq.royalty;
+        }
+		
+    }
+	
+	var rubrics_for_my_contract = new x_hdvi2_expense.HVSExpenseUserUtils().getLogaCategoriesBasedOnContract('training', producer.contract);
+
+    var gr_loga_rubric = new GlideRecord("x_hdvi2_expense_loga_data");
+    gr_loga_rubric.addEncodedQuery("training_category=" + variables[idx].expense_line + "^" + "limited_to_training_with_royalty=" + royalty + "^" + rubrics_for_my_contract);
+    gr_loga_rubric.query();
+    while (gr_loga_rubric.next()) {
+		
+        gr_expLine.rubric = gr_loga_rubric.sys_id;
+    }
+
+    //----------------------
+
+    gr_expLine.description = variables[idx].training_description;
+
+    // for storing selected category for rubrc = Divers
+    var sDivers = ''; //producer.sr_miscellaneous_account_code.getDisplayValue() + '';
+    if (sDivers != '')
+        gr_expLine.miscellaneous_account_code = producer.sr_miscellaneous_account_code.getDisplayValue() + " | " + producer.sr_miscellaneous_account_code;
+    else
+        gr_expLine.miscellaneous_account_code = '';
+    gr_expLine.insert();
+}
+
+current.total_requested_amount = fTotalAmount;]]></script>
         <short_description>Soumettre une demande de remboursement pour des frais de formation</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
@@ -107,18 +143,19 @@ for(idx = 0; idx < variables.length; idx++){
         <sys_created_on>2020-02-13 14:53:34</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>34ba4400dbc38410011e177e16961944</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>Demande de remboursement - Formation</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_34ba4400dbc38410011e177e16961944</sys_update_name>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2020-02-24 11:37:19</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-03-01 07:52:38</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <type>item</type>
+        <u_account_h/>
         <u_delivery_time/>
         <u_fulfillment_group_list/>
         <u_keywords/>
