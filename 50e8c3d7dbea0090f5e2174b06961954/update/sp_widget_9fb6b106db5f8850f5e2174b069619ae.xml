@@ -57,7 +57,7 @@
 } 
 
 .pointer {
-    cursor: pointer;
+    cursor: default;
 }
 
 .v5001b062d7101200b0b044580e6103eb .sp-list-cell {
@@ -192,9 +192,7 @@ span.panel-title{
    vertical-align: bottom;*/
 }
 
-/*.panel-heading{
-  padding: 8px 25px 5px 40px;
-}*/</css>
+</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -211,7 +209,7 @@ span.panel-title{
         <script><![CDATA[(function() {
  // code for internal testing within Editor
  // input=[];
- // input.sys_id=['55a6b146db3fd810011e177e1696190a'];
+ // input.sys_id=['6518f2ad1be228507f172f4aab4bcbe2'];
  // end of code for internal testing
 	
 	var isApproverUser = false;
@@ -250,19 +248,24 @@ span.panel-title{
 			if (!$sp.canReadRecord(sc) && !isApproverDelegate && !isApproverUser)
 				continue;
 
-		var ticketConversationOptions = {};
-		ticketConversationOptions.sys_id = sc.getValue('expline_expense');
-		ticketConversationOptions.table  = 'x_hdvi2_expense_sheet';
-		ticketConversationOptions.record_id = sc.getValue('expline_expense');
-		ticketConversationOptions.record_table  = 'x_hdvi2_expense_sheet';
-		ticketConversationOptions.readonly = ''+input.read_only;
-		ticketConversationOptions.record_only = ''+input.read_only;
-
+			var ticketConversationOptions = {};
+			ticketConversationOptions.sys_id = sc.getValue('expline_expense');
+			ticketConversationOptions.table  = 'x_hdvi2_expense_sheet';
+			ticketConversationOptions.record_id = sc.getValue('expline_expense');
+			ticketConversationOptions.record_table  = 'x_hdvi2_expense_sheet';
+			ticketConversationOptions.readonly = ''+input.read_only;
+			ticketConversationOptions.record_only = ''+input.read_only;
 			data.Attachment = $sp.getWidget('widget-expense-ticket-attachments', ticketConversationOptions);
 
+			var options = {
+				filter : 'expense='+sc.expsheet_sys_id+'^statusIN2,3,4^ORstatusIN1'
+			};	
+			
+			data.dataTableWidget = $sp.getWidget('hvs-expense-widget-data-table', options);
+			
 			var item = {};
 			//$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category');
-			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_miscellaneous_account_code');
+			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_miscellaneous_account_code,expsheet_source');
 			results.push(item);
 			$sp.getRecordValues(item, sc, 'expline_requested_amount,expline_requested_value');
 			results.push(item);
@@ -274,7 +277,11 @@ span.panel-title{
 			var sFilterRubric = sc.getValue('expsheet_category');
 			data.CategRubric=sFilterRubric.charAt(0).toUpperCase() + sFilterRubric.slice(1);
 			filterRubric ='category=topic^active=true^type='+sFilterRubric.charAt(0).toUpperCase() + sFilterRubric.slice(1)+'^contract_type=';
-			
+			data.areaRows = 2;
+			if(data.CategRubric=='Training'){
+				results[0].expsheet_short_description += "\n" + results[0].expsheet_source;
+				data.areaRows = 4;
+			}
 			data.LocationFromId = ''||sc.getValue('expline_location');
 			data.LocationToId = ''||sc.getValue('expline_travelkm');
 			data.RubricId = ''||sc.getValue('expline_rubric');
@@ -300,7 +307,7 @@ span.panel-title{
         <sys_created_on>2020-03-03 14:09:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9fb6b106db5f8850f5e2174b069619ae</sys_id>
-        <sys_mod_count>96</sys_mod_count>
+        <sys_mod_count>163</sys_mod_count>
         <sys_name>hvs_widget_expense_only</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -308,7 +315,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_9fb6b106db5f8850f5e2174b069619ae</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-10-16 15:02:14</sys_updated_on>
+        <sys_updated_on>2021-03-01 10:49:06</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -337,17 +344,17 @@ span.panel-title{
      <tr>
        <td class="thead text-nowrap" colspan="2">
          <label for="expDesc">${expense.label.short_description} :</label>
-         <input readonly id="expDesc" class="form-control" ng-change="SetChangeTrue()" ng-model="expDesc" value="{{c.data.items[0].expsheet_short_description}}" type="text">
+         <textarea readonly rows="{{c.data.areaRows}}" ng-bind-html="expDesc" id="expDesc" class="form-control" ng-change="SetChangeTrue()" ng-model="expDesc" type="text"></textarea>
        </td>
      </tr>
-     <tr>
+     <tr  ng-if="data.CategRubric == 'Standard'">
        <td class="thead text-nowrap" colspan="2">
         <label for="expDate">${expense.label.date} : </label>
-     		<input readonly class="form-control" placeholder="dd-MM-yyyy" ng-change="SetChangeTrue()" ng-model="expDate" Value="{{data.date}}" id="expDate" type="date">
+     		<input readonly class="form-control" placeholder="dd-MM-yyyy" ng-change="SetChangeTrue()" ng-model="expDate" Value="{{data.date}}" id="expDate" type="date"> 
        </td>
      </tr>
      <tr>
-       <td class="thead text-nowrap" colspan=2>
+       <td ng-if="data.CategRubric == 'Standard'" class="thead text-nowrap" colspan=2>
          <div ng-if="data.CategRubric == 'Standard'">
            <label for="Rubric">${expense.label.LogaRubric} :</label>
            <sn-record-picker readonly field="Rubric" table="'x_hdvi2_expense_loga_data'" display-field="'label'" value-field="'sys_id'" search-fields="'label'" page-size="" default-query="'{{c.data.FilterRubric}}'"></sn-record-picker>
@@ -356,11 +363,6 @@ span.panel-title{
          <div ng-if="data.items[0].expline_miscellaneous_account_code != ''  && data.CategDiversNbChar > 1">
            <!--label for="CategDivers">${expense.label.CategoryDivers} :</label-->
            <input readonly class="form-control" ng-model="CategDivers" Value="{{c.data.items[0].expsheet_short_description}}" id="CategDivers" type="text">
-         </div>
-         <!-- ************************************************* -->
-         <div ng-if="data.CategRubric == 'Training'">
-           <label for="Rubric">${expense.label.LogaRubric} :</label>
-           <sn-record-picker readonly field="Rubric" table="'x_hdvi2_expense_loga_data'" display-field="'label'" value-field="'sys_id'" search-fields="'label'" page-size="15" default-query="'{{c.data.FilterRubric}}'"></sn-record-picker>
          </div>
          <div ng-if="data.codeloga[0].code!='79C' || data.codeloga[0].code!='809'">
            <label style="padding-top:8px;" id="labelReqAmount" for="expReqAmount">${expense.label.RequestedAmount} :</label>
@@ -460,11 +462,20 @@ span.panel-title{
          <div style="position:relative;" ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='809' && !1==1">
       		<label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			<input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
-         </div>  
+         </div>
+         
+         <!-- ************************************************* -->
+       </td> 
+       <td ng-if="data.CategRubric == 'Training'"class="thead text-nowrap" colspan=2>
+        <div>
+          <span class="clearfix"></span>
+          <sp-widget widget="c.data.dataTableWidget"></sp-widget>
+        </div>
+         <!-- ************************************************* -->
        </td> 
    </table>
 
-<div>
+   <div>
     <table align="right" style="padding-top:20px; padding-right:0px;">
       <tr><td><span>&nbsp;</span></td></tr>
       <tr> 
@@ -481,10 +492,8 @@ span.panel-title{
       </tr>
       <tr><td><span>&nbsp;</span></td></tr>
     </table>
+   </div>
  </div>
-     
- </div>
-
 </div>
 
 
