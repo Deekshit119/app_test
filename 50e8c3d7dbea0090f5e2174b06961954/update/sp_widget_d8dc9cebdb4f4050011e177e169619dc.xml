@@ -17,16 +17,21 @@
 	c.data.comment='undefined';
 	$scope.comment='undefined';
 	
+	
+	var skipNextRecordWatchUpdate = true;
 	var recordWatcher = snRecordWatcher.initList('x_hdvi2_expense_sheet','active=true');
   c.data.recordWatcher = recordWatcher;
 	// console.log(recordWatcher);
 	
 	$scope.$on('record.updated', function(name, data) {
-		// Use record watcher update if:
-		//	This record was updated AND This widget didn't trigger the update.
 		spUtil.update($scope);
 		//c.server.update();
 	});
+	
+
+	c.refreshScreen=function() {
+		c.server.update();
+	}
 	
 	$scope.findKeywords = function (type,search) {
 		var fids = ''+c.data.userId + document.getElementById("selectedFilter").selectedIndex  + document.getElementById("selectedFilterBy").selectedIndex;
@@ -96,17 +101,27 @@
 			});
 	}
 				
-	c.onWidgetOnly = function (explineid){
+	c.onWidgetOnly = function (explineid,expcategory){
 		var widgetExpenseOptionsOnly = {};
 		widgetExpenseOptionsOnly.sys_id = explineid;
 		widgetExpenseOptionsOnly.read_only = 'true';
+		widgetExpenseOptionsOnly.refund_category = expcategory;
+
+		var sSize='';
+		if(expcategory.toLowerCase()=='training'){
+			sSize = 'lg';
+		}
+		else {
+			sSize = '';
+		}
 	 
 		spModal.open({
 			title: '${expense.edit.title_box}',
 			widget: '9fb6b106db5f8850f5e2174b069619ae',
 			buttons: [],
 			backdrop: 'static',
-			widgetInput: widgetExpenseOptionsOnly
+			widgetInput: widgetExpenseOptionsOnly,
+			size: sSize
 		}).then(function () {
 			  c.data.keywordsType='';
 		});
@@ -159,6 +174,23 @@
         <css>.widget-data-table .clearfix{ 
 	display: none; 
 } 
+
+#reload:hover, #keywordsRev:hover {
+  background-color: $brand-primary;
+  color: #fff !important;
+  opacity : 0.7;
+}
+
+#reloadCircle:hover {
+  color: $brand-primary !important;
+  opacity : 0.7;
+}
+
+div select:hover {
+  background-color: $brand-primary;
+  color: #fff !important;
+  opacity : 0.7;
+}
 
 .container {
   width: 1597px;
@@ -349,24 +381,30 @@ div.collapsed {
 }
 
 i.tip {
-    border-bottom: 1px dashed;
-    text-decoration: none
+    background-color: rgba(237, 241, 242, .95);
+    border-radius: 4px;
+    text-decoration: none  
 }
+
 i.tip:hover {
-    cursor: help;
+    cursor: default;
     position: relative
 }
+
 i.tip span {
     display: none
 }
+
 i.tip:hover span {
+  	font-size: 14px;
+  	font-family: "SourceSansPro", Helvetica, Arial, sans-serif;
 		border: #c0c0c0 1px dotted;
+  	box-shadow: 8px 11px 11px 4px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 5px 20px 5px 5px;
-    color: #fff;
+    color: $brand-primary; //#fff;
     display: block;
-    font-weight: bold;
     z-index: 100;
-    background: url(../images/status-info.png) rgba(118, 129, 135, 1) no-repeat 100% 5%;
+    background: url(../images/status-info.png) rgba(237, 241, 242, .95) no-repeat 100% 5%;
     left: 0px;
     margin: 10px;
     width: 280px;
@@ -374,7 +412,11 @@ i.tip:hover span {
     top: 10px;
     text-decoration: none;
 }
-</css>
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.8;
+}</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
         <description/>
@@ -416,7 +458,7 @@ i.tip:hover span {
 	var gDate = new GlideDate();
 	data.nowDate = new GlideDateTime(gDate) + "";
   data.setDisplayAppTeam = '=1';
-  data.fields = 'expsheet_sys_id,expline_status,expline_sys_id,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expsheet_status,expsheet_total_requested_amount,expsheet_total_refunded_amount,expsheet_reimbursement_via_funds,expsheet_fund,expline_miscellaneous_account_code,expline_duplicated';
+  data.fields = 'expsheet_sys_id,expline_status,expline_sys_id,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expsheet_category,expline_rubric,expsheet_status,expline_requested_amount,expline_refunded_amount,expsheet_reimbursement_via_funds,expsheet_fund,expline_miscellaneous_account_code,expline_duplicated,expsheet_source';
 
 	data.reqExpSheetId='';
 	data.action='';
@@ -532,7 +574,7 @@ i.tip:hover span {
 			if(parseInt(data.selectedIndexField) == 0)
 				fieldFilterSelected = 'expline_date_expense';
 			else if(parseInt(data.selectedIndexField) == 1)
-				fieldFilterSelected = 'expsheet_requested_on';
+				fieldFilterSelected = 'expsheet_sys_created_on';
 
 			if(input) {
 					if (input.keywordsType != null && input.keywordsType != '')
@@ -571,57 +613,97 @@ i.tip:hover span {
 			// Load data standing for refused expenses
 			  if(keywordsType!='') {
 					var keywords = input.keywordsRev;	
+					var sTest = 'expsheet_number=EXPHVS0000002833^';
 					if(isNaN(keywords))
-						scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_miscellaneous_account_codeLIKE'+keywords+'^ORexpsheet_fund.displayCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^expsheet_sys_idIN'+sDocIdList);
+						scApp.addEncodedQuery('expsheet_stage=open^ORexpsheet_stage=^ORexpsheet_stage=manager_approval^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_miscellaneous_account_codeLIKE'+keywords+'^ORexpsheet_fund.displayCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^expsheet_sys_idIN'+sDocIdList);
 					else
-						scApp.addEncodedQuery('expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_miscellaneous_account_codeLIKE'+keywords+'^ORexpsheet_fund.displayCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^ORexpsheet_total_refunded_amountIN'+keywords+'^expsheet_sys_idIN'+sDocIdList);
+						scApp.addEncodedQuery('expsheet_stage=open^ORexpsheet_stage=^ORexpsheet_stage=manager_approval^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_active=true^expsheet_numberCONTAINS'+keywords+'^ORexpline_miscellaneous_account_codeLIKE'+keywords+'^ORexpsheet_fund.displayCONTAINS'+keywords+'^ORexpline_rubric.labelCONTAINS'+keywords+'^ORexpsheet_short_descriptionCONTAINS'+keywords+'^ORexpline_date_expenseCONTAINS'+keywords+'^ORexpsheet_total_refunded_amountIN'+keywords+'^expsheet_sys_idIN'+sDocIdList);
 				}
 				else {
-					scApp.addEncodedQuery(fieldType + data.ExpFilter[data.selectedIndex].condition+'^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_sys_idIN'+sDocIdList);
+					scApp.addEncodedQuery(fieldType + data.ExpFilter[data.selectedIndex].condition+'^expsheet_stage=open^ORexpsheet_stage=^ORexpsheet_stage=manager_approval^expsheet_status'+data.setDisplayAppTeam+'^expline_active=true^expsheet_sys_idIN'+sDocIdList);
 				}
+				scApp.orderByDesc('expline_number');
 				scApp.orderByDesc(fieldType);
 				scApp.query();
-//console.log('fieldType: ' + fieldType);
-			
+
         for(var i = 0; i < tableFields.length ; i++) {
 						if(i==1) results.push(scApp.getElement(tableFields[i]).getED().getLabel()+'_line');
 						else results.push(scApp.getElement(tableFields[i]).getED().getLabel());    
 				}
 			
+				var iCptTraining = 0;
+				var sExpNum = '';
+			
 				while(scApp.next()) {
-					var objApp = {};
-						for(var n = 0 ; n < data.tableFields.length ; n++) {
-							if(n==12 || n==13) objApp[data.tableFields[n]] = parseFloat(scApp.getValue(data.tableFields[n])).toFixed(2);
-							else if(n==11 || n==14 || n==17) objApp[data.tableFields[n]] = scApp.getValue(data.tableFields[n]);
-							else objApp[data.tableFields[n]] = scApp.getDisplayValue(data.tableFields[n]);
-						}					
+					var objApp0 = {};
+					var objApp1 = {};
+					var bIndic = false;
+					
+					sExpNum = scApp.getValue('expsheet_number');
 
-					// ******************************************************************
-					// if Fund : check if I've approved to remove the expense request
-					var bneedApproval = false;
-					var grSA = new GlideRecord('sysapproval_approver');
-					if(isApproverDelegate)
-						grSA.addQuery('approver',sUserDelegate).addOrCondition('approver',gs.getUserID());
-					else
-						grSA.addQuery('approver',gs.getUserID());
-					grSA.addQuery('state','requested');
-					grSA.addQuery('document_id',scApp.getValue(data.tableFields[0]));
-					grSA.query();
-					if(grSA.next()) {
-							bneedApproval = true;
+					for(var j = 0 ; j < data.tableFields.length ; j++) {
+						if(j==12 || j==13) objApp0[data.tableFields[j]] = parseFloat(scApp.getValue(data.tableFields[j])).toFixed(2);
+						else if(j==11 || j==14 || j==17) objApp0[data.tableFields[j]] = scApp.getValue(data.tableFields[j]);
+						else objApp0[data.tableFields[j]] = scApp.getDisplayValue(data.tableFields[j]);
 					}
-//console.log('scApp.getValue(data.tableFields[0]): '+scApp.getValue(data.tableFields[0]));
-//console.log('bneedApproval:' + bneedApproval);
-//console.log('isLoggedUserApprover(scApp.expsheet_approver):' + isLoggedUserApprover(scApp.expsheet_approver));
-//console.log('sDocIdList:' + sDocIdList);
-//console.log('scApp.expsheet_approver.indexOf(gs.getUserID())!=-1: ' + (scApp.expsheet_approver.indexOf(gs.getUserID())!=-1))					
-					if(bneedApproval && (isLoggedUserApprover(scApp.expsheet_approver) || sDocIdList!='' || scApp.expsheet_approver.indexOf(gs.getUserID())!=-1))
-//console.log('displayed');
-						data.approved.push(objApp);
-				
+					
+					var ret = AddForDisplay(scApp, objApp0, sDocIdList);
+//console.log(objApp0);					
+					while(scApp.next()) {
+						if(sExpNum != scApp.getValue('expsheet_number')) {
+							sExpNum = scApp.getValue('expsheet_number');
+							
+							objApp1 = {};
+							for(var k = 0 ; k < data.tableFields.length ; k++) {
+								if(k==12 || k==13) objApp1[data.tableFields[k]] = parseFloat(scApp.getValue(data.tableFields[k])).toFixed(2);
+								else if(k==11 || k==14 || k==17) objApp1[data.tableFields[k]] = scApp.getValue(data.tableFields[k]);
+								else objApp1[data.tableFields[k]] = scApp.getDisplayValue(data.tableFields[k]);
+							}
+							var ret2 = AddForDisplay(scApp, objApp1, sDocIdList);
+											
+							//objApp1 = {};
+							bIndic = false;
+						}
+						else {
+							iCptTraining = Object.keys(objApp1).length
+							if(iCptTraining != 0) {
+								objApp0 = objApp1;
+//console.log(objApp0);					
+							}
+							var sRub = objApp0[data.tableFields[10]] + "";
+							objApp0[data.tableFields[10]] = sRub + "<br>" + scApp.getDisplayValue(data.tableFields[10]) ;
+							var sMontant = objApp0[data.tableFields[12]] + "";
+							objApp0[data.tableFields[12]] = sMontant + "<br>" + parseFloat(scApp.getValue(data.tableFields[12])).toFixed(2) ;
+							bIndic = true;
+//console.log(objApp0);					
+						}
+					}
 				}	
 
 			return results;
+	}
+	
+	function AddForDisplay(grApp, arrData, DocList) {
+		// ******************************************************************
+		// if Fund : check if I've approved to remove the expense request
+		var bneedApproval = false;
+		var grSA = new GlideRecord('sysapproval_approver');
+		if(isApproverDelegate)
+			grSA.addQuery('approver',sUserDelegate).addOrCondition('approver',gs.getUserID());
+		else
+			grSA.addQuery('approver',gs.getUserID());
+		grSA.addQuery('state','requested');
+		grSA.addQuery('document_id',grApp.getValue(data.tableFields[0]));
+		grSA.query();
+		if(grSA.next()) {
+			bneedApproval = true;
+		}
+		if(bneedApproval && (isLoggedUserApprover(grApp.expsheet_approver) || DocList!='' || grApp.expsheet_approver.indexOf(gs.getUserID())!=-1)) {
+			data.approved.push(arrData);
+			//if(objApp0 != objApp1) data.approved.push(objApp1);
+		}
+		
+		return true;
 	}
 	
 	// ******************************************************************
@@ -644,7 +726,7 @@ i.tip:hover span {
         <sys_created_on>2020-02-24 13:11:27</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>d8dc9cebdb4f4050011e177e169619dc</sys_id>
-        <sys_mod_count>529</sys_mod_count>
+        <sys_mod_count>651</sys_mod_count>
         <sys_name>Expense Sheet - Listing My Team</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -652,16 +734,16 @@ i.tip:hover span {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_d8dc9cebdb4f4050011e177e169619dc</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-02-23 16:10:43</sys_updated_on>
+        <sys_updated_on>2021-03-10 16:42:28</sys_updated_on>
         <template><![CDATA[<table class="table table-striped table-responsive ng-scope " style=""> 
   <thead>
     <tr class="tr-top">
       <th class="thead text-nowrap ng-binding">
         <div class="th-exp-title ng-binding" aria-label="refresh data">
           <h4 class="panel-title">
-            <span class="m-r-sm fa ng-scope fa-refresh" style="padding-bottom: 5px;color: #a6aaab;float: left;zoom: 1.4;" aria-hidden="true" name="reload" role="button" ng-click="c.server.update()">
+            <span id="reloadCircle" class="m-r-sm fa ng-scope fa-refresh" style="padding-bottom: 5px;color: #a6aaab;float: left;zoom: 1.4;" aria-hidden="true" name="reload" role="button" ng-click="c.refreshScreen()">
             </span>
-            <span style="padding-bottom: 2px;color: black;float: left;" aria-hidden="true" name="reload" role="button" ng-click="c.server.update()">
+            <span id="reload" style="padding-bottom: 2px;color: black;float: left;" aria-hidden="true" name="reload" role="button" ng-click="c.refreshScreen()">
               ${Refresh this page to see changes ...}
             </span>
           </h4>
@@ -674,7 +756,7 @@ i.tip:hover span {
                ${Filter by}
             </span>
             <span style="padding-bottom: 2px;color: black;" aria-hidden="true" name="fieldFilter">
-    					<select class="panel-heading" style="padding: 0px 0px 0px 2px; border:0px;" ng-change="changeFilterField(selectedFilterBy)" ng-model="selectedFilterBy" id="selectedFilterBy" ng-options="FiltersBy.name for FiltersBy in c.data.FilterBy track by FiltersBy.index"/>
+    					<select class="panel-heading pointer" style="padding: 0px 0px 0px 2px; border:0px;" ng-change="changeFilterField(selectedFilterBy)" ng-model="selectedFilterBy" id="selectedFilterBy" ng-options="FiltersBy.name for FiltersBy in c.data.FilterBy track by FiltersBy.index"/>
             </span>
           </h4>
         </div>
@@ -686,7 +768,7 @@ i.tip:hover span {
                ${Select Period}
             </span>
             <span style="padding-bottom: 2px;color: black;" aria-hidden="true" name="periodfilter">
-  							<select class="panel-heading" style="padding: 0px 0px 0px 2px; border:0px;" ng-change="changeFilter(selectedFilter)" ng-model="selectedFilter" id="selectedFilter" ng-options="Filters.filter for Filters in c.data.ExpFilter track by Filters.index"/>
+  							<select class="panel-heading pointer" style="padding: 0px 0px 0px 2px; border:0px;" ng-change="changeFilter(selectedFilter)" ng-model="selectedFilter" id="selectedFilter" ng-options="Filters.filter for Filters in c.data.ExpFilter track by Filters.index"/>
             </span>
           </h4>
         </div>
@@ -735,7 +817,7 @@ i.tip:hover span {
             <table class="table table-striped table-responsive ng-scope" style=""> 
               <thead>
                 <tr class="tr-top">
-                  <th ng-if="$index!=14 && $index!=15 && $index!=16 && labels!='Sys ID' && labels!='Status' && labels!='Status_line' && labels!='Statut_line' && labels!='Statut' && labels!='Total Refunded Amount' && labels!='Montant validé' && labels!='Duplicated' && labels!='Doublon' && labels!='validierter Betrag'" class="thead text-nowrap ng-binding" ng-repeat="labels in c.data.fieldslabels track by $index" ng-click="setOrderBy(labels)" tabindex="0" role="button">
+                  <th ng-if="$index!=17 && $index!=13 && $index!=8 && $index!=9 && $index!=18 && $index!=14 && $index!=15 && $index!=16 && labels!='Sys ID' && labels!='Status' && labels!='Status_line' && labels!='Statut_line' && labels!='Statut'" class="thead text-nowrap ng-binding disabled" ng-repeat="labels in c.data.fieldslabels track by $index" ng-click="setOrderBy(labels)" tabindex="0" role="button">
                     <div class="th-exp-title ng-binding" aria-label="Sort by  {{labels}}">
                       {{labels}}
                     </div>
@@ -743,41 +825,48 @@ i.tip:hover span {
                 </tr>
               </thead>
               <tr ng-repeat="record in data.approved track by $index" class="doublon-{{record['expline_duplicated']}}">
-                <td ng-if="$index!=14 && $index!=15 && $index!=16 && field!='expsheet_sys_id' && field!='expline_sys_id' && field!='expline_status' && field!='expsheet_status' && field!='expsheet_total_refunded_amount' && field!='expline_duplicated'" ng-repeat="field in data.tableFields track by $index" tabindex="0">
-                  <div ng-if="field=='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="pointer sp-list-cell ng-binding ng-scope">
-                    <i ng-if="record['expline_duplicated']==1" class="fa fa-warning" style="font-size:16px;color:#ff5200;" title="${expense.duplicates.warning}">&nbsp;</i>{{record[field]}}
+                <td ng-if="$index!=2 && $index!=11 && $index!=1 && $index!=0 && $index!=17 && $index!=13 && $index!=8 && $index!=9 && $index!=18 && $index!=14 && $index!=15 && $index!=16" ng-repeat="field in data.tableFields track by $index" tabindex="0" class="disabled">
+                  <div ng-if="field=='expsheet_number' && field!='expsheet_sys_id' && field!='expline_requested_amount'" class="pointer sp-list-cell ng-binding ng-scope">
+                    {{record[field]}}&nbsp;<i ng-if="record['expline_duplicated']==1" class="fa fa-question-circle tip" style="font-size:16px;color:#ff5200;" title=""><span>${expense.duplicates.warning}</span></i>
                   </div>
-                  <div ng-if="record['expsheet_reimbursement_via_funds']==0 && record['expline_rubric']!='Divers' && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}
-                  </div>
-                  <div ng-if="$index==9 && record['expline_miscellaneous_account_code']!='' && record['expline_rubric']=='Divers' && record['expsheet_reimbursement_via_funds']==1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}<span style="font-weight: 700;"><br>{{record['expline_miscellaneous_account_code']}}<br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
-                  </div>
-                  <div ng-if="$index==9 && record['expline_miscellaneous_account_code']=='' && record['expline_rubric']=='Divers' && record['expsheet_reimbursement_via_funds']==1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}<span style="font-weight: 700;"><br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
-                  </div>
-                  <div ng-if="$index==9 && record['expline_rubric']!== 'Divers' && record['expsheet_reimbursement_via_funds']==1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}<span style="font-weight: 700;"><br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
-                  </div>
-                  <div ng-if="$index==9 && record['expline_miscellaneous_account_code']!=='' && record['expline_rubric']== 'Divers' && record['expsheet_reimbursement_via_funds']!=1 && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}<span style="font-weight: 700;"><br>{{record['expline_miscellaneous_account_code']}}</span>
-                  </div>
+                  <div ng-if="$index!=9">
+                    <div ng-if="$index!=5">
+                      <div ng-if="$index!=0 && $index!=3 && $index!=12 && record['expsheet_reimbursement_via_funds']==0 && record['expline_rubric']!='Divers'" class="sp-list-cell ng-binding ng-scope">
+                        <span ng-bind-html="record[field]">{{record[field]}}</span>
+                      </div>
+                      <div ng-if="$index!=0 && $index!=3 && $index!=12 && $index==10 && record['expline_miscellaneous_account_code']!='' && record['expline_rubric']=='Divers' && record['expsheet_reimbursement_via_funds']==1" class="sp-list-cell ng-binding ng-scope">
+                        {{record[field]}}<span style="font-weight: 700;"><br>{{record['expline_miscellaneous_account_code']}}<br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
+                      </div>
+                      <div ng-if="$index!=0 && $index!=3 && $index!=12 && $index==10 && record['expline_miscellaneous_account_code']=='' && record['expline_rubric']=='Divers' && record['expsheet_reimbursement_via_funds']==1" class="sp-list-cell ng-binding ng-scope">
+                        {{record[field]}}<span style="font-weight: 700;"><br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
+                      </div>
+                      <div ng-if="$index!=0 && $index!=3 && $index!=12 && $index==10 && record['expline_rubric']!== 'Divers' && record['expsheet_reimbursement_via_funds']==1" class="sp-list-cell ng-binding ng-scope">
+                        {{record[field]}}<span style="font-weight: 700;"><br>{{c.data.fieldslabels[15]}}: {{record['expsheet_fund']}}</span>
+                      </div>
+                      <div ng-if="$index!=0 && $index!=3 && $index!=12 && $index==10 && record['expline_miscellaneous_account_code']!=='' && record['expline_rubric']== 'Divers' && record['expsheet_reimbursement_via_funds']!=1" class="sp-list-cell ng-binding ng-scope">
+                        {{record[field]}}<span style="font-weight: 700;"><br>{{record['expline_miscellaneous_account_code']}}</span>
+                      </div>
 
-                  <div ng-if="$index!=9  && record['expline_rubric']=='Divers' && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}
-                  </div>
+                      <div ng-if="$index!=0 && $index!=3 && $index!=12 && $index!=10  && record['expline_rubric']=='Divers'" class="sp-list-cell ng-binding ng-scope">
+                        {{record[field]}}
+                      </div>
+                    
+                      <div ng-if="$index!=0 && $index!=3 && $index!=12 && $index!=10 && record['expsheet_reimbursement_via_funds']==1 && record['expline_rubric']!='Divers'" class="sp-list-cell ng-binding ng-scope">
+                        {{record[field]}}
+                      </div>
 
-                  <div ng-if="$index!=9 && record['expsheet_reimbursement_via_funds']==1 && record['expline_rubric']!='Divers' && field!='expsheet_number' && field!='expsheet_sys_id' && field!='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope">
-                    {{record[field]}}
-                  </div>
-                  
-                  <div ng-if="field=='expsheet_total_requested_amount'" class="sp-list-cell ng-binding ng-scope" style="float:right;">
-                    {{record[field]}}
+                      <div ng-if="$index==12" class="sp-list-cell ng-binding ng-scope" style="float:right;">
+                        <span ng-bind-html="record[field]">{{record[field]}}</span>
+                      </div>
+                    </div>
+                    <div ng-if="$index==5" style="width: 75%;">
+                        {{record[field]}}<p ng-if="record['expsheet_source']!=''">{{record['expsheet_source']}}</p>
+                    </div>
                   </div>
                 </td>
                 <td class="td-alignmiddle">
                   <div class="pointer ng-binding ng-scope">
-                    <i class="fa fa-eye" name="viewonly" id="viewonly" style="font-size:26px;color:#0089ff;" ng-click="c.onWidgetOnly(record['expline_sys_id'])" title="${expense.view_only.request}" role="button"></i>
+                    <i class="fa fa-eye" name="viewonly" id="viewonly" style="font-size:26px;color:#0089ff;" ng-click="c.onWidgetOnly(record['expline_sys_id'],record['expsheet_category'])" title="${expense.view_only.request}" role="button"></i>
                   </div>
                 </td>
                 <td class="td-alignmiddle" >
