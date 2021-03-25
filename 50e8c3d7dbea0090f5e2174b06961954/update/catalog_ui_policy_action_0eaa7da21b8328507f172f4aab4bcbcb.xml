@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item display_value="Ajout d'un remboursement pour un collaborateur">f60d0e121bc36850e63a41588b4bcb3e</catalog_item>
+        <catalog_variable>IO:decd29a61b4328507f172f4aab4bcb7a</catalog_variable>
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field/>
+        <mandatory>false</mandatory>
+        <order>140</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-03-25 09:52:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0eaa7da21b8328507f172f4aab4bcbcb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>training_description_bis</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_0eaa7da21b8328507f172f4aab4bcbcb</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-03-25 09:52:35</sys_updated_on>
+        <table/>
+        <ui_policy display_value="HVS RFF Show fields if Training selected bis">b1f539ae1b4328507f172f4aab4bcb4f</ui_policy>
+        <variable>training_description_bis</variable>
+        <variable_set/>
+        <visible>false</visible>
+    </catalog_ui_policy_action>
+</record_update>
