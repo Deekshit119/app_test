@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_translated">
+    <sys_translated action="INSERT_OR_UPDATE">
+        <element>name</element>
+        <id/>
+        <label>Changer la Sous-catégorie</label>
+        <language>fr</language>
+        <name>sys_ui_action</name>
+        <sys_class_name>sys_translated</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-04-12 11:51:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>f40307181b2b2c10e63a41588b4bcb8a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Changer la Sous-catégorie</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_translated_f40307181b2b2c10e63a41588b4bcb8a</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-04-12 11:51:01</sys_updated_on>
+        <value>Change the Subcategory</value>
+    </sys_translated>
+</record_update>
