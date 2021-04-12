@@ -80,39 +80,39 @@ current.opened_by = gs.getUserID();
 current.contract = producer.contract;
 
 // Générer les ligens de dépenses
-var assignment_group  = gs.getProperty('x_hdvi2_expense.salary_group.id');
+var assignment_group = gs.getProperty('x_hdvi2_expense.salary_group.id');
 current.assignment_group = assignment_group;
 current.short_description = producer.short_description;
 current.status = 1;
 current.total_requested_amount = producer.sr_requested_amount;
 
 var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
-	gr_expLine.initialize();
-	gr_expLine.expense = current.sys_id;
-	gr_expLine.status = 0;
-	if(producer.sr_doublon=='Yes') gr_expLine.duplicated = true; else gr_expLine.duplicated = false;
-	gr_expLine.currency = producer.sr_currency;
-	gr_expLine.location_change_reason = producer.sr_new_location_from_reason;
-	gr_expLine.date_expense = producer.sr_date_expense ;
-	gr_expLine.location = producer.sr_location_from;
-	gr_expLine.travelkm = producer.sr_location_to;
-	gr_expLine.other_location = producer.sr_location_other;
-	gr_expLine.other_location_to = producer.sr_location;
-	gr_expLine.requested_amount =  parseFloat(producer.sr_requested_amount || '0');
-	gr_expLine.requested_value = parseFloat(producer.sr_requested_value || '0');
-	//gr_expLine.refunded_amount =  producer.sr_requested_amount || '0';
-	//gr_expLine.refunded_value = producer.sr_requested_value || '0';
-	gr_expLine.rubric = producer.sr_rubrique_loga;
-	gr_expLine.description = producer.short_description;
+gr_expLine.initialize();
+gr_expLine.expense = current.sys_id;
+gr_expLine.status = 0;
+if (producer.sr_doublon == 'Yes') gr_expLine.duplicated = true;
+else gr_expLine.duplicated = false;
+gr_expLine.currency = producer.sr_currency;
+gr_expLine.location_change_reason = producer.sr_new_location_from_reason;
+gr_expLine.date_expense = producer.sr_date_expense;
+gr_expLine.location = producer.sr_location_from;
+gr_expLine.travelkm = producer.sr_location_to;
+gr_expLine.one_way = producer.sr_one_way;
+gr_expLine.other_location = producer.sr_location_other;
+gr_expLine.other_location_to = producer.sr_location;
+gr_expLine.requested_amount = parseFloat(producer.sr_requested_amount || '0');
+gr_expLine.requested_value = parseFloat(producer.sr_requested_value || '0');
+//gr_expLine.refunded_amount =  producer.sr_requested_amount || '0';
+//gr_expLine.refunded_value = producer.sr_requested_value || '0';
+gr_expLine.rubric = producer.sr_rubrique_loga;
+gr_expLine.description = producer.short_description;
 // for storing selected category for rubrc = Divers
-	var sDivers = producer.sr_miscellaneous_account_code.getDisplayValue() + '';
-	if(sDivers !='' )
-		gr_expLine.miscellaneous_account_code = producer.sr_miscellaneous_account_code.getDisplayValue() + " | " + producer.sr_miscellaneous_account_code;
-	else
-		gr_expLine.miscellaneous_account_code = '';
-	gr_expLine.insert();
-
-]]></script>
+var sDivers = producer.sr_miscellaneous_account_code.getDisplayValue() + '';
+if (sDivers != '')
+    gr_expLine.miscellaneous_account_code = producer.sr_miscellaneous_account_code.getDisplayValue() + " | " + producer.sr_miscellaneous_account_code;
+else
+    gr_expLine.miscellaneous_account_code = '';
+gr_expLine.insert();]]></script>
         <short_description>Soumettre une demande de remboursement pour des frais divers ou de déplacement</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
@@ -121,15 +121,15 @@ var gr_expLine = new GlideRecord("x_hdvi2_expense_line");
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>91</sys_mod_count>
+        <sys_mod_count>92</sys_mod_count>
         <sys_name>Demande de remboursement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-22 20:05:52</sys_updated_on>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-04-12 12:17:18</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <type>item</type>
