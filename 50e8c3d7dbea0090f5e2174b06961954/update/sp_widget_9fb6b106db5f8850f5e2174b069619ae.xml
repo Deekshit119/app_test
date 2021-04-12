@@ -35,7 +35,7 @@
 	$scope.expContract = '' || c.data.items[0].expsheet_contract;
 	$scope.expDesc = '' || c.data.items[0].expsheet_short_description;
 	$scope.expAmount = parseFloat(c.data.items[1].expline_requested_amount).toFixed(2); //c.data.items[0].expline_requested_amount;
-	
+		
 	if(''+c.data.items[0].expline_other_location_to == '') {
 		$scope.expOtherLoc = '' || c.data.items[0].expline_location;
 		$scope.expOtherLocTo = '' || c.data.items[0].expline_other_location;
@@ -44,9 +44,13 @@
 		$scope.expOtherLoc = '' || c.data.items[0].expline_other_location;
 		$scope.expOtherLocTo = '' || c.data.items[0].expline_other_location_to;
 	}
-	$scope.CategDivers = '' || c.data.items[0].expline_miscellaneous_account_code;
-	c.data.CategDiversNbChar = $scope.CategDivers.trim().length;
 	
+	$scope.CategDivers = '';
+	if(c.data.items[0].expline_miscellaneous_account_code) {
+		$scope.CategDivers = c.data.items[0].expline_miscellaneous_account_code;
+	}
+	c.data.CategDiversNbChar = $scope.CategDivers.trim().length;
+
 	$scope.buttonClosewindow = function () {
 				  $uibModalStack.dismissAll();
         };
@@ -209,7 +213,7 @@ span.panel-title{
         <script><![CDATA[(function() {
  // code for internal testing within Editor
  // input=[];
- // input.sys_id=['6518f2ad1be228507f172f4aab4bcbe2'];
+ // input.sys_id=['f0e523d01b632c107f172f4aab4bcb0b'];
  // end of code for internal testing
 	
 	var isApproverUser = false;
@@ -264,9 +268,10 @@ span.panel-title{
 			data.dataTableWidget = $sp.getWidget('hvs-expense-widget-data-table', options);
 			
 			var item = {};
-			//$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category');
-			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_miscellaneous_account_code,expsheet_source');
+			// Récuperation des champs à afficher
+			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_miscellaneous_account_code,expsheet_source,expline_one_way');
 			results.push(item);
+			// Récuperation des champs à afficher avec montant et valeur demandé
 			$sp.getRecordValues(item, sc, 'expline_requested_amount,expline_requested_value');
 			results.push(item);
 
@@ -274,6 +279,7 @@ span.panel-title{
 			data.expline_requested_value = parseFloat(sc.getValue('expline_requested_value'));
 			data.expline_requested_amount = parseFloat(sc.getValue('expline_requested_amount'));
 			
+			// Récupération de l'expense type catégorie
 			var sFilterRubric = sc.getValue('expsheet_category');
 			data.CategRubric=sFilterRubric.charAt(0).toUpperCase() + sFilterRubric.slice(1);
 			filterRubric ='category=topic^active=true^type='+sFilterRubric.charAt(0).toUpperCase() + sFilterRubric.slice(1)+'^contract_type=';
@@ -307,7 +313,7 @@ span.panel-title{
         <sys_created_on>2020-03-03 14:09:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>9fb6b106db5f8850f5e2174b069619ae</sys_id>
-        <sys_mod_count>163</sys_mod_count>
+        <sys_mod_count>208</sys_mod_count>
         <sys_name>hvs_widget_expense_only</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -315,7 +321,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_9fb6b106db5f8850f5e2174b069619ae</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-03-01 10:49:06</sys_updated_on>
+        <sys_updated_on>2021-04-12 15:15:57</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -389,17 +395,6 @@ span.panel-title{
      			 <input style="display:none;" readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
 
-         <div ng-if="data.codeloga[0].code=='PSO79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location!=''">
-           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
-           <input readonly id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
-           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
-           <sn-record-picker readonly id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker readonly style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.Location} :</label>
-     			 <input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
-         </div>  
-         
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location!=''">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input readonly id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
@@ -426,18 +421,7 @@ span.panel-title{
            <!--sn-record-picker style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
 					-->
          </div>  
-         
-         <div ng-if="data.codeloga[0].code=='PSO809' && data.codeloga[0].sys_id=='e8e4b084db44149009b962a916961906' && data.items[0].expline_other_location!=''">
-           <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
-           <input readonly id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
-           <label style="padding-top:8px;" id="labelLocFrom" for="location_from">${expense.label.LocationFrom} :</label>
-           <sn-record-picker readonly id="location_from" field="location_from" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'locations'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-           <label style="padding-top:8px;display:none;" id="labelLocTo" for="location_to">${expense.label.LocationTo} :</label>
-           <sn-record-picker readonly style="display:none;" id="location_to" field="location_to" table="'x_hdvi2_expense_expense_travel_km'" display-field="'locations'" value-field="'sys_id'" search-fields="'to'" page-size="15" default-query="'km=0'" ></sn-record-picker>
-      		 <label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.Location} :</label>
-     			 <input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
-         </div>  
-         
+                
          <div ng-if="data.codeloga[0].code=='79C' && data.codeloga[0].sys_id=='edc49704dbd3c050f5e2174b06961901' && data.items[0].expline_other_location==''">
            <label style="padding-top:8px;" id="labelReqValue" for="expReqValue">${expense.label.RequestedValue} :</label>
            <input readonly id="expReqValue" class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" ng-model="expValue" value="{{data.expline_requested_value}}" type="number">
@@ -458,7 +442,13 @@ span.panel-title{
       		 <label style="padding-top:8px;color:#ff0000;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			 <input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
-  
+
+         <!-- Affichage info Aller Simple : champ one_way -->
+         <div ng-if="c.data.items[0].expline_one_way=='true'" style="padding-top:8px;">
+           <input type="checkbox" disabled id="expOneway" class="type-boolean ng-binding ng-scope" checked>
+           <label style="padding-left:8px;" id="labelOneway" for="expOneway">${expense.label.one_way}</label>
+       	</div>  
+         
          <div style="position:relative;" ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='809' && !1==1">
       		<label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			<input readonly class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
