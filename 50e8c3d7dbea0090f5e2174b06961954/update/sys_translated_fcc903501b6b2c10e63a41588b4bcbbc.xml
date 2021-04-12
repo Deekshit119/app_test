@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_translated">
+    <sys_translated action="INSERT_OR_UPDATE">
+        <element>question_text</element>
+        <id/>
+        <label>Einweg</label>
+        <language>de</language>
+        <name>question</name>
+        <sys_class_name>sys_translated</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-04-12 12:20:31</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fcc903501b6b2c10e63a41588b4bcbbc</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Einweg</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_translated_fcc903501b6b2c10e63a41588b4bcbbc</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-04-12 12:20:31</sys_updated_on>
+        <value>One way</value>
+    </sys_translated>
+</record_update>
