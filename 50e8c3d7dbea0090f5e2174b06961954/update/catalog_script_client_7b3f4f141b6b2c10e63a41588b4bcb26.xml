@@ -8,46 +8,18 @@
         <applies_target_record>true</applies_target_record>
         <applies_to>set</applies_to>
         <cat_item/>
-        <cat_variable>IO:9dd8010bdb36c010f5e2174b06961973</cat_variable>
+        <cat_variable>IO:f729cbdc1b2b2c10e63a41588b4bcbe8</cat_variable>
         <condition/>
         <description/>
         <field/>
         <global>true</global>
         <isolate_script>true</isolate_script>
         <messages/>
-        <name>HVS Retrieve KM</name>
+        <name>HVS Retrieve KM when On Way changes</name>
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
 
-    if ((g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '809') && g_form.getDisplayValue("sr_location_to") == 'Lausanne') {
-        getMessage('expense.modal.warning', function(modalTitle) {
-            getMessage('expense.location.not.allowed', function(msg) {
-                if (typeof spModal != 'undefined') {
-                    spModal.open({
-                        title: modalTitle,
-                        message: g_form.getLabelOf("sr_location_to") + " : " + msg,
-                        buttons: [{
-                            label: 'OK',
-                            primary: true
-                        }],
-                        backdrop: 'static'
-                    }).then(function() {
-                        g_form.setValue('sr_location_to', '');
-                        return;
-                    });
-                }
-            });
-        });
-    }
 
-    if (isLoading || newValue == '') {
-        g_form.setValue('sr_requested_value', '');
-        g_form.setReadonly('sr_requested_value', false);
-        g_form.setMandatory('sr_requested_value', true);
-        g_form.setMandatory('sr_location_other', false);
-        g_form.setDisplay('sr_location_other', true);
-        return;
-    }
 
     var ga2 = new GlideAjax('HVSExpenseUtils');
     ga2.addParam('sysparm_name', 'getNbKM');
@@ -70,35 +42,28 @@ function CheckLocationsKM(response) {
                 g_form.setValue('sr_requested_value', answer.value);
             }
 
-            g_form.setReadonly('sr_requested_value', true);
-            g_form.setMandatory('sr_location_other', false);
-            g_form.setDisplay('sr_location_other', false);
-        } else {
-            g_form.setValue('sr_requested_value', '');
-            g_form.setMandatory('sr_requested_value', true);
-            g_form.setValue('sr_location_other', '');
         }
     } catch (err) {
-        jslog('A JavaScript runtime error occurred: ' + err.message * '[var HVS Retrieve KM - Form Demande de Remboursement]');
+        jslog('A JavaScript runtime error occurred: ' + err.message * '[var HVS Retrieve KM when On Way changes - Form Demande de Remboursement]');
     }
 }]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
-        <sys_created_by>h40009222</sys_created_by>
-        <sys_created_on>2020-02-17 23:42:24</sys_created_on>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-04-12 12:44:29</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>9a1a621ddb8f8810011e177e16961971</sys_id>
-        <sys_mod_count>21</sys_mod_count>
-        <sys_name>HVS Retrieve KM</sys_name>
+        <sys_id>7b3f4f141b6b2c10e63a41588b4bcb26</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>HVS Retrieve KM when On Way changes</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_update_name>catalog_script_client_9a1a621ddb8f8810011e177e16961971</sys_update_name>
+        <sys_update_name>catalog_script_client_7b3f4f141b6b2c10e63a41588b4bcb26</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2021-04-12 13:07:21</sys_updated_on>
+        <sys_updated_on>2021-04-12 13:06:43</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
