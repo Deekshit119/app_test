@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="catalog_ui_policy_action">
+    <catalog_ui_policy_action action="INSERT_OR_UPDATE">
+        <catalog_item/>
+        <catalog_variable>IO:f729cbdc1b2b2c10e63a41588b4bcbe8</catalog_variable>
+        <cleared>true</cleared>
+        <disabled>ignore</disabled>
+        <field/>
+        <mandatory>ignore</mandatory>
+        <order>100</order>
+        <sys_class_name>catalog_ui_policy_action</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-04-12 12:49:42</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ae6017181b6b2c10e63a41588b4bcb4c</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>sr_one_way</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>catalog_ui_policy_action_ae6017181b6b2c10e63a41588b4bcb4c</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-04-12 12:49:42</sys_updated_on>
+        <table/>
+        <ui_policy display_value="HVS Hide Field if Frais Transport Public Parking">a71dcf28dbcb0410f5e2174b06961947</ui_policy>
+        <variable>sr_one_way</variable>
+        <variable_set display_value="Lignes de dépenses SR">a048ae60db4b0410f5e2174b069619dc</variable_set>
+        <visible>false</visible>
+    </catalog_ui_policy_action>
+</record_update>
