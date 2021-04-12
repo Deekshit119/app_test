@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
     <sys_ui_action action="INSERT_OR_UPDATE">
-        <action_name>exp_km_mass_approval</action_name>
+        <action_name>exp_bulk_approval</action_name>
         <active>true</active>
         <client>true</client>
         <client_script_v2><![CDATA[function onClick(g_form) {
@@ -9,7 +9,7 @@
         <comments>- Sélectionner toutes les demandes Rubrique = KM (covid, hors sites, inter sites)&#13;
 - Sélectionner ceux approuvés &#13;
 - Modifier le statut en "Approuved" : current.status = 3;</comments>
-        <condition>new HVSExpenseUtils().getNbExpKM()==true &amp;&amp; !RP.isRelatedList()</condition>
+        <condition>!RP.isRelatedList() </condition>
         <form_action>false</form_action>
         <form_button>false</form_button>
         <form_button_v2>false</form_button_v2>
@@ -27,14 +27,14 @@
         <list_link>false</list_link>
         <list_save_with_form_button>false</list_save_with_form_button>
         <list_style/>
-        <name>Approve All KM expense requests</name>
-        <onclick>km_mass_approval()</onclick>
+        <name>Bulk approvals</name>
+        <onclick>exp_bulk_approval()</onclick>
         <order>100</order>
-        <script><![CDATA[function km_mass_approval() {
+        <script><![CDATA[function exp_bulk_approval() {
 
     if (g_user.hasRoleExactly('x_hdvi2_expense.salary_user')) {
-        var sMsg_1 = new GwtMessage().getMessage('expense.approve.all.KM.requests');
-        var gDialog = new GlideModal('x_hdvi2_expense_exp_KM_req_mass_approved_by_salary');
+        var sMsg_1 = new GwtMessage().getMessage('expense.approve.bulk.requests');
+        var gDialog = new GlideModal('x_hdvi2_expense_exp_bulk_approved_by_salary');
         gDialog.setTitle(sMsg_1);
         gDialog.render();
     } else {
@@ -57,16 +57,16 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1e79aea2dbc06090f5e2174b069619ac</sys_id>
-        <sys_mod_count>63</sys_mod_count>
-        <sys_name>Approve All KM expense requests</sys_name>
+        <sys_mod_count>71</sys_mod_count>
+        <sys_name>Bulk approvals</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_ui_action_1e79aea2dbc06090f5e2174b069619ac</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-02-23 16:40:56</sys_updated_on>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-04-12 08:53:57</sys_updated_on>
         <table>x_hdvi2_expense_sheet</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>
