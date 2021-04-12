@@ -22,32 +22,36 @@
 	var sLogaRubric = g_form.getDisplayValue('sr_rubrique_loga');
 	
 	if (isLoading || newValue == '') {
-		if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '79H') {
+		if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '809') {
 			g_form.setMandatory('sr_location_other',false);
 			g_form.setMandatory('sr_location_from',true);
 			g_form.setMandatory('sr_location_to',true);
 			g_form.setDisplay('sr_location_from',true);
 			g_form.setDisplay('sr_location_to',true);
 			g_form.setReadOnly('sr_location_to',false);
+			g_form.setDisplay('sr_one_way',true);
 		}
 		else {
 			g_form.setValue('sr_location','');
 			g_form.setMandatory('sr_location',true);
 			g_form.setDisplay('sr_location',true);
+			g_form.setDisplay('sr_one_way',false);
 		}
 		return;
 	}
-	if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '79H') {
+	if(g_form.getValue("sr_loga_code") == '806' || g_form.getValue("sr_loga_code") == '79C' || g_form.getValue("sr_loga_code") == '809') {
 		g_form.setValue('sr_location_to','');
 		g_form.setMandatory('sr_location_from',false);
 		g_form.setMandatory('sr_location_to',false);
 		g_form.setDisplay('sr_location_from',false);
 		g_form.setDisplay('sr_location_to',false);
+		g_form.setDisplay('sr_one_way',false);
 	}
 	else {
 		g_form.setValue('sr_location','');
 		g_form.setMandatory('sr_location',false);
 		g_form.setDisplay('sr_location',false);
+		g_form.setDisplay('sr_one_way',false);
 	}
 }]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
@@ -57,7 +61,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>9848ac5bdb720410f5e2174b069619d2</sys_id>
-        <sys_mod_count>23</sys_mod_count>
+        <sys_mod_count>26</sys_mod_count>
         <sys_name>HVS Location Other Changed</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -65,8 +69,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_9848ac5bdb720410f5e2174b069619d2</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-02 07:32:33</sys_updated_on>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-04-12 12:58:25</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
