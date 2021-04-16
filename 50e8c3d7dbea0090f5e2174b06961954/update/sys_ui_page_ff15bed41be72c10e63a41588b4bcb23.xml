@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script><![CDATA[function actionOK() {
+    var c = gel('cancel_or_submit');
+    c.value = "continue";
+    var new_category = gel('miscellaneous_account_code').value;
+	var id_exp = gel('id_expense_line').value;
+	
+    if (new_category == '' || new_category == null) {
+
+        var msg = getMessage("You need to select a new category");
+        alert(msg);
+
+        return false;
+
+    } else {
+        return true;
+    }
+
+}
+
+function cancel() {
+    var c = gel('cancel_or_submit');
+    c.value = "cancel";
+    GlideDialogWindow.get().destroy();
+    return false;
+}]]></client_script>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_hdvi2_expense_exp_line_change_sub_popup.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<g:ui_form>
+
+	  <g:evaluate>
+	    var id_expense_line = "${sysparm_record}";
+	  </g:evaluate>
+		
+		
+			<input type="hidden" id="id_expense_line" name="id_expense_line" value="${id_expense_line}" />
+		<input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
+	
+		
+		${gs.getMessage('Please select the new subcategory:')}
+		<br />
+		<table width="100%">
+			<tr>
+				<td><g:ui_reference name="miscellaneous_account_code" query="question=063b9501db311090011e177e169619ec" id="miscellaneous_account_code" table="question_choice" completer="AJAXTableCompleter" columns="miscellaneous_account_code" /></td>
+			</tr>
+			<tr>
+				</tr>
+		</table>
+		<br/>
+		<div id="dialogbuttons" style="float:right">
+			<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
+		</div>
+	</g:ui_form>
+	
+</j:jelly>]]></html>
+        <name>exp_line_change_sub_popup</name>
+        <processing_script><![CDATA[if (cancel_or_submit == "continue") {
+
+    var gr_expense_line = new GlideRecord("x_hdvi2_expense_line");
+    if (gr_expense_line.get(id_expense_line)) {
+        if (gr_expense_line.status == 2) {
+            var gr_choice = new GlideRecord("question_choice");
+            if (gr_choice.get(miscellaneous_account_code)) {
+                gr_expense_line.miscellaneous_account_code = gr_choice.text;
+                gr_expense_line.update();
+                gs.addInfoMessage(gs.getMessage("The expense line has been successfully updated"));
+            } else {
+                gs.addErrorMessage(gs.getMessage("The category has not been found"));
+            }
+
+
+
+        } else {
+            gs.addErrorMessage(gs.getMessage("The expense line can NOT be updated in the current state"));
+        }
+
+    }
+    response.sendRedirect("x_hdvi2_expense_line.do?sys_id=" + id_expense_line);
+
+}]]></processing_script>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2021-04-12 10:50:20</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ff15bed41be72c10e63a41588b4bcb23</sys_id>
+        <sys_mod_count>53</sys_mod_count>
+        <sys_name>exp_line_change_sub_popup</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_ui_page_ff15bed41be72c10e63a41588b4bcb23</sys_update_name>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2021-04-16 10:23:11</sys_updated_on>
+    </sys_ui_page>
+</record_update>
