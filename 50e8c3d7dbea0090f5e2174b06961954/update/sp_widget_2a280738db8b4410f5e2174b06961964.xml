@@ -17,8 +17,6 @@
 	c.data.setchanged = 'false';
 	$scope.expline_sysid = c.data.expline_sysid;
 	$scope.valCodeloga = c.data.codeloga[0].code;
-//console.log(c.data.items);
-//console.log(c.data.arr_status);
 
 	var year= c.data.date.substr(6, 4);
 	var month= c.data.date.substr(3, 2);
@@ -26,7 +24,6 @@
 	$scope.expDate = new Date(year,month-1,day);
 	var previousDate = new Date(year,month-1,day);
 	if(parseInt(c.data.arr_status) == 5) $scope.expDate = '';
-//console.log('previousDate: ' + year + '-' + month + '-' + day);
 	
 	$scope.location_from = {
 	displayValue: c.data.items[0].expline_location,
@@ -45,7 +42,10 @@
 	value: c.data.RubricId,
 	name: 'Rubric'
 	};
-	
+
+	$scope.expVar = {
+		expOneway : (c.data.items[0].expline_one_way == 'true')
+	};
 	$scope.expOpenBy = '' || c.data.items[0].expsheet_opened_by;
 	$scope.expReqFor = '' || c.data.items[0].expsheet_requested_for;
 	$scope.expContract = '' || c.data.items[0].expsheet_contract;
@@ -61,7 +61,11 @@
 		$scope.expOtherLoc = '' || c.data.items[0].expline_other_location;
 		$scope.expOtherLocTo = '' || c.data.items[0].expline_other_location_to;
 	}
-	$scope.CategDivers = '' || c.data.items[0].expline_miscellaneous_account_code;
+
+	$scope.CategDivers = '';
+	if(c.data.items[0].expline_miscellaneous_account_code) {
+		$scope.CategDivers = c.data.items[0].expline_miscellaneous_account_code;
+	}
 	c.data.CategDiversNbChar = $scope.CategDivers.trim().length;
 	
 	$scope.$on("field.change", function(evt, parms) {
@@ -70,15 +74,13 @@
 	
 	function Control() {
 		if (IsuserID) {
-
-			//console.log('scope.expOtherLoc:'+$scope.expOtherLoc);
+			//alert('ok');
 		}
 		
 		if(c.data.codeloga[0].code=='79C' || c.data.codeloga[0].code=='809') {
-				if($scope.location_from.value != '' && $scope.location_from.value != null && $scope.location_to.value != null && $scope.location_to.value != '' ){ //&& (document.getElementById('expOtherLoc').value == '')){
-					if($scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948' || $scope.Rubric.value == '9805f444db44149009b962a916961908')
-						document.getElementById('expOtherLoc').value = '';
-						
+			if($scope.location_from.value != '' && $scope.location_from.value != null && $scope.location_to.value != null && $scope.location_to.value != '' ){ 
+				if($scope.Rubric.value == 'fbc37b13dbee0090f5e2174b06961948' || $scope.Rubric.value == '9805f444db44149009b962a916961908')
+					document.getElementById('expOtherLoc').value = '';					
 					document.getElementById('expReqValue').readOnly = true;
 					document.getElementById('labelReqValue').style.color = 'black';
 					document.getElementById('labelOtherLoc').style.color = 'black';
@@ -86,9 +88,12 @@
 					document.getElementById('labelLocTo').style.color = 'black';
 					$scope.setchanged = 'getNbKm';
 					c.data.setchanged = 'getNbKm';
+				  // recuperation valeur checkbox "expOneway" true ou false
+					c.data.oneway = document.getElementById('expOneway').checked;
 					c.data.location_from = $scope.location_from;
 					c.data.location_to = $scope.location_to;
 					c.server.update().then(function(data){
+
 					if(data.retour_action=='KMKO') {
 						spModal.open({
 							title: '${expense.modal.warning}',
@@ -370,12 +375,10 @@
 		var sDuplicate = c.data.codeloga[0].sys_id + dFinalDate + fexpValue + fexpAmount + c.data.uId;
 //console.log('c.data.arrDuplicated.length: ' + c.data.arrDuplicated.length);
 		for(iDup=0; iDup < c.data.arrDuplicated.length; iDup++ ) {
-//console.log('c.data.arrDuplicated[' + iDup + ']: ' + c.data.arrDuplicated[iDup]);				
 			if(c.data.arrDuplicated[iDup] == sDuplicate) {
 				 bisDuplicated = true;
 				 }
 		}
-//console.log('sDuplicate: ' + sDuplicate);		
 		if($scope.expDate!=''){
 			if(bisDuplicated) {
 				spModal.open({
@@ -419,7 +422,13 @@
 	}
 	
 function doSave(bDuplicate) {		
+	  // recuperation valeur checkbox "expOneway" true ou false
+	  c.data.expOnewayValeur = document.getElementById('expOneway').checked;
+	
+	  // recuperation valeur de la rubrique Loga et de son sys:id
 		c.data.CodeLogaValeur = c.data.codeloga[0].code;
+		c.data.CodeLogaSysId = $scope.Rubric.value;
+	
 		if($scope.Rubric.value == 'e8e4b084db44149009b962a916961906' || $scope.Rubric.value == 'edc49704dbd3c050f5e2174b06961901') {
 			c.data.expOtherLoc = document.getElementById('expOtherLoc').value;
 			c.data.expOtherLocTo = document.getElementById('expOtherLocTo').value;
@@ -682,14 +691,18 @@ span.panel-title{
         <roles/>
         <script><![CDATA[(function() {
  
- //	data.uId = '3fb021d40a0a8c0701790f5b9f8d2e2c';
 	data.uId = gs.getUserID();
 	data.exp_flag = gs.getMessage('true');
 	
  // code for internal testing within Editor
- //	data.uId = '3fb021d40a0a8c0701790f5b9f8d2e2c';
- // input=[];
- // input.sys_id=['bb1e4eb8dbe56890f5e2174b06961968'];
+ //data.uId = '3fb021d40a0a8c0701790f5b9f8d2e2f0e523d01b632c107f172f4aab4bcb0bc';
+
+ //if(!input) {
+ //input=[];
+ //input.sys_id=['f0e523d01b632c107f172f4aab4bcb0b'];
+ //input.sys_id=['a9f62239db7ce410f5e2174b0696197d'];
+ //}
+	
  // end of code for internal testing
 	
 	if(input) {
@@ -708,12 +721,6 @@ span.panel-title{
 				scDelPendingEXPLine.query();
 				while (scDelPendingEXPLine.next()) { 
 					scDelPendingEXPLine.deleteRecord();
-					/*
-					scDelPendingEXPLine.status=-1;
-					scDelPendingEXPLine.active=false;
-					scDelPendingEXPLine.comments="annulation copie remboursement de frais existant / Stornierungskopie Erstattung bestehender Gebühren";
-					scDelPendingEXPLine.update();
-					*/
 				}
 
 			var scDelPendingEXPSheet = new GlideRecord('x_hdvi2_expense_sheet');
@@ -721,12 +728,6 @@ span.panel-title{
 				scDelPendingEXPSheet.query();
 				while (scDelPendingEXPSheet.next()) { 
 					scDelPendingEXPSheet.deleteRecord();
-					/*
-					scDelPendingEXPSheet.status=-1;
-					scDelPendingEXPSheet.active=false;
-					scDelPendingEXPSheet.comments="annulation copie remboursement de frais existant / Stornierungskopie Erstattung bestehender Gebühren";
-					scDelPendingEXPSheet.update();
-					*/
 				}
 		}
 		
@@ -753,9 +754,12 @@ span.panel-title{
 					}
 				}
 
-
 				if(valKm != -1 && valKm != 0) {
-					data.expline_requested_value = valKm;
+					//Si champ expOneway==true alors on divise le nb de KM par 2
+					if(input.oneway==true)
+						data.expline_requested_value = valKm / 2;
+					else
+						data.expline_requested_value = valKm;
 					data.retour_action = 'OK';
 				}
 				else {
@@ -787,12 +791,11 @@ span.panel-title{
 				scSubmit.requested_amount=input.expReqAmount;
 				scSubmit.requested_value=input.expReqValue;
 				scSubmit.refunded_value=input.expReqValue;
+				scSubmit.one_way=input.expOnewayValeur;
 				scSubmit.status=0; //1;
 				scSubmit.description = input.expDesc;
 
-					if(input.CodeLogaValeur && input.CodeLogaValeur=='79C'){
-					//scSubmit.location=document.getElementById('location_from').value;
-					//scSubmit.travelkm=document.getElementById('location_to').value;
+					if((input.CodeLogaSysId && (input.CodeLogaSysId=='fbc37b13dbee0090f5e2174b06961948' || input.CodeLogaSysId=='9805f444db44149009b962a916961908')) &&(input.CodeLogaValeur && (input.CodeLogaValeur=='79C' || input.CodeLogaValeur=='809'))){
 
 					if(typeof(input.location_from)!=='undefined') scSubmit.location=input.location_from;
 						else scSubmit.location_from='';
@@ -837,11 +840,9 @@ span.panel-title{
 		data.Attachment = $sp.getWidget('widget-expense-ticket-attachments', ticketConversationOptions);
 		
 			var item = {};
-			//$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_requested_amount,expline_requested_value,expline_currency,expline_location,expline_travelkm,expline_other_location,expsheet_category,expline_expense');
-			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_expense,expline_miscellaneous_account_code,expline_requested_amount,expline_requested_value');
+			$sp.getRecordDisplayValues(item, sc, 'expline_sys_id,expsheet_contract,expsheet_number,expline_date_expense,expsheet_short_description,expsheet_opened_by,expsheet_requested_for,expsheet_contract,expline_rubric,expsheet_category,expline_status,expline_currency,expline_location,expline_travelkm,expline_other_location,expline_other_location_to,expsheet_category,expline_expense,expline_miscellaneous_account_code,expline_requested_amount,expline_requested_value,expline_one_way');
 			results.push(item);
-			//$sp.getRecordValues(item, sc, 'expline_requested_amount,expline_requested_value');
-			//results.push(item);
+
 			data.arr_status = sc.getValue('expline_status');
 			data.date=sc.getDisplayValue('expline_date_expense');
 			data.msgDateInvalid = gs.getMessage('x_hdvi2_expense.lineDate.not.valid');
@@ -867,25 +868,16 @@ span.panel-title{
 			  data.codeloga.push(objCode);
 			}
 		}
-//console.log(data.codeloga);
 
 		// Get all active expenses not paid
 		var grDupValue = new GlideRecord('x_hdvi2_expense_line');
-		console.log('sys_id!=' + input.sys_id);
+
 		data.arrDuplicated = [];
-		grDupValue.addEncodedQuery("expense.requested_for=" + data.uId + "^status!=5^sys_id!=" + sc.getValue('expline_sys_id'));		
-		/*
-		grDupValue.addQuery('active', true);
-		grDupValue.addQuery('expense.requested_for', data.uId);
-		grDupValue.addQuery('sys_id','!=' ,sc.getValue('expline_sys_id'));
-		*/
+		grDupValue.addEncodedQuery("expense.requested_for=" + data.uId + "^active=true^status!=5^sys_id!=" + sc.getValue('expline_sys_id'));		
 		grDupValue.query();
 		while(grDupValue.next()) {
-//console.log("grDupValue.getValue('rubric'): " + grDupValue.getValue('rubric'));
-			//data.arrDuplicated.push(grDupValue.getDisplayValue('active')+grDupValue.getValue('rubric')+grDupValue.getValue('date_expense')+grDupValue.getValue('requested_value')+grDupValue.getValue('requested_amount')+grDupValue.expense.requested_for);
 			data.arrDuplicated.push(grDupValue.getValue('rubric')+grDupValue.getValue('date_expense')+grDupValue.getValue('requested_value')+grDupValue.getValue('requested_amount')+grDupValue.expense.requested_for);
 		}
-//console.log(data.arrDuplicated);
 		
 		return results;
 	}
@@ -899,7 +891,7 @@ span.panel-title{
         <sys_created_on>2020-02-16 12:36:48</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2a280738db8b4410f5e2174b06961964</sys_id>
-        <sys_mod_count>1823</sys_mod_count>
+        <sys_mod_count>1928</sys_mod_count>
         <sys_name>hvs_widget_expense</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -907,7 +899,7 @@ span.panel-title{
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_widget_2a280738db8b4410f5e2174b06961964</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-01-13 17:24:05</sys_updated_on>
+        <sys_updated_on>2021-05-07 13:40:48</sys_updated_on>
         <template><![CDATA[ <div ng-if="data.uId != 'user_id8a21e682dbb6ff80bbe25c88f4961984'">
  		<sp-widget widget="c.data.Attachment" />
  </div>
@@ -1046,6 +1038,14 @@ span.panel-title{
      			 <input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
          </div>  
   
+
+         <!-- Affichage info Aller Simple : champ one_way -->
+         <div ng-if="data.codeloga[0].code=='79C' || data.codeloga[0].code=='809'" style="padding-top:8px;">
+           <input ng-if="c.data.items[0].expline_one_way=='true'" type="checkbox" id="expOneway" class="type-boolean ng-scope" ng-model="expVar.expOneway" ng-change="SetChangeTrue()">
+           <input ng-if="c.data.items[0].expline_one_way!='true'" type="checkbox" id="expOneway" class="type-boolean ng-scope" ng-model="expVar.expOneway" ng-change="SetChangeTrue()">
+           <label style="padding-left:8px;" id="labelOneway" for="expOneway">${expense.label.one_way}</label>
+       	</div>  
+ 
          <div style="position:relative;" ng-if="data.codeloga[0].code!='79C' && data.codeloga[0].code!='809' && !1==1">
       		<label style="padding-top:8px;" id="labelOtherLoc" for="expOtherLoc">${expense.label.OtherLocation} :</label>
      			<input class="form-control ng-binding ng-scope" ng-change="SetChangeTrue()" id= "expOtherLoc" ng-model="expOtherLoc" value="{{c.data.items[0].other_location}}" type="text">
