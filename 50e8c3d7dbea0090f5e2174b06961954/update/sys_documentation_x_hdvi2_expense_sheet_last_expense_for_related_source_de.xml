@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="last_expense_for_related_source" label="Letzter Antrag auf Erstattung" language="de" table="x_hdvi2_expense_sheet">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>last_expense_for_related_source</element>
+            <help/>
+            <hint/>
+            <label>Letzter Antrag auf Erstattung</label>
+            <language>de</language>
+            <name>x_hdvi2_expense_sheet</name>
+            <plural>Letzter Antrag auf Erstattung</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2021-05-17 14:56:08</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_id>610df32b1bc03c107f172f4aab4bcb97</sys_id>
+            <sys_mod_count>3</sys_mod_count>
+            <sys_name>Letzter Antrag auf Erstattung</sys_name>
+            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_documentation_x_hdvi2_expense_sheet_last_expense_for_related_source_de</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2021-05-17 14:57:13</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
