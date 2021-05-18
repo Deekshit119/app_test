@@ -124,7 +124,7 @@ for (idx = 0; idx < variables.length; idx++) {
 
     //----------------------
 
-    gr_expLine.description = variables[idx].training_description_bis;
+    gr_expLine.description = producer.training_description_bis;
 
     // for storing selected category for rubrc = Divers
     var sDivers = ''; //producer.sr_miscellaneous_account_code.getDisplayValue() + '';
@@ -144,7 +144,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_created_on>2021-03-24 16:31:41</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>f60d0e121bc36850e63a41588b4bcb3e</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Ajout d'un remboursement pour un collaborateur</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -152,7 +152,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_f60d0e121bc36850e63a41588b4bcb3e</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-03-26 09:09:33</sys_updated_on>
+        <sys_updated_on>2021-05-18 10:02:23</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <type>item</type>

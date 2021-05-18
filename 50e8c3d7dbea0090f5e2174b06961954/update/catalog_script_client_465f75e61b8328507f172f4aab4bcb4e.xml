@@ -64,7 +64,7 @@ function parseTrainingData(response) {
             g_form.setValue("travel_expenses_granted", parseFloat(answer.travel_expenses_granted).toFixed(2));
             g_form.setValue("other_expenses_granted", parseFloat(answer.other_expenses_granted).toFixed(2));
             g_form.setValue("training_manager_approver", answer.approver_training);
-            g_form.setValue("training_description", answer.training_description);
+            g_form.setValue("training_description_bis", answer.training_description);
             g_form.setValue("total_granted", parseFloat(answer.total_granted).toFixed(2));
 
             g_form.setValue("training_fee_refunded", parseFloat(answer.training_fee_refunded).toFixed(2));
@@ -89,9 +89,9 @@ function parseTrainingData(response) {
         <sys_created_on>2021-03-25 10:46:23</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
-        <sys_domain_path/>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>465f75e61b8328507f172f4aab4bcb4e</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>1</sys_mod_count>
         <sys_name>HVS RFF Get Training data bis</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -100,7 +100,7 @@ function parseTrainingData(response) {
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_465f75e61b8328507f172f4aab4bcb4e</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-03-25 10:46:23</sys_updated_on>
+        <sys_updated_on>2021-05-18 08:41:25</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>10</ui_type>
