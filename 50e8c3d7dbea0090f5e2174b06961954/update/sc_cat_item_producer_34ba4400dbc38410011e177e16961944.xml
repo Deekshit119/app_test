@@ -21,7 +21,7 @@
         <image/>
         <list_price>0</list_price>
         <location/>
-        <mandatory_attachment>true</mandatory_attachment>
+        <mandatory_attachment>false</mandatory_attachment>
         <meta>Expense Line Frais Parking Hébergement Hôtel Hotel Train CFF Voiture Move Training Formation Remboursement Repas Billet formation Ausgaben Zeile Gebühren Parken Hosting Hotel Hotel Zug SBB Auto Reisen Verschieben Rückerstattung Mahlzeiten Ticket Ausbildung</meta>
         <mobile_hide_price>false</mobile_hide_price>
         <mobile_picture/>
@@ -143,7 +143,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_created_on>2020-02-13 14:53:34</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>34ba4400dbc38410011e177e16961944</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>Demande de remboursement - Formation</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -151,7 +151,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_34ba4400dbc38410011e177e16961944</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-03-01 07:52:38</sys_updated_on>
+        <sys_updated_on>2021-05-18 08:12:15</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <type>item</type>
