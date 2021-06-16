@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-06-10 10:15:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2bc262531ba038107f172f4aab4bcbd8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_hdvi2_expense_sheet.x_hdvi2_expense.hr_user</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_security_acl display_value="x_hdvi2_expense_sheet">58d3efdbdb6e0090f5e2174b0696199a</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_2bc262531ba038107f172f4aab4bcbd8</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-06-10 10:15:15</sys_updated_on>
+        <sys_user_role display_value="x_hdvi2_expense.hr_user" name="x_hdvi2_expense.hr_user">d4ce1393db6e0090f5e2174b06961928</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>
