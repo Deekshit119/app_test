@@ -19,8 +19,7 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_hdvi2_btask_salary_advance_extract">123TEXTQUERY321=1^123TEXTQUERY321=1^EQ<item endquery="false" field="123TEXTQUERY321" goto="false" newquery="false" operator="=" or="false" value="1"/>
-            <item endquery="false" field="123TEXTQUERY321" goto="false" newquery="false" operator="=" or="false" value="1"/>
+        <filter_condition table="x_hdvi2_btask_salary_advance_extract">status=1^EQ<item display_value="In Progress" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="1"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter_condition>
         <is_rest>false</is_rest>
@@ -49,7 +48,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>fa9e21a7db086810011e177e1696191b</sys_id>
-        <sys_mod_count>8</sys_mod_count>
+        <sys_mod_count>9</sys_mod_count>
         <sys_name>HVS - Generate Salary Advance CSV files</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -58,7 +57,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_fa9e21a7db086810011e177e1696191b</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-11-24 08:44:04</sys_updated_on>
+        <sys_updated_on>2021-06-11 15:37:10</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>
