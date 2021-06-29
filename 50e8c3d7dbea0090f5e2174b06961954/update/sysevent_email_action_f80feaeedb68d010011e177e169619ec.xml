@@ -47,7 +47,7 @@
         <recipient_fields/>
         <recipient_groups/>
         <recipient_users/>
-        <reply_to/>
+        <reply_to>salaires@hopitalvs.ch</reply_to>
         <send_self>true</send_self>
         <sms_alternate/>
         <style/>
@@ -60,7 +60,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f80feaeedb68d010011e177e169619ec</sys_id>
-        <sys_mod_count>7</sys_mod_count>
+        <sys_mod_count>8</sys_mod_count>
         <sys_name>Expense - Manager - Approbation DE</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -69,7 +69,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sysevent_email_action_f80feaeedb68d010011e177e169619ec</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-05-06 11:49:01</sys_updated_on>
+        <sys_updated_on>2021-06-25 16:09:56</sys_updated_on>
         <sys_version>2</sys_version>
         <template display_value="HVS Exp Default Template DE">e2f3200adb728490011e177e16961966</template>
         <type>email</type>
