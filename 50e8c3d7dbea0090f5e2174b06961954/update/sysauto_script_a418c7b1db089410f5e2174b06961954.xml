@@ -38,7 +38,6 @@ while (grExp.next()) {
 
 		for(var j=0; j<approver.length ;j++){
 			if(listManager.indexOf(approver[j]) == -1){
-				gs.info('approver: ' + grSA.approver.getDisplayValue());
 				listManager[i] = approver[j];
 
 				var grUser = new GlideRecord('sys_user');
@@ -67,7 +66,7 @@ for(var k=0; k<listManager.length; k++){
         <sys_created_on>2020-04-09 09:42:10</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>a418c7b1db089410f5e2174b06961954</sys_id>
-        <sys_mod_count>11</sys_mod_count>
+        <sys_mod_count>12</sys_mod_count>
         <sys_name>Expense - Manager - Liste des approbations</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -75,7 +74,7 @@ for(var k=0; k<listManager.length; k++){
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sysauto_script_a418c7b1db089410f5e2174b06961954</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-06-29 16:25:21</sys_updated_on>
+        <sys_updated_on>2021-06-29 16:40:38</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
