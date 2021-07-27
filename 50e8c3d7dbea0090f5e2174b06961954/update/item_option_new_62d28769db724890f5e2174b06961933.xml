@@ -2,7 +2,7 @@
     <item_option_new action="INSERT_OR_UPDATE">
         <active>true</active>
         <attributes>ref_auto_completer=AJAXTableCompleter,ref_ac_columns=user_name</attributes>
-        <cat_item display_value="Anfrage für Rückerstattung">ff844a95db3ec090011e177e16961952</cat_item>
+        <cat_item display_value="Demande de remboursement">ff844a95db3ec090011e177e16961952</cat_item>
         <category/>
         <choice_direction>down</choice_direction>
         <choice_field/>
@@ -17,11 +17,13 @@
         <do_not_select_first>false</do_not_select_first>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
+        <enable_also_request_for>false</enable_also_request_for>
         <example_text/>
         <field>requested_for</field>
         <global>false</global>
         <help_tag>More information</help_tag>
         <help_text/>
+        <hidden>false</hidden>
         <include_none>false</include_none>
         <instructions/>
         <layout>normal</layout>
@@ -32,6 +34,7 @@
         <lookup_unique>false</lookup_unique>
         <lookup_value/>
         <macro/>
+        <macroponent/>
         <mandatory>true</mandatory>
         <map_to_field>true</map_to_field>
         <mask_use_confirmation>false</mask_use_confirmation>
@@ -40,8 +43,11 @@
         <order>100</order>
         <price_if_checked>0</price_if_checked>
         <pricing_implications>false</pricing_implications>
+        <published_ref/>
         <question_text>Demandé pour : </question_text>
+        <read_only>false</read_only>
         <read_roles/>
+        <read_script/>
         <rec_lookup_price/>
         <rec_price_if_checked>0</rec_price_if_checked>
         <record/>
@@ -49,6 +55,9 @@
         <reference>sys_user</reference>
         <reference_qual>javascript:new x_hdvi2_expense.HVSExpenseUserUtils().getOnBehalfOfUsers(gs.getUserID())</reference_qual>
         <reference_qual_condition/>
+        <rich_text/>
+        <roles_to_use_also_request_for/>
+        <save_script/>
         <scale_max>5</scale_max>
         <scale_min>0</scale_min>
         <show_help>false</show_help>
@@ -60,15 +69,15 @@
         <sys_created_on>2020-02-06 09:56:05</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>62d28769db724890f5e2174b06961933</sys_id>
-        <sys_mod_count>47</sys_mod_count>
+        <sys_mod_count>49</sys_mod_count>
         <sys_name>Demandé pour : </sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_62d28769db724890f5e2174b06961933</sys_update_name>
-        <sys_updated_by>h40000572</sys_updated_by>
-        <sys_updated_on>2020-02-28 14:23:35</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-07-26 08:37:51</sys_updated_on>
         <table/>
         <tooltip/>
         <type>8</type>
@@ -78,6 +87,7 @@
         <u_order_in_short_description/>
         <u_visible_on_veditor>true</u_visible_on_veditor>
         <ui_page/>
+        <unique>false</unique>
         <use_dynamic_default>false</use_dynamic_default>
         <use_reference_qualifier>advanced</use_reference_qualifier>
         <validate_regex/>
@@ -107,6 +117,19 @@
     </sys_translated_text>
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>62d28769db724890f5e2174b06961933</documentkey>
+        <fieldname>help_text</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-07-26 08:37:51</sys_created_on>
+        <sys_id>b6b5cbca1ba9b410e63a41588b4bcba5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-07-26 08:37:51</sys_updated_on>
+        <tablename>item_option_new</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>62d28769db724890f5e2174b06961933</documentkey>
         <fieldname>instructions</fieldname>
         <language>de</language>
         <sys_created_by>h40000572</sys_created_by>
@@ -115,6 +138,32 @@
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>h40000572</sys_updated_by>
         <sys_updated_on>2020-02-28 14:21:51</sys_updated_on>
+        <tablename>item_option_new</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>62d28769db724890f5e2174b06961933</documentkey>
+        <fieldname>instructions</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-07-26 08:37:51</sys_created_on>
+        <sys_id>32b5cbca1ba9b410e63a41588b4bcbad</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-07-26 08:37:51</sys_updated_on>
+        <tablename>item_option_new</tablename>
+        <value/>
+    </sys_translated_text>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>62d28769db724890f5e2174b06961933</documentkey>
+        <fieldname>rich_text</fieldname>
+        <language>fr</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-07-26 08:37:51</sys_created_on>
+        <sys_id>76b5cbca1ba9b410e63a41588b4bcba9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-07-26 08:37:51</sys_updated_on>
         <tablename>item_option_new</tablename>
         <value/>
     </sys_translated_text>

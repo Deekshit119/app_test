@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_producer">
     <sc_cat_item_producer action="INSERT_OR_UPDATE">
+        <access_type>restricted</access_type>
         <active>true</active>
+        <allow_edit>false</allow_edit>
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
         <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
+        <checked_out/>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan/>
@@ -18,7 +21,7 @@
         <group/>
         <hide_sp>false</hide_sp>
         <icon/>
-        <ignore_price>false</ignore_price>
+        <ignore_price>true</ignore_price>
         <image/>
         <list_price>0</list_price>
         <location/>
@@ -57,18 +60,23 @@ Bille</meta>
         <omit_price>false</omit_price>
         <order>0</order>
         <ordered_item_link/>
+        <owner/>
         <picture/>
         <post_insert_script/>
         <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=ff844a95db3ec090011e177e16961952&amp;sysparm_preview=true", "summary");</preview>
         <price>0</price>
+        <published_ref/>
         <recurring_frequency/>
         <recurring_price>0</recurring_price>
         <redirect_url>generated_record</redirect_url>
         <request_method/>
         <roles/>
+        <save_options/>
+        <save_script/>
         <sc_catalogs>e009c323ff031100a0a5ffffffffff37</sc_catalogs>
         <sc_ic_item_staging/>
         <sc_ic_version/>
+        <sc_template/>
         <script><![CDATA[/*** --- Do not modify or remove this script !! --- Automatically added by "Add Predefined script" business rule. 
 Forces population of this record producer sys_id into the target record***/
 var rpId = "ff844a95db3ec090011e177e16961952";
@@ -116,22 +124,24 @@ gr_expLine.insert();]]></script>
         <short_description>Soumettre une demande de remboursement pour des frais divers ou de déplacement</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
+        <state/>
         <sys_class_name>sc_cat_item_producer</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>92</sys_mod_count>
+        <sys_mod_count>93</sys_mod_count>
         <sys_name>Demande de remboursement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2021-04-12 12:17:18</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-07-26 08:29:26</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
+        <template_manager_roles/>
         <type>item</type>
         <u_account_h/>
         <u_delivery_time>0</u_delivery_time>
