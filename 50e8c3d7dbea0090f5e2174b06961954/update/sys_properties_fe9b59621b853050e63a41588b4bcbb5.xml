@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties">
+    <sys_properties action="INSERT_OR_UPDATE">
+        <choices/>
+        <description/>
+        <ignore_cache>true</ignore_cache>
+        <is_private>false</is_private>
+        <name>x_hdvi2_expense.mass.approval.INTERNET.ids</name>
+        <read_roles/>
+        <suffix>x_hdvi2_expense.mass.approval.INTERNET.ids</suffix>
+        <sys_class_name>sys_properties</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-07-02 17:39:46</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fe9b59621b853050e63a41588b4bcbb5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_hdvi2_expense.mass.approval.INTERNET.ids</sys_name>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_properties_fe9b59621b853050e63a41588b4bcbb5</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-07-02 17:39:46</sys_updated_on>
+        <type>string</type>
+        <value>f7c37b13dbee0090f5e2174b0696194a</value>
+        <write_roles/>
+    </sys_properties>
+    <sys_translated_text action="delete_multiple" query="documentkey=fe9b59621b853050e63a41588b4bcbb5"/>
+</record_update>
