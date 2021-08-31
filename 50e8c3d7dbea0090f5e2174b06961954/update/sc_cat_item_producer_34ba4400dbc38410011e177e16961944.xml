@@ -45,7 +45,7 @@
         <omit_price>false</omit_price>
         <order>0</order>
         <ordered_item_link/>
-        <owner/>
+        <owner display_value="Virginie Bétrisey">3bf0606adbca6b800abb65925b961944</owner>
         <picture/>
         <post_insert_script/>
         <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=34ba4400dbc38410011e177e16961944&amp;sysparm_preview=true", "summary");</preview>
@@ -152,7 +152,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_created_on>2020-02-13 14:53:34</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>34ba4400dbc38410011e177e16961944</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>Demande de remboursement - Formation</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -160,7 +160,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_34ba4400dbc38410011e177e16961944</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-08-27 10:38:03</sys_updated_on>
+        <sys_updated_on>2021-08-31 14:23:30</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <template_manager_roles/>
