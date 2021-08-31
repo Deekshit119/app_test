@@ -19,25 +19,18 @@
         <order/>
         <script><![CDATA[function onChange(control, oldValue, newValue, isLoading) {
     if (isLoading || newValue == '') {
+        g_form.hideFieldMsg("travel_mode");
         return;
     }
-
+alert(newValue);
     //Type appropriate comment here, and begin script below
     var sTravelByAvion = newValue;
 
-    if (sTravelByAvion.toLowerCase().indexOf('w_avion') >= 0) {
-        getMessage('hvs.expense_training.attachment.required', function(msg) {
-            if (typeof spModal != 'undefined') {
-                g_form.showFieldMsg("travel_mode", msg);
-            }
-        });
-    } else {
+    g_form.hideFieldMsg("travel_mode");
+    if (sTravelByAvion.toLowerCase().indexOf('wo_avion') >= 0) {
         getMessage('hvs.expense_training.travel_mode.no_plane', function(msg) {
-            if (typeof spModal != 'undefined') {
                 g_form.showFieldMsg("travel_mode", msg);
-            }
         });
-        g_form.hideFieldMsg("travel_mode");
     }
 }]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
@@ -47,7 +40,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>0043c1461b43a4507f172f4aab4bcb7d</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>HVS - Display attachment message</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -56,7 +49,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_0043c1461b43a4507f172f4aab4bcb7d</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-05-17 13:52:44</sys_updated_on>
+        <sys_updated_on>2021-08-27 10:52:35</sys_updated_on>
         <table/>
         <type>onChange</type>
         <ui_type>1</ui_type>

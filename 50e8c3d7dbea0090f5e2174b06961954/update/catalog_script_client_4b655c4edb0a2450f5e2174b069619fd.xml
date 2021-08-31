@@ -18,24 +18,26 @@
         <name>HVS RFF Set Collapse function Expense</name>
         <order/>
         <script><![CDATA[function onLoad() {
-	var $ = this.jQuery,
-		fieldName = "mvar_hvs_rff_expense_line_input"; // !!! it's the name of any variable from variable set !!!
 
-	setTimeout(function () {
-		var $fieldset = $("#" + fieldName).closest("fieldset"),
-			$row = $fieldset.find("div.wrapper-md"),
-			$button = $("<button style='margin-right:10px;margin-bottom:2px;' class='btn btn-icon'>" +
-						"<i class='fa fa-minus fa-lg'></i></button>");
+    var $ = this.jQuery,
+        fieldName = "mvar_hvs_rff_expense_line_input"; // !!! it's the name of any variable from variable set !!!
 
-		$("label[for='sp_formfield_mvar_hvs_rff_expense_line_input']").addClass("h4") // find(">div>label")
-			.before($button);
-		
-		$button.click(function () {
-			$row.toggle();
-			$button.find("i")
-				.toggleClass("fa-minus fa-plus");
-		});
-	}, 0);
+    setTimeout(function() {
+        var $fieldset = $("#" + fieldName).closest("fieldset"),
+            $row = $fieldset.find("div.wrapper-md"),
+            $button = $("<button style='margin-right:10px;margin-bottom:2px;' class='btn btn-icon'>" +
+                "<i class='fa fa-minus fa-lg'></i></button>");
+
+        $("label[for='sp_formfield_mvar_hvs_rff_expense_line_input']").addClass("h4") // find(">div>label")
+            .before($button);
+
+        $button.click(function() {
+            $row.toggle();
+            $button.find("i")
+                .toggleClass("fa-minus fa-plus");
+
+        });
+    }, 0);
 }]]></script>
         <sys_class_name>catalog_script_client</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
@@ -44,7 +46,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>4b655c4edb0a2450f5e2174b069619fd</sys_id>
-        <sys_mod_count>26</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>HVS RFF Set Collapse function Expense</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -53,11 +55,11 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_4b655c4edb0a2450f5e2174b069619fd</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-03-24 14:20:57</sys_updated_on>
+        <sys_updated_on>2021-08-27 10:44:51</sys_updated_on>
         <table/>
         <type>onLoad</type>
         <ui_type>1</ui_type>
-        <variable_set display_value="Saisie de lignes de dépenses pour remboursement">0e6df7f1dbc62450f5e2174b0696198a</variable_set>
+        <variable_set/>
         <view/>
     </catalog_script_client>
 </record_update>

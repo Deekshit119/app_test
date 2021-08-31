@@ -14,39 +14,16 @@
         <field/>
         <global>true</global>
         <isolate_script>true</isolate_script>
-        <messages/>
+        <messages>hvs.expense_training.attachment.required</messages>
         <name>HVS Display Attachment for Air Travel</name>
         <order/>
         <script><![CDATA[function onLoad() {
-    //Type appropriate comment here, and begin script below
     try {
         setInterval(function() {
-			//g_form.addInfoMessage( g_form.getValue('mvar_hvs_rff_expense_line_input'));
-            var bMvarsEmpyt = (('' || g_form.getValue('mvar_hvs_rff_expense_line_input')) == '');
-            if (!bMvarsEmpyt) {
-                var multiRowVariableSet = JSON.parse(g_form.getValue('mvar_hvs_rff_expense_line_input'));
-
-                var bTravelByFly = false;
-                var sTravelMode = '';
-
-                for (var i = 0; i < multiRowVariableSet.length; i++) {
-                    sTravelMode = multiRowVariableSet[i].travel_mode; //get travel mode
-                    if (sTravelMode.toLowerCase().indexOf('w_avion') >= 0) {
-                        bTravelByFly = true;
-                    }
-                }
-
-                if (this.document.getElementsByClassName('get-attachment').length == 0 && bTravelByFly) {
-                    getMessage('hvs.expense_training.attachment.required', function(msg) {
-                        g_form.showFieldMsg("mvar_hvs_rff_expense_line_input", msg);
-                    });
-                } else {
-                    g_form.hideFieldMsg("mvar_hvs_rff_expense_line_input", true);
-                }
-            } else {
-                g_form.hideFieldMsg("mvar_hvs_rff_expense_line_input", true);
-            }
-
+            //Type appropriate comment here, and begin script below
+            getMessage('hvs.expense_training.attachment.required', function(msg) {
+                g_form.showFieldMsg("mvar_hvs_rff_expense_line_input", msg);
+            });
         }, 2000);
     } catch (e) {
         //
@@ -59,7 +36,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>908fdc521bcb2850e63a41588b4bcb38</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>44</sys_mod_count>
         <sys_name>HVS Display Attachment for Air Travel</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -68,11 +45,11 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_script_client_908fdc521bcb2850e63a41588b4bcb38</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-03-24 15:48:06</sys_updated_on>
+        <sys_updated_on>2021-08-27 10:39:38</sys_updated_on>
         <table/>
         <type>onLoad</type>
         <ui_type>1</ui_type>
-        <variable_set display_value="Saisie de lignes de dépenses pour remboursement">0e6df7f1dbc62450f5e2174b0696198a</variable_set>
+        <variable_set/>
         <view/>
     </catalog_script_client>
 </record_update>
