@@ -61,19 +61,19 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
     },
 
     generateCSV: function(extract_id) {
-		
-		//Generate the report the the accounting team
-		var iSheetFundNb = 0;
+
+        //Generate the report the the accounting team
+        var iSheetFundNb = 0;
         var querySheetFund = 'approval=approved^status=3^active=true^reimbursement_via_funds=true';
         var gr_sheetFund = new GlideAggregate("x_hdvi2_expense_sheet");
         gr_sheetFund.addEncodedQuery(querySheetFund);
         gr_sheetFund.addAggregate('COUNT');
-        gr_sheetFund.query(); 
+        gr_sheetFund.query();
         if (gr_sheetFund.next()) {
             iSheetFundNb = gr_sheetFund.getAggregate('COUNT');
-		}
+        }
         if (iSheetFundNb > 0) this._generateReportForAccounting(extract_id);
-		
+
 
         /**********************************************************************************************/
         /* BBH 07.09.2020 - When the expense is linked to a fund, do not take it in consideration within this extraction
@@ -84,8 +84,8 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
 		Before modif: 
 		*var querySheet = 'approval=approved^status=3^active=true^reimbursement_via_funds=false';
          */
-        
-		var querySheet = 'approval=approved^status=3^active=true';
+
+        var querySheet = 'approval=approved^status=3^active=true';
         var queryLine = 'active=true^status=3';
 
         var number_of_expense_sheets = 0;
@@ -213,12 +213,17 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
                         }
 
                         var new_csv_line = '';
-                        if (rubric == '809') {
-                            new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '","' + sUniteCharge + '",,"' + sCompanyCode + '","' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
-                        } else if (rubric == '79C') { // Contract number not included in file
-                            new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '",,"' + rubric + '","","","","' + amount + '","' + sUniteCharge + '",,"' + sCompanyCode + '","' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
+                        if (gr_sheet.reimbursement_via_funds) {
+							rubric = '817';
+                            new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '",,,,"' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,"Note de frais basée sur fonds ' + gr_sheet.getDisplayValue('fund') + '",,,,,,,,,,,,,,,,';
                         } else {
-                            new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '",,,,"' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
+                            if (rubric == '809') {
+                                new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '","' + sUniteCharge + '",,"' + sCompanyCode + '","' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
+                            } else if (rubric == '79C') { // Contract number not included in file
+                                new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '",,"' + rubric + '","","","","' + amount + '","' + sUniteCharge + '",,"' + sCompanyCode + '","' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
+                            } else {
+                                new_csv_line = '"[VARTAB]","INSERT","HVS","INT","' + employee_number + '","' + lastname + '","' + firstname + '","' + contract + '","' + rubric + '","","","","' + amount + '",,,,"' + date + '","' + date_attribution + '",,,,,,"' + piece + '",,,,,,,,,,,,,,,,,,,,';
+                            }
                         }
                         new_csv_line += "\r\n";
                         if (gr_line.rubric.type == "training") {
@@ -259,8 +264,8 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
             gr_extract.update();
         }
 
-		
-		
+
+
 
     },
 
@@ -410,10 +415,10 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
             var gr_extract = new GlideRecord("x_hdvi2_expense_extract");
             if (gr_extract.get(extract_id)) {
                 //3 minutes after will set the expenses as Sent for refund, it will let enough time for the report to run
-				// 11.02.2011 - Benjamin Broch - The funds expense sheets are now in the normal extract too
-              /*  var processTime = new GlideDateTime();
-                processTime.addSeconds(180);
-                gs.eventQueueScheduled("x_hdvi2_expense.hvs.setExpensesWithFunds", gr_extract, extract_id, "", processTime);*/
+                // 11.02.2011 - Benjamin Broch - The funds expense sheets are now in the normal extract too
+                /*  var processTime = new GlideDateTime();
+                  processTime.addSeconds(180);
+                  gs.eventQueueScheduled("x_hdvi2_expense.hvs.setExpensesWithFunds", gr_extract, extract_id, "", processTime);*/
 
 
             }
@@ -437,7 +442,7 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_created_on>2020-02-07 13:38:12</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>18df70c6dbf28490011e177e169619ef</sys_id>
-        <sys_mod_count>153</sys_mod_count>
+        <sys_mod_count>157</sys_mod_count>
         <sys_name>HVSExpenseExtractUtils</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy>read</sys_policy>
@@ -445,6 +450,6 @@ HVSExpenseExtractUtils.prototype = Object.extendsObject(global.AbstractAjaxProce
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_include_18df70c6dbf28490011e177e169619ef</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-07-02 12:55:02</sys_updated_on>
+        <sys_updated_on>2021-09-01 08:31:06</sys_updated_on>
     </sys_script_include>
 </record_update>
