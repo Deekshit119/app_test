@@ -6,7 +6,7 @@
         <applies_sc_task>false</applies_sc_task>
         <applies_target_record>false</applies_target_record>
         <applies_to>item</applies_to>
-        <catalog_conditions>IO:ccb579b1db4ee050f5e2174b06961936ISEMPTY^ORIO:ccb579b1db4ee050f5e2174b06961936EMPTYSTRING^ORIO:842d0cc0dbc38410011e177e1696195a=^EQ</catalog_conditions>
+        <catalog_conditions>IO:ccb579b1db4ee050f5e2174b06961936ISEMPTY^ORIO:ccb579b1db4ee050f5e2174b06961936EMPTYSTRING^EQ</catalog_conditions>
         <catalog_item display_value="Demande de remboursement - Formation">34ba4400dbc38410011e177e16961944</catalog_item>
         <conditions/>
         <description/>
@@ -34,7 +34,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a2d40639db8ee050f5e2174b06961919</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>HVS RFF Show fields if Training selected</sys_name>
         <sys_overrides/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
@@ -43,7 +43,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_ui_policy_a2d40639db8ee050f5e2174b06961919</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-02-02 18:05:48</sys_updated_on>
+        <sys_updated_on>2021-09-14 13:44:08</sys_updated_on>
         <table/>
         <ui_type>0</ui_type>
         <variable_set/>
