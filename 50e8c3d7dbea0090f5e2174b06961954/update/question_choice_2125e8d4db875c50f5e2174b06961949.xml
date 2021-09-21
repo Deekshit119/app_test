@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="question_choice">
     <question_choice action="INSERT_OR_UPDATE">
+        <inactive>false</inactive>
         <misc>0</misc>
         <order>100</order>
+        <published_ref/>
         <question display_value="Wählen Sie eine Kategorie für die Gebührenart Sonstiges">063b9501db311090011e177e169619ec</question>
         <rec_misc>0</rec_misc>
         <sys_class_name>question_choice</sys_class_name>
@@ -9,16 +11,16 @@
         <sys_created_on>2020-08-31 07:39:09</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2125e8d4db875c50f5e2174b06961949</sys_id>
-        <sys_mod_count>3</sys_mod_count>
-        <sys_name>Documentations / Cotisations / Certifications</sys_name>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Documentations / Cotisations / Certifications / Congrès</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>question_choice_2125e8d4db875c50f5e2174b06961949</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-09-15 10:44:54</sys_updated_on>
-        <text>Documentations / Cotisations / Certifications</text>
+        <sys_updated_on>2021-09-15 13:28:49</sys_updated_on>
+        <text>Documentations / Cotisations / Certifications / Congrès</text>
         <u_score/>
         <value>81D</value>
     </question_choice>

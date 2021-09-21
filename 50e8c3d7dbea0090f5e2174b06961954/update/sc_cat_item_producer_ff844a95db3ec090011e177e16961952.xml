@@ -3,7 +3,7 @@
         <access_type>restricted</access_type>
         <active>true</active>
         <allow_edit>false</allow_edit>
-        <availability>on_both</availability>
+        <availability>on_desktop</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
         <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
@@ -14,7 +14,7 @@
         <delivery_plan_script/>
         <delivery_time>1970-01-03 00:00:00</delivery_time>
         <description><![CDATA[<p>Les nouvelles Directives institutionnelles sur le remboursement des frais sont disponibles via le lien suivant : « <a title="Consulter les documents" href="https://intranet.hopitalvs.ch/fr/news/Pages/Directives-institutionnelles-sur-le-remboursement-des-frais-2020.aspx" target="_blank" rel="noopener noreferrer nofollow">Consulter les documents</a> »</p>
-<p> </p>]]></description>
+<p><br /></p>]]></description>
         <display_price_property>non_zero</display_price_property>
         <entitlement_script/>
         <flow_designer_flow/>
@@ -60,7 +60,7 @@ Bille</meta>
         <omit_price>false</omit_price>
         <order>0</order>
         <ordered_item_link/>
-        <owner/>
+        <owner display_value="Virginie Bétrisey">3bf0606adbca6b800abb65925b961944</owner>
         <picture/>
         <post_insert_script/>
         <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=ff844a95db3ec090011e177e16961952&amp;sysparm_preview=true", "summary");</preview>
@@ -82,8 +82,10 @@ Forces population of this record producer sys_id into the target record***/
 var rpId = "ff844a95db3ec090011e177e16961952";
 current.u_cat_item = rpId;
 /***------------------ ***/
+if(!gs.isMobile()) {
+	producer.portal_redirect = "exphvs";
+}
 
-producer.portal_redirect = "exphvs";
 current.opened_by = gs.getUserID();
 current.contract = producer.contract;
 
@@ -130,7 +132,7 @@ gr_expLine.insert();]]></script>
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>93</sys_mod_count>
+        <sys_mod_count>106</sys_mod_count>
         <sys_name>Demande de remboursement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -138,7 +140,7 @@ gr_expLine.insert();]]></script>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-07-26 08:29:26</sys_updated_on>
+        <sys_updated_on>2021-09-21 12:39:22</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <template_manager_roles/>
@@ -157,6 +159,8 @@ gr_expLine.insert();]]></script>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>
         <workflow/>
+        <additional_review>false</additional_review>
+        <create_universal_request>false</create_universal_request>
     </sc_cat_item_producer>
     <sys_translated_text action="delete_multiple" query="documentkey=ff844a95db3ec090011e177e16961952"/>
     <sys_translated_text action="INSERT_OR_UPDATE">

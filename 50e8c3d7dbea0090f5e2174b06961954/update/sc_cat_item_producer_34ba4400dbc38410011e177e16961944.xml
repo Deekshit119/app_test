@@ -3,7 +3,7 @@
         <access_type>restricted</access_type>
         <active>true</active>
         <allow_edit>false</allow_edit>
-        <availability>on_both</availability>
+        <availability>on_desktop</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
         <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
@@ -20,7 +20,7 @@
         <group/>
         <hide_sp>false</hide_sp>
         <icon/>
-        <ignore_price>false</ignore_price>
+        <ignore_price>true</ignore_price>
         <image/>
         <list_price>0</list_price>
         <location/>
@@ -67,9 +67,10 @@ Forces population of this record producer sys_id into the target record***/
 var rpId = "34ba4400dbc38410011e177e16961944";
 current.u_cat_item = rpId;
 /***------------------ ***/
+if(!gs.isMobile()) {
+	producer.portal_redirect = "exphvs";
+}
 
-
-producer.portal_redirect = "exphvs";
 current.opened_by = gs.getUserID();
 current.contract = producer.contract;
 
@@ -152,7 +153,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_created_on>2020-02-13 14:53:34</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>34ba4400dbc38410011e177e16961944</sys_id>
-        <sys_mod_count>43</sys_mod_count>
+        <sys_mod_count>51</sys_mod_count>
         <sys_name>Demande de remboursement - Formation</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -160,7 +161,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_34ba4400dbc38410011e177e16961944</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-08-31 14:23:30</sys_updated_on>
+        <sys_updated_on>2021-09-21 13:12:33</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <template_manager_roles/>
@@ -179,6 +180,8 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>
         <workflow/>
+        <additional_review>false</additional_review>
+        <create_universal_request>false</create_universal_request>
     </sc_cat_item_producer>
     <sys_translated_text action="delete_multiple" query="documentkey=34ba4400dbc38410011e177e16961944"/>
     <sys_translated_text action="INSERT_OR_UPDATE">

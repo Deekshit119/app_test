@@ -28,7 +28,7 @@
         <instructions/>
         <layout>normal</layout>
         <list_table/>
-        <lookup_label>u_user_job_location,u_departement_ref</lookup_label>
+        <lookup_label>u_display_name</lookup_label>
         <lookup_price/>
         <lookup_table>u_hvs_user_contract</lookup_table>
         <lookup_unique>false</lookup_unique>
@@ -69,7 +69,7 @@
         <sys_created_on>2020-02-05 12:20:18</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>7169de59db7ec090011e177e169619e6</sys_id>
-        <sys_mod_count>54</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>Contrat</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -77,7 +77,7 @@
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_7169de59db7ec090011e177e169619e6</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-07-26 08:41:08</sys_updated_on>
+        <sys_updated_on>2021-09-15 14:00:33</sys_updated_on>
         <table/>
         <tooltip/>
         <type>18</type>
