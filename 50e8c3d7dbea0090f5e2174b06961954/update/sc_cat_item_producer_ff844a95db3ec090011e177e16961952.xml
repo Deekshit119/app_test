@@ -3,7 +3,7 @@
         <access_type>restricted</access_type>
         <active>true</active>
         <allow_edit>false</allow_edit>
-        <availability>on_desktop</availability>
+        <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
         <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
@@ -132,7 +132,7 @@ gr_expLine.insert();]]></script>
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>106</sys_mod_count>
+        <sys_mod_count>107</sys_mod_count>
         <sys_name>Demande de remboursement</sys_name>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
@@ -140,7 +140,7 @@ gr_expLine.insert();]]></script>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-09-21 12:39:22</sys_updated_on>
+        <sys_updated_on>2021-09-21 13:21:54</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
         <template/>
         <template_manager_roles/>
