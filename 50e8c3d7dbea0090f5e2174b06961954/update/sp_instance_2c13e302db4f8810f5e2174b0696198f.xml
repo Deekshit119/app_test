@@ -11,21 +11,21 @@
         <short_description/>
         <size>md</size>
         <sp_column display_value="1">86e1678edb0f8810f5e2174b06961989</sp_column>
-        <sp_widget display_value="Delegate">c691c910db961300bb7d59d0cf961945</sp_widget>
+        <sp_widget display_value="">1cb61c9e1b53f0107f172f4aab4bcb7f</sp_widget>
         <sys_class_name>sp_instance</sys_class_name>
         <sys_created_by>benjamin.broch</sys_created_by>
         <sys_created_on>2020-02-20 11:46:45</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>2c13e302db4f8810f5e2174b0696198f</sys_id>
-        <sys_mod_count>10</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name/>
         <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_instance_2c13e302db4f8810f5e2174b0696198f</sys_update_name>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2021-02-11 11:38:56</sys_updated_on>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-10-22 07:41:05</sys_updated_on>
         <title/>
         <url/>
         <widget_parameters><![CDATA[{
@@ -36,22 +36,6 @@
 	"show_exp_approvals": {
 		"value": "true",
 		"displayValue": "true"
-	},
-	"show_approvals": {
-		"value": "false",
-		"displayValue": "false"
-	},
-	"show_assignments": {
-		"value": "false",
-		"displayValue": "false"
-	},
-	"show_cc_notifications": {
-		"value": "false",
-		"displayValue": "false"
-	},
-	"show_meeting_invitations": {
-		"value": "false",
-		"displayValue": "false"
 	},
 	"show_do_delegation_to_me": {
 		"value": "false",
