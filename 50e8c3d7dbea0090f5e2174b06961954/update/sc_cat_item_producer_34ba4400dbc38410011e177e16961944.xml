@@ -6,14 +6,18 @@
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
-        <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
+        <category display_value="Salaires et finances">d163a722dbdfb700011e177e1696190a</category>
         <checked_out/>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan/>
         <delivery_plan_script/>
         <delivery_time>1970-01-03 00:00:00</delivery_time>
-        <description/>
+        <description><![CDATA[<p><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Les conditions pour que les demandes de formation puissent être sélectionnées pour un remboursement :</span></p>
+<p><strong><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Sans redevance</span></strong></p>
+<ul style="list-style-position: inside;"><li style="font-size: 10pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Total frais accordés supérieur à 0.-</span></li><li style="font-size: 10pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">La Demande de formation doit être Terminée (approuvée par le N&#43;1 et validée par le Service Formation)</span></li><li style="font-size: 10pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">La Demande de formation ne doit pas avoir été mise comme &#34;Remboursée&#34;</span></li></ul>
+<p style="font-size: 10pt;"><strong><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Avec redevance</span></strong></p>
+<ul style="list-style-position: inside;"><li style="font-size: 10pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Le Contrat doit avoir été retourné signé au Service Formation</span></li><li style="font-size: 10pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">Total frais accordés supérieur à 0.-</span></li><li style="font-size: 10pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">La Demande de formation doit être Terminée (approuvée par le N&#43;1 et validée par le Service Formation)</span></li><li style="font-size: 10pt;"><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">La Demande de formation ne doit pas avoir été mise comme &#34;Remboursée&#34;</span></li></ul>]]></description>
         <display_price_property>non_zero</display_price_property>
         <entitlement_script/>
         <flow_designer_flow/>
@@ -153,16 +157,17 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_created_on>2020-02-13 14:53:34</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>34ba4400dbc38410011e177e16961944</sys_id>
-        <sys_mod_count>52</sys_mod_count>
+        <sys_mod_count>55</sys_mod_count>
         <sys_name>Demande de remboursement - Formation</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_34ba4400dbc38410011e177e16961944</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-09-21 13:23:10</sys_updated_on>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2021-11-24 11:26:51</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
+        <taxonomy_topic/>
         <template/>
         <template_manager_roles/>
         <type>item</type>
@@ -180,8 +185,6 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>
         <workflow/>
-        <additional_review>false</additional_review>
-        <create_universal_request>false</create_universal_request>
     </sc_cat_item_producer>
     <sys_translated_text action="delete_multiple" query="documentkey=34ba4400dbc38410011e177e16961944"/>
     <sys_translated_text action="INSERT_OR_UPDATE">
@@ -191,11 +194,24 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2021-08-27 10:38:03</sys_created_on>
         <sys_id>771410e01b1af4907f172f4aab4bcbbf</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-08-27 10:38:03</sys_updated_on>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>h40000572</sys_updated_by>
+        <sys_updated_on>2021-11-24 11:26:51</sys_updated_on>
         <tablename>sc_cat_item_producer</tablename>
-        <value/>
+        <value>&lt;p&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;Conditions pour que les Demandes de formation puissent &amp;ecirc;tre s&amp;eacute;lectionn&amp;eacute;es pour un remboursement :&lt;/span&gt;&lt;/p&gt;&#13;
+&lt;p&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;&lt;strong&gt;Sans redevance&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;&#13;
+&lt;ul style="list-style-position: inside;"&gt;&#13;
+&lt;li style="font-size: 10pt;"&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;Le Total des frais accord&amp;eacute;s est sup&amp;eacute;rieur &amp;agrave; 0.-&lt;/span&gt;&lt;/li&gt;&#13;
+&lt;li style="font-size: 10pt;"&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;La Demande de formation doit &amp;ecirc;tre Termin&amp;eacute;e (approuv&amp;eacute;e par le N+1 et valid&amp;eacute;e par le Service Formation)&lt;/span&gt;&lt;/li&gt;&#13;
+&lt;li style="font-size: 10pt;"&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;La Demande de formation ne doit pas avoir &amp;eacute;t&amp;eacute; mise comme "Rembours&amp;eacute;e"&lt;/span&gt;&lt;/li&gt;&#13;
+&lt;/ul&gt;&#13;
+&lt;p style="font-size: 10pt;"&gt;&lt;strong&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;Avec redevance&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;&#13;
+&lt;ul style="list-style-position: inside;"&gt;&#13;
+&lt;li style="font-size: 10pt;"&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;Le Contrat doit avoir &amp;eacute;t&amp;eacute; retourn&amp;eacute; sign&amp;eacute; au Service Formation&lt;/span&gt;&lt;/li&gt;&#13;
+&lt;li style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;Le Total des frais accord&amp;eacute;s est sup&amp;eacute;rieur &amp;agrave; 0.-&lt;/li&gt;&#13;
+&lt;li style="font-size: 10pt;"&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;La Demande de formation doit &amp;ecirc;tre Termin&amp;eacute;e (approuv&amp;eacute;e par le N+1 et valid&amp;eacute;e par le Service Formation)&lt;/span&gt;&lt;/li&gt;&#13;
+&lt;li style="font-size: 10pt;"&gt;&lt;span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;"&gt;La Demande de formation ne doit pas avoir &amp;eacute;t&amp;eacute; mise comme "Rembours&amp;eacute;e"&lt;/span&gt;&lt;/li&gt;&#13;
+&lt;/ul&gt;</value>
     </sys_translated_text>
     <sys_translated_text action="INSERT_OR_UPDATE">
         <documentkey>34ba4400dbc38410011e177e16961944</documentkey>
