@@ -84,8 +84,10 @@ section.page, main.body {
         <dynamic_title_structure/>
         <id>expndx</id>
         <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
         <public>false</public>
         <roles/>
+        <seo_script/>
         <short_description/>
         <sys_class_name>sp_page</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
@@ -94,14 +96,15 @@ section.page, main.body {
         <sys_id>c80b611ddbbac090011e177e1696199d</sys_id>
         <sys_mod_count>79</sys_mod_count>
         <sys_name>expndx</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_page_c80b611ddbbac090011e177e1696199d</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
         <sys_updated_on>2020-02-29 16:11:03</sys_updated_on>
         <title>Expense Service Portal</title>
+        <use_seo_script>false</use_seo_script>
     </sp_page>
     <sys_translated_text action="delete_multiple" query="documentkey=c80b611ddbbac090011e177e1696199d"/>
 </record_update>

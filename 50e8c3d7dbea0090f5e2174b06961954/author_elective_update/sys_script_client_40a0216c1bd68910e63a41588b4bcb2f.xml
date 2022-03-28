@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="DELETE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>active</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>HVS Upate Standard Categories</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    var $ = this.jQuery,
+        fieldName = "x_hdvi2_expense_line.rubric"; // !!! it's the name of any variable from variable set !!!
+
+    setTimeout(function() {
+        var $fieldset = $("button[name*='" + fieldName + "']"),
+            $row = $fieldset;
+		g_form.addErrorMessage($row);
+        $row.addClass('alert-warning');
+		//$("label[for='sp_formfield_patient_data_input_warning']").css("display","none");
+		
+    }, 1000);   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-03-14 12:24:10</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>40a0216c1bd68910e63a41588b4bcb2f</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>HVS Upate Standard Categories</sys_name>
+        <sys_overrides display_value="">global</sys_overrides>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_script_client_40a0216c1bd68910e63a41588b4bcb2f</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-03-14 15:07:05</sys_updated_on>
+        <table>x_hdvi2_expense_line</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</application>
+        <comments/>
+        <file_path/>
+        <instance_id>3046dffd0a0a8c07003c444f428053a8</instance_id>
+        <instance_name>vsdev</instance_name>
+        <name>sys_script_client_40a0216c1bd68910e63a41588b4bcb2f</name>
+        <order/>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;active&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;isolate_script&gt;true&lt;/isolate_script&gt;&lt;messages/&gt;&lt;name&gt;HVS Upate Standard Categories&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onLoad() {
+    var $ = this.jQuery,
+        fieldName = "x_hdvi2_expense_line.rubric"; // !!! it's the name of any variable from variable set !!!
+
+    setTimeout(function() {
+        var $fieldset = $("button[name*='" + fieldName + "']"),
+            $row = $fieldset;
+		g_form.addErrorMessage($row);
+        $row.addClass('alert-warning');
+		//$("label[for='sp_formfield_patient_data_input_warning']").css("display","none");
+		
+    }, 1000);   
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;h40009222&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2022-03-14 12:24:10&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;40a0216c1bd68910e63a41588b4bcb2f&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;HVS Upate Standard Categories&lt;/sys_name&gt;&lt;sys_overrides display_value=""&gt;global&lt;/sys_overrides&gt;&lt;sys_package display_value="HVS Expense Management" source="x_hdvi2_expense"&gt;50e8c3d7dbea0090f5e2174b06961954&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="HVS Expense Management"&gt;50e8c3d7dbea0090f5e2174b06961954&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_40a0216c1bd68910e63a41588b4bcb2f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;h40009222&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2022-03-14 15:07:05&lt;/sys_updated_on&gt;&lt;table&gt;x_hdvi2_expense_line&lt;/table&gt;&lt;type&gt;onLoad&lt;/type&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>2138104462</payload_hash>
+        <record_name>HVS Upate Standard Categories</record_name>
+        <reverted_from/>
+        <source>6f0520641b168910e63a41588b4bcb0b</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-03-14 15:07:05</sys_created_on>
+        <sys_id>b416cea01b9a8910e63a41588b4bcb44</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17f88f7f2c00000001</sys_recorded_at>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-03-14 15:07:05</sys_updated_on>
+        <type>Client Script</type>
+        <update_guid>b816cea0d49a891023a73448c5126743</update_guid>
+        <update_guid_history>b816cea0d49a891023a73448c5126743:2138104462,62b5c2a0b89a891065b11840a12b918f:1847228391,f1a582a0809a8910c66f6288e6e026df:-1404309394,f4858e60ae9a8910f71f892c89507cf1:1992922238,6865ca608d9a8910fff9432573f37391:-1951530858,c1458a60ed9a891043722b0a51709e6e:1561824490,ad254260f49a8910ecd22d9f32ef5050:-1080664471,5ec0ed2c79d68910508f3f5186e8ba5c:1009717190</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-03-14 15:07:27</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="sys_script_client">sys_script_client</sys_db_object>
+        <sys_id>0f708ccc89614b409f499ff176428ab1</sys_id>
+        <sys_metadata>40a0216c1bd68910e63a41588b4bcb2f</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>HVS Upate Standard Categories</sys_name>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_parent display_value="Expense Line">1141c95cdba7c49009b962a91696191d</sys_parent>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope_delete display_value="">472e1ff3166d4450a148eb190542eac9</sys_scope_delete>
+        <sys_update_name>sys_script_client_40a0216c1bd68910e63a41588b4bcb2f</sys_update_name>
+        <sys_update_version display_value="sys_script_client_40a0216c1bd68910e63a41588b4bcb2f">b416cea01b9a8910e63a41588b4bcb44</sys_update_version>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-03-14 15:07:27</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

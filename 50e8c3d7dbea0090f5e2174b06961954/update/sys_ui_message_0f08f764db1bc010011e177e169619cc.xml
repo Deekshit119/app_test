@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
     <sys_ui_message action="INSERT_OR_UPDATE">
         <application/>
+        <code/>
+        <commented_message/>
         <key>but is no longer active in the system. </key>
         <language>fr</language>
         <message>mais n'est plus actif dans le système. </message>
@@ -11,10 +13,10 @@
         <sys_id>0f08f764db1bc010011e177e169619cc</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>but is no longer active in the system. </sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_ui_message_0f08f764db1bc010011e177e169619cc</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2020-02-28 07:43:13</sys_updated_on>

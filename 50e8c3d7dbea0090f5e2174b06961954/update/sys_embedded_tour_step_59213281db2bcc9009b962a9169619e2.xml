@@ -15,24 +15,25 @@ Ces différents vous renseignent sur la progression du traitement des demandes.]
         <options>{"url":"/exphvs?id=exp_my_team"}</options>
         <order>2</order>
         <placement>bottom</placement>
+        <skippable>false</skippable>
         <step_type>step</step_type>
         <sys_class_name>sys_embedded_tour_step</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2020-03-13 02:06:06</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
-        <sys_domain_path/>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>59213281db2bcc9009b962a9169619e2</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_embedded_tour_step_59213281db2bcc9009b962a9169619e2</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-13 02:06:06</sys_updated_on>
+        <sys_updated_on>2020-04-27 16:13:36</sys_updated_on>
         <target/>
         <target_ref display_value="xpath">d9213281db2bcc9009b962a9169619e0</target_ref>
         <title/>

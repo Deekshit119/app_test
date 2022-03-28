@@ -14,10 +14,10 @@
         <sys_id>ae6017181b6b2c10e63a41588b4bcb4c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>sr_one_way</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_ui_policy_action_ae6017181b6b2c10e63a41588b4bcb4c</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2021-04-12 12:49:42</sys_updated_on>

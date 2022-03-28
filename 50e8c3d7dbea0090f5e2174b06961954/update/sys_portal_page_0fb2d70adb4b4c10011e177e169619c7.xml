@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update node_type="sys_portal_page" unload_date="2022-03-28 13:27:11">
+    <sys_portal_page action="INSERT_OR_UPDATE">
+        <layout/>
+        <order/>
+        <read_roles/>
+        <roles/>
+        <selectable>false</selectable>
+        <sys_class_name>sys_portal_page</sys_class_name>
+        <sys_created_by>benjamin.broch</sys_created_by>
+        <sys_created_on>2020-02-20 10:35:24</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0fb2d70adb4b4c10011e177e169619c7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>PA Expense Management - New Tab</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_portal_page_0fb2d70adb4b4c10011e177e169619c7</sys_update_name>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2020-02-20 10:35:24</sys_updated_on>
+        <title>PA Expense Management - New Tab</title>
+        <user/>
+        <view>pa_expense_management_-_new_tab</view>
+    </sys_portal_page>
+</record_update>

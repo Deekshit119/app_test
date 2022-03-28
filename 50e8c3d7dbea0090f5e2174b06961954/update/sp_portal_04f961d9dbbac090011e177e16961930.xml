@@ -19,6 +19,9 @@ $btn-default-bg:#fff;&#13;
 $text-muted:#666666;&#13;
 $grid-gutter-width: 15px !default;</css_variables>
         <default>false</default>
+        <enable_ais>false</enable_ais>
+        <enable_favorites>false</enable_favorites>
+        <hide_portal_name>false</hide_portal_name>
         <homepage display_value="expndx">c80b611ddbbac090011e177e1696199d</homepage>
         <icon>3956390a4fdd370086e3e6101310c7aa</icon>
         <kb_knowledge_base display_value="Customer Support">befb4b004f6e16002323ca1f0310c7c4</kb_knowledge_base>
@@ -26,7 +29,7 @@ $grid-gutter-width: 15px !default;</css_variables>
         <login_page display_value="landing">36c61807cb31120000f8d856634c9ca9</login_page>
         <logo>b12af695db0a3700f5e2174b069619e0</logo>
         <notfound_page display_value="404">3c2c9063cb11020000f8d856634c9c1f</notfound_page>
-        <quick_start_config><![CDATA[[{
+        <quick_start_config>[{
 	"tagline": {
 		"table" : "sp_instance",
 		"sys_id" : "34fe3d96cb20020000f8d856634c9cf4",
@@ -38,10 +41,12 @@ $grid-gutter-width: 15px !default;</css_variables>
 		"field" : "background_image"
 	},
 	"readonly_variable_editor": "false"
-}]]]></quick_start_config>
+}]</quick_start_config>
         <sc_catalog display_value="Service Catalog">e0d08b13c3330100c8b837659bba8fb4</sc_catalog>
         <sc_catalog_page/>
         <sc_category_page/>
+        <search_application/>
+        <search_results_configuration/>
         <sp_chat_queue/>
         <sp_rectangle_menu display_value="SP Exp Header Menu">05db211ddbbac090011e177e1696194b</sp_rectangle_menu>
         <sqanda_knowledge_base/>
@@ -50,18 +55,32 @@ $grid-gutter-width: 15px !default;</css_variables>
         <sys_created_on>2020-02-05 08:46:23</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>04f961d9dbbac090011e177e16961930</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>21</sys_mod_count>
         <sys_name>Expense Management</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_portal_04f961d9dbbac090011e177e16961930</sys_update_name>
-        <sys_updated_by>h92000177</sys_updated_by>
-        <sys_updated_on>2020-05-01 16:16:56</sys_updated_on>
-        <theme display_value="">5fedd04ddba45c50011e177e16961950</theme>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2021-11-04 04:30:09</sys_updated_on>
+        <theme display_value="La Jolla HVS DEV">00155d8ddb685c50011e177e169619b4</theme>
         <title>Expense Management</title>
+        <ts_index_group display_value="portal_index_group">2c3e7d1513c93300e618bfd63244b0d7</ts_index_group>
         <url_suffix>exphvs</url_suffix>
     </sp_portal>
     <sys_translated_text action="delete_multiple" query="documentkey=04f961d9dbbac090011e177e16961930"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>04f961d9dbbac090011e177e16961930</documentkey>
+        <fieldname>title</fieldname>
+        <language>fr</language>
+        <sys_created_by>system</sys_created_by>
+        <sys_created_on>2020-05-10 01:50:32</sys_created_on>
+        <sys_id>62c9d1fbdb64101022ef898532961985</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2020-05-10 01:50:32</sys_updated_on>
+        <tablename>sp_portal</tablename>
+        <value>Expense Management</value>
+    </sys_translated_text>
 </record_update>

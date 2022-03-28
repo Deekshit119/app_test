@@ -11,10 +11,10 @@
         <sys_id>8b316cefdb430050f5e2174b0696195f</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>1</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_row_8b316cefdb430050f5e2174b0696195f</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2020-02-24 13:30:46</sys_updated_on>

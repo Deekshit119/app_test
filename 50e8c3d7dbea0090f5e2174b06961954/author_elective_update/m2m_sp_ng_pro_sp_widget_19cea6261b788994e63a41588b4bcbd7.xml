@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget">
+    <m2m_sp_ng_pro_sp_widget action="DELETE">
+        <sp_angular_provider display_value="spAttachmentManager">06e836f0d722120023c84f80de6103a1</sp_angular_provider>
+        <sp_widget display_value="Copy of Form">9dcea6261b788994e63a41588b4bcbd1</sp_widget>
+        <sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-01-05 09:38:33</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>19cea6261b788994e63a41588b4bcbd7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spAttachmentManager.Copy of Form</sys_name>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_19cea6261b788994e63a41588b4bcbd7</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-01-05 09:38:33</sys_updated_on>
+    </m2m_sp_ng_pro_sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</application>
+        <comments/>
+        <file_path/>
+        <instance_id>3046dffd0a0a8c07003c444f428053a8</instance_id>
+        <instance_name>vsdev</instance_name>
+        <name>m2m_sp_ng_pro_sp_widget_19cea6261b788994e63a41588b4bcbd7</name>
+        <order/>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_ng_pro_sp_widget"><m2m_sp_ng_pro_sp_widget action="INSERT_OR_UPDATE"><sp_angular_provider display_value="spAttachmentManager">06e836f0d722120023c84f80de6103a1</sp_angular_provider><sp_widget display_value="Copy of Form">9dcea6261b788994e63a41588b4bcbd1</sp_widget><sys_class_name>m2m_sp_ng_pro_sp_widget</sys_class_name><sys_created_by>h40009222</sys_created_by><sys_created_on>2022-01-05 09:38:33</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>19cea6261b788994e63a41588b4bcbd7</sys_id><sys_mod_count>0</sys_mod_count><sys_name>spAttachmentManager.Copy of Form</sys_name><sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope><sys_update_name>m2m_sp_ng_pro_sp_widget_19cea6261b788994e63a41588b4bcbd7</sys_update_name><sys_updated_by>h40009222</sys_updated_by><sys_updated_on>2022-01-05 09:38:33</sys_updated_on></m2m_sp_ng_pro_sp_widget></record_update>]]></payload>
+        <payload_hash>1056363611</payload_hash>
+        <record_name>spAttachmentManager.Copy of Form</record_name>
+        <reverted_from/>
+        <source>ac2a16e21bf48994e63a41588b4bcb06</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-01-05 09:38:33</sys_created_on>
+        <sys_id>55cea6261b788994e63a41588b4bcbda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17e299abbf60000001</sys_recorded_at>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-01-05 09:38:33</sys_updated_on>
+        <type>Angular Providers</type>
+        <update_guid>59cea6265c7889941eb40fba1fae94d9</update_guid>
+        <update_guid_history>59cea6265c7889941eb40fba1fae94d9:1056363611</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Record deleted 05.01.2022 10:40:15">922f26661b788994e63a41588b4bcbdc</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-01-05 09:40:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="m2m_sp_ng_pro_sp_widget">m2m_sp_ng_pro_sp_widget</sys_db_object>
+        <sys_id>1718b8ee938a46b88914a1285a78b690</sys_id>
+        <sys_metadata>19cea6261b788994e63a41588b4bcbd7</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>spAttachmentManager.Copy of Form</sys_name>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope_delete display_value="">472e1ff3166d4450a148eb190542eac9</sys_scope_delete>
+        <sys_update_name>m2m_sp_ng_pro_sp_widget_19cea6261b788994e63a41588b4bcbd7</sys_update_name>
+        <sys_update_version display_value="m2m_sp_ng_pro_sp_widget_19cea6261b788994e63a41588b4bcbd7">55cea6261b788994e63a41588b4bcbda</sys_update_version>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-01-05 09:40:15</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
     <sys_ui_message action="INSERT_OR_UPDATE">
         <application/>
+        <code/>
+        <commented_message/>
         <key>expense.rubric_meal_out.amount.control</key>
         <language>fr</language>
         <message>Saisie invalide.&lt;br&gt;&#13;
@@ -12,10 +14,10 @@ Le montant total autorisé est 23 CHF.</message>
         <sys_id>ed9c6b3bdb1f8010011e177e169619c7</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>expense.rubric_meal_out.amount.control</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_ui_message_ed9c6b3bdb1f8010011e177e169619c7</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
         <sys_updated_on>2020-03-09 09:13:24</sys_updated_on>

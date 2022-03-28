@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
     <sp_rel_widget_clone action="INSERT_OR_UPDATE">
-        <child display_value="Copy of Ticket Attachments">c9a01483db57c810011e177e16961993</child>
+        <child display_value="Expense Ticket Attachments">c9a01483db57c810011e177e16961993</child>
         <cloned>2020-03-06 09:17:00</cloned>
         <last_validated>2020-03-06 09:17:00</last_validated>
         <parent display_value="Ticket Attachments">9ee37281d7033100a9ad1e173e24d457</parent>
@@ -155,10 +155,10 @@
         <sys_id>49a01c07db57c810011e177e169619c7</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>c9a01483db57c810011e177e16961993</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_rel_widget_clone_49a01c07db57c810011e177e169619c7</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
         <sys_updated_on>2020-03-06 09:17:00</sys_updated_on>

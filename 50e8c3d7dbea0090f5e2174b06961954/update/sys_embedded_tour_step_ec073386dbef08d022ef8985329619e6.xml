@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="INSERT_OR_UPDATE">
+        <action>false</action>
+        <action_event>next</action_event>
+        <action_target/>
+        <action_target_ref display_value="xpath">e4073386dbef08d022ef8985329619e4</action_target_ref>
+        <active>true</active>
+        <content><![CDATA[Cet onglet correspond aux demandes soumises qui n&#39;ont pas été approuvées par votre supérieur hiérarchique.]]></content>
+        <guide display_value="Demandes Remboursement de frais">f577f3b4db238c9009b962a9169619f0</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name/>
+        <options>{"url":"/exphvs?id=expndx"}</options>
+        <order>3</order>
+        <placement>top</placement>
+        <skippable>false</skippable>
+        <step_type>step</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-16 09:45:15</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>ec073386dbef08d022ef8985329619e6</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_ec073386dbef08d022ef8985329619e6</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-04-27 16:04:05</sys_updated_on>
+        <target/>
+        <target_ref display_value="xpath">e4073386dbef08d022ef8985329619e4</target_ref>
+        <title/>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window>exphvs</window>
+    </sys_embedded_tour_step>
+</record_update>

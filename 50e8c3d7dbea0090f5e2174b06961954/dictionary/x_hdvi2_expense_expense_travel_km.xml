@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Expense Travel KM " max_length="40" name="x_hdvi2_expense_expense_travel_km" sizeclass="54" type="collection">
+        <element attributes="edge_encryption_enabled=true" default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="KM" max_length="15" name="km" type="decimal"/>
+        <element display="true" label="From" max_length="20" name="locations" type="string"/>
+        <element label="To" max_length="20" name="to" type="string"/>
+    </element>
+</database>

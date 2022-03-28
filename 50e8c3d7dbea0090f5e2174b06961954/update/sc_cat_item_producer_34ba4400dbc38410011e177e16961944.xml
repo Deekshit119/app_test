@@ -6,7 +6,7 @@
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
-        <category display_value="Salaires et finances">d163a722dbdfb700011e177e1696190a</category>
+        <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
         <checked_out/>
         <cost>0</cost>
         <custom_cart/>

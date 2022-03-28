@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>2</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">92f9e3741b0505107f172f4aab4bcb10</sp_column>
+        <sp_widget display_value="HVS Task Actions">605071a42f3f1010e53b351ef699b6eb</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-01-12 13:37:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e198abf01b0505107f172f4aab4bcb96</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sp_instance_e198abf01b0505107f172f4aab4bcb96</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-01-12 13:43:46</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=e198abf01b0505107f172f4aab4bcb96"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</application>
+        <comments/>
+        <file_path/>
+        <instance_id>3046dffd0a0a8c07003c444f428053a8</instance_id>
+        <instance_name>vsdev</instance_name>
+        <name>sp_instance_e198abf01b0505107f172f4aab4bcb96</name>
+        <order/>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>2</order><roles/><short_description/><size>md</size><sp_column display_value="2">92f9e3741b0505107f172f4aab4bcb10</sp_column><sp_widget display_value="HVS Task Actions">605071a42f3f1010e53b351ef699b6eb</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>h40009222</sys_created_by><sys_created_on>2022-01-12 13:37:29</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>e198abf01b0505107f172f4aab4bcb96</sys_id><sys_mod_count>2</sys_mod_count><sys_name/><sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope><sys_update_name>sp_instance_e198abf01b0505107f172f4aab4bcb96</sys_update_name><sys_updated_by>h40009222</sys_updated_by><sys_updated_on>2022-01-12 13:43:46</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=e198abf01b0505107f172f4aab4bcb96"/></record_update>]]></payload>
+        <payload_hash>342756617</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>ac2a16e21bf48994e63a41588b4bcb06</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-01-12 13:43:46</sys_created_on>
+        <sys_id>650a27741b0505107f172f4aab4bcb0f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17e4e87c1310000001</sys_recorded_at>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-01-12 13:43:46</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>a90a277455050510b7f66b00a9aa050e</update_guid>
+        <update_guid_history>a90a277455050510b7f66b00a9aa050e:342756617,bc0aef34f00505103a9173a2c88bb576:-1075677386,ad98abf089050510b0156836f4a0ad97:1421050295</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Record deleted 12.01.2022 15:45:44">d538fb341b4505107f172f4aab4bcb4b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2022-01-12 14:45:44</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>00270d97f69543f3803d28dad9110459</sys_id>
+        <sys_metadata>e198abf01b0505107f172f4aab4bcb96</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope_delete display_value="">472e1ff3166d4450a148eb190542eac9</sys_scope_delete>
+        <sys_update_name>sp_instance_e198abf01b0505107f172f4aab4bcb96</sys_update_name>
+        <sys_update_version display_value="sp_instance_e198abf01b0505107f172f4aab4bcb96">650a27741b0505107f172f4aab4bcb0f</sys_update_version>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2022-01-12 14:45:44</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

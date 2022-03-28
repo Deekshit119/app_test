@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sp_rel_widget_clone">
     <sp_rel_widget_clone action="INSERT_OR_UPDATE">
-        <child display_value="Copy of Icon Link">e4098b37dbbe4410011e177e16961957</child>
+        <child display_value="HVS Expense Icon Link">e4098b37dbbe4410011e177e16961957</child>
         <cloned>2020-02-13 10:06:34</cloned>
         <last_validated>2020-02-13 10:06:34</last_validated>
         <parent display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</parent>
@@ -192,10 +192,10 @@ a.color_box .fa {
         <sys_id>e8098b37dbbe4410011e177e1696195a</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>e4098b37dbbe4410011e177e16961957</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_rel_widget_clone_e8098b37dbbe4410011e177e1696195a</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
         <sys_updated_on>2020-02-13 10:06:34</sys_updated_on>

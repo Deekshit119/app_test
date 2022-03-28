@@ -14,7 +14,7 @@
         <delivery_plan_script/>
         <delivery_time>1970-01-03 00:00:00</delivery_time>
         <description><![CDATA[<p>Les nouvelles Directives institutionnelles sur le remboursement des frais sont disponibles via le lien suivant : « <a title="Consulter les documents" href="https://intranet.hopitalvs.ch/fr/news/Pages/Directives-institutionnelles-sur-le-remboursement-des-frais-2020.aspx" target="_blank" rel="noopener noreferrer nofollow">Consulter les documents</a> »</p>
-<p><br /></p>]]></description>
+<p> </p>]]></description>
         <display_price_property>non_zero</display_price_property>
         <entitlement_script/>
         <flow_designer_flow/>
@@ -132,16 +132,17 @@ gr_expLine.insert();]]></script>
         <sys_created_on>2020-02-05 10:43:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff844a95db3ec090011e177e16961952</sys_id>
-        <sys_mod_count>107</sys_mod_count>
+        <sys_mod_count>108</sys_mod_count>
         <sys_name>Demande de remboursement</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_ff844a95db3ec090011e177e16961952</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-09-21 13:21:54</sys_updated_on>
+        <sys_updated_by>benjamin.broch</sys_updated_by>
+        <sys_updated_on>2021-12-09 11:14:08</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
+        <taxonomy_topic/>
         <template/>
         <template_manager_roles/>
         <type>item</type>
@@ -159,8 +160,6 @@ gr_expLine.insert();]]></script>
         <visible_guide>true</visible_guide>
         <visible_standalone>true</visible_standalone>
         <workflow/>
-        <additional_review>false</additional_review>
-        <create_universal_request>false</create_universal_request>
     </sc_cat_item_producer>
     <sys_translated_text action="delete_multiple" query="documentkey=ff844a95db3ec090011e177e16961952"/>
     <sys_translated_text action="INSERT_OR_UPDATE">

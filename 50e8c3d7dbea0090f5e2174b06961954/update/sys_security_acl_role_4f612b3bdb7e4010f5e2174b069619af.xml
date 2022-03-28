@@ -7,11 +7,11 @@
         <sys_id>4f612b3bdb7e4010f5e2174b069619af</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>.x_hdvi2_expense.salary_manager</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_security_acl display_value="">c7612b3bdb7e4010f5e2174b069619af</sys_security_acl>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_security_acl display_value="x_hdvi2_expense_sheet.work_notes">c7612b3bdb7e4010f5e2174b069619af</sys_security_acl>
         <sys_update_name>sys_security_acl_role_4f612b3bdb7e4010f5e2174b069619af</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2020-02-13 11:53:14</sys_updated_on>

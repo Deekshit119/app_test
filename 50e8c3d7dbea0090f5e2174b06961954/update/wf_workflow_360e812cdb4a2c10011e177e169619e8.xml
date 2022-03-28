@@ -33,12 +33,12 @@
         <sys_created_by>benjamin.broch</sys_created_by>
         <sys_created_on>2021-12-16 11:03:36</sys_created_on>
         <sys_id>8c72c49c1b2441147f172f4aab4bcb1e</sys_id>
-        <sys_mod_count>5</sys_mod_count>
-        <sys_updated_by>benjamin.broch</sys_updated_by>
-        <sys_updated_on>2021-12-16 11:05:11</sys_updated_on>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_updated_by>h00001484</sys_updated_by>
+        <sys_updated_on>2021-12-16 13:35:23</sys_updated_on>
         <table>x_hdvi2_expense_sheet</table>
         <timezone/>
-        <validated>false</validated>
+        <validated>true</validated>
         <workflow display_value="Expense Management Approval - Training">360e812cdb4a2c10011e177e169619e8</workflow>
     </wf_workflow_version>
     <wf_workflow action="INSERT_OR_UPDATE">

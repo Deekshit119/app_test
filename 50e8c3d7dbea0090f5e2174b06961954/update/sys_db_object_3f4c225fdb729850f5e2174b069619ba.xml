@@ -28,15 +28,15 @@
         <sys_id>3f4c225fdb729850f5e2174b069619ba</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Fund</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_db_object_3f4c225fdb729850f5e2174b069619ba</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2020-08-28 14:55:56</sys_updated_on>
         <update_access>false</update_access>
-        <user_role display_value="x_hdvi2_expense.fund_user" name="x_hdvi2_expense.fund_user">007c2e1fdb729850f5e2174b0696194f</user_role>
+        <user_role display_value="x_hdvi2_expense.accounting_user" name="x_hdvi2_expense.accounting_user">007c2e1fdb729850f5e2174b0696194f</user_role>
         <ws_access>true</ws_access>
     </sys_db_object>
 </record_update>

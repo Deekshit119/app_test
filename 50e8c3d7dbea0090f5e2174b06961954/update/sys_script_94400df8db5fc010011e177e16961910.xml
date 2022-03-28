@@ -19,7 +19,7 @@
         <condition/>
         <description/>
         <execute_function>false</execute_function>
-        <filter_condition table="x_hdvi2_expense_line">statusCHANGESTO3^active=true^refunded_value&gt;0^EQ<item endquery="false" field="status" goto="false" newquery="false" operator="CHANGESTO" or="false" value="3"/>
+        <filter_condition table="x_hdvi2_expense_line">statusCHANGESTO3^active=true^refunded_value&gt;0^EQ<item display_value="Approved" endquery="false" field="status" goto="false" newquery="false" operator="CHANGESTO" or="false" value="3"/>
             <item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
             <item endquery="false" field="refunded_value" goto="false" newquery="false" operator="&gt;" or="false" value="0"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
@@ -59,10 +59,10 @@
         <sys_mod_count>5</sys_mod_count>
         <sys_name>HVS - When approved update requestor</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_script_94400df8db5fc010011e177e16961910</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2020-02-28 14:33:06</sys_updated_on>

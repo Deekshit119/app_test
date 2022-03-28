@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="hasLabels=true,use_document_viewer=true" audit="true" label="Expense Line" max_length="40" name="x_hdvi2_expense_line" sizeclass="22" type="collection">
+        <element attributes="edge_encryption_enabled=true" default="true" label="Active" max_length="40" name="active" read_only="true" type="boolean"/>
+        <element label="Comments" max_length="4000" name="comments" type="journal_input"/>
+        <element attributes="edge_encryption_enabled=true" label="Currency" max_length="32" name="currency" read_only="true" reference="fx_currency" type="reference"/>
+        <element label="Date expense" max_length="40" name="date_expense" read_only="true" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Description" max_length="1000" name="description" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Duplicated" max_length="40" name="duplicated" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Expense" max_length="32" name="expense" read_only="true" reference="x_hdvi2_expense_sheet" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,ref_ac_columns=locations,ref_ac_columns_search=true,ref_ac_display_value=false,ref_ac_order_by=to,ref_auto_completer=AJAXTableCompleter" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="From" max_length="50" name="location" read_only="true" reference="x_hdvi2_expense_expense_travel_km" reference_qual="km=0^EQ" reference_qual_condition="km=0^EQ" type="reference"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Location change reason" max_length="1024" name="location_change_reason" read_only="true" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" choice="1" label="Category for Divers" max_length="80" name="miscellaneous_account_code" read_only="true" type="string">
+            <choice/>
+        </element>
+        <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="40" name="number" read_only="true" type="string" use_dynamic_default="true"/>
+        <element attributes="edge_encryption_enabled=true" label="One way" max_length="40" name="one_way" read_only="true" type="boolean"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Other Location" max_length="500" name="other_location" type="string"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Other location to" max_length="500" name="other_location_to" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Refunded amount (CHF)" mandatory="true" max_length="20" name="refunded_amount" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true" label="Refunded value (KM)" mandatory="true" max_length="20" name="refunded_value" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true" label="Requested amount" max_length="20" name="requested_amount" read_only="true" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true" label="Requested value" max_length="20" name="requested_value" read_only="true" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true,ref_ac_columns=site,ref_ac_columns_search=true,ref_ac_display_value=false,ref_ac_order_by=code;label,ref_auto_completer=AJAXTableCompleter" calculation="(function calculatedFieldValue(current) {&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return '';  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="Rubric" max_length="32" name="rubric" reference="x_hdvi2_expense_loga_data" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="0" label="Status" max_length="40" name="status" read_only="true" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="pending" language="de" value="5"/>
+                <element inactive_on_update="false" label="pending" value="5"/>
+                <element inactive_on_update="false" label="pending" language="fr" value="5"/>
+                <element inactive_on_update="false" label="Annulé" language="fr" sequence="0" value="-1"/>
+                <element inactive_on_update="false" label="Annuliert" language="de" sequence="0" value="-1"/>
+                <element inactive_on_update="false" label="Canceled" sequence="0" value="-1"/>
+                <element inactive_on_update="false" label="Brouillon" language="fr" sequence="1" value="0"/>
+                <element inactive_on_update="false" label="Draft" sequence="1" value="0"/>
+                <element inactive_on_update="false" label="Entwurf" language="de" sequence="1" value="0"/>
+                <element inactive_on_update="false" label="Angefragt" language="de" sequence="2" value="1"/>
+                <element inactive_on_update="false" label="Requested" sequence="2" value="1"/>
+                <element inactive_on_update="false" label="Soumis" language="fr" sequence="2" value="1"/>
+                <element inactive_on_update="false" label="Reviewed" sequence="3" value="2"/>
+                <element inactive_on_update="false" label="Validé" language="fr" sequence="3" value="2"/>
+                <element inactive_on_update="false" label="Validiert" language="de" sequence="3" value="2"/>
+                <element inactive_on_update="false" label="Approuvé" language="fr" sequence="5" value="3"/>
+                <element inactive_on_update="false" label="Approved" sequence="5" value="3"/>
+                <element inactive_on_update="false" label="Genehmigt" language="de" sequence="5" value="3"/>
+                <element inactive_on_update="false" label="Fertig" language="de" sequence="10" value="4"/>
+                <element inactive_on_update="false" label="Sent for refund" sequence="10" value="4"/>
+                <element inactive_on_update="false" label="Terminé" language="fr" sequence="10" value="4"/>
+            </choice>
+        </element>
+        <element choice="1" label="Training Category" max_length="155" name="training_category" read_only="true" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Frais de cours" language="fr" sequence="1" value="training_fee"/>
+                <element inactive_on_update="false" label="Training Fee" sequence="1" value="training_fee"/>
+                <element inactive_on_update="false" label="Frais de déplacement" language="fr" sequence="5" value="travel_expenses"/>
+                <element inactive_on_update="false" label="Travel Expenses" sequence="5" value="travel_expenses"/>
+                <element inactive_on_update="false" label="Accomodation Costs" sequence="10" value="accomodation_costs"/>
+                <element inactive_on_update="false" label="Frais de logement" language="fr" sequence="10" value="accomodation_costs"/>
+                <element inactive_on_update="false" label="Autres frais" language="fr" sequence="15" value="other_expenses"/>
+                <element inactive_on_update="false" label="Other Expenses" sequence="15" value="other_expenses"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true,ref_ac_columns=locations,ref_ac_columns_search=true,ref_ac_display_value=false,ref_ac_order_by=to,ref_auto_completer=AJAXTableCompleter" label="To" max_length="32" name="travelkm" read_only="true" reference="x_hdvi2_expense_expense_travel_km" reference_qual="km=0^EQ" reference_qual_condition="km=0^EQ" type="reference"/>
+        <element label="Update reason" max_length="1024" name="update_reason" type="string"/>
+        <index name="index">
+            <element name="currency"/>
+        </index>
+        <index name="index2">
+            <element name="location"/>
+        </index>
+        <index name="index3">
+            <element name="rubric"/>
+        </index>
+        <index name="index4">
+            <element name="expense"/>
+        </index>
+        <index name="index5">
+            <element name="requested_amount"/>
+            <element name="requested_value"/>
+            <element name="status"/>
+            <element name="travelkm"/>
+            <element name="location"/>
+        </index>
+        <index name="index6">
+            <element name="travelkm"/>
+        </index>
+    </element>
+</database>

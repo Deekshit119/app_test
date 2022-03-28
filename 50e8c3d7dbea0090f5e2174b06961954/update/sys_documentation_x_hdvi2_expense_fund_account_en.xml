@@ -15,10 +15,10 @@
             <sys_id>810dee5fdb729850f5e2174b069619df</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>Account</sys_name>
-            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
             <sys_update_name>sys_documentation_x_hdvi2_expense_fund_account_en</sys_update_name>
             <sys_updated_by>benjamin.broch</sys_updated_by>
             <sys_updated_on>2020-08-28 14:58:27</sys_updated_on>

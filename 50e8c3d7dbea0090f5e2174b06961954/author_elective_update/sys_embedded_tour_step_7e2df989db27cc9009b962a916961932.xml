@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="DELETE">
+        <action>false</action>
+        <action_event>next</action_event>
+        <action_target/>
+        <action_target_ref display_value="xpath">c521cc81dba38c9009b962a916961912</action_target_ref>
+        <active>true</active>
+        <content><![CDATA[Ce lien permet de déléguer la soumission de vos demandes de &#34;Remboursement de frais&#34;. ]]></content>
+        <guide display_value="Demandes Remboursement de Frais">f577f3b4db238c9009b962a9169619f0</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name/>
+        <options>{"url":"/exphvs?id=exp_delegate"}</options>
+        <order>7</order>
+        <placement>bottom</placement>
+        <step_type>step</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-12 22:19:01</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7e2df989db27cc9009b962a916961932</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_7e2df989db27cc9009b962a916961932</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-12 22:38:10</sys_updated_on>
+        <target/>
+        <target_ref display_value="xpath">c521cc81dba38c9009b962a916961912</target_ref>
+        <title/>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window>exphvs</window>
+    </sys_embedded_tour_step>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</application>
+        <comments/>
+        <file_path/>
+        <instance_id>64e712aa0a0a8c0801628c8be8a47beb</instance_id>
+        <instance_name>vs</instance_name>
+        <name>sys_embedded_tour_step_7e2df989db27cc9009b962a916961932</name>
+        <order/>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_embedded_tour_step"&gt;&lt;sys_embedded_tour_step action="INSERT_OR_UPDATE"&gt;&lt;action&gt;false&lt;/action&gt;&lt;action_event&gt;next&lt;/action_event&gt;&lt;action_target/&gt;&lt;action_target_ref display_value="xpath"&gt;c521cc81dba38c9009b962a916961912&lt;/action_target_ref&gt;&lt;active&gt;true&lt;/active&gt;&lt;content&gt;&lt;![CDATA[Ce lien permet de déléguer la soumission de vos demandes de &amp;#34;Remboursement de frais&amp;#34;. ]]&gt;&lt;/content&gt;&lt;guide display_value="Demandes Remboursement de Frais"&gt;f577f3b4db238c9009b962a9169619f0&lt;/guide&gt;&lt;implicit&gt;false&lt;/implicit&gt;&lt;link/&gt;&lt;name/&gt;&lt;options&gt;{"url":"/exphvs?id=exp_delegate"}&lt;/options&gt;&lt;order&gt;7&lt;/order&gt;&lt;placement&gt;bottom&lt;/placement&gt;&lt;step_type&gt;step&lt;/step_type&gt;&lt;sys_class_name&gt;sys_embedded_tour_step&lt;/sys_class_name&gt;&lt;sys_created_by&gt;h40009222&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-03-12 22:19:01&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;7e2df989db27cc9009b962a916961932&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Expense Management" source="x_hdvi2_expense"&gt;50e8c3d7dbea0090f5e2174b06961954&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Expense Management"&gt;50e8c3d7dbea0090f5e2174b06961954&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_embedded_tour_step_7e2df989db27cc9009b962a916961932&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;h40009222&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-03-12 22:38:10&lt;/sys_updated_on&gt;&lt;target/&gt;&lt;target_ref display_value="xpath"&gt;c521cc81dba38c9009b962a916961912&lt;/target_ref&gt;&lt;title/&gt;&lt;ui_version&gt;dynamic&lt;/ui_version&gt;&lt;view/&gt;&lt;window&gt;exphvs&lt;/window&gt;&lt;/sys_embedded_tour_step&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1779168723</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>e66e6c0ddb6f8c9009b962a9169619c2</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-12 22:38:10</sys_created_on>
+        <sys_id>eb81ce81db67cc9009b962a9169619ee</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>170d0e5debd0000001</sys_recorded_at>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-12 22:38:10</sys_updated_on>
+        <type>Étape de présentation</type>
+        <update_guid>ef81ce816967cc9078d354dc5e07fbed</update_guid>
+        <update_guid_history>ef81ce816967cc9078d354dc5e07fbed:-1779168723,bb51ce817067cc908a21426cac7d1c9f:-1855501300,ea314e816c67cc909810a22e038e0b2f:-440986355,7e2df9893927cc90274c3c53c1342833:-1855501300</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-12 22:39:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="sys_embedded_tour_step">sys_embedded_tour_step</sys_db_object>
+        <sys_id>526e5cee40dd4b749ac4f81bb7565ec4</sys_id>
+        <sys_metadata>7e2df989db27cc9009b962a916961932</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope_delete display_value="">472e1ff3166d4450a148eb190542eac9</sys_scope_delete>
+        <sys_update_name>sys_embedded_tour_step_7e2df989db27cc9009b962a916961932</sys_update_name>
+        <sys_update_version display_value="sys_embedded_tour_step_7e2df989db27cc9009b962a916961932">eb81ce81db67cc9009b962a9169619ee</sys_update_version>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-12 22:39:30</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

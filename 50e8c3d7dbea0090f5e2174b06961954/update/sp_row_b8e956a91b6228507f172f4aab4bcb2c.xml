@@ -3,7 +3,7 @@
         <class_name/>
         <order>2</order>
         <sp_column/>
-        <sp_container display_value="Copy of My Team (1) - Container 1">f4e956a91b6228507f172f4aab4bcb23</sp_container>
+        <sp_container display_value="My Department Approvals - Container 1">f4e956a91b6228507f172f4aab4bcb23</sp_container>
         <sys_class_name>sp_row</sys_class_name>
         <sys_created_by>benjamin.broch</sys_created_by>
         <sys_created_on>2021-02-25 13:00:58</sys_created_on>
@@ -11,10 +11,10 @@
         <sys_id>b8e956a91b6228507f172f4aab4bcb2c</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>2</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sp_row_b8e956a91b6228507f172f4aab4bcb2c</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2021-02-25 13:00:58</sys_updated_on>

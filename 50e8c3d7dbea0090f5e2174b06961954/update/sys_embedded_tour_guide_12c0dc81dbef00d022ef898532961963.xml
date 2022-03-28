@@ -3,7 +3,7 @@
         <active>true</active>
         <additional_parameters>sys_id=ff844a95db3ec090011e177e16961952</additional_parameters>
         <autolaunch_order>0</autolaunch_order>
-        <context>exphvs?id=sc_cat_item&amp;gtd_portal_title=Expense Management&amp;gtd_page_title=Servicekatalog&amp;sys_id=ff844a95db3ec090011e177e16961952</context>
+        <context>exphvs?id=sc_cat_item&amp;gtd_portal_title=Expense Management&amp;gtd_page_title=Catalogue de services&amp;sys_id=ff844a95db3ec090011e177e16961952</context>
         <description/>
         <has_concl>true</has_concl>
         <has_intro>true</has_intro>
@@ -20,16 +20,17 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>12c0dc81dbef00d022ef898532961963</sys_id>
-        <sys_mod_count>11</sys_mod_count>
-        <sys_name>Formular für Anträge auf Kostenerstattung</sys_name>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Demandes Remboursement de frais Formulaire</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_embedded_tour_guide_12c0dc81dbef00d022ef898532961963</sys_update_name>
-        <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-28 08:33:28</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2020-05-10 01:52:01</sys_updated_on>
+        <tour_id>TOUR0000001</tour_id>
         <type>service_portal</type>
     </sys_embedded_tour_guide>
 </record_update>

@@ -13,6 +13,7 @@
         <options>{"url":"/exphvs?id=user_profile&amp;sys_id=8a21e682dbb6ff80bbe25c88f4961984"}</options>
         <order>10</order>
         <placement>right</placement>
+        <skippable>false</skippable>
         <step_type>step</step_type>
         <sys_class_name>sys_embedded_tour_step</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
@@ -21,16 +22,16 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>215d794ddb27cc9009b962a9169619ce</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name/>
         <sys_overrides/>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_embedded_tour_step_215d794ddb27cc9009b962a9169619ce</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-03-16 09:46:05</sys_updated_on>
+        <sys_updated_on>2020-04-27 16:06:35</sys_updated_on>
         <target/>
         <target_ref display_value="xpath">fff6484ddbe38c9009b962a916961991</target_ref>
         <title/>

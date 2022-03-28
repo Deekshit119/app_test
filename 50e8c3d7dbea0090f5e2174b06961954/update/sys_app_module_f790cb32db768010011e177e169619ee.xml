@@ -6,7 +6,7 @@
         <content_page/>
         <device_type/>
         <filter table="sys_script_include">active=true^sys_scope=50e8c3d7dbea0090f5e2174b06961954^EQ<item endquery="false" field="active" goto="false" newquery="false" operator="=" or="false" value="true"/>
-            <item display_table="sys_scope" display_value="Expense Management" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="50e8c3d7dbea0090f5e2174b06961954"/>
+            <item display_table="sys_scope" display_value="HVS Expense Management" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="50e8c3d7dbea0090f5e2174b06961954"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </filter>
         <help_hint/>
@@ -37,10 +37,10 @@
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Script Includes</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_app_module_f790cb32db768010011e177e169619ee</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2020-02-10 06:56:00</sys_updated_on>

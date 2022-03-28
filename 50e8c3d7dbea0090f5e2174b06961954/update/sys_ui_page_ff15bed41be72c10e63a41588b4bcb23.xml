@@ -1,85 +1,709 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
     <sys_ui_page action="INSERT_OR_UPDATE">
         <category>general</category>
-        <client_script><![CDATA[var snewSelectedCateg;
+        <client_script><![CDATA[// Variables globales 
+var snewSelectedCateg; // utiliser pour sauvegarder la ctégorie sélectionnée
+var snewCategCode; // utiliser pour sauvegarde le code de la catégorie sélectionnée
 
-function mySelection(sel) {
+//***********************************************************************
+// Ajoute par défaut l'indication obligatoire sur les chamos de saisie
+// -----------------------------------------------------------------------
+var el1 = gel('div_refunded_value');
+if(el1) {
+	var el_lbl1 = gel('refunded_value');
+	if(el_lbl1.value && el_lbl1.value!='0')
+		el_lbl1.labels[0].setAttribute("class", "notrequired");
+	else
+		el_lbl1.labels[0].setAttribute("class", "required");
+	el1.addClassName("hide");
+}
+
+var el2 = gel('div_refunded_amount');
+if(el2) {
+	var el_lbl2 = gel('refunded_amount');
+	if(el_lbl2.value && el_lbl2.value!='0')
+		el_lbl2.labels[0].setAttribute("class", "notrequired");
+	else
+		el_lbl2.labels[0].setAttribute("class", "required");
+	el2.addClassName("hide");
+}
+
+var el3 = gel('div_location_to');
+if(el3) {
+	var el_lbl3 = gel('location_to');
+	if(el3.selectedIndex!='0')
+		el_lbl3.labels[0].setAttribute("class", "notrequired");
+	else
+		el_lbl3.labels[0].setAttribute("class", "required");
+	el3.addClassName("hide");
+}
+
+var el4 = gel('div_location_from');
+if(el4) {
+	var el_lbl4 = gel('location_from');
+	if(el4.selectedIndex!='0')
+		el_lbl4.labels[0].setAttribute("class", "notrequired");
+	else
+		el_lbl4.labels[0].setAttribute("class", "required");
+	el4.addClassName("hide");
+}
+
+var el6 = gel('div_sub_category');
+if(el6) {
+	var el_lbl6 = gel('sub_category');
+	if(el_lbl6.selectedIndex!='0')
+		el_lbl6.labels[0].setAttribute("class", "notrequired");
+	else
+		el_lbl6.labels[0].setAttribute("class", "required");
+	el6.addClassName("hide");
+}
+
+var el5 = gel('rubric_code');
+if(el5) {
+	el5.labels[0].setAttribute("class", "required");
+}
+//***********************************************************************
+
+function checkMandatory(el, item){
+	var el_value=''+el.value;
+	if(el_value!="" && el_value!=0)
+		el.labels[0].setAttribute("class", "notrequired");
+	else {
+		el.labels[0].setAttribute("class", "required");
+		gel('error_refunded_amount').innerHTML ='';
+	}
+	
+	if(item=='rubric') {
+		SetFieldsDisplay(el);
+		var RubricId = el.options[el.selectedIndex].value;
+		var obj = getLogaData(RubricId);
+		var sCode = obj.code_loga;
+		var iAmount = parseInt(obj.max_amount,10);
+
+		if(sCode == '855') {
+			var el_855 = gel('div_refunded_amount');
+			if(el_855) {
+				var el_855_amount = gel('refunded_amount');
+				el_855_amount.value = iAmount;
+			}		
+		}
+	}
+	
+	if(item=='location_from' || item=='location_to') {
+		var iNbKM = getLocationKMs();
+		var el1 = gel('div_refunded_value');
+		if(el1) {
+			var el_value_km = gel('refunded_value');
+			el_value_km.value = iNbKM;
+		}
+
+		var el2 = gel('div_refunded_amount');
+		if(el2) {
+			var el_amount = gel('refunded_amount');
+			el_amount.value = iNbKM;
+		}		
+	}
+	
+	if(item=='refunded_amount') {
+		var amount = parseFloat('0'+gel('refunded_amount').value,10);
+		if(amount==0 || amount < 0 || amount >= 10000 || isNaN(amount)) {
+			gel('error_refunded_amount').innerHTML =getMessage('expense.rubric_meal.amount.control');
+		}
+		else {
+			gel('error_refunded_amount').innerHTML ='';
+		}
+	}
+	
+	if(item=='sub_category') {
+		var value = el.value;
+		if(value.toLowerCase() == 'none' || value == '' || value == null) {
+			gel('error_sub_category').innerHTML =getMessage('expense.rubric_meal.amount.control');
+		}
+		else {
+			gel('error_sub_category').innerHTML ='';
+		}
+	}
+	
+}
+
+//***********************************************************************
+// Appel Ajax pour récupérer les données Loga
+// ----------------------------------------------------------------------
+function getLogaData(RubricId){
+    try {
+		var ga = new GlideAjax('HVSExpenseUtils');
+		ga.addParam('sysparm_name', 'getLogaData');
+		ga.addParam('LogaRubricId', RubricId);
+		ga.getXMLWait();
+		return JSON.parse(ga.getAnswer());       
+    } catch (err) {
+        jslog('A JavaScript runtime error occurred: ' + err.message * '[Function getLogaData - UI Page exp_line_change_sub_popup]');
+		return 0;
+    }
+}
+//***********************************************************************
+
+//***********************************************************************************
+// Appel Ajax pour récupérer le NB de KM entre un lieu de départ et un lieu d'arrivée
+// ----------------------------------------------------------------------------------
+function getLocationKMs(){
+	var el_from = gel('location_from');
+	var el_to = gel('location_to');
+
+	var sFrom = el_from.options[el_from.selectedIndex].text;
+	var sTo = el_to.options[el_to.selectedIndex].text;
+	sTo = sTo.replace(/ /g, '');
+	sFrom = sFrom.replace(/ /g, '');
+	
+    try {
+		var ga = new GlideAjax('HVSExpenseUtils');
+		ga.addParam('sysparm_name', 'getNbKM');
+		ga.addParam('sysparm_locfrom', sFrom);
+		ga.addParam('sysparm_locto', sTo);
+		ga.getXMLWait();
+		var ret = JSON.parse(ga.getAnswer());
+		return ret.value;       
+    } catch (err) {
+        jslog('A JavaScript runtime error occurred: ' + err.message * '[Function getLocationKMs - UI Page exp_line_change_sub_popup]');
+		return 0;
+    }
+}
+//***********************************************************************************
+
+
+//*******************************************************************************
+// Fonction gestion affichage des champs de saisie selon la rubrique sélectionnée
+// ------------------------------------------------------------------------------
+function SetFieldsDisplay(sel) {
 	snewSelectedCateg = sel.options[sel.selectedIndex].text;
 	var arr = snewSelectedCateg.split('|');
-	snewSelectedCateg = arr[1].replaceAll("\\s", "");
-}
+	snewCategCode = arr[1].replace(/ /g, '');
+	
+	var el1, el2, el3, el4;
+	switch (snewCategCode) {
+		case '809': // KM Covid - on affiche les champs de destination et le champ de saisie des KM. On cache le champ de saisie des montants
+			el1 = gel('div_refunded_value');
+			if(el1) {
+				el1.removeClassName("hide");
+			}
 
+			el2 = gel('div_refunded_amount');
+			if(el2) {
+				el2.addClassName("hide");
+			}
+
+			el3 = gel('div_location_to');
+			if(el3) {
+				el3.addClassName("hide");
+			}
+
+			el4 = gel('div_location_from');
+			if(el4) {
+				el4.addClassName("hide");
+			}
+
+			el6 = gel('div_sub_category');
+			if(el6) {
+				el6.addClassName("hide");
+			}
+			
+			break;
+		case '79C': // KM - on affiche les champs de destination et le champ de saisie des KM. On cache le champ de saisie des montants
+			el1 = gel('div_refunded_value');
+			if(el1) {
+				el1.removeClassName("hide");
+			}
+
+			el2 = gel('div_refunded_amount');
+			if(el2) {
+				el2.addClassName("hide");
+			}
+
+			el3 = gel('div_location_to');
+			if(el3) {
+				el3.removeClassName("hide");
+			}
+
+			el4 = gel('div_location_from');
+			if(el4) {
+				el4.removeClassName("hide");
+			}
+
+			el6 = gel('div_sub_category');
+			if(el6) {
+				el6.addClassName("hide");
+			}
+						
+			break;
+		case 'D01': // KM - on affiche les champs de destination et le champ de saisie des KM. On cache le champ de saisie des montants
+			el1 = gel('div_refunded_value');
+			if(el1) {
+				el1.addClassName("hide");
+			}
+
+			el2 = gel('div_refunded_amount');
+			if(el2) {
+				el2.removeClassName("hide");
+			}
+
+			el3 = gel('div_location_to');
+			if(el3) {
+				el3.addClassName("hide");
+			}
+
+			el4 = gel('div_location_from');
+			if(el4) {
+				el4.addClassName("hide");
+			}
+
+			el6 = gel('div_sub_category');
+			if(el6) {
+				el6.removeClassName("hide");
+				var el_lbl6 = gel('sub_category');
+				if(el_lbl6.selectedIndex!='0')
+					el_lbl6.labels[0].setAttribute("class", "notrequired");
+				else
+					el_lbl6.labels[0].setAttribute("class", "required");
+			}
+						
+			break;
+		default: // On cache les champs de destination ainsi que le champ de saisie des KM. On affiche le champ de saisie des montants
+			el1 = gel('div_refunded_value');
+			if(el1) {
+				el1.addClassName("hide");
+			}
+
+			el2 = gel('div_refunded_amount');
+			if(el2) {
+				el2.removeClassName("hide");
+			}
+
+			el3 = gel('div_location_to');
+			if(el3) {
+				el3.addClassName("hide");
+			}
+
+			el4 = gel('div_location_from');
+			if(el4) {
+				el4.addClassName("hide");
+			}
+
+			el6 = gel('div_sub_category');
+			if(el6) {
+				el6.addClassName("hide");
+			}
+	}
+}
+//*******************************************************************************
+
+
+//**********************************************************************************
+// Funciton exécutée pour déterminer si un élément contient une classe spécifique
+// ---------------------------------------------------------------------------------
+function hasClass(element, cls) {
+   //return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+	return element.classList.contains(cls);
+}
+//**********************************************************************************
+
+//**********************************************************************************
+// Funciton exécutée quand l'utilisateur clique sur le bouton OK pour valider les changements
+// ---------------------------------------------------------------------------------
 function actionOK() {
-    var c = gel('cancel_or_submit');
-    c.value = "continue";
-    var new_category = gel('miscellaneous_account_code').value;
-	var id_exp = gel('id_expense_line').value;
+	var c = gel('cancel_or_submit');
+	c.value = "continue"; // on affecte la valeur continue au bouton "cancel_or_submit"
 
-	if (new_category.toLowerCase() == 'none' || new_category == '' || new_category == null || snewSelectedCateg == gel('subcateg_value').value) {
+	var new_category = gel('rubric_code').value; // récupération du sys_id de la catégorie
 
-        var msg = getMessage("You need to select a new category");
-        alert(msg);
+	// Réccuération de la valeur du montant saisi
+	var el_amount = gel('refunded_amount');
+	if(el_amount) {
+		var amount = parseFloat('0'+gel('refunded_amount').value,10);
+	}
 
-        return false;
+	var el_sub_category = gel('sub_category');
+	var new_sub_category = '';
+	var sMsgSubCateg = getMessage("You need to select a new category");
+	sMsgSubCateg = sMsgSubCateg.replace('catégorie ','').replace('neue ','').replace('new ','sub-'); 
 
-    } else {
-        return true;
-    }
+	if(el_sub_category) {
+		if(!hasClass(gel('div_sub_category'),'hide')) {
+			new_sub_category = el_sub_category.value;
+		}
+	}
 
+	// Affiche un message 'erreur' si demande de validation sans aucune catégorie sélectionnée
+	if (new_category.toLowerCase() == 'none' || new_category == '' || new_category == null) {
+		gel('error_rubric_code').innerHTML = getMessage("You need to select a new category");
+		return false; // Annulation de la validation
+	}
+	if(el_sub_category) {
+		if (!hasClass(gel('div_sub_category'),'hide')){
+			if(new_sub_category.toLowerCase() == 'none' || new_sub_category == '' || new_sub_category == null) {
+				gel('error_sub_category').innerHTML = sMsgSubCateg;
+				return false;	  // Annulation de la validation
+			}
+		} 
+	}
+	if(el_amount) {  // Affiche un message 'erreur' si le montant saisie ne respecte pas les critères de valeur
+		if (amount==0 || amount < 0 || amount >= 10000 || isNaN(amount)) {
+			gel('error_refunded_amount').innerHTML=getMessage('expense.rubric_meal.amount.control');
+			return false; // Annulation de la validation
+		}
+	}
+	
+	//return false; // Validation confirmée
+	
 }
+//**********************************************************************************
 
+//***********************************************************************************************
+// Funciton exécutée quand l'utilisateur clique sur le bouton Cancel pour annuler les changements
+// ----------------------------------------------------------------------------------------------
 function cancel() {
     var c = gel('cancel_or_submit');
     c.value = "cancel";
     GlideDialogWindow.get().destroy();
     return false;
-}]]></client_script>
+}
+//***********************************************************************************************
+]]></client_script>
         <description/>
         <direct>false</direct>
         <endpoint>x_hdvi2_expense_exp_line_change_sub_popup.do</endpoint>
         <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
 <j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
-	<g:ui_form>
+	<style>
+		label.required::before {
+			content: "*";
+			zoom: 1.5;
+			margin-right: 4px;
+			color: red;
+		}
+		label.notrequired::before {
+			content: '*';
+			zoom: 1.5;
+			margin-right: 4px;
+			color: grey;
+		}
+		.padding_Div {
+			padding-bottom: 20px;
+		}
+		/* Modal Content */
+		.modal-content {
+		  //background-color: #ff0000;
+		  margin: auto;
+		  padding: 20px;
+		  border: 5px solid #888;
+		  //width: 700px;
+		}
+	</style>
+	<g:evaluate>
+		var id_expense_line = "${sysparm_record}"; 
+		var subcateg_value = "${sysparm_subcateg}";
+		var bIsmiscellaneous = "${sysparm_is_miscellaneous}";
+		var bisValue = "${sysparm_is_value}"; 
+		var sMsgSubCategory = ''+gs.getMessage('Please select the new category:')+'';
+		sMsgSubCategory = sMsgSubCategory.replace('catégorie ','').replace('neue ','').replace('new ','sub-');
+	</g:evaluate>
 
-		<g:evaluate>
-			var id_expense_line = "${sysparm_record}"; 
-			var subcateg_value = "${sysparm_subcateg}";
-			var arr = subcateg_value.split('|');
-			subcateg_value = arr[1].replaceAll("\\s", "");
-		</g:evaluate>
-		<g:evaluate var="jvar_LoopOnTask">
-			var src = new GlideRecord('question_choice');
-			<!-- Comment below when testing -->
-			src.addEncodedQuery("question=063b9501db311090011e177e169619ec"); 
-			src.orderBy('text');
-			src.query();  	
-		</g:evaluate>		
-		
+	<g:evaluate var="jvar_LoopOnTask">
+		var src = new GlideRecord('question_choice');
+		<!-- Comment below when testing -->
+		src.addEncodedQuery("question=063b9501db311090011e177e169619ec"); 
+		src.orderBy('text');
+		src.query();  	
+	</g:evaluate>		
+
+	<g:evaluate var="jvar_LoopOnRubric">
+		var rubric = new GlideRecord('x_hdvi2_expense_loga_data');
+		<!-- Comment below when testing -->
+		rubric.addEncodedQuery("type=standard^code=806^ORcode=D01^ORcode=807"); 
+		rubric.orderBy('label');
+		rubric.query();  	
+	</g:evaluate>		
+
+	<g:evaluate var="jvar_LoopOnLocationForm">
+		var location_from = new GlideRecord('x_hdvi2_expense_expense_travel_km');
+		<!-- Comment below when testing -->
+		location_from.addEncodedQuery("km=0^ORkm=NULL^locationsNOT LIKEHôpital^"); 
+		location_from.orderBy('locations');
+		location_from.query();  	
+	</g:evaluate>		
+
+	<g:evaluate var="jvar_LoopOnLocationTo">
+		var location_to = new GlideRecord('x_hdvi2_expense_expense_travel_km');
+		<!-- Comment below when testing -->
+		location_to.addEncodedQuery("km=0^ORkm=NULL^locationsNOT LIKEHôpital^"); 
+		location_to.orderBy('locations');
+		location_to.query();  	
+	</g:evaluate>		
+
+	<g:evaluate var="jvar_LoopOnGetInfos">
+		var getInfos = new GlideRecord('x_hdvi2_expense_line');
+		<!-- Comment below when testing -->
+		getInfos.addEncodedQuery("sys_id=${id_expense_line}"); 
+		getInfos.query();  
+	</g:evaluate>		
+
+	<g:ui_form>
+		<input type="hidden" id="bisValue" name="bisValue" value="${bisValue}" />
 		<input type="hidden" id="subcateg_value" name="subcateg_value" value="${subcateg_value}" />
 		<input type="hidden" id="id_expense_line" name="id_expense_line" value="${id_expense_line}" />
 		<input type="hidden" id="cancel_or_submit" name="cancel_or_submit" value=""/>
-		<br />	
-		${gs.getMessage('Please select the new subcategory:')}
-		<br /><br />
-		<table width="100%">
-			<tr>
-				<td>
-					<!-- g:ui_reference name="miscellaneous_account_code" query="question=063b9501db311090011e177e169619ec" id="miscellaneous_account_code" table="question_choice" completer="AJAXTableCompleter" columns="miscellaneous_account_code" /-->
-				  <select id="miscellaneous_account_code" name="miscellaneous_account_code" onChange="mySelection(this);">  
-					  <option value="none">
-						  ${gs.getMessage('Select a value')}
-					  </option>
-					  <j:while test="${src.next()}">
-						  <option value="${src.sys_id}">
-							  ${src.text.getDisplayValue()} | ${src.value}
-						  </option>
-					  </j:while> 
-				  </select>
-				</td>
-			</tr>
-			<tr>
-				</tr>
-		</table>
+		<j:while test="${getInfos.next()}">
+			<!-- ****************************** -->
+			<!-- Code for update sub categories -->
+			<!-- ****************************** -->
+			<j:if test="${bIsmiscellaneous!=''}">
+				<div class="section-content with-overflow">
+					<div class="row padding_Div">
+						<div class="col-xs-12">
+							<div id="div_parent_rubric_code" class="form-group ">
+								<div nowrap="true">
+									<label for="rubric_code" dir="ltr" class=" col-xs-12 control-label">
+										<span title="" class="label-text" data-html="false" data-original-title="">${gs.getMessage('Please select the new category:')}</span>
+									</label>
+									<div class="col-xs-10 col-md-9 col-lg-8 form-field input_controls">
+										<select role="listbox" id="rubric_code" name="rubric_code" onChange="checkMandatory(this,'rubric');" class="form-control">  
+											<option value="none" style="background: white; color: black; cursor: none; display:none;">
+												${gs.getMessage('Select a value')}
+											</option>
+											<j:while test="${src.next()}">
+												<!-- Parcours la liste de sous-catégories via le GlideRecord "src" -->
+												<!-- on affecte la catégorie courante dans Categ_init -->
+												<!-- on affecte la catégorie du record lu dans Categ_choice -->
+												<g:evaluate>
+													var categ_choice = "${src.text.getDisplayValue()}"
+													categ_choice += " | ";
+													categ_choice += "${src.value}";
+													
+													var categ_init = "$[sysparm_subcateg]";
+												</g:evaluate>
+												<!-- si la ctaégorie du record lu correspond à la catégorie actuelle alors on met à vrai le booléen bTest -->
+												<g:evaluate jelly="true">
+													var bTest = ("${sysparm_subcateg}"=="${categ_choice}");
+												</g:evaluate>
+												<!-- si bTest vaut vrai alors on met en surbrillance la catégorie -->
+												<j:if test="${bTest}">
+													<option aria-label="OK" disabled="true" value="${src.sys_id}" style="background: red; color: white;">
+														${src.text.getDisplayValue()} | ${src.value}
+													</option>
+												</j:if>
+												<!-- si bTest vaut faut alors pas de surbrillance la catégorie -->
+												<j:if test="${!bTest}">
+													<option value="${src.sys_id}">
+														${src.text.getDisplayValue()} | ${src.value}
+													</option>
+												</j:if>
+											</j:while> 
+										</select>
+									<!-- div utilisé pour afficher des messages suite contrôle des information saisies -->
+									<div class="alert-info" id="error_rubric_code"></div>
+									</div>
+								</div>
+								<div class="col-xs-2 col-sm-3 col-lg-2 form-field-addons">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</j:if>
+
+			<!-- *********************************** -->
+			<!-- Code for update standard categories -->
+			<!-- *********************************** -->
+			<j:if test="${bIsmiscellaneous==''}">
+				<div class="section-content with-overflow">
+					<div class="row padding_Div">
+						<div class="col-xs-12">
+							<div id="div_parent_rubric_code" class="form-group ">
+								<div nowrap="true">
+									<label for="rubric_code" dir="ltr" class=" col-xs-12 control-label">
+										<span title="" class="label-text" data-html="false" data-original-title="">${gs.getMessage('Please select the new category:')}</span>
+									</label>
+									<div class="col-xs-10 col-md-9 col-lg-8 form-field input_controls">
+										<select role="listbox" id="rubric_code" name="rubric_code" onChange="checkMandatory(this,'rubric');" class="form-control">  
+											<option value="none" style="background: white; color: black; cursor: none; display:none;">
+												${gs.getMessage('Select a value')}
+											</option>
+											<j:while test="${rubric.next()}">
+												<!-- Parcours la liste de sous-catégories via le GlideRecord "src" -->
+												<!-- si la ctaégorie du record lu correspond à la catégorie actuelle alors on met en surbrillance la catégorie -->
+												<j:if test="${subcateg_value==rubric.sys_id}">
+													<option aria-label="OK" disabled="true" value="${rubric.sys_id}" style="background: red; color: white;">
+														${rubric.label.getDisplayValue()} | ${rubric.code.getDisplayValue()}
+													</option>
+												</j:if>
+												<!-- si la ctaégorie du record lu ne correspond pas à la catégorie actuelle alors on ne met pas en surbrillance la catégorie -->
+												<j:if test="${subcateg_value!=rubric.sys_id}">
+													<option value="${rubric.sys_id}">
+														${rubric.label.getDisplayValue()} | ${rubric.code.getDisplayValue()}
+													</option>
+												</j:if>
+											</j:while> 
+										</select>
+									<!-- div utilisé pour afficher des messages suite contrôle des information saisies -->
+									<div class="alert-info" id="error_rubric_code"></div>
+									</div>
+								</div>
+								<div class="col-xs-2 col-sm-3 col-lg-2 form-field-addons">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="div_sub_category" class="row padding_Div">
+						<div class="col-xs-12">
+							<div id="div_parent_sub_category" class="form-group ">
+								<div nowrap="true">
+									<label for="sub_category" dir="ltr" class=" col-xs-12 control-label">
+										<span title="" class="label-text" data-html="false" data-original-title="">${sMsgSubCategory}</span>
+									</label>
+									<div class="col-xs-10 col-md-9 col-lg-8 form-field input_controls">
+										<select role="listbox" id="sub_category" name="sub_category" onChange="checkMandatory(this,'sub_category');" class="form-control">  
+											<option value="none" style="background: white; color: black; cursor: none; display:none;">
+												${gs.getMessage('Select a value')}
+											</option>
+											<j:while test="${src.next()}">
+												<!-- Parcours la liste de sous-catégories via le GlideRecord "src" -->
+												<!-- on affecte la catégorie courante dans Categ_init -->
+												<!-- on affecte la catégorie du record lu dans Categ_choice -->
+												<g:evaluate>
+													var categ_choice = "${src.text.getDisplayValue()}"
+													categ_choice += " | ";
+													categ_choice += "${src.value}";
+
+													var categ_init = "$[sysparm_subcateg]";
+												</g:evaluate>
+												<!-- si la ctaégorie du record lu correspond à la catégorie actuelle alors on met à vrai le booléen bTest -->
+												<g:evaluate jelly="true">
+													var bTest = ("${sysparm_subcateg}"=="${categ_choice}");
+												</g:evaluate>
+												<!-- si bTest vaut vrai alors on met en surbrillance la catégorie -->
+												<j:if test="${bTest}">
+													<option aria-label="OK" disabled="true" value="${src.sys_id}" style="background: red; color: white;">
+														${src.text.getDisplayValue()} | ${src.value}
+													</option>
+												</j:if>
+												<!-- si bTest vaut faut alors pas de surbrillance la catégorie -->
+												<j:if test="${!bTest}">
+													<option value="${src.sys_id}">
+														${src.text.getDisplayValue()} | ${src.value}
+													</option>
+												</j:if>
+											</j:while> 
+										</select>
+										<!-- div utilisé pour afficher des messages suite contrôle des information saisies -->
+										<div class="alert-info" id="error_sub_category"></div>
+									</div>
+								</div>
+								<div class="col-xs-2 col-sm-3 col-lg-2 form-field-addons">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="div_location_from" class="row padding_Div">
+						<div class="col-xs-12">
+							<div id="div_parent_location_from" class="form-group">
+								<div nowrap="true">
+									<label for="location_from" dir="ltr" class=" col-xs-12 control-label">
+										<span title="" class="label-text" data-html="false" data-original-title="">${gs.getMessage('expense.label.LocationFrom')}</span>
+									</label>
+								</div>
+								<div class="col-xs-10 col-md-9 col-lg-8 form-field input_controls">
+									<select role="listbox" id="location_from" name="location_from" onChange="checkMandatory(this,'location_from');" class="form-control">  
+										<option value="none" style="background: white; color: black; cursor: none; display:none;">
+											${gs.getMessage('Select a value')}
+										</option>
+										<j:while test="${location_from.next()}">
+											<j:if test="${getInfos.location==location_from.sys_id}">
+												<option aria-label="OK" selected="selected" value="${location_from.sys_id}" style="background: red; color: white;">
+													${location_from.locations.getDisplayValue()}
+												</option>
+											</j:if>
+											<j:if test="${getInfos.location!=location_from.sys_id}">
+												<option value="${location_from.sys_id}">
+													${location_from.locations.getDisplayValue()}
+												</option>
+											</j:if>
+										</j:while> 
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="div_location_to" class="row padding_Div">
+						<div class="col-xs-12">
+							<div id="div_parent_location_to" class="form-group ">
+								<div nowrap="true">
+									<label for="location_to" dir="ltr" class=" col-xs-12 control-label">
+										<span title="" class="label-text" data-html="false" data-original-title="">${gs.getMessage('expense.label.LocationTo')}</span>
+									</label>
+								</div>
+								<div class="col-xs-10 col-md-9 col-lg-8 form-field input_controls">
+									<select role="listbox" id="location_to" name="location_to" onChange="checkMandatory(this,'location_to');" class="form-control">  
+										<option value="none" style="background: white; color: black; cursor: none; display:none;">
+											${gs.getMessage('Select a value')}
+										</option>
+										<j:while test="${location_to.next()}">
+											<j:if test="${getInfos.travelkm==location_to.sys_id}">
+												<option aria-label="OK" selected="selected" value="${location_to.sys_id}" style="background: red; color: white;">
+													${location_to.locations.getDisplayValue()}
+												</option>
+											</j:if>
+											<j:if test="${getInfos.travelkm!=location_to.sys_id}">
+												<option value="${location_to.sys_id}">
+													${location_to.locations.getDisplayValue()}
+												</option>
+											</j:if>
+										</j:while> 
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!--div permettant la saisie si besoin du nombre du montant de la dépense"-->
+					<div id="div_refunded_amount" class="row padding_Div">
+						<div class="col-xs-12">
+							<div id="div_parent_refunded_amount" class="form-group ">
+								<div nowrap="true">
+									<label for="refunded_amount" dir="ltr" class="col-xs-12 control-label">
+										<span title="" class="label-text" data-html="false" data-original-title="">${gs.getMessage('expense.label.RequestedAmount')}</span>
+									</label>
+								</div>
+								<div class="col-xs-10 col-md-9 col-lg-8 form-field input_controls">
+									<input onChange="checkMandatory(this,'refunded_amount');" class="col-xs-10 form-control decimal" id="refunded_amount" name="refunded_amount" value="${getInfos.refunded_amount}"/>
+									<div class="alert-info" id="error_refunded_amount"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/j:if-->
+
+					<!--div permettant la saisie si besoin du nombre de kilomètre"-->
+					<div id="div_refunded_value" class="row padding_Div">
+						<div class="col-xs-12">
+							<div id="div_parent_refunded_value" class="form-group ">
+								<div nowrap="true">
+									<label for="refunded_value" dir="ltr" class="col-xs-12 control-label">
+										<span title="" class="label-text" data-html="false" data-original-title="">${gs.getMessage('expense.label.RequestedValue')}</span>
+									</label>
+								</div>
+								<div class="col-xs-10 col-md-9 col-lg-8 form-field input_controls">
+									<input onChange="checkMandatory(this,'refunded_value');" class="col-xs-10 form-control decimal" id="refunded_value" name="refunded_value" value="${getInfos.refunded_value}" />
+									<div class="bg-info" id="error_refunded_value"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--/j:if-->
+				</div>
+			</j:if>
+		</j:while>
 		<br/>
 		<div id="dialogbuttons" style="float:right">
 			<g:dialog_buttons_ok_cancel ok="return actionOK();" cancel="return cancel();"/>
@@ -88,43 +712,74 @@ function cancel() {
 	
 </j:jelly>]]></html>
         <name>exp_line_change_sub_popup</name>
-        <processing_script><![CDATA[if (cancel_or_submit == "continue") {
+        <processing_script><![CDATA[var sSelectedValue = subcateg_value;
+var regex = /\s\|\s/g;
+var bMiscellaneous = regex.test(sSelectedValue );
+var bUpdate = false;
 
-    var gr_expense_line = new GlideRecord("x_hdvi2_expense_line");
-    if (gr_expense_line.get(id_expense_line)) {
-        if (gr_expense_line.status == 2) {
-            var gr_choice = new GlideRecord("question_choice");
-            if (gr_choice.get(miscellaneous_account_code)) {
-                gr_expense_line.miscellaneous_account_code = gr_choice.text.getDisplayValue() + ' | ' + gr_choice.value;
-                gr_expense_line.update();
-                gs.addInfoMessage(gs.getMessage("The expense line has been successfully updated"));
-            } else {
-                gs.addErrorMessage(gs.getMessage("The category has not been found"));
-            }
+if (cancel_or_submit == "continue") {
+	var gr_expense_line = new GlideRecord("x_hdvi2_expense_line");
+	if (gr_expense_line.get(id_expense_line)) {
+		if (gr_expense_line.status == 2) {
+			if(!bMiscellaneous) {
+				// Code pour Standard
+				gr_expense_line.location = '';
+				gr_expense_line.travelkm = '';
+				gr_expense_line.one_way = 0;
+				gr_expense_line.refunded_value = 0;
+				gr_expense_line.requested_value = 0;
+				gr_expense_line.refunded_amount = parseFloat(''+refunded_amount,10);
+				gr_expense_line.requested_amount = parseFloat(''+refunded_amount,10);
+				gr_expense_line.miscellaneous_account_code='';
+				gr_expense_line.other_location = '';
+				gr_expense_line.other_location_to = '';
+				gr_expense_line.rubric = ''+rubric_code;
 
+				if(sub_category != 'none' && sub_category != '' && sub_category != null) {
+					var gr_choice_sub_category = new GlideRecord("question_choice");
+					if (gr_choice_sub_category.get(sub_category)) {
+						gr_expense_line.miscellaneous_account_code = gr_choice_sub_category.text.getDisplayValue() + ' | ' + gr_choice_sub_category.value;
+					} 
+				}
+				gr_expense_line.update();
+				
+				bUpdate = true;
+			}
+			else {
+				// code for Divers
+				var gr_choice = new GlideRecord("question_choice");
+				if (gr_choice.get(rubric_code)) {
+					gr_expense_line.miscellaneous_account_code = gr_choice.text.getDisplayValue() + ' | ' + gr_choice.value;
+					gr_expense_line.update();
+					bUpdate = true;
+				} 
+			}
+			if(bUpdate) {
+				gs.addInfoMessage(gs.getMessage("The expense line has been successfully updated"));
+			} else {
+				gs.addErrorMessage(gs.getMessage("The category has not been found") + ' - rubric_code: ' + rubric_code);
+			}
+		} else {
+			gs.addErrorMessage(gs.getMessage("The expense line can NOT be updated in the current state"));
+		}
+	}
+	response.sendRedirect("x_hdvi2_expense_line.do?sys_id=" + id_expense_line);
 
-
-        } else {
-            gs.addErrorMessage(gs.getMessage("The expense line can NOT be updated in the current state"));
-        }
-
-    }
-    response.sendRedirect("x_hdvi2_expense_line.do?sys_id=" + id_expense_line);
-
-}]]></processing_script>
+}
+]]></processing_script>
         <sys_class_name>sys_ui_page</sys_class_name>
         <sys_created_by>benjamin.broch</sys_created_by>
         <sys_created_on>2021-04-12 10:50:20</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_id>ff15bed41be72c10e63a41588b4bcb23</sys_id>
-        <sys_mod_count>82</sys_mod_count>
+        <sys_mod_count>653</sys_mod_count>
         <sys_name>exp_line_change_sub_popup</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_ui_page_ff15bed41be72c10e63a41588b4bcb23</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2021-07-27 12:58:10</sys_updated_on>
+        <sys_updated_on>2022-03-25 13:36:21</sys_updated_on>
     </sys_ui_page>
 </record_update>

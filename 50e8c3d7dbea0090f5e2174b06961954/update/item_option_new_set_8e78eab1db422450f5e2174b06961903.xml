@@ -16,10 +16,10 @@
         <sys_id>8e78eab1db422450f5e2174b06961903</sys_id>
         <sys_mod_count>13</sys_mod_count>
         <sys_name>Etat de lieux du remboursement</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>item_option_new_set_8e78eab1db422450f5e2174b06961903</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
         <sys_updated_on>2021-05-17 13:04:33</sys_updated_on>

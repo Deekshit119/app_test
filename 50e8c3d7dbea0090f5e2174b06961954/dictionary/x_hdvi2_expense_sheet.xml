@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element attributes="hasLabels=true,use_document_viewer=true" audit="true" label="Spesenabrechnung" max_length="40" name="x_hdvi2_expense_sheet" sizeclass="18" type="collection">
+        <element attributes="edge_encryption_enabled=true" default="true" label="Active" max_length="40" name="active" read_only="true" type="boolean"/>
+        <element choice="3" default="not_requested" label="Approval" max_length="50" name="approval" read_only="true" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Not Yet Requested" sequence="2" value="not_requested"/>
+                <element inactive_on_update="false" label="Requested" sequence="3" value="requested"/>
+                <element inactive_on_update="false" label="Approved" sequence="5" value="approved"/>
+                <element inactive_on_update="false" label="Rejected" sequence="10" value="rejected"/>
+            </choice>
+        </element>
+        <element label="Manager Approval" max_length="40" name="approved_on" read_only="true" type="glide_date_time"/>
+        <element attributes="edge_encryption_enabled=true,no_sort=true,slushbucket_ref_no_expand=true" label="Approver(s)" max_length="1024" name="approver" read_only="true" reference="sys_user" reference_qual="active=true^x_hdvi2_expense_approver=true^EQ" reference_qual_condition="active=true^x_hdvi2_expense_approver=true^EQ" type="glide_list"/>
+        <element attributes="edge_encryption_enabled=true" label="Assignment Group" max_length="32" name="assignment_group" read_only="true" reference="sys_user_group" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element choice="3" default="standard" label="Category" max_length="50" name="category" read_only="true" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Divers" language="fr" sequence="5" value="standard"/>
+                <element inactive_on_update="false" label="Misc" sequence="5" value="standard"/>
+                <element inactive_on_update="false" label="Formation" language="fr" sequence="10" value="training"/>
+                <element inactive_on_update="false" label="Training" sequence="10" value="training"/>
+            </choice>
+        </element>
+        <element label="Additional comments (Employee View)" max_length="4000" name="comments" type="journal_input"/>
+        <element attributes="edge_encryption_enabled=true" label="Contract" mandatory="true" max_length="32" name="contract" read_only="true" reference="u_hvs_user_contract" type="reference"/>
+        <element label="End Date" max_length="40" name="end_date" read_only="true" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" label="Extract Reference" max_length="32" name="extract_ref" read_only="true" reference="x_hdvi2_expense_extract" type="reference"/>
+        <element attributes="edge_encryption_enabled=true,encode_utf8=false" label="Fund" max_length="32" name="fund" read_only="true" reference="x_hdvi2_expense_fund" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Last Expense for Related Source" max_length="40" name="last_expense_for_related_source" type="boolean"/>
+        <element default="javascript:getNextObjNumberPadded();" dynamic_default_value="fdcb83a85f220100a9ad2572f2b4773c" label="Number" max_length="20" name="number" read_only="true" type="string" use_dynamic_default="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Opened by" max_length="32" name="opened_by" read_only="true" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Reimbursement via funds" max_length="40" name="reimbursement_via_funds" read_only="true" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Requested for" max_length="32" name="requested_for" read_only="true" reference="sys_user" reference_qual="active=true^EQ" reference_qual_condition="active=true^EQ" type="reference"/>
+        <element label="Requested" max_length="40" name="requested_on" read_only="true" type="glide_date_time"/>
+        <element label="Reviewed" max_length="40" name="reviewed_on" read_only="true" type="glide_date_time"/>
+        <element label="Short Description" max_length="100" name="short_description" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" dependent="source_table" dependent_on_field="source_table" label="Source" max_length="32" name="source" read_only="true" type="document_id" use_dependent_field="true"/>
+        <element attributes="base_start=true,edge_encryption_enabled=true" label="Source Table" max_length="80" name="source_table" read_only="true" type="table_name"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="open" label="Stage" max_length="80" name="stage" read_only="true" type="workflow">
+            <choice/>
+        </element>
+        <element label="Start Date" max_length="40" name="start_date" read_only="true" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="0" label="Status" max_length="40" name="status" read_only="true" type="integer">
+            <choice>
+                <element inactive_on_update="false" label="pending" language="de" value="5"/>
+                <element inactive_on_update="false" label="pending" language="fr" value="5"/>
+                <element inactive_on_update="false" label="pending" value="5"/>
+                <element inactive_on_update="false" label="Brouillon" language="fr" sequence="5" value="0"/>
+                <element inactive_on_update="false" label="Draft" sequence="5" value="0"/>
+                <element inactive_on_update="false" label="Entwurf" language="de" sequence="5" value="0"/>
+                <element inactive_on_update="false" label="Angefragt" language="de" sequence="10" value="1"/>
+                <element inactive_on_update="false" label="Requested" sequence="10" value="1"/>
+                <element inactive_on_update="false" label="Soumis" language="fr" sequence="10" value="1"/>
+                <element inactive_on_update="false" label="Reviewed" sequence="15" value="2"/>
+                <element inactive_on_update="false" label="Validé" language="fr" sequence="15" value="2"/>
+                <element inactive_on_update="false" label="Validiert" language="de" sequence="15" value="2"/>
+                <element inactive_on_update="false" label="Approuvé" language="fr" sequence="20" value="3"/>
+                <element inactive_on_update="false" label="Approved" sequence="20" value="3"/>
+                <element inactive_on_update="false" label="Genehmigt" language="de" sequence="20" value="3"/>
+                <element inactive_on_update="false" label="Fertig" language="de" sequence="25" value="4"/>
+                <element inactive_on_update="false" label="Sent for refund" sequence="25" value="4"/>
+                <element inactive_on_update="false" label="Terminé" language="fr" sequence="25" value="4"/>
+                <element inactive_on_update="false" label="Annulé" language="fr" sequence="30" value="-1"/>
+                <element inactive_on_update="false" label="Annuliert" language="de" sequence="30" value="-1"/>
+                <element inactive_on_update="false" label="Canceled" sequence="30" value="-1"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" default="javascript:current.getTableName();" dynamic_default_value="b5cb83a85f220100a9ad2572f2b4773c" label="Class" max_length="80" name="sys_class_name" type="sys_class_name" use_dynamic_default="true"/>
+        <element attributes="edge_encryption_enabled=true" label="Total Refunded Amount" max_length="20" name="total_refunded_amount" read_only="true" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true" label="Total Requested Amount" max_length="20" name="total_requested_amount" read_only="true" type="decimal"/>
+        <element label="Work notes" max_length="4000" name="work_notes" type="journal_input"/>
+        <index name="index">
+            <element name="approver"/>
+        </index>
+        <index name="index2">
+            <element name="source"/>
+        </index>
+        <index name="index3">
+            <element name="assignment_group"/>
+        </index>
+        <index name="index4">
+            <element name="opened_by"/>
+        </index>
+        <index name="index5">
+            <element name="sys_class_name"/>
+        </index>
+        <index name="index6">
+            <element name="contract"/>
+        </index>
+        <index name="index7">
+            <element name="requested_for"/>
+        </index>
+        <index name="index8">
+            <element name="category"/>
+        </index>
+        <index name="index9">
+            <element name="fund"/>
+        </index>
+        <index name="index10">
+            <element name="extract_ref"/>
+        </index>
+    </element>
+</database>

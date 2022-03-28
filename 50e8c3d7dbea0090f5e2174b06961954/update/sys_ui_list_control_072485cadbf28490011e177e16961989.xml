@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_list_control">
     <sys_ui_list_control action="INSERT_OR_UPDATE">
         <columns_condition/>
+        <disable_nlq>false</disable_nlq>
         <edit_condition/>
         <edit_default_filter/>
         <edit_roles/>
@@ -18,6 +19,9 @@
         <new_condition/>
         <new_roles/>
         <omit_columns_if_empty>false</omit_columns_if_empty>
+        <omit_count>false</omit_count>
+        <omit_count_views>false</omit_count_views>
+        <omit_count_views_list/>
         <omit_drilldown_link>false</omit_drilldown_link>
         <omit_edit_button>false</omit_edit_button>
         <omit_filters>false</omit_filters>
@@ -30,15 +34,15 @@
         <sys_created_on>2020-02-07 13:56:55</sys_created_on>
         <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
-        <sys_domain_path/>
+        <sys_domain_path>/</sys_domain_path>
         <sys_id>072485cadbf28490011e177e16961989</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_hdvi2_expense_extract</sys_name>
         <sys_overrides display_value="">global</sys_overrides>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_ui_list_control_072485cadbf28490011e177e16961989</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2020-02-07 13:56:55</sys_updated_on>

@@ -6,7 +6,7 @@
         <applies_sc_task>true</applies_sc_task>
         <applies_target_record>true</applies_target_record>
         <applies_to>set</applies_to>
-        <catalog_conditions>IO:ba8daf25db324490011e177e16961937=fbc37b13dbee0090f5e2174b06961948^ORIO:ba8daf25db324490011e177e16961937=f7b2f22bdb3fcc50011e177e16961981^IO:ba8daf25db324490011e177e16961937ISNOTEMPTY^EQ</catalog_conditions>
+        <catalog_conditions>IO:ba8daf25db324490011e177e16961937=fbc37b13dbee0090f5e2174b06961948^ORIO:ba8daf25db324490011e177e16961937=9805f444db44149009b962a916961908^IO:ba8daf25db324490011e177e16961937ISNOTEMPTY^EQ</catalog_conditions>
         <catalog_item/>
         <conditions/>
         <description/>
@@ -34,16 +34,16 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f1cec728dbcb0410f5e2174b069619ca</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>15</sys_mod_count>
         <sys_name>HVS Hide Field if Frais KM inter-sites</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>catalog_ui_policy_f1cec728dbcb0410f5e2174b069619ca</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
-        <sys_updated_on>2020-04-02 15:34:59</sys_updated_on>
+        <sys_updated_on>2020-04-03 11:36:31</sys_updated_on>
         <table/>
         <ui_type>0</ui_type>
         <variable_set display_value="Lignes de dépenses SR">a048ae60db4b0410f5e2174b069619dc</variable_set>

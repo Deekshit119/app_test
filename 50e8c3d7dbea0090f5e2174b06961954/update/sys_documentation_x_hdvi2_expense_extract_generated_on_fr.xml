@@ -15,10 +15,10 @@
             <sys_id>b3d6f852dba3c810011e177e16961986</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>Généré le</sys_name>
-            <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
             <sys_policy/>
             <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-            <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
             <sys_update_name>sys_documentation_x_hdvi2_expense_extract_generated_on_fr</sys_update_name>
             <sys_updated_by>h40000572</sys_updated_by>
             <sys_updated_on>2020-03-16 14:24:17</sys_updated_on>

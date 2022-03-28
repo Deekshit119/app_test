@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sc_cat_item_producer">
     <sc_cat_item_producer action="INSERT_OR_UPDATE">
+        <access_type>restricted</access_type>
         <active>true</active>
+        <allow_edit>false</allow_edit>
         <availability>on_both</availability>
         <billable>false</billable>
         <can_cancel>true</can_cancel>
         <category display_value="Salaries and Finances">d163a722dbdfb700011e177e1696190a</category>
+        <checked_out/>
         <cost>0</cost>
         <custom_cart/>
         <delivery_plan/>
@@ -42,18 +45,23 @@
         <omit_price>false</omit_price>
         <order>0</order>
         <ordered_item_link/>
+        <owner display_value="Virginie Bétrisey">3bf0606adbca6b800abb65925b961944</owner>
         <picture/>
         <post_insert_script/>
         <preview>JavaScript: popupOpenStandard("com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=f60d0e121bc36850e63a41588b4bcb3e&amp;sysparm_preview=true", "summary");</preview>
         <price>0</price>
+        <published_ref/>
         <recurring_frequency/>
         <recurring_price>0</recurring_price>
         <redirect_url>generated_record</redirect_url>
         <request_method/>
         <roles/>
+        <save_options/>
+        <save_script/>
         <sc_catalogs>e009c323ff031100a0a5ffffffffff37</sc_catalogs>
         <sc_ic_item_staging/>
         <sc_ic_version/>
+        <sc_template/>
         <script><![CDATA[/*** --- Do not modify or remove this script !! --- Automatically added by "Add Predefined script" business rule. 
 Forces population of this record producer sys_id into the target record***/
 var rpId = "f60d0e121bc36850e63a41588b4bcb3e";
@@ -139,6 +147,7 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <short_description>Saisir un remboursement pour des frais de formation pour un collaborateur</short_description>
         <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
+        <state/>
         <sys_class_name>sc_cat_item_producer</sys_class_name>
         <sys_created_by>h40009222</sys_created_by>
         <sys_created_on>2021-03-24 16:31:41</sys_created_on>
@@ -146,15 +155,17 @@ current.total_requested_amount = fTotalAmount;]]></script>
         <sys_id>f60d0e121bc36850e63a41588b4bcb3e</sys_id>
         <sys_mod_count>8</sys_mod_count>
         <sys_name>Ajout d'un remboursement pour un collaborateur</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sc_cat_item_producer_f60d0e121bc36850e63a41588b4bcb3e</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
         <sys_updated_on>2021-05-18 10:02:23</sys_updated_on>
         <table_name>x_hdvi2_expense_sheet</table_name>
+        <taxonomy_topic/>
         <template/>
+        <template_manager_roles/>
         <type>item</type>
         <u_account_h/>
         <u_delivery_time/>

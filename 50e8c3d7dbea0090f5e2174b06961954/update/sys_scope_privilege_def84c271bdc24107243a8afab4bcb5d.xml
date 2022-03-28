@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><record_update>
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
     <sys_scope_privilege action="INSERT_OR_UPDATE">
-<operation>read</operation>
-<source_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</source_scope>
-<status>allowed</status>
-<sys_class_name>sys_scope_privilege</sys_class_name>
-<sys_created_by>h40009222</sys_created_by>
-<sys_created_on>2020-11-11 11:14:35</sys_created_on>
-<sys_customer_update>false</sys_customer_update>
-<sys_id>def84c271bdc24107243a8afab4bcb5d</sys_id>
-<sys_mod_count>0</sys_mod_count>
-<sys_name>x_hdvi2_btask_salary_advance_extract</sys_name>
-<sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
-<sys_policy/>
-<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-<sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-<sys_update_name>sys_scope_privilege_def84c271bdc24107243a8afab4bcb5d</sys_update_name>
-<sys_updated_by>h40009222</sys_updated_by>
-<sys_updated_on>2020-11-11 11:14:35</sys_updated_on>
-<target_name>x_hdvi2_btask_salary_advance_extract</target_name>
-<target_scope display_value="Business Task Management">faecd2c1db429c10f5e2174b06961940</target_scope>
-<target_type>sys_db_object</target_type>
-</sys_scope_privilege>
+        <operation>read</operation>
+        <source_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-11-11 11:14:35</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>def84c271bdc24107243a8afab4bcb5d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_hdvi2_btask_salary_advance_extract</sys_name>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_scope_privilege_def84c271bdc24107243a8afab4bcb5d</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-11-11 11:14:35</sys_updated_on>
+        <target_name>x_hdvi2_btask_salary_advance_extract</target_name>
+        <target_scope display_value="HVS Business Task Management">faecd2c1db429c10f5e2174b06961940</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
 </record_update>

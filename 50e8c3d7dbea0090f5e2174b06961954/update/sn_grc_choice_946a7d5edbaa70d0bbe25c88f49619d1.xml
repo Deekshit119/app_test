@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sn_grc_choice">
+    <sn_grc_choice action="INSERT_OR_UPDATE">
+        <choice_category>type</choice_category>
+        <label>Directive</label>
+        <name>directive</name>
+        <numeric_value>0</numeric_value>
+        <order>3100</order>
+        <set>policy</set>
+        <sys_class_name>sn_grc_choice</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-09-14 14:50:22</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>946a7d5edbaa70d0bbe25c88f49619d1</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>Directive</sys_name>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sn_grc_choice_946a7d5edbaa70d0bbe25c88f49619d1</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-09-14 14:54:28</sys_updated_on>
+    </sn_grc_choice>
+    <sys_translated_text action="delete_multiple" query="documentkey=946a7d5edbaa70d0bbe25c88f49619d1"/>
+    <sys_translated_text action="INSERT_OR_UPDATE">
+        <documentkey>946a7d5edbaa70d0bbe25c88f49619d1</documentkey>
+        <fieldname>label</fieldname>
+        <language>de</language>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2021-09-14 14:53:46</sys_created_on>
+        <sys_id>b44bb1dedbaa70d0bbe25c88f4961932</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2021-09-14 14:53:46</sys_updated_on>
+        <tablename>sn_grc_choice</tablename>
+        <value>Richtlinie</value>
+    </sys_translated_text>
+</record_update>

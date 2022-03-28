@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_embedded_tour_step">
+    <sys_embedded_tour_step action="DELETE">
+        <action>false</action>
+        <action_event>next</action_event>
+        <action_target/>
+        <action_target_ref display_value="xpath">bd848801dbe38c9009b962a9169619b5</action_target_ref>
+        <active>true</active>
+        <content><![CDATA[Cliquer sur &#34;Profil&#34;.]]></content>
+        <guide display_value="Demandes Remboursement de Frais">f577f3b4db238c9009b962a9169619f0</guide>
+        <implicit>false</implicit>
+        <link/>
+        <name/>
+        <options>{"url":"/exphvs?id=exphvs"}</options>
+        <order>17</order>
+        <placement>left</placement>
+        <step_type>step</step_type>
+        <sys_class_name>sys_embedded_tour_step</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-12 22:19:34</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>074d79c9db27cc9009b962a91696196e</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_update_name>sys_embedded_tour_step_074d79c9db27cc9009b962a91696196e</sys_update_name>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-13 01:09:59</sys_updated_on>
+        <target/>
+        <target_ref display_value="xpath">bd848801dbe38c9009b962a9169619b5</target_ref>
+        <title/>
+        <ui_version>dynamic</ui_version>
+        <view/>
+        <window>exphvs</window>
+    </sys_embedded_tour_step>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</application>
+        <comments/>
+        <file_path/>
+        <instance_id>64e712aa0a0a8c0801628c8be8a47beb</instance_id>
+        <instance_name>vs</instance_name>
+        <name>sys_embedded_tour_step_074d79c9db27cc9009b962a91696196e</name>
+        <order/>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="global" table="sys_embedded_tour_step"&gt;&lt;sys_embedded_tour_step action="INSERT_OR_UPDATE"&gt;&lt;action&gt;false&lt;/action&gt;&lt;action_event&gt;next&lt;/action_event&gt;&lt;action_target/&gt;&lt;action_target_ref display_value="xpath"&gt;bd848801dbe38c9009b962a9169619b5&lt;/action_target_ref&gt;&lt;active&gt;true&lt;/active&gt;&lt;content&gt;&lt;![CDATA[Cliquer sur &amp;#34;Profil&amp;#34;.]]&gt;&lt;/content&gt;&lt;guide display_value="Demandes Remboursement de Frais"&gt;f577f3b4db238c9009b962a9169619f0&lt;/guide&gt;&lt;implicit&gt;false&lt;/implicit&gt;&lt;link/&gt;&lt;name/&gt;&lt;options&gt;{"url":"/exphvs?id=exphvs"}&lt;/options&gt;&lt;order&gt;17&lt;/order&gt;&lt;placement&gt;left&lt;/placement&gt;&lt;step_type&gt;step&lt;/step_type&gt;&lt;sys_class_name&gt;sys_embedded_tour_step&lt;/sys_class_name&gt;&lt;sys_created_by&gt;h40009222&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-03-12 22:19:34&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;false&lt;/sys_customer_update&gt;&lt;sys_domain&gt;global&lt;/sys_domain&gt;&lt;sys_domain_path&gt;/&lt;/sys_domain_path&gt;&lt;sys_id&gt;074d79c9db27cc9009b962a91696196e&lt;/sys_id&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Expense Management" source="x_hdvi2_expense"&gt;50e8c3d7dbea0090f5e2174b06961954&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Expense Management"&gt;50e8c3d7dbea0090f5e2174b06961954&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_embedded_tour_step_074d79c9db27cc9009b962a91696196e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;h40009222&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-03-13 01:09:59&lt;/sys_updated_on&gt;&lt;target/&gt;&lt;target_ref display_value="xpath"&gt;bd848801dbe38c9009b962a9169619b5&lt;/target_ref&gt;&lt;title/&gt;&lt;ui_version&gt;dynamic&lt;/ui_version&gt;&lt;view/&gt;&lt;window&gt;exphvs&lt;/window&gt;&lt;/sys_embedded_tour_step&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1603870680</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>e66e6c0ddb6f8c9009b962a9169619c2</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-13 01:09:59</sys_created_on>
+        <sys_id>1344a685dbe7cc9009b962a9169619b4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>170d170dad80000001</sys_recorded_at>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-13 01:09:59</sys_updated_on>
+        <type>Étape de présentation</type>
+        <update_guid>1744a6850be7cc90a271942370005eb3</update_guid>
+        <update_guid_history>1744a6850be7cc90a271942370005eb3:-1603870680,85e022410fe7cc9078545a955d5cea28:29026670,5fd186c10a67cc90f8a4ea0fa42aa355:1406534119,ead186c1ce67cc9046a4867ef0383104:2144900294,b351ce81e667cc907f503d535d6bcfbb:1406534119,ba314e812167cc90c829f9982a939863:2144900294,074d79c98427cc904bd182081f0d626f:1406534119</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>h40009222</sys_created_by>
+        <sys_created_on>2020-03-13 01:14:42</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="sys_embedded_tour_step">sys_embedded_tour_step</sys_db_object>
+        <sys_id>04ba45443f8e4010a9e90f36bffb7900</sys_id>
+        <sys_metadata>074d79c9db27cc9009b962a91696196e</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope_delete display_value="">472e1ff3166d4450a148eb190542eac9</sys_scope_delete>
+        <sys_update_name>sys_embedded_tour_step_074d79c9db27cc9009b962a91696196e</sys_update_name>
+        <sys_update_version display_value="sys_embedded_tour_step_074d79c9db27cc9009b962a91696196e">1344a685dbe7cc9009b962a9169619b4</sys_update_version>
+        <sys_updated_by>h40009222</sys_updated_by>
+        <sys_updated_on>2020-03-13 01:14:42</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

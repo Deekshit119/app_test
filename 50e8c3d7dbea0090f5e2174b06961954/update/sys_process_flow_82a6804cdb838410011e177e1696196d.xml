@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_process_flow">
     <sys_process_flow action="INSERT_OR_UPDATE">
         <active>true</active>
-        <condition table="x_hdvi2_expense_sheet">status=1^EQ<item endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="1"/>
+        <condition table="x_hdvi2_expense_sheet">status=1^EQ<item display_value="Requested" endquery="false" field="status" goto="false" newquery="false" operator="=" or="false" value="1"/>
             <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
         </condition>
         <description/>
@@ -15,10 +15,10 @@
         <sys_id>82a6804cdb838410011e177e1696196d</sys_id>
         <sys_mod_count>2</sys_mod_count>
         <sys_name>Awaiting approval</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_process_flow_82a6804cdb838410011e177e1696196d</sys_update_name>
         <sys_updated_by>h40000572</sys_updated_by>
         <sys_updated_on>2020-02-13 15:14:19</sys_updated_on>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
     <sys_app_module action="INSERT_OR_UPDATE">
         <active>true</active>
-        <application display_value="HVS Notes de frais avec Fonds">30075a4cdb88a450f5e2174b069619b0</application>
+        <application display_value="HVS Expense Management - Funds">30075a4cdb88a450f5e2174b069619b0</application>
         <assessment/>
         <content_page/>
         <device_type/>
@@ -38,10 +38,10 @@
         <sys_mod_count>6</sys_mod_count>
         <sys_name>Expense Lines - Funds</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
         <sys_update_name>sys_app_module_4df5da0cdb88a450f5e2174b0696192c</sys_update_name>
         <sys_updated_by>h40009222</sys_updated_by>
         <sys_updated_on>2020-11-13 16:18:55</sys_updated_on>

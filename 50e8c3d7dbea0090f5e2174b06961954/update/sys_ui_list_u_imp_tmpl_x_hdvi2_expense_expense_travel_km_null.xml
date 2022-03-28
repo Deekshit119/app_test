@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" version="2" view="">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>import_set_run</element>
+            <list_id display_value="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" element="NULL" name="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">840dff22dbe950906022a0ae8596193b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-06-25 09:33:59</sys_created_on>
+            <sys_id>840dff22dbe950906022a0ae8596193d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-06-25 09:33:59</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>template_import_log</element>
+            <list_id display_value="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" element="NULL" name="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">840dff22dbe950906022a0ae8596193b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-06-25 09:33:59</sys_created_on>
+            <sys_id>000dff22dbe950906022a0ae8596193e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-06-25 09:33:59</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_active</element>
+            <list_id display_value="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" element="NULL" name="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">840dff22dbe950906022a0ae8596193b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-06-25 09:33:59</sys_created_on>
+            <sys_id>040dff22dbe950906022a0ae8596193e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-06-25 09:33:59</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_from</element>
+            <list_id display_value="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" element="NULL" name="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">840dff22dbe950906022a0ae8596193b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-06-25 09:33:59</sys_created_on>
+            <sys_id>080dff22dbe950906022a0ae8596193e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-06-25 09:33:59</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_km</element>
+            <list_id display_value="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" element="NULL" name="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">840dff22dbe950906022a0ae8596193b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-06-25 09:33:59</sys_created_on>
+            <sys_id>0c0dff22dbe950906022a0ae8596193e</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-06-25 09:33:59</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>u_to</element>
+            <list_id display_value="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" element="NULL" name="u_imp_tmpl_x_hdvi2_expense_expense_travel_km" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">840dff22dbe950906022a0ae8596193b</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-06-25 09:33:59</sys_created_on>
+            <sys_id>000dff22dbe950906022a0ae8596193f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-06-25 09:33:59</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>u_imp_tmpl_x_hdvi2_expense_expense_travel_km</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>h40009222</sys_created_by>
+            <sys_created_on>2020-06-25 09:33:59</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>840dff22dbe950906022a0ae8596193b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>u_imp_tmpl_x_hdvi2_expense_expense_travel_km</sys_name>
+            <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+            <sys_update_name>sys_ui_list_u_imp_tmpl_x_hdvi2_expense_expense_travel_km_null</sys_update_name>
+            <sys_updated_by>h40009222</sys_updated_by>
+            <sys_updated_on>2020-06-25 09:33:59</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

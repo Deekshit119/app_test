@@ -7,11 +7,11 @@
         <sys_id>becf125c1b672c10e63a41588b4bcb76</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Reject.x_hdvi2_expense.salary_manager</sys_name>
-        <sys_package display_value="Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
+        <sys_package display_value="HVS Expense Management" source="x_hdvi2_expense">50e8c3d7dbea0090f5e2174b06961954</sys_package>
         <sys_policy/>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
-        <sys_scope display_value="Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
-        <sys_ui_action display_value="Reject">df2f521c1b672c10e63a41588b4bcbc7</sys_ui_action>
+        <sys_scope display_value="HVS Expense Management">50e8c3d7dbea0090f5e2174b06961954</sys_scope>
+        <sys_ui_action display_value="Reject_old_version">df2f521c1b672c10e63a41588b4bcbc7</sys_ui_action>
         <sys_update_name>sys_ui_action_role_becf125c1b672c10e63a41588b4bcb76</sys_update_name>
         <sys_updated_by>benjamin.broch</sys_updated_by>
         <sys_updated_on>2021-04-12 09:20:26</sys_updated_on>
